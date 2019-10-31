@@ -1,3 +1,13 @@
 <resources>
     <string name="app_name">ImplementationAdmob</string>
+
+    <!--  Admob ID Test -->
+    <string name="admob_publisher_id">ca-app-pub-3940256099942544~3347511713</string>
+    <string name="admob_banner">ca-app-pub-3940256099942544/6300978111</string>
+    <string name="admob_interstitial">ca-app-pub-3940256099942544/1033173712</string>
+    <string name="admob_interstitial_video">ca-app-pub-3940256099942544/8691691433</string>
+    <string name="admob_rewarded_video">ca-app-pub-3940256099942544/5224354917</string>
+    <string name="admob_native_advanced">ca-app-pub-3940256099942544/2247696110</string>
+    <string name="admob_native_advanced_video">ca-app-pub-3940256099942544/1044960115</string>
+
 </resources>
