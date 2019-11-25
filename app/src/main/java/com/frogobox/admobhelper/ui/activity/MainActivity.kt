@@ -1,8 +1,8 @@
-package com.frogobox.implementationadmob.ui.activity
+package com.frogobox.admobhelper.ui.activity
 
 import android.os.Bundle
-import com.frogobox.implementationadmob.base.BaseActivity
-import com.frogobox.implementationadmob.R
+import com.frogobox.admobhelper.base.BaseActivity
+import com.frogobox.admobhelper.R
 
 class MainActivity : BaseActivity() {
 

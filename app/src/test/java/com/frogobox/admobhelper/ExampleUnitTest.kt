@@ -1,4 +1,4 @@
-package com.frogobox.implementationadmob
+package com.frogobox.admobhelper
 
 import org.junit.Test
 

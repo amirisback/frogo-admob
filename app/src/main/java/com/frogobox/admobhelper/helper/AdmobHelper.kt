@@ -1,8 +1,8 @@
-package com.frogobox.implementationadmob.helper
+package com.frogobox.admobhelper.helper
 
 import android.content.Context
 import android.util.Log
-import com.frogobox.implementationadmob.R
+import com.frogobox.admobhelper.R
 import com.google.android.gms.ads.AdListener
 import com.google.android.gms.ads.AdRequest
 import com.google.android.gms.ads.InterstitialAd
@@ -24,7 +24,7 @@ import com.google.android.gms.ads.reward.RewardedVideoAdListener
  * LinkedIn : linkedin.com/in/faisalamircs
  * -----------------------------------------
  * FrogoBox Software Industries
- * com.frogobox.implementationadmob
+ * com.frogobox.admobhelper
  *
  */
 class AdmobHelper {

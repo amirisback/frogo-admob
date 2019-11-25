@@ -1,4 +1,4 @@
-package com.frogobox.implementationadmob.ui.fragment
+package com.frogobox.admobhelper.ui.fragment
 
 
 import android.os.Bundle
@@ -7,7 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 
-import com.frogobox.implementationadmob.R
+import com.frogobox.admobhelper.R
 
 /**
  * A simple [Fragment] subclass.

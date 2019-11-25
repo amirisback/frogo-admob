@@ -1,10 +1,10 @@
-package com.frogobox.implementationadmob.base
+package com.frogobox.admobhelper.base
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import com.frogobox.implementationadmob.helper.AdmobHelper.Interstitial.setupInterstitial
-import com.frogobox.implementationadmob.helper.AdmobHelper.Interstitial.showInterstitial
-import com.frogobox.implementationadmob.helper.AdmobHelper.Publisher.setupPublisher
+import com.frogobox.admobhelper.helper.AdmobHelper.Interstitial.setupInterstitial
+import com.frogobox.admobhelper.helper.AdmobHelper.Interstitial.showInterstitial
+import com.frogobox.admobhelper.helper.AdmobHelper.Publisher.setupPublisher
 import com.google.android.gms.ads.InterstitialAd
 import com.google.android.gms.ads.reward.RewardedVideoAd
 
@@ -22,7 +22,7 @@ import com.google.android.gms.ads.reward.RewardedVideoAd
  * LinkedIn : linkedin.com/in/faisalamircs
  * -----------------------------------------
  * FrogoBox Software Industries
- * com.frogobox.implementationadmob
+ * com.frogobox.admobhelper
  *
  */
 

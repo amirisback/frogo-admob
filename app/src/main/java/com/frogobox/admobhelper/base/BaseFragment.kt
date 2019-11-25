@@ -1,4 +1,4 @@
-package com.frogobox.implementationadmob.base
+package com.frogobox.admobhelper.base
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -17,7 +17,7 @@ import androidx.fragment.app.Fragment
  * LinkedIn : linkedin.com/in/faisalamircs
  * -----------------------------------------
  * FrogoBox Software Industries
- * com.frogobox.implementationadmob.activity
+ * com.frogobox.admobhelper.activity
  *
  */
 class BaseFragment : Fragment() {
