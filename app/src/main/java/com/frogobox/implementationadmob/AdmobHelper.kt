@@ -64,6 +64,8 @@ class AdmobHelper {
 
     }
 
+    object Banner {}
+
     object Video {
 
         fun setupVideo(context: Context, rewardedVideoAdListener: RewardedVideoAdListener, mRewardedVideoAd: RewardedVideoAd){
