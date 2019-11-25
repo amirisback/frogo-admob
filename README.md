@@ -8,7 +8,7 @@ Example Source Code For Call Method Show Admob
 - Implement all Admob Version
 
 # Medium Link
-- bit.ly/faisalamircs-medium-p4
+https://medium.com/@faisalamircs/dapatkan-penghasilan-dari-aplikasi-androidmu-di-play-store-dengan-admob-helper-f21288de5071
 
 # How To Use This Project
 - Just Clone on Your Android Studio
@@ -24,7 +24,7 @@ Example Source Code For Call Method Show Admob
 - Other still progress
 
 # ScreenShot Apps
-![ScreenShoot Apps](docs/image/ss_apps.png?raw=true)
+![ScreenShoot Apps](docs/image/ss_apps.jpg?raw=true)
 
 # Colaborator
 Very open to anyone, I'll write your name under this, please contribute by sending an email to me
@@ -49,3 +49,4 @@ https://github.com/googleads/googleads-mobile-android-examples
 
 # Attention !!!
 Please enjoy and don't forget fork and give a star
+- Don't Forget Follow My Github Account
