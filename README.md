@@ -8,7 +8,7 @@ Example Source Code For Call Method Show Admob
 - Implement all Admob Version
 
 # Medium Link
-- Soon
+- bit.ly/faisalamircs-medium-p4
 
 # How To Use This Project
 - Just Clone on Your Android Studio
@@ -24,7 +24,7 @@ Example Source Code For Call Method Show Admob
 - Other still progress
 
 # ScreenShot Apps
-- Soon
+![ScreenShoot Apps](docs/image/ss_apps.png?raw=true)
 
 # Colaborator
 Very open to anyone, I'll write your name under this, please contribute by sending an email to me
