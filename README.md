@@ -12,13 +12,18 @@ Example Source Code For Call Method Show Admob
 # ScreenShot Apps
 
 # Colaborator
-Very open to anyone, please contribute by sending an email to <bold>faisalamircs@gmail.com</bold> 
-with the subject Github_[Github-Username-Account]_[Language]_[Project-Name]
-and I'll write your name under this
+Very open to anyone, I'll write your name under this, please contribute by sending an email to me
+
+- Mail To faisalamircs@gmail.com
+- Subject Github_(Github-Username-Account)_(Language)_(Repository-Name)
+- Example Subject Github_amirisback_kotlin_admob-helper-implementation
 
 Name Of Contribute
 - Muhammad Faisal Amir
+- Waiting List
+- Waiting List
 
+Waiting for your contribute
 
 # Attention !!!
 Please enjoy and don't forget fork and give a star
