@@ -1,6 +1,13 @@
 <resources>
 
-
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <!-- Ads Banner Size -->
+    <string name="ads_size_banner">BANNER</string> <!-- 320x50dp -->
+    <string name="ads_size_large_banner">LARGE_BANNER</string> <!-- 320x100dp -->
+    <string name="ads_size_medium_rectangle">MEDIUM_RECTANGLE</string> <!-- 300x250dp -->
+    <string name="ads_size_full_banner">FULL_BANNER</string> <!-- 468x60dp -->
+    <string name="ads_size_leader_board">LEADERBOARD</string> <!-- 728x90dp -->
+    
 </resources>
