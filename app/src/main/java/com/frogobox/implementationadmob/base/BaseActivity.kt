@@ -1,10 +1,10 @@
-package com.frogobox.implementationadmob
+package com.frogobox.implementationadmob.base
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import com.frogobox.implementationadmob.AdmobHelper.Interstitial.setupInterstitial
-import com.frogobox.implementationadmob.AdmobHelper.Interstitial.showInterstitial
-import com.frogobox.implementationadmob.AdmobHelper.Publisher.setupPublisher
+import com.frogobox.implementationadmob.helper.AdmobHelper.Interstitial.setupInterstitial
+import com.frogobox.implementationadmob.helper.AdmobHelper.Interstitial.showInterstitial
+import com.frogobox.implementationadmob.helper.AdmobHelper.Publisher.setupPublisher
 import com.google.android.gms.ads.InterstitialAd
 import com.google.android.gms.ads.reward.RewardedVideoAd
 
