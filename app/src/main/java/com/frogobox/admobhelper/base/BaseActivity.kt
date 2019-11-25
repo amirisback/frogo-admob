@@ -2,9 +2,12 @@ package com.frogobox.admobhelper.base
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import com.frogobox.admobhelper.helper.AdmobHelper.Banner.setupBanner
+import com.frogobox.admobhelper.helper.AdmobHelper.Banner.showBanner
 import com.frogobox.admobhelper.helper.AdmobHelper.Interstitial.setupInterstitial
 import com.frogobox.admobhelper.helper.AdmobHelper.Interstitial.showInterstitial
 import com.frogobox.admobhelper.helper.AdmobHelper.Publisher.setupPublisher
+import com.google.android.gms.ads.AdView
 import com.google.android.gms.ads.InterstitialAd
 import com.google.android.gms.ads.reward.RewardedVideoAd
 
@@ -51,6 +54,11 @@ open class BaseActivity : AppCompatActivity() {
 
     fun setupShowAdsInterstitial() {
         showInterstitial(mInterstitialAd)
+    }
+
+    fun setupShowAdsBanner(mAdView : AdView) {
+        setupBanner(mAdView)
+        showBanner(mAdView)
     }
 
 }

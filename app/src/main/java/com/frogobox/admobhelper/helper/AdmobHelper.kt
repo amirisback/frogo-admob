@@ -3,10 +3,7 @@ package com.frogobox.admobhelper.helper
 import android.content.Context
 import android.util.Log
 import com.frogobox.admobhelper.R
-import com.google.android.gms.ads.AdListener
-import com.google.android.gms.ads.AdRequest
-import com.google.android.gms.ads.InterstitialAd
-import com.google.android.gms.ads.MobileAds
+import com.google.android.gms.ads.*
 import com.google.android.gms.ads.reward.RewardedVideoAd
 import com.google.android.gms.ads.reward.RewardedVideoAdListener
 
@@ -69,6 +66,20 @@ class AdmobHelper {
 
     object Banner {
 
+        fun setupBanner(mAdView: AdView) {
+            mAdView.adListener = object : AdListener() {
+                override fun onAdLoaded() {}
+                override fun onAdFailedToLoad(errorCode: Int) {}
+                override fun onAdOpened() {}
+                override fun onAdClicked() {}
+                override fun onAdLeftApplication() {}
+                override fun onAdClosed() {}
+            }
+        }
+
+        fun showBanner(mAdView: AdView){
+            mAdView.loadAd(AdRequest.Builder().build())
+        }
 
     }
 
