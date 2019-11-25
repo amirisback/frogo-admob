@@ -15,8 +15,8 @@ Example Source Code For Call Method Show Admob
 Very open to anyone, I'll write your name under this, please contribute by sending an email to me
 
 - Mail To faisalamircs@gmail.com
-- Subject Github _ [Github-Username-Account] _ [Language] _ [Repository-Name]
-- Example Subject Github_amirisback_kotlin_admob-helper-implementation
+- Subject : Github _ [Github-Username-Account] _ [Language] _ [Repository-Name]
+- Example : Github_amirisback_kotlin_admob-helper-implementation
 
 Name Of Contribute
 - Muhammad Faisal Amir
