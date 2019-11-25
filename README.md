@@ -1,15 +1,30 @@
 # Admob Helper Implementation By Amirisback
 Helper for activating admob
+- v1.0.0 - Development
 
 # About This Project
 Example Source Code For Call Method Show Admob
 - Calling method on Inheritance Class
+- Implement all Admob Version
+
+# Medium Link
+- Soon
 
 # How To Use This Project
+- Just Clone on Your Android Studio
+- Learn this code project for inject to your project
+- String test ads can found on build.gradle in folder app
+- Change in release build variant on build.gradle with your admob id
 
 # Result Of This Project
+- All logic on AdmobHelper and BaseActivity
+- All layout banner
+- All string test ads
+- Implement, interstitial and banner ads
+- Other still progress
 
 # ScreenShot Apps
+- Soon
 
 # Colaborator
 Very open to anyone, I'll write your name under this, please contribute by sending an email to me
@@ -24,6 +39,9 @@ Name Of Contribute
 - Waiting List
 
 Waiting for your contribute
+
+# Library GMS Ads
+implementation 'com.google.android.gms:play-services-ads:18.3.0'
 
 # Source
 Link Google Sample
