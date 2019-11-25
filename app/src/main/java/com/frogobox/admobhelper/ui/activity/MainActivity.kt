@@ -4,7 +4,7 @@ import android.os.Bundle
 import com.frogobox.admobhelper.R
 import com.frogobox.admobhelper.base.BaseActivity
 import kotlinx.android.synthetic.main.activity_main.*
-import kotlinx.android.synthetic.main.ads_phone_tab_banner.*
+import kotlinx.android.synthetic.main.ads_phone_tab_special_smart_banner.*
 
 class MainActivity : BaseActivity() {
 
@@ -16,7 +16,7 @@ class MainActivity : BaseActivity() {
             setupShowAdsInterstitial()
         }
 
-        setupShowAdsBanner(ads_phone_tab_banner)
+        setupShowAdsBanner(ads_phone_tab_special_smart_banner)
 
     }
 }

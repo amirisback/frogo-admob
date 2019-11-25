@@ -9,7 +9,9 @@
         android:id="@+id/btn_interstitial"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="16dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
         android:text="Interstitial Ads" />
 
     <Button
@@ -18,8 +20,10 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/btn_interstitial"
         android:layout_margin="16dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
         android:text="Rewarded Video Ads" />
 
-    <include layout="@layout/ads_phone_tab_banner" />
+    <include layout="@layout/ads_phone_tab_special_smart_banner" />
 
 </RelativeLayout>

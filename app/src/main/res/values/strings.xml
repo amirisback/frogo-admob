@@ -9,5 +9,6 @@
     <string name="ads_size_medium_rectangle">MEDIUM_RECTANGLE</string> <!-- 300x250dp -->
     <string name="ads_size_full_banner">FULL_BANNER</string> <!-- 468x60dp -->
     <string name="ads_size_leader_board">LEADERBOARD</string> <!-- 728x90dp -->
-    
+    <string name="ads_size_smart_banner">SMART_BANNER</string> <!-- match_parent -->
+
 </resources>
