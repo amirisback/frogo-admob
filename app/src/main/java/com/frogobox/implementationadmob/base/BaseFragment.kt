@@ -1,5 +1,6 @@
 package com.frogobox.implementationadmob.base
 
+import android.os.Bundle
 import androidx.fragment.app.Fragment
 
 /**
@@ -21,6 +22,12 @@ import androidx.fragment.app.Fragment
  */
 class BaseFragment : Fragment() {
 
+    lateinit var mActivity: BaseActivity
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        mActivity = (activity as BaseActivity)
+    }
 
 
 }
