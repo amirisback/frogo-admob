@@ -24,7 +24,7 @@ https://medium.com/@faisalamircs/dapatkan-penghasilan-dari-aplikasi-androidmu-di
 - Other still progress
 
 # ScreenShot Apps
-![ScreenShoot Apps](docs/image/ss_apps.jpg?raw=true)
+<p align="center"><img width="70%" height="auto" src="docs/image/ss_apps.jpg"></p>
 
 # Colaborator
 Very open to anyone, I'll write your name under this, please contribute by sending an email to me
