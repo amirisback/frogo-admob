@@ -1,14 +1,11 @@
-package com.frogobox.admobhelper.base
-
-import android.os.Bundle
-import androidx.fragment.app.Fragment
+package com.frogobox.admobhelper.helper
 
 /**
  * Created by Faisal Amir
  * FrogoBox Inc License
  * =========================================
  * ImplementationAdmob
- * Copyright (C) 25/11/2019.
+ * Copyright (C) 27/11/2019.
  * All rights reserved
  * -----------------------------------------
  * Name     : Muhammad Faisal Amir
@@ -17,17 +14,13 @@ import androidx.fragment.app.Fragment
  * LinkedIn : linkedin.com/in/faisalamircs
  * -----------------------------------------
  * FrogoBox Software Industries
- * com.frogobox.admobhelper.activity
+ * com.frogobox.admobhelper.helper
  *
  */
-open class BaseFragment : Fragment() {
+class Constant {
 
-    lateinit var mActivity: BaseActivity
+    object Var {
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        mActivity = (activity as BaseActivity)
     }
-
 
 }

@@ -6,7 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.frogobox.admobhelper.R
-import com.frogobox.admobhelper.base.BaseFragment
+import com.frogobox.admobhelper.base.ui.BaseFragment
 
 /**
  * A simple [Fragment] subclass.

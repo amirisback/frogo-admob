@@ -1,4 +1,4 @@
-package com.frogobox.admobhelper.base
+package com.frogobox.admobhelper.base.admob
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
@@ -29,11 +29,11 @@ import com.google.android.gms.ads.reward.RewardedVideoAd
  *
  */
 
-open class BaseActivity : AppCompatActivity() {
+open class BaseAdmobActivity : AppCompatActivity() {
 
-    lateinit var mActivity: AppCompatActivity
+    protected lateinit var mActivity: AppCompatActivity
     lateinit var mInterstitialAd: InterstitialAd
-    lateinit var mRewardedVideoAd: RewardedVideoAd
+    private lateinit var mRewardedVideoAd: RewardedVideoAd
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
