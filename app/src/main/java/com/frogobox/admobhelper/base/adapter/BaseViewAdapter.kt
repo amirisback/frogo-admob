@@ -22,11 +22,11 @@ import androidx.recyclerview.widget.RecyclerView
  */
 abstract class BaseViewAdapter<T, Holder : BaseViewHolder<T>> : RecyclerView.Adapter<Holder>() {
 
-    private lateinit var mContext: Context
     private lateinit var mViewListener: BaseViewListener<T>
-
     private val mRecyclerViewDataList = mutableListOf<T>()
-    private var mRecyclerViewLayout: Int = 0
+
+    protected lateinit var mContext: Context
+    protected var mRecyclerViewLayout: Int = 0
 
     fun setRecyclerViewLayout(context: Context, layoutItem: Int) {
         mContext = context
