@@ -14,16 +14,22 @@ class MainActivity : BaseActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-
         setupToolbar()
+        setupButtonClick()
+        setupShowAdsBanner(ads_phone_tab_special_smart_banner)
+    }
+
+    private fun setupButtonClick(){
         btn_interstitial.setOnClickListener {
             setupShowAdsInterstitial()
         }
+        btn_rewarded.setOnClickListener {
 
-        setupShowAdsBanner(ads_phone_tab_special_smart_banner)
-
+        }
+        btn_recycler_view.setOnClickListener {
+            baseStartActivity<RecyclerViewActivity>()
+        }
     }
-
 
     private fun setupToolbar() {
         setSupportActionBar(toolbar_main)

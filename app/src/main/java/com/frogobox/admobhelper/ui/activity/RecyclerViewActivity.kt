@@ -9,5 +9,6 @@ class RecyclerViewActivity : BaseActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_recycler_view)
+        setupDetailActivity("")
     }
 }
