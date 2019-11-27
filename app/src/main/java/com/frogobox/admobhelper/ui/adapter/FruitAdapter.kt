@@ -7,6 +7,7 @@ import com.frogobox.admobhelper.base.adapter.BaseViewAdapter
 import com.frogobox.admobhelper.base.adapter.BaseViewHolder
 import com.frogobox.admobhelper.base.adapter.BaseViewListener
 import com.frogobox.admobhelper.model.Fruit
+import kotlinx.android.synthetic.main.content_item_fruit.view.*
 
 /**
  * Created by Faisal Amir
@@ -38,8 +39,15 @@ class FruitAdapter : BaseViewAdapter<Fruit, FruitAdapter.FruitViewHolder>() {
 
     inner class FruitViewHolder(view: View) : BaseViewHolder<Fruit>(view) {
 
+        val tv_name = view.tv_name
+        val tv_type = view.tv_type
+
         override fun initComponent(data: Fruit) {
             super.initComponent(data)
+
+            tv_name.text = data.name
+            tv_type.text = data.type
+
         }
 
     }
