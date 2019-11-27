@@ -11,4 +11,10 @@
     <string name="ads_size_leader_board">LEADERBOARD</string> <!-- 728x90dp -->
     <string name="ads_size_smart_banner">SMART_BANNER</string> <!-- match_parent -->
 
+    <string name="about_frogobox">Frogobox Software Industry</string>
+    <string name="title_about_us">toolbar_about_us</string>
+    <string name="dummyLong">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam veniam similiquevoluptates odit, ipsum laborum architecto distinctio harum, provident fugiat praesentium ex quod doloreslaudantium aliquid quidem placeat incidunt vitae!</string>
+    <string name="dummy">Dummy</string>
+
+
 </resources>

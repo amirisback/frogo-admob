@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--
+ * Created by 
+ * FrogoBox Inc License
+ * =========================================
+ * 
+ * Copyright (C) .      
+ * All rights reserved
+ * 
+ * Name     : Muhammad Faisal Amir
+ * E-mail   : faisalamircs@gmail.com
+ * Github   : github.com/amirisback
+ * LinkedIn : linkedin.com/in/faisalamircs
+ * 
+ * FrogoBox Software Industries
+ * 
+ -->
+
+<resources>
+
+    <!--Penamaan Dimen : {dimens/size}_{nama}-->
+    <!--Contoh : dimens_horizontal-->
+    <!--Contoh : text_size_title-->
+
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+    <dimen name="nav_header_vertical_spacing">8dp</dimen>
+    <dimen name="nav_header_height">176dp</dimen>
+    <dimen name="fab_margin">16dp</dimen>
+    <dimen name="dimen_navigation_drawer">60dp</dimen>
+
+    <dimen name="dimen_elevation">12dp</dimen>
+    <dimen name="dimen_large_64dp">64dp</dimen>
+    <dimen name="dimen_big_ultra_32dp">32dp</dimen>
+    <dimen name="dimen_big_super_24dp">24dp</dimen>
+    <dimen name="dimen_big_16dp">16dp</dimen>
+    <dimen name="dimen_medium_8dp">8dp</dimen>
+    <dimen name="dimen_small_4dp">4dp</dimen>
+
+    <dimen name="dimen_view_line">1dp</dimen>
+    <dimen name="dimen_weight">0dp</dimen>
+
+    <dimen name="dimen_circle_background">50dp</dimen>
+    <dimen name="dimen_profil_header">220dp</dimen>
+    <dimen name="dimen_profil_photo">125dp</dimen>
+    <dimen name="dimen_profil_photo_list">60dp</dimen>
+    <dimen name="dimen_profil_photo_list_info">50dp</dimen>
+    <dimen name="dimen_drawable_padding">5dip</dimen>
+
+    <!--Sizes-->
+    <dimen name="text_size_title_big_super_30sp">24sp</dimen>
+    <dimen name="text_size_title_big_24sp">24sp</dimen>
+    <dimen name="text_size_title_medium_20sp">20sp</dimen>
+    <dimen name="text_size_title_small_18sp">18sp</dimen>
+    <dimen name="text_size_medium_16sp">16sp</dimen>
+    <dimen name="text_size_default_12sp">12sp</dimen>
+    <dimen name="text_size_small_10sp">10sp</dimen>
+
+    <dimen name="min_height_list_bimbingan_95dp">95dp</dimen>
+    <dimen name="min_height_info_200dp">200dp</dimen>
+    <dimen name="dimen_img_product_150dp">90dp</dimen>
+    <dimen name="dimen_elevation_2dp">2dp</dimen>
+    <dimen name="show_permission_padding">20dp</dimen>
+    <dimen name="dimen_menu_category_100dp">100dp</dimen>
+
+</resources>
