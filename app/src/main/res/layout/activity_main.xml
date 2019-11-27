@@ -5,24 +5,43 @@
     android:layout_height="match_parent"
     tools:context=".ui.activity.MainActivity">
 
+    <include layout="@layout/toolbar_main" />
+
     <Button
         android:id="@+id/btn_interstitial"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="16dp"
-        android:text="Interstitial Ads" />
+        android:layout_below="@id/toolbar_main"
+        android:layout_marginStart="@dimen/dimen_big_16dp"
+        android:layout_marginTop="@dimen/dimen_big_16dp"
+        android:layout_marginEnd="@dimen/dimen_big_16dp"
+        android:background="@drawable/background_button_primary"
+        android:text="Interstitial Ads"
+        android:textColor="@color/colorTextWhite" />
 
     <Button
         android:id="@+id/btn_rewarded"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/btn_interstitial"
-        android:layout_margin="16dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginEnd="16dp"
-        android:text="Rewarded Video Ads" />
+        android:layout_marginStart="@dimen/dimen_big_16dp"
+        android:layout_marginTop="@dimen/dimen_big_16dp"
+        android:layout_marginEnd="@dimen/dimen_big_16dp"
+        android:background="@drawable/background_button_primary"
+        android:text="Rewarded Video Ads"
+        android:textColor="@color/colorTextWhite" />
+
+    <Button
+        android:id="@+id/btn_recycler_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/btn_rewarded"
+        android:layout_marginStart="@dimen/dimen_big_16dp"
+        android:layout_marginTop="@dimen/dimen_big_16dp"
+        android:layout_marginEnd="@dimen/dimen_big_16dp"
+        android:background="@drawable/background_button_primary"
+        android:text="RecyclerView With Banner"
+        android:textColor="@color/colorTextWhite" />
 
     <include layout="@layout/ads_phone_tab_special_smart_banner" />
 

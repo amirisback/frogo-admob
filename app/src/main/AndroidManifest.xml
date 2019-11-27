@@ -9,19 +9,20 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name="com.frogobox.admobhelper.ui.activity.MainActivity">
+        <activity android:name=".ui.activity.RecyclerViewActivity"></activity>
+        <activity android:name=".ui.activity.AboutUsActivity" />
+        <activity
+            android:name=".ui.activity.MainActivity"
+            android:theme="@style/AppThemeNoToolbar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-        </activity>
-
-        <!-- Sample AdMob App ID: ca-app-pub-3940256099942544~3347511713 -->
+        </activity> <!-- Sample AdMob App ID: ca-app-pub-3940256099942544~3347511713 -->
         <meta-data
             android:name="com.google.android.gms.ads.APPLICATION_ID"
             android:value="@string/admob_publisher_id" />
-
     </application>
 
 </manifest>
