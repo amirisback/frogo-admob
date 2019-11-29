@@ -5,15 +5,13 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.frogobox.admobhelper.R
 import com.frogobox.admobhelper.base.adapter.BaseViewListener
 import com.frogobox.admobhelper.base.admob.BaseAdmobRecyclerActivity
-import com.frogobox.admobhelper.base.ui.BaseActivity
 import com.frogobox.admobhelper.helper.AdmobHelper.RecyclerView.loadRecyclerBannerAds
 import com.frogobox.admobhelper.model.Fruit
 import com.frogobox.admobhelper.ui.adapter.FruitAdapter
-import com.google.android.gms.ads.AdView
 import kotlinx.android.synthetic.main.activity_recycler_view.*
 
 class RecyclerViewActivity : BaseAdmobRecyclerActivity(), BaseViewListener<Any> {
-    
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_recycler_view)
@@ -21,7 +19,7 @@ class RecyclerViewActivity : BaseAdmobRecyclerActivity(), BaseViewListener<Any> 
         setupRecyclerView()
     }
 
-    private fun arrayFruit() : MutableList<Any> {
+    private fun arrayFruit(): MutableList<Any> {
         arrayRecyclerView.add(Fruit("Apple", "Fresh"))
         arrayRecyclerView.add(Fruit("Grape", "Fresh"))
         arrayRecyclerView.add(Fruit("Water Melon", "Fresh"))
@@ -30,14 +28,14 @@ class RecyclerViewActivity : BaseAdmobRecyclerActivity(), BaseViewListener<Any> 
         return arrayRecyclerView
     }
 
-    private fun setupAdapter() : FruitAdapter{
+    private fun setupAdapter(): FruitAdapter {
         val adapter = FruitAdapter()
         adapter.setupRequirement(this, arrayFruit(), R.layout.content_item_fruit)
         loadRecyclerBannerAds(this, arrayFruit())
         return adapter
     }
 
-    private fun setupRecyclerView(){
+    private fun setupRecyclerView() {
         recycler_view.layoutManager = LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
         recycler_view.adapter = setupAdapter()
     }
@@ -49,5 +47,5 @@ class RecyclerViewActivity : BaseAdmobRecyclerActivity(), BaseViewListener<Any> 
     override fun onItemLongClicked(data: Any) {
 
     }
-    
+
 }

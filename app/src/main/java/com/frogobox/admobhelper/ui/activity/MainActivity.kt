@@ -5,7 +5,6 @@ import android.view.Menu
 import android.view.MenuItem
 import com.frogobox.admobhelper.R
 import com.frogobox.admobhelper.base.admob.BaseAdmobActivity
-import com.frogobox.admobhelper.base.ui.BaseActivity
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.ads_phone_tab_special_smart_banner.*
 import kotlinx.android.synthetic.main.toolbar_main.*
@@ -20,7 +19,7 @@ class MainActivity : BaseAdmobActivity() {
         setupShowAdsBanner(ads_phone_tab_special_smart_banner)
     }
 
-    private fun setupButtonClick(){
+    private fun setupButtonClick() {
         btn_interstitial.setOnClickListener {
             setupShowAdsInterstitial()
         }
