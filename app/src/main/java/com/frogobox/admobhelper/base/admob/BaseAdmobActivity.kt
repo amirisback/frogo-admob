@@ -2,6 +2,7 @@ package com.frogobox.admobhelper.base.admob
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import com.frogobox.admobhelper.base.ui.BaseActivity
 import com.frogobox.admobhelper.helper.AdmobHelper.Banner.setupBanner
 import com.frogobox.admobhelper.helper.AdmobHelper.Banner.showBanner
 import com.frogobox.admobhelper.helper.AdmobHelper.Interstitial.setupInterstitial
@@ -29,7 +30,7 @@ import com.google.android.gms.ads.reward.RewardedVideoAd
  *
  */
 
-open class BaseAdmobActivity : AppCompatActivity() {
+open class BaseAdmobActivity : BaseActivity() {
 
     protected lateinit var mActivity: AppCompatActivity
     lateinit var mInterstitialAd: InterstitialAd

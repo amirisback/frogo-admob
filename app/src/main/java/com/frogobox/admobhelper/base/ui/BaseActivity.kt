@@ -8,6 +8,7 @@ import android.view.MenuItem
 import android.view.View
 import android.view.WindowManager
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import com.frogobox.admobhelper.R
@@ -31,7 +32,7 @@ import com.frogobox.admobhelper.base.admob.BaseAdmobActivity
  * com.frogobox.admobhelper.base
  *
  */
-open class BaseActivity : BaseAdmobActivity() {
+open class BaseActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -116,7 +117,6 @@ open class BaseActivity : BaseAdmobActivity() {
         return when (item.itemId) {
             android.R.id.home -> {
                 finish()
-                setupShowAdsInterstitial()
                 true
             }
             else -> super.onOptionsItemSelected(item)
