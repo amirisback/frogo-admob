@@ -23,6 +23,18 @@ https://medium.com/@faisalamircs/dapatkan-penghasilan-dari-aplikasi-androidmu-di
 - Implement, interstitial and banner ads
 - Other still progress
 
+# Special From This Project
+- Inheritance RecyclerViewAdapter (BaseViewAdapter, BasViewHolder, BaseListener)
+- Inheritance AdmobActivity (BaseAdmobActivity, BaseAdmobRecyclerActivity)
+- AdmobHelper.kt class for all function admob
+- Example all layout for all banner ads size
+- Certainly Clean Code
+
+# Minus From This Project
+- Comment code are too simple
+- Only one thought is the creator of the project
+- Creator of this project indeed need your help
+
 # ScreenShot Apps
 <p align="center"><img width="200px" height="360px" src="docs/image/ss_apps.jpg"></p>
 
