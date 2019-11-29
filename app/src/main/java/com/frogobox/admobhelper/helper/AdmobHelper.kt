@@ -3,6 +3,7 @@ package com.frogobox.admobhelper.helper
 import android.content.Context
 import android.util.Log
 import com.frogobox.admobhelper.R
+import com.frogobox.admobhelper.helper.Constant.Var.RECYCLER_VIEW_ITEMS_PER_AD
 import com.google.android.gms.ads.*
 import com.google.android.gms.ads.reward.RewardedVideoAd
 import com.google.android.gms.ads.reward.RewardedVideoAdListener
@@ -81,6 +82,57 @@ class AdmobHelper {
             mAdView.loadAd(AdRequest.Builder().build())
         }
 
+    }
+    
+    object RecyclerView {
+
+        fun loadRecyclerBannerAds(context: Context, recyclerViewDataList: MutableList<Any>) { // Load the first banner ad in the items list (subsequent ads will be loaded automatically in sequence).
+            addBannerAds(context, recyclerViewDataList)
+            loadBannerAd(recyclerViewDataList, 0)
+        }
+
+        private fun addBannerAds(context: Context, recyclerViewDataList: MutableList<Any>) { // Loop through the items array and place a new banner ad in every ith position in the items List.
+            var i = 0
+            while (i <= recyclerViewDataList.size) {
+                val adView = AdView(context)
+                adView.adSize = AdSize.BANNER
+                adView.adUnitId = context.getString(R.string.admob_banner)
+                recyclerViewDataList.add(i, adView)
+                i += RECYCLER_VIEW_ITEMS_PER_AD
+            }
+        }
+
+        private fun loadBannerAd(recyclerViewDataList: MutableList<Any>, index: Int) {
+            if (index >= recyclerViewDataList.size) {
+                return
+            }
+            val item: Any = recyclerViewDataList.get(index) as? AdView
+                ?: throw ClassCastException(
+                    "Expected item at index " + index + " to be a banner ad"
+                            + " ad."
+                )
+            val adView = item as AdView
+            // Set an AdListener on the AdView to wait for the previous banner ad to finish loading before loading the next ad in the items list.
+            adView.adListener = object : AdListener() {
+                override fun onAdLoaded() {
+                    super.onAdLoaded()
+                    // The previous banner ad loaded successfully, call this method again to
+                    // load the next ad in the items list.
+                    loadBannerAd(recyclerViewDataList,index + RECYCLER_VIEW_ITEMS_PER_AD)
+                }
+
+                override fun onAdFailedToLoad(errorCode: Int) { // The previous banner ad failed to load. Call this method again to load the next ad in the items list.
+                    Log.e(
+                        "MainActivity", "The previous banner ad failed to load. Attempting to"
+                                + " load the next banner ad in the items list."
+                    )
+                    loadBannerAd(recyclerViewDataList,index + RECYCLER_VIEW_ITEMS_PER_AD)
+                }
+            }
+            // Load the banner ad.
+            adView.loadAd(AdRequest.Builder().build())
+        }
+        
     }
 
     object Video {
