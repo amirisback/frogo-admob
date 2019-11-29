@@ -18,7 +18,7 @@
  -->
 
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/ad_banner_container"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_marginStart="@dimen/dimen_big_16dp"
@@ -27,24 +27,4 @@
     android:background="@drawable/background_card"
     android:elevation="@dimen/dimen_small_4dp"
     android:orientation="vertical"
-    android:padding="@dimen/dimen_big_16dp">
-
-    <TextView
-        android:id="@+id/tv_name"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="@dimen/dimen_medium_8dp"
-        android:textColor="@color/colorTextBlack"
-        android:textSize="@dimen/text_size_title_small_18sp"
-        android:textStyle="bold"
-        tools:text="@string/dummy" />
-
-    <TextView
-        android:id="@+id/tv_type"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:maxLines="2"
-        android:textSize="@dimen/text_size_medium_16sp"
-        tools:text="@string/dummyLong" />
-
-</LinearLayout>
+    android:padding="@dimen/dimen_big_16dp"/>
