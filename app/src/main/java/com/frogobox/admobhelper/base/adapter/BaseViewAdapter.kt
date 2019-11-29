@@ -1,7 +1,12 @@
 package com.frogobox.admobhelper.base.adapter
 
-import android.content.Context
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.frogobox.admobhelper.helper.Constant.Var.RECYCLER_VIEW_ITEMS_PER_AD
+import com.frogobox.admobhelper.helper.Constant.Var.RECYCLER_VIEW_TYPE_BANNER_AD
+import com.frogobox.admobhelper.helper.Constant.Var.RECYCLER_VIEW_TYPE_MENU_ITEM
 
 /**
  * Created by Faisal Amir
@@ -20,33 +25,50 @@ import androidx.recyclerview.widget.RecyclerView
  * com.frogobox.speechbooster.base
  *
  */
-abstract class BaseViewAdapter<T, Holder : BaseViewHolder<T>> : RecyclerView.Adapter<Holder>() {
+
+abstract class BaseViewAdapter<T> : RecyclerView.Adapter<BaseViewHolder<T>>() {
 
     private lateinit var mViewListener: BaseViewListener<T>
+
     private val mRecyclerViewDataList = mutableListOf<T>()
+    private var mRecyclerViewLayout: Int = 0
 
-    protected lateinit var mContext: Context
-    protected var mRecyclerViewLayout: Int = 0
+    fun setupRequirement(viewListener: BaseViewListener<T>, dataList: List<T>, layoutItem: Int) {
 
-    fun setRecyclerViewLayout(context: Context, layoutItem: Int) {
-        mContext = context
         mRecyclerViewLayout = layoutItem
-    }
-
-    fun setRecyclerViewListener(viewListener: BaseViewListener<T>) {
         mViewListener = viewListener
-    }
 
-    fun setRecyclerViewData(dataList: List<T>) {
         mRecyclerViewDataList.clear()
         mRecyclerViewDataList.addAll(dataList)
         notifyDataSetChanged()
     }
 
-    override fun onBindViewHolder(holder: Holder, position: Int) {
-        holder.bindItem(mRecyclerViewDataList[position], mViewListener)
+    protected fun viewLayout(parent: ViewGroup): View {
+        return LayoutInflater.from(parent.context).inflate(mRecyclerViewLayout, parent, false)
+    }
+
+    protected fun viewLayout(parent: ViewGroup, layout: Int): View {
+        return LayoutInflater.from(parent.context).inflate(layout, parent, false)
     }
 
     override fun getItemCount(): Int = mRecyclerViewDataList.size
+
+    override fun getItemViewType(position: Int): Int {
+        return if (position % RECYCLER_VIEW_ITEMS_PER_AD === 0) RECYCLER_VIEW_TYPE_BANNER_AD else RECYCLER_VIEW_TYPE_MENU_ITEM
+    }
+
+    override fun onBindViewHolder(holder: BaseViewHolder<T>, position: Int) {
+        when (getItemViewType(position)) {
+            RECYCLER_VIEW_TYPE_MENU_ITEM -> {
+                holder.bindItem(mRecyclerViewDataList[position], mViewListener)
+            }
+            RECYCLER_VIEW_TYPE_BANNER_AD -> {
+            }
+            else -> {
+                holder.bindItemAdd(mRecyclerViewDataList[position])
+            }
+        }
+    }
+
 
 }

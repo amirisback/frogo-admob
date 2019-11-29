@@ -1,7 +1,9 @@
 package com.frogobox.admobhelper.base.adapter
 
 import android.view.View
+import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.google.android.gms.ads.AdView
 
 /**
  * Created by Faisal Amir
@@ -21,14 +23,28 @@ import androidx.recyclerview.widget.RecyclerView
  *
  */
 
-abstract class BaseViewHolder<T>(view: View) : RecyclerView.ViewHolder(view) {
+open class BaseViewHolder<T>(view: View) : RecyclerView.ViewHolder(view) {
 
-    open fun bindItem(data: T, viewListener: BaseViewListener<T>){
+    fun bindItem(data: T, viewListener: BaseViewListener<T>) {
         onItemViewClicked(data, viewListener)
         initComponent(data)
     }
 
-    private fun onItemViewClicked(data: T, viewListener: BaseViewListener<T>){
+    fun bindItemAdd(data: T) {
+        val adView = data as AdView
+        val adCardView = itemView as ViewGroup
+
+        if (adCardView.childCount > 0) {
+            adCardView.removeAllViews()
+        }
+        if (adView.parent != null) {
+            (adView.parent as ViewGroup).removeView(adView)
+        }
+
+        adCardView.addView(adView)
+    }
+
+    private fun onItemViewClicked(data: T, viewListener: BaseViewListener<T>) {
         itemView.setOnClickListener {
             viewListener.onItemClicked(data)
         }
@@ -39,7 +55,7 @@ abstract class BaseViewHolder<T>(view: View) : RecyclerView.ViewHolder(view) {
         }
     }
 
-    open fun initComponent(data: T){
+    open fun initComponent(data: T) {
         // component view
     }
 
