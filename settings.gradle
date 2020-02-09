@@ -1,2 +1,2 @@
-include ':app', ':nativetemplates'
+include ':app', ':nativetemplates', ':frogoadmobhelper'
 rootProject.name='ImplementationAdmob'
