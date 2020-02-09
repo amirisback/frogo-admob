@@ -1,4 +1,4 @@
-# Admob Helper Implementation By Amirisback
+# Admob Helper By Amirisback
 Helper for activating admob
 - v1.0.0 - Development
 
