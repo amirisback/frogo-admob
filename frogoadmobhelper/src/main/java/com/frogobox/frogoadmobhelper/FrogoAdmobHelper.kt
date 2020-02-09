@@ -1,9 +1,8 @@
-package com.frogobox.admobhelper.helper
+package com.frogobox.frogoadmobhelper
 
 import android.content.Context
 import android.util.Log
-import com.frogobox.admobhelper.R
-import com.frogobox.admobhelper.helper.Constant.Var.RECYCLER_VIEW_ITEMS_PER_AD
+import com.frogobox.frogoadmobhelper.FrogoConstantHelper.Var.RECYCLER_VIEW_ITEMS_PER_AD
 import com.google.android.gms.ads.*
 import com.google.android.gms.ads.reward.RewardedVideoAd
 import com.google.android.gms.ads.reward.RewardedVideoAdListener
@@ -25,20 +24,59 @@ import com.google.android.gms.ads.reward.RewardedVideoAdListener
  * com.frogobox.admobhelper
  *
  */
-class AdmobHelper {
+object FrogoAdmobHelper : FrogoAdmobView {
 
-    object Publisher {
+    private lateinit var admobPublisherID: String
+    private lateinit var mAdUnitIdInterstitial: String
+    private lateinit var mAdUnitIdBanner: String
+    private lateinit var mAdUnitIdRewardedVideo: String
 
-        fun setupPublisher(context: Context) {
-            MobileAds.initialize(context, context.getString(R.string.admob_publisher_id))
+    override fun setupPublisherID(mPublisherId: String) {
+        admobPublisherID = mPublisherId
+    }
+
+    override fun setupBannerAdUnitID(mAdUnitId: String) {
+        mAdUnitIdBanner = mAdUnitId
+    }
+
+    override fun setupInterstialAdUnitID(mAdUnitId: String) {
+        mAdUnitIdInterstitial = mAdUnitId
+    }
+
+    override fun setupRewardedAdUnitID(mAdUnitId: String) {
+        mAdUnitIdRewardedVideo = mAdUnitId
+    }
+
+    object Publisher : FrogoAdmobView.Publisher {
+        override fun setupPublisher(context: Context) {
+            MobileAds.initialize(context, admobPublisherID)
         }
 
     }
 
-    object Interstitial {
+    object Banner : FrogoAdmobView.Banner {
 
-        fun setupInterstitial(context: Context, mInterstitialAd: InterstitialAd) {
-            mInterstitialAd.adUnitId = context.getString(R.string.admob_interstitial)
+        override fun setupBanner(mAdView: AdView) {
+            mAdView.adListener = object : AdListener() {
+                override fun onAdLoaded() {}
+                override fun onAdFailedToLoad(errorCode: Int) {}
+                override fun onAdOpened() {}
+                override fun onAdClicked() {}
+                override fun onAdLeftApplication() {}
+                override fun onAdClosed() {}
+            }
+        }
+
+        override fun showBanner(mAdView: AdView) {
+            mAdView.loadAd(AdRequest.Builder().build())
+        }
+
+    }
+
+    object Interstitial : FrogoAdmobView.Interstitial {
+
+        override fun setupInterstitial(mInterstitialAd: InterstitialAd) {
+            mInterstitialAd.adUnitId = mAdUnitIdInterstitial
             mInterstitialAd.loadAd(AdRequest.Builder().build())
             mInterstitialAd.adListener = object : AdListener() {
                 override fun onAdClosed() {
@@ -55,7 +93,7 @@ class AdmobHelper {
             }
         }
 
-        fun showInterstitial(mInterstitialAd: InterstitialAd) {
+        override fun showInterstitial(mInterstitialAd: InterstitialAd) {
             if (mInterstitialAd.isLoaded) {
                 mInterstitialAd.show()
             } else {
@@ -65,44 +103,51 @@ class AdmobHelper {
 
     }
 
-    object Banner {
+    object Video : FrogoAdmobView.Video {
 
-        fun setupBanner(mAdView: AdView) {
-            mAdView.adListener = object : AdListener() {
-                override fun onAdLoaded() {}
-                override fun onAdFailedToLoad(errorCode: Int) {}
-                override fun onAdOpened() {}
-                override fun onAdClicked() {}
-                override fun onAdLeftApplication() {}
-                override fun onAdClosed() {}
+        override fun setupVideo(
+            rewardedVideoAdListener: RewardedVideoAdListener,
+            mRewardedVideoAd: RewardedVideoAd
+        ) {
+            mRewardedVideoAd.rewardedVideoAdListener = rewardedVideoAdListener
+            mRewardedVideoAd.loadAd(
+                mAdUnitIdRewardedVideo, AdRequest.Builder().build()
+            )
+        }
+
+        override fun showVideo(mRewardedVideoAd: RewardedVideoAd) {
+            if (mRewardedVideoAd.isLoaded) {
+                mRewardedVideoAd.show()
             }
         }
 
-        fun showBanner(mAdView: AdView){
-            mAdView.loadAd(AdRequest.Builder().build())
-        }
-
     }
-    
-    object RecyclerView {
 
-        fun loadRecyclerBannerAds(context: Context, recyclerViewDataList: MutableList<Any>) { // Load the first banner ad in the items list (subsequent ads will be loaded automatically in sequence).
+    object RecyclerView : FrogoAdmobView.RecyclerView{
+
+        override fun loadRecyclerBannerAds(
+            context: Context,
+            recyclerViewDataList: MutableList<Any>
+        ) { // Load the first banner ad in the items list (subsequent ads will be loaded automatically in sequence).
             addBannerAds(context, recyclerViewDataList)
             loadBannerAd(recyclerViewDataList, 0)
         }
 
-        private fun addBannerAds(context: Context, recyclerViewDataList: MutableList<Any>) { // Loop through the items array and place a new banner ad in every ith position in the items List.
+        override fun addBannerAds(
+            context: Context,
+            recyclerViewDataList: MutableList<Any>
+        ) { // Loop through the items array and place a new banner ad in every ith position in the items List.
             var i = 0
             while (i <= recyclerViewDataList.size) {
                 val adView = AdView(context)
                 adView.adSize = AdSize.BANNER
-                adView.adUnitId = context.getString(R.string.admob_banner)
+                adView.adUnitId = mAdUnitIdBanner
                 recyclerViewDataList.add(i, adView)
                 i += RECYCLER_VIEW_ITEMS_PER_AD
             }
         }
 
-        private fun loadBannerAd(recyclerViewDataList: MutableList<Any>, index: Int) {
+        override fun loadBannerAd(recyclerViewDataList: MutableList<Any>, index: Int) {
             if (index >= recyclerViewDataList.size) {
                 return
             }
@@ -118,7 +163,7 @@ class AdmobHelper {
                     super.onAdLoaded()
                     // The previous banner ad loaded successfully, call this method again to
                     // load the next ad in the items list.
-                    loadBannerAd(recyclerViewDataList,index + RECYCLER_VIEW_ITEMS_PER_AD)
+                    loadBannerAd(recyclerViewDataList, index + RECYCLER_VIEW_ITEMS_PER_AD)
                 }
 
                 override fun onAdFailedToLoad(errorCode: Int) { // The previous banner ad failed to load. Call this method again to load the next ad in the items list.
@@ -126,35 +171,12 @@ class AdmobHelper {
                         "MainActivity", "The previous banner ad failed to load. Attempting to"
                                 + " load the next banner ad in the items list."
                     )
-                    loadBannerAd(recyclerViewDataList,index + RECYCLER_VIEW_ITEMS_PER_AD)
+                    loadBannerAd(recyclerViewDataList, index + RECYCLER_VIEW_ITEMS_PER_AD)
                 }
             }
             // Load the banner ad.
             adView.loadAd(AdRequest.Builder().build())
         }
-        
-    }
-
-    object Video {
-
-        fun setupVideo(
-            context: Context,
-            rewardedVideoAdListener: RewardedVideoAdListener,
-            mRewardedVideoAd: RewardedVideoAd
-        ) {
-            mRewardedVideoAd.rewardedVideoAdListener = rewardedVideoAdListener
-            mRewardedVideoAd.loadAd(
-                context.getString(R.string.admob_rewarded_video),
-                AdRequest.Builder().build()
-            )
-        }
-
-        fun showVideo(mRewardedVideoAd: RewardedVideoAd) {
-            if (mRewardedVideoAd.isLoaded) {
-                mRewardedVideoAd.show()
-            }
-        }
 
     }
-
 }

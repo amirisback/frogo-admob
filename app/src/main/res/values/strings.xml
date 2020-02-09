@@ -3,18 +3,9 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 
-    <!-- Ads Banner Size -->
-    <string name="ads_size_banner">BANNER</string> <!-- 320x50dp -->
-    <string name="ads_size_large_banner">LARGE_BANNER</string> <!-- 320x100dp -->
-    <string name="ads_size_medium_rectangle">MEDIUM_RECTANGLE</string> <!-- 300x250dp -->
-    <string name="ads_size_full_banner">FULL_BANNER</string> <!-- 468x60dp -->
-    <string name="ads_size_leader_board">LEADERBOARD</string> <!-- 728x90dp -->
-    <string name="ads_size_smart_banner">SMART_BANNER</string> <!-- match_parent -->
-
     <string name="about_frogobox">Frogobox Software Industry</string>
     <string name="title_about_us">toolbar_about_us</string>
     <string name="dummyLong">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam veniam similiquevoluptates odit, ipsum laborum architecto distinctio harum, provident fugiat praesentium ex quod doloreslaudantium aliquid quidem placeat incidunt vitae!</string>
     <string name="dummy">Dummy</string>
-
 
 </resources>

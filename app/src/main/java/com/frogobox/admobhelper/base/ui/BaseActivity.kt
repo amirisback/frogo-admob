@@ -8,12 +8,11 @@ import android.view.MenuItem
 import android.view.View
 import android.view.WindowManager
 import android.widget.Toast
-import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import com.frogobox.admobhelper.R
 import com.frogobox.admobhelper.base.util.BaseHelper
-import com.frogobox.admobhelper.base.admob.BaseAdmobActivity
+import com.frogobox.frogoadmobhelper.FrogoAdmobActivity
 
 /**
  * Created by Faisal Amir
@@ -32,10 +31,19 @@ import com.frogobox.admobhelper.base.admob.BaseAdmobActivity
  * com.frogobox.admobhelper.base
  *
  */
-open class BaseActivity : BaseAdmobActivity() {
+open class BaseActivity : FrogoAdmobActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        setupAdmob()
+    }
+
+    private fun setupAdmob(){
+        setBasePublisherID(getString(R.string.admob_publisher_id))
+        setBaseBannerAdUnitID(getString(R.string.admob_banner))
+        setBaseInterstialAdUnitID(getString(R.string.admob_interstitial))
+        setBaseRewardedAdUnitID(getString(R.string.admob_rewarded_video))
+        setBaseAdmob()
     }
 
     protected fun setupCustomTitleToolbar(title: Int) {
@@ -138,6 +146,8 @@ open class BaseActivity : BaseAdmobActivity() {
             view.visibility = View.GONE
         }
     }
+
+
 
 
 }

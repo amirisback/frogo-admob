@@ -1,4 +1,4 @@
-package com.frogobox.admobhelper.helper
+package com.frogobox.frogoadmobhelper
 
 /**
  * Created by Faisal Amir
@@ -17,7 +17,7 @@ package com.frogobox.admobhelper.helper
  * com.frogobox.admobhelper.helper
  *
  */
-class Constant {
+class FrogoConstantHelper {
 
     object Var {
         const val RECYCLER_VIEW_ITEMS_PER_AD = 4 // A banner ad is placed in every 8th position in the RecyclerView.

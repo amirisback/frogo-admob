@@ -5,9 +5,9 @@ import android.view.ViewGroup
 import com.frogobox.admobhelper.R
 import com.frogobox.admobhelper.base.adapter.BaseViewAdapter
 import com.frogobox.admobhelper.base.adapter.BaseViewHolder
-import com.frogobox.admobhelper.helper.Constant.Var.RECYCLER_VIEW_TYPE_BANNER_AD
-import com.frogobox.admobhelper.helper.Constant.Var.RECYCLER_VIEW_TYPE_MENU_ITEM
 import com.frogobox.admobhelper.model.Fruit
+import com.frogobox.frogoadmobhelper.FrogoConstantHelper.Var.RECYCLER_VIEW_TYPE_BANNER_AD
+import com.frogobox.frogoadmobhelper.FrogoConstantHelper.Var.RECYCLER_VIEW_TYPE_MENU_ITEM
 import kotlinx.android.synthetic.main.content_item_fruit.view.*
 
 /**
