@@ -1,6 +1,9 @@
 package com.frogobox.admobhelper.base.admob
 
-import com.frogobox.admobhelper.base.ui.BaseActivity
+import android.graphics.drawable.ColorDrawable
+import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat
+import com.frogobox.admobhelper.R
 import com.google.android.gms.ads.AdView
 
 /**
@@ -20,7 +23,22 @@ import com.google.android.gms.ads.AdView
  * com.frogobox.admobhelper.base.admob
  *
  */
-open class BaseAdmobRecyclerActivity : BaseActivity() {
+open class BaseAdmobRecyclerActivity : BaseAdmobActivity() {
+
+    protected fun setupDetailActivity(title: String) {
+        setTitle(title)
+        val upArrow = ContextCompat.getDrawable(this, R.drawable.ic_toolbar_back_home)
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+        supportActionBar?.setHomeAsUpIndicator(upArrow)
+        supportActionBar?.setBackgroundDrawable(
+            ColorDrawable(
+                ContextCompat.getColor(
+                    this,
+                    R.color.colorBaseWhite
+                )
+            )
+        )
+    }
 
     protected val arrayRecyclerView = mutableListOf<Any>()
 

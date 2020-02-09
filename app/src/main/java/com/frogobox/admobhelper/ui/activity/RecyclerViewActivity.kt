@@ -5,6 +5,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.frogobox.admobhelper.R
 import com.frogobox.admobhelper.base.adapter.BaseViewListener
 import com.frogobox.admobhelper.base.admob.BaseAdmobRecyclerActivity
+import com.frogobox.admobhelper.base.ui.BaseActivity
 import com.frogobox.admobhelper.helper.AdmobHelper.RecyclerView.loadRecyclerBannerAds
 import com.frogobox.admobhelper.model.Fruit
 import com.frogobox.admobhelper.ui.adapter.FruitAdapter

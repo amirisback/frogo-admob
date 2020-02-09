@@ -32,7 +32,7 @@ import com.frogobox.admobhelper.base.admob.BaseAdmobActivity
  * com.frogobox.admobhelper.base
  *
  */
-open class BaseActivity : AppCompatActivity() {
+open class BaseActivity : BaseAdmobActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
