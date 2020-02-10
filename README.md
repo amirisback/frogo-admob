@@ -148,9 +148,9 @@ Waiting for your contribute
 implementation 'com.google.android.gms:play-services-ads:18.3.0'
 
 # Source
-https://github.com/googleads/googleads-mobile-android-examples (Google Sample Code)
-https://developers.google.com/admob/android/test-ads (Test Ads)
-https://developers.google.com/admob/android/quick-start (For Get Started)
+- https://github.com/googleads/googleads-mobile-android-examples (Google Sample Code)
+- https://developers.google.com/admob/android/test-ads (Test Ads)
+- https://developers.google.com/admob/android/quick-start (For Get Started)
 
 # Attention !!!
 Please enjoy and don't forget fork and give a star
