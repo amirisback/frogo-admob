@@ -38,7 +38,6 @@ Add it in your root build.gradle at the end of repositories:
 		}
 	}
   
-  
 <h3>Step 2. Add the dependency</h3>
 
 	dependencies {
@@ -90,9 +89,7 @@ Add it in your root build.gradle at the end of repositories:
 # Still Confusing For Using This Project???
 - Just Clone This Project
 - branch : master 
-- branch : before-using-library
-<br>
--- Pick Your Choice!! --
+- branch : before-using-library <br> -- Pick Your Choice!! --
 
 # Test Ads From Google 
 
@@ -109,7 +106,7 @@ Add it in your root build.gradle at the end of repositories:
 - Learn this code project for inject to your project
 - String test ads can found on build.gradle in folder app
 - Change in release build variant on build.gradle with your admob id
-(Branch : Before Using Library)
+- (Branch : Before Using Library)
 
 # Result Of This Project
 - All logic on AdmobHelper and BaseActivity
