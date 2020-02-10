@@ -144,9 +144,6 @@ Name Of Contribute
 
 Waiting for your contribute
 
-# Library GMS Ads
-implementation 'com.google.android.gms:play-services-ads:18.3.0'
-
 # Source
 - https://github.com/googleads/googleads-mobile-android-examples (Google Sample Code)
 - https://developers.google.com/admob/android/test-ads (Test Ads)
