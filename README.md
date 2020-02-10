@@ -19,7 +19,6 @@ https://medium.com/@faisalamircs/dapatkan-penghasilan-dari-aplikasi-androidmu-di
 
 # Version Release
 [![](https://jitpack.io/v/amirisback/frogo-admob-helper.svg)](https://jitpack.io/#amirisback/frogo-admob-helper)
-This Is Latest Release
 
     $version_release = 1.0.0
 
@@ -90,8 +89,9 @@ Add it in your root build.gradle at the end of repositories:
 
 # Still Confusing For Using This Project???
 - Just Clone This Project
-    branch : master 
-    branch : before-using-library
+- branch : master 
+- branch : before-using-library
+<br>
 -- Pick Your Choice!! --
 
 # Test Ads From Google 
