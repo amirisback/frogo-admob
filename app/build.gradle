@@ -130,6 +130,9 @@ dependencies {
     // lib google ads
     implementation 'com.google.android.gms:play-services-ads:19.6.0'
 
+    // library frogo-log
+    implementation 'com.github.amirisback:frogo-log:1.0.0'
+
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
     testImplementation 'junit:junit:4.13.1'
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'

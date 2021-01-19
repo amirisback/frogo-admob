@@ -34,4 +34,8 @@ dependencies {
 
     // lib google ads
     implementation 'com.google.android.gms:play-services-ads:19.6.0'
+    
+    // library frogo-log
+    implementation 'com.github.amirisback:frogo-log:1.0.0'
+
 }
