@@ -36,7 +36,8 @@ import com.google.android.gms.ads.reward.RewardedVideoAd
 open class FrogoAdmobActivity : AppCompatActivity() {
 
     protected lateinit var mActivity: AppCompatActivity
-
+    protected val arrayFrogoAdmobData = mutableListOf<Any>()
+    
     lateinit var mInterstitialAd: InterstitialAd
 
     private lateinit var mRewardedVideoAd: RewardedVideoAd
@@ -91,5 +92,33 @@ open class FrogoAdmobActivity : AppCompatActivity() {
         setupBanner(mAdView)
         showBanner(mAdView)
     }
+
+    override fun onResume() {
+        for (item in arrayFrogoAdmobData) {
+            if (item is AdView) {
+                item.resume()
+            }
+        }
+        super.onResume()
+    }
+
+    override fun onPause() {
+        for (item in arrayFrogoAdmobData) {
+            if (item is AdView) {
+                item.pause()
+            }
+        }
+        super.onPause()
+    }
+
+    override fun onDestroy() {
+        for (item in arrayFrogoAdmobData) {
+            if (item is AdView) {
+                item.destroy()
+            }
+        }
+        super.onDestroy()
+    }
+
 
 }

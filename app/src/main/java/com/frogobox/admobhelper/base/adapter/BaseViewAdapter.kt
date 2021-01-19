@@ -55,7 +55,7 @@ abstract class BaseViewAdapter<T> : RecyclerView.Adapter<BaseViewHolder<T>>() {
     override fun getItemCount(): Int = mRecyclerViewDataList.size
 
     override fun getItemViewType(position: Int): Int {
-        return if (position % RECYCLER_VIEW_ITEMS_PER_AD === 0) RECYCLER_VIEW_TYPE_BANNER_AD else RECYCLER_VIEW_TYPE_MENU_ITEM
+        return if (position % RECYCLER_VIEW_ITEMS_PER_AD == 0) RECYCLER_VIEW_TYPE_BANNER_AD else RECYCLER_VIEW_TYPE_MENU_ITEM
     }
 
     override fun onBindViewHolder(holder: BaseViewHolder<T>, position: Int) {

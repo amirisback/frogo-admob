@@ -1,40 +1,38 @@
 package com.frogobox.admobhelper.ui.activity
 
 import android.os.Bundle
-import android.util.Log
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.frogobox.admobhelper.R
 import com.frogobox.admobhelper.base.adapter.BaseViewListener
-import com.frogobox.admobhelper.base.ui.BaseActivityRecycler
+import com.frogobox.admobhelper.base.ui.BaseActivity
 import com.frogobox.admobhelper.model.Fruit
 import com.frogobox.admobhelper.ui.adapter.FruitAdapter
 import com.frogobox.frogoadmobhelper.FrogoAdmobHelper.RecyclerView.loadRecyclerBannerAds
 import kotlinx.android.synthetic.main.activity_recycler_view.*
 
-class RecyclerViewActivity : BaseActivityRecycler(), BaseViewListener<Any> {
+class RecyclerViewActivity : BaseActivity(), BaseViewListener<Any> {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_recycler_view)
+
         setupDetailActivity("")
-
         createArrayFruit()
-        loadRecyclerBannerAds(this, arrayRecyclerView)
-
         setupRecyclerView()
     }
 
     private fun createArrayFruit() {
-        arrayRecyclerView.add(Fruit("Apple", "Fresh"))
-        arrayRecyclerView.add(Fruit("Grape", "Fresh"))
-        arrayRecyclerView.add(Fruit("Water Melon", "Fresh"))
-        arrayRecyclerView.add(Fruit("Blackberry", "Fresh"))
-        arrayRecyclerView.add(Fruit("Banana", "Fresh"))
+        arrayFrogoAdmobData.add(Fruit("Apple", "Fresh"))
+        arrayFrogoAdmobData.add(Fruit("Grape", "Fresh"))
+        arrayFrogoAdmobData.add(Fruit("Water Melon", "Fresh"))
+        arrayFrogoAdmobData.add(Fruit("Blackberry", "Fresh"))
+        arrayFrogoAdmobData.add(Fruit("Banana", "Fresh"))
+        loadRecyclerBannerAds(this, arrayFrogoAdmobData)
     }
 
     private fun setupAdapter(): FruitAdapter {
         val adapter = FruitAdapter()
-        adapter.setupRequirement(this, arrayRecyclerView, R.layout.content_item_fruit)
+        adapter.setupRequirement(this, arrayFrogoAdmobData, R.layout.content_item_fruit)
         return adapter
     }
 
