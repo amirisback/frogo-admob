@@ -5,40 +5,48 @@ apply plugin: 'kotlin-kapt'
 
 android {
 
+    def versionMajor = 1
+    def versionMinor = 0
+    def versionPatch = 0
+
+    def appDomain = "com"
+    def appDevConsole = "frogobox"
+    def appName = "admobhelper"
+
+    def projectApplicationId = "$appDomain.$appDevConsole.$appName"
+    def projectVersionCode = (versionMajor * 100) + (versionMinor * 10) + (versionPatch * 1)
+    def projectVersionName = "$versionMajor.$versionMinor.$versionPatch"
+
     // Declaration app name
-    def nameApp = "Admob Helper"
+    def nameApp = "Frogo Admob Helper"
+    def nameAppLower = nameApp.toLowerCase()
 
     // Declaration apk / aab name
-    def nameAPK = "frogo-admob-helper"
+    def nameAPK = nameAppLower.replace(" ", "-")
 
-    def versionPropsFile = file('version.properties')
-    Properties versionProps = new Properties()
-
-    if (versionPropsFile.canRead()) {
-        versionProps.load(new FileInputStream(versionPropsFile))
-    } else {
-        versionProps['VERSION_CODE'] = '0'
+    buildFeatures {
+        viewBinding = true
     }
 
-    def code = versionProps['VERSION_CODE'].toInteger()
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
 
-    versionProps['VERSION_CODE'] = code.toString()
-    versionProps.store(versionPropsFile.newWriter(), null)
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
 
     compileSdkVersion 30
     buildToolsVersion "30.0.3"
 
     defaultConfig {
-        applicationId "com.frogobox.admobhelper"
+        applicationId projectApplicationId
         minSdkVersion 21
         targetSdkVersion 30
-        versionCode 1
-        versionName "1.0.0"
+        versionCode projectVersionCode
+        versionName projectVersionName
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
-
-        // Declaration apps name debug mode
-        def debugAttribute = " Development"
-        def nameAppDebug = nameApp + debugAttribute
 
         // Declaration admob id for debug
         def debugAdmobPublisherId = "ca-app-pub-3940256099942544~3347511713"
@@ -50,14 +58,13 @@ android {
         def debugAdmobNativeAdvancedVideo = "ca-app-pub-3940256099942544/1044960115"
 
         // Naming APK // AAB
-        setProperty("archivesBaseName", nameAPK + versionName + "#" + code + "-"
-                + new Date().format('ddMMyy'))
+        setProperty("archivesBaseName", "${nameAPK}(${versionName})#${gitCurrentBranch()}")
 
         resConfigs "en", "id"
         vectorDrawables.useSupportLibrary = true
 
         // Inject app name for debug
-        resValue "string", "app_name", nameAppDebug
+        resValue "string", "app_name", nameApp
 
         // Inject admob id for debug
         resValue "string", "admob_publisher_id", debugAdmobPublisherId
@@ -113,6 +120,15 @@ android {
 
         }
     }
+}
+
+static def gitCurrentBranch() {
+    def branch = ""
+    def proc = "git rev-parse --abbrev-ref HEAD".execute()
+    proc.in.eachLine { line -> branch = line }
+    proc.err.eachLine { line -> println line }
+    proc.waitFor()
+    branch
 }
 
 dependencies {
