@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Primary brand color. -->
+    <color name="colorPrimary">@color/purple_200</color>
+    <color name="colorPrimaryVariant">@color/purple_700</color>
+    <color name="colorOnPrimary">@color/black</color>
+
+    <!-- Secondary brand color. -->
+    <color name="colorSecondary">@color/teal_200</color>
+    <color name="colorSecondaryVariant">@color/teal_200</color>
+    <color name="colorOnSecondary">@color/black</color>
+
+    <!-- Text color -->
+    <color name="colorTextTitle">@color/colorTextWhite</color>
+    <color name="colorTextSubTitle">@color/colorTextWhite</color>
+    <color name="colorTextDescription">@color/colorTextWhite</color>
+
+</resources>

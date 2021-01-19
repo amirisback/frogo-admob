@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <color name="purple_200">#FFBB86FC</color>
+    <color name="purple_500">#FF6200EE</color>
+    <color name="purple_700">#FF3700B3</color>
+    <color name="teal_200">#FF03DAC5</color>
+    <color name="teal_700">#FF018786</color>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+
+    <color name="colorPrimaryOld">#008577</color>
+    <color name="colorPrimaryDarkOld">#00574B</color>
+    <color name="colorAccentOld">#D81B60</color>
+
+    <!-- Base Color-->
+    <color name="colorBaseWhite">#FFFFFF</color>
+    <color name="colorBaseBlack">#000000</color>
+    <color name="colorBaseRed">#FF0000</color>
+    <color name="colorBaseToolbarIcon">#757575</color>
+
+    <!-- Background Color-->
+
+    <color name="colorBackgroundWhite">@color/colorBaseWhite</color>
+    <color name="colorBackground">#E9E7E7</color>
+    <color name="colorBackgroundFold">#95E9E7E7</color>
+    <color name="colorBackgroundDark">#A3A3A3</color>
+    <color name="colorBackgroundRed">@color/colorBaseRed</color>
+    <color name="colorBackgroundSemiBlack">#B7000000</color>
+
+    <!-- Text Color-->
+    <color name="colorTextWhite">@color/colorBaseWhite</color>
+    <color name="colorTextBlack">@color/colorBaseBlack</color>
+    <color name="colorTextGreen">#009562</color>
+    <color name="colorTextGrey">#AE000000</color>
+
+    <color name="activity_background">#000</color>
+    <color name="fragment_background">#4285f4</color>
+
+    <color name="colorBoxLoginContent">#F5F5F5</color>
+    <color name="colorBoxLoginOutline">#D8D8D8</color>
+    <color name="colorBottomNavOff">@color/colorAccentOld</color>
+
+</resources>
