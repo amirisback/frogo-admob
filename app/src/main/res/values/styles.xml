@@ -4,35 +4,8 @@
     <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/colorPrimary</item>
-        <item name="colorPrimaryDark">@color/colorBaseWhite</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
-
-        <item name="android:statusBarColor">@color/colorBaseWhite</item>
-        <item name="android:windowLightStatusBar" tools:targetApi="m">true</item>
-    </style>
-
-    <!-- Base application theme No Action Bar. -->
-    <style name="AppThemeNoToolbar" parent="Theme.AppCompat.Light.NoActionBar">
-        <!-- Customize your theme here. -->
-        <item name="colorPrimary">@color/colorPrimary</item>
-        <item name="colorPrimaryDark">@color/colorBaseWhite</item>
-        <item name="colorAccent">@color/colorAccent</item>
-
-        <item name="android:statusBarColor">@color/colorBaseWhite</item>
-        <item name="android:windowLightStatusBar" tools:targetApi="m">true</item>
-    </style>
-
-    <!-- Base application theme No Action Bar. -->
-    <style name="AppThemeNoToolbarDark" parent="Theme.AppCompat.Light.NoActionBar">
-        <!-- Customize your theme here. -->
-        <item name="colorPrimary">@color/colorPrimary</item>
-        <item name="colorPrimaryDark">@color/colorBaseWhite</item>
-        <item name="colorAccent">@color/colorAccent</item>
-    </style>
-
-
-    <style name="Toolbar.TitleText" parent="TextAppearance.Widget.AppCompat.Toolbar.Title">
-        <item name="android:textSize">16sp</item>
     </style>
 
 </resources>

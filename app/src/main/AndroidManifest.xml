@@ -9,11 +9,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ui.activity.RecyclerViewActivity"></activity>
+        <activity android:name=".ui.activity.RecyclerViewActivity" />
         <activity android:name=".ui.activity.AboutUsActivity" />
-        <activity
-            android:name=".ui.activity.MainActivity"
-            android:theme="@style/AppThemeNoToolbar">
+        <activity android:name=".ui.activity.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

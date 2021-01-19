@@ -7,14 +7,12 @@ import com.frogobox.admobhelper.R
 import com.frogobox.admobhelper.base.ui.BaseActivity
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.ads_phone_tab_special_smart_banner.*
-import kotlinx.android.synthetic.main.toolbar_main.*
 
 class MainActivity : BaseActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        setupToolbar()
         setupButtonClick()
         setupShowAdsBanner(ads_phone_tab_special_smart_banner)
     }
@@ -29,10 +27,6 @@ class MainActivity : BaseActivity() {
         btn_recycler_view.setOnClickListener {
             baseStartActivity<RecyclerViewActivity>()
         }
-    }
-
-    private fun setupToolbar() {
-        setSupportActionBar(toolbar_main)
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {

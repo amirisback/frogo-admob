@@ -3,15 +3,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/frogoColorWhite"
     tools:context=".ui.activity.MainActivity">
-
-    <include layout="@layout/toolbar_main" />
 
     <Button
         android:id="@+id/btn_interstitial"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/toolbar_main"
         android:layout_marginStart="@dimen/dimen_big_16dp"
         android:layout_marginTop="@dimen/dimen_big_16dp"
         android:layout_marginEnd="@dimen/dimen_big_16dp"
