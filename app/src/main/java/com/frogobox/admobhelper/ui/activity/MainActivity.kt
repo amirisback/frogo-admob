@@ -24,9 +24,15 @@ class MainActivity : BaseActivity() {
         btn_rewarded.setOnClickListener {
 
         }
+
         btn_recycler_view.setOnClickListener {
             baseStartActivity<NewsActivity>()
         }
+
+        btn_recycler_view_2.setOnClickListener {
+            baseStartActivity<MovieActivity>()
+        }
+
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {

@@ -5,40 +5,58 @@
     android:layout_height="match_parent"
     tools:context=".ui.activity.MainActivity">
 
-    <Button
-        android:id="@+id/btn_interstitial"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/dimen_big_16dp"
-        android:layout_marginTop="@dimen/dimen_big_16dp"
-        android:layout_marginEnd="@dimen/dimen_big_16dp"
-        android:background="@drawable/background_button_primary"
-        android:text="Interstitial Ads"
-        android:textColor="@color/colorTextWhite" />
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
-    <Button
-        android:id="@+id/btn_rewarded"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/btn_interstitial"
-        android:layout_marginStart="@dimen/dimen_big_16dp"
-        android:layout_marginTop="@dimen/dimen_big_16dp"
-        android:layout_marginEnd="@dimen/dimen_big_16dp"
-        android:background="@drawable/background_button_primary"
-        android:text="Rewarded Video Ads"
-        android:textColor="@color/colorTextWhite" />
+        <Button
+            android:id="@+id/btn_interstitial"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dimen_big_16dp"
+            android:layout_marginTop="@dimen/dimen_big_16dp"
+            android:layout_marginEnd="@dimen/dimen_big_16dp"
+            android:background="@drawable/background_button_primary"
+            android:text="Interstitial Ads"
+            android:textColor="@color/colorTextWhite" />
 
-    <Button
-        android:id="@+id/btn_recycler_view"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/btn_rewarded"
-        android:layout_marginStart="@dimen/dimen_big_16dp"
-        android:layout_marginTop="@dimen/dimen_big_16dp"
-        android:layout_marginEnd="@dimen/dimen_big_16dp"
-        android:background="@drawable/background_button_primary"
-        android:text="RecyclerView With Banner"
-        android:textColor="@color/colorTextWhite" />
+        <Button
+            android:id="@+id/btn_rewarded"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dimen_big_16dp"
+            android:layout_marginTop="@dimen/dimen_big_16dp"
+            android:layout_marginEnd="@dimen/dimen_big_16dp"
+            android:background="@drawable/background_button_primary"
+            android:text="Rewarded Video Ads"
+            android:textColor="@color/colorTextWhite"
+            android:visibility="gone" />
+
+        <Button
+            android:id="@+id/btn_recycler_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dimen_big_16dp"
+            android:layout_marginTop="@dimen/dimen_big_16dp"
+            android:layout_marginEnd="@dimen/dimen_big_16dp"
+            android:background="@drawable/background_button_primary"
+            android:text="RecyclerView With Banner (1)"
+            android:textColor="@color/colorTextWhite" />
+
+        <Button
+            android:id="@+id/btn_recycler_view_2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dimen_big_16dp"
+            android:layout_marginTop="@dimen/dimen_big_16dp"
+            android:layout_marginEnd="@dimen/dimen_big_16dp"
+            android:background="@drawable/background_button_primary"
+            android:text="RecyclerView With Banner (2)"
+            android:textColor="@color/colorTextWhite" />
+
+    </LinearLayout>
+
 
     <include layout="@layout/ads_phone_tab_special_smart_banner" />
 

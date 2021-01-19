@@ -1,12 +1,12 @@
 package com.frogobox.admobhelper.ui.activity
 
 import android.os.Bundle
-import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.GridLayoutManager
 import com.frogobox.admobhelper.R
 import com.frogobox.admobhelper.base.adapter.BaseViewListener
 import com.frogobox.admobhelper.base.ui.BaseActivity
 import com.frogobox.admobhelper.ui.adapter.NewsAdapter
-import com.frogobox.frogoadmobhelper.FrogoAdmobHelper.RecyclerView.loadRecyclerBannerAds
+import com.frogobox.frogoadmobhelper.FrogoAdmobHelper
 import com.frogobox.frogonewsapi.ConsumeNewsApi
 import com.frogobox.frogonewsapi.callback.NewsResultCallback
 import com.frogobox.frogonewsapi.data.response.ArticleResponse
@@ -14,12 +14,12 @@ import com.frogobox.frogonewsapi.util.NewsConstant
 import com.frogobox.frogonewsapi.util.NewsUrl
 import kotlinx.android.synthetic.main.activity_recycler_view.*
 
-class NewsActivity : BaseActivity() {
+class MovieActivity : BaseActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_recycler_view)
-        setupDetailActivity("RecyclerView (1)")
+        setupDetailActivity("RecyclerView (2)")
         setupNewsApi()
     }
 
@@ -36,7 +36,10 @@ class NewsActivity : BaseActivity() {
             object : NewsResultCallback<ArticleResponse> {
                 override fun getResultData(data: ArticleResponse) {
                     data.articles?.let { arrayFrogoAdmobData.addAll(it) }
-                    loadRecyclerBannerAds(this@NewsActivity, arrayFrogoAdmobData)
+                    FrogoAdmobHelper.RecyclerView.loadRecyclerBannerAds(
+                        this@MovieActivity,
+                        arrayFrogoAdmobData
+                    )
                     setupRecyclerView()
                 }
 
@@ -57,7 +60,8 @@ class NewsActivity : BaseActivity() {
 
     private fun setupAdapter(): NewsAdapter {
         val adapter = NewsAdapter()
-        adapter.setupRequirement(arrayFrogoAdmobData, R.layout.content_item_news, object : BaseViewListener<Any>{
+        adapter.setupRequirement(arrayFrogoAdmobData, R.layout.content_item_news, object :
+            BaseViewListener<Any> {
             override fun onItemClicked(data: Any) {}
             override fun onItemLongClicked(data: Any) {}
         })
@@ -65,7 +69,7 @@ class NewsActivity : BaseActivity() {
     }
 
     private fun setupRecyclerView() {
-        recycler_view.layoutManager = LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
+        recycler_view.layoutManager = GridLayoutManager(this, 2)
         recycler_view.adapter = setupAdapter()
     }
 
