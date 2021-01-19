@@ -1,24 +1,19 @@
-# Frogo Admob Helper By Amirisback
-Helper for activating admob
-- v1.0.0 - Development
+![ScreenShoot Apps](docs/image/ss_banner.png?raw=true)
 
 # About This Project
-Example Source Code For Call Method Show Admob
+[![](https://jitpack.io/v/amirisback/frogo-admob-helper.svg)](https://jitpack.io/#amirisback/frogo-admob-helper)
+- Helper for activating admob
+- Example Source Code For Call Method Show Admob
 - Calling method on Inheritance Class
 - Implement all Admob Version
+
+# ScreenShot Apps
+<p align="center"><img width="200px" height="360px" src="docs/image/ss_apps.jpg"></p>
 
 # Medium Link
 https://medium.com/@faisalamircs/dapatkan-penghasilan-dari-aplikasi-androidmu-di-play-store-dengan-admob-helper-f21288de5071
 
-# Android Library Version (build.gradle)
-- ext.kotlin_version = '1.3.61'
-- classpath 'com.android.tools.build:gradle:3.5.3'
-- compileSdkVersion 29
-- buildToolsVersion "29.0.1"
-- minSdkVersion 21
-
 # Version Release
-[![](https://jitpack.io/v/amirisback/frogo-admob-helper.svg)](https://jitpack.io/#amirisback/frogo-admob-helper)
 
     $version_release = 1.0.0
 
@@ -126,9 +121,6 @@ Add it in your root build.gradle at the end of repositories:
 - Comment code are too simple
 - Only one thought is the creator of the project
 - Creator of this project indeed need your help
-
-# ScreenShot Apps
-<p align="center"><img width="200px" height="360px" src="docs/image/ss_apps.jpg"></p>
 
 # Colaborator
 Very open to anyone, I'll write your name under this, please contribute by sending an email to me

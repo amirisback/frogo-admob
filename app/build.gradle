@@ -135,6 +135,12 @@ dependencies {
     // library frogo-log
     implementation 'com.github.amirisback:frogo-log:1.0.0'
 
+    // library frogo-ui-kit
+    implementation 'com.github.amirisback:frogo-ui-kit:1.0.3'
+
+    // library frogo-recycler-view
+    implementation 'com.github.amirisback:frogo-recycler-view:3.1.0'
+
     testImplementation 'junit:junit:4.13.1'
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
