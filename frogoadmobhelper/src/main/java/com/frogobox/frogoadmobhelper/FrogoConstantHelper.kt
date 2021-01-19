@@ -25,5 +25,4 @@ class FrogoConstantHelper {
         const val RECYCLER_VIEW_TYPE_BANNER_AD = 1 // The banner ad view type.
     }
 
-
 }

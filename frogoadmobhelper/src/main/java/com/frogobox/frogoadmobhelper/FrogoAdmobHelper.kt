@@ -54,11 +54,8 @@ object FrogoAdmobHelper : FrogoAdmobView {
 
     object Publisher : FrogoAdmobView.Publisher {
         override fun setupPublisher(context: Context) {
-            MobileAds.initialize(context) {
-
-            }
+            MobileAds.initialize(context) {}
         }
-
     }
 
     object Banner : FrogoAdmobView.Banner {
@@ -95,7 +92,7 @@ object FrogoAdmobHelper : FrogoAdmobView {
                 }
 
                 override fun onAdFailedToLoad(i: Int) {
-                    Log.w("Interstitial Load State", "onAdFailedToLoad:" + i)
+                    Log.w("Interstitial Load State", "onAdFailedToLoad:$i")
                 }
             }
         }
