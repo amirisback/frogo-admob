@@ -1,7 +1,7 @@
 ![ScreenShoot Apps](docs/image/ss_banner.png?raw=true)
 
 # About This Project
-[![](https://jitpack.io/v/amirisback/frogo-admob-helper.svg)](https://jitpack.io/#amirisback/frogo-admob-helper)
+[![](https://jitpack.io/v/amirisback/frogo-admob-helper.svg?style=flat-square)](https://jitpack.io/#amirisback/frogo-admob-helper)
 - Helper for activating admob
 - Example Source Code For Call Method Show Admob
 - Calling method on Inheritance Class
@@ -24,7 +24,7 @@ What's New??
     * Yes, Now Its Library *
     
 # How To Use / Implement This Project
-<h3>Step 1. Add the JitPack repository to your build file</h3>
+### Step 1. Add the JitPack repository to your build file
 
 Add it in your root build.gradle at the end of repositories:
 
@@ -35,7 +35,7 @@ Add it in your root build.gradle at the end of repositories:
 		}
 	}
   
-<h3>Step 2. Add the dependency</h3>
+### Step 2. Add the dependency
 
 	dependencies {
 	        // library google ads
@@ -45,7 +45,7 @@ Add it in your root build.gradle at the end of repositories:
 	        implementation 'com.github.amirisback:frogo-admob-helper:1.0.0'
 	}
 	
-<h3>Step 3. Adding meta-data on AndroidManifest.xml</h3>
+### Step 3. Adding meta-data on AndroidManifest.xml
 
 	<manifest>
         <application>
@@ -56,7 +56,7 @@ Add it in your root build.gradle at the end of repositories:
         </application>
     </manifest>
 	
-<h3>Step 4. Extend on your activity</h3>
+### Step 4. Extend on your activity
 
     class <YourActivity> : FrogoAdmobActivity() {
     
@@ -74,21 +74,16 @@ Add it in your root build.gradle at the end of repositories:
         }	
     }
 
-<h3>Step 5. Main function for calling Ads</h3>
+### Step 5. Main function for calling Ads
     
      fun setupShowAdsInterstitial()
      fun setupShowAdsBanner(<Your_Banner_Layout_ID>)
 
-<h3>Step 6. Now enjoy your earning by monetizing apps</h3>
+### Step 6. Now enjoy your earning by monetizing apps
     
     Get Ready For Publish Apps
 
-# Still Confusing For Using This Project???
-- Just Clone This Project
-- branch : master 
-- branch : before-using-library <br> -- Pick Your Choice!! --
-
-# Test Ads From Google 
+# Test Ads From Google
 
     def debugAdmobPublisherId = "ca-app-pub-3940256099942544~3347511713"
     def debugAdmobBanner = "ca-app-pub-3940256099942544/6300978111"
@@ -97,6 +92,11 @@ Add it in your root build.gradle at the end of repositories:
     def debugAdmobRewardedVideo = "ca-app-pub-3940256099942544/5224354917"
     def debugAdmobNativeAdvanced = "ca-app-pub-3940256099942544/2247696110"
     def debugAdmobNativeAdvancedVideo = "ca-app-pub-3940256099942544/1044960115"
+
+# Still Confusing For Using This Project???
+- Just Clone This Project
+- branch : master 
+- branch : before-using-library <br> -- Pick Your Choice!! --
 
 # Colaborator
 Very open to anyone, I'll write your name under this, please contribute by sending an email to me
@@ -113,9 +113,9 @@ Name Of Contribute
 Waiting for your contribute
 
 # Source
-- https://github.com/googleads/googleads-mobile-android-examples (Google Sample Code)
-- https://developers.google.com/admob/android/test-ads (Test Ads)
-- https://developers.google.com/admob/android/quick-start (For Get Started)
+- Google Sample Code [Click Here](https://github.com/googleads/googleads-mobile-android-examples)
+- Test Ads [Click Here](https://developers.google.com/admob/android/test-ads)
+- For Get Started [Click Here](https://developers.google.com/admob/android/quick-start)
 
 # Attention !!!
 Please enjoy and don't forget fork and give a star
