@@ -147,7 +147,4 @@ open class BaseActivity : FrogoAdmobActivity() {
         }
     }
 
-
-
-
 }

@@ -64,6 +64,7 @@ abstract class BaseViewAdapter<T> : RecyclerView.Adapter<BaseViewHolder<T>>() {
                 holder.bindItem(mRecyclerViewDataList[position], mViewListener)
             }
             RECYCLER_VIEW_TYPE_BANNER_AD -> {
+                holder.bindItemAdd(mRecyclerViewDataList[position])
             }
             else -> {
                 holder.bindItemAdd(mRecyclerViewDataList[position])

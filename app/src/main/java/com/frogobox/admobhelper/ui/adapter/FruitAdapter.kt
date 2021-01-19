@@ -31,8 +31,8 @@ class FruitAdapter : BaseViewAdapter<Any>() {
 
     inner class FruitViewHolder(view: View) : BaseViewHolder<Any>(view) {
 
-        val tv_name = view.tv_name
-        val tv_type = view.tv_type
+        private val tv_name = view.tv_name
+        private val tv_type = view.tv_type
 
         override fun initComponent(data: Any) {
             super.initComponent(data)

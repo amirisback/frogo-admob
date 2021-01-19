@@ -1,6 +1,7 @@
 package com.frogobox.admobhelper.ui.activity
 
 import android.os.Bundle
+import android.util.Log
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.frogobox.admobhelper.R
 import com.frogobox.admobhelper.base.adapter.BaseViewListener
@@ -16,22 +17,24 @@ class RecyclerViewActivity : BaseActivityRecycler(), BaseViewListener<Any> {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_recycler_view)
         setupDetailActivity("")
+
+        createArrayFruit()
+        loadRecyclerBannerAds(this, arrayRecyclerView)
+
         setupRecyclerView()
     }
 
-    private fun arrayFruit(): MutableList<Any> {
+    private fun createArrayFruit() {
         arrayRecyclerView.add(Fruit("Apple", "Fresh"))
         arrayRecyclerView.add(Fruit("Grape", "Fresh"))
         arrayRecyclerView.add(Fruit("Water Melon", "Fresh"))
         arrayRecyclerView.add(Fruit("Blackberry", "Fresh"))
         arrayRecyclerView.add(Fruit("Banana", "Fresh"))
-        return arrayRecyclerView
     }
 
     private fun setupAdapter(): FruitAdapter {
         val adapter = FruitAdapter()
-        adapter.setupRequirement(this, arrayFruit(), R.layout.content_item_fruit)
-        loadRecyclerBannerAds(this, arrayFruit())
+        adapter.setupRequirement(this, arrayRecyclerView, R.layout.content_item_fruit)
         return adapter
     }
 
@@ -40,12 +43,8 @@ class RecyclerViewActivity : BaseActivityRecycler(), BaseViewListener<Any> {
         recycler_view.adapter = setupAdapter()
     }
 
-    override fun onItemClicked(data: Any) {
+    override fun onItemClicked(data: Any) {}
 
-    }
-
-    override fun onItemLongClicked(data: Any) {
-
-    }
+    override fun onItemLongClicked(data: Any) {}
 
 }
