@@ -39,10 +39,10 @@ Add it in your root build.gradle at the end of repositories:
 
 	dependencies {
 	        // library google ads
-            implementation 'com.google.android.gms:play-services-ads:18.3.0'
+            implementation 'com.google.android.gms:play-services-ads:${latest_version}'
 
             // library frogo-admob-helper
-	        implementation 'com.github.amirisback:frogo-admob-helper:${version_release}'
+	        implementation 'com.github.amirisback:frogo-admob-helper:1.0.0'
 	}
 	
 <h3>Step 3. Adding meta-data on AndroidManifest.xml</h3>
@@ -97,32 +97,6 @@ Add it in your root build.gradle at the end of repositories:
     def debugAdmobRewardedVideo = "ca-app-pub-3940256099942544/5224354917"
     def debugAdmobNativeAdvanced = "ca-app-pub-3940256099942544/2247696110"
     def debugAdmobNativeAdvancedVideo = "ca-app-pub-3940256099942544/1044960115"
-
-# How To Use This Project (Depcrecated)
-- Just Clone on Your Android Studio
-- Learn this code project for inject to your project
-- String test ads can found on build.gradle in folder app
-- Change in release build variant on build.gradle with your admob id
-- (Branch : Before Using Library)
-
-# Result Of This Project
-- All logic on AdmobHelper and BaseActivity
-- All layout banner
-- All string test ads
-- Implement, interstitial and banner ads
-- Other still progress
-
-# Special From This Project
-- Inheritance RecyclerViewAdapter (BaseViewAdapter, BasViewHolder, BaseListener)
-- Inheritance AdmobActivity (BaseAdmobActivity, BaseAdmobRecyclerActivity)
-- AdmobHelper.kt class for all function admob
-- Example all layout for all banner ads size
-- Certainly Clean Code
-
-# Minus From This Project
-- Comment code are too simple
-- Only one thought is the creator of the project
-- Creator of this project indeed need your help
 
 # Colaborator
 Very open to anyone, I'll write your name under this, please contribute by sending an email to me
