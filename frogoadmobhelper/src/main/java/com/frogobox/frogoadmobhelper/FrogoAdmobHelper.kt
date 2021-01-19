@@ -3,6 +3,7 @@ package com.frogobox.frogoadmobhelper
 import android.content.Context
 import android.util.Log
 import com.frogobox.frogoadmobhelper.FrogoConstantHelper.Var.RECYCLER_VIEW_ITEMS_PER_AD
+import com.frogobox.frogolog.FrogoLog
 import com.google.android.gms.ads.*
 import com.google.android.gms.ads.reward.RewardedVideoAd
 import com.google.android.gms.ads.reward.RewardedVideoAdListener
@@ -33,23 +34,29 @@ object FrogoAdmobHelper : FrogoAdmobView {
 
     override fun setupPublisherID(mPublisherId: String) {
         admobPublisherID = mPublisherId
+        FrogoLog.d(admobPublisherID)
     }
 
     override fun setupBannerAdUnitID(mAdUnitId: String) {
         mAdUnitIdBanner = mAdUnitId
+        FrogoLog.d(mAdUnitIdBanner)
     }
 
     override fun setupInterstialAdUnitID(mAdUnitId: String) {
         mAdUnitIdInterstitial = mAdUnitId
+        FrogoLog.d(mAdUnitIdInterstitial)
     }
 
     override fun setupRewardedAdUnitID(mAdUnitId: String) {
         mAdUnitIdRewardedVideo = mAdUnitId
+        FrogoLog.d(mAdUnitIdRewardedVideo)
     }
 
     object Publisher : FrogoAdmobView.Publisher {
         override fun setupPublisher(context: Context) {
-            MobileAds.initialize(context, admobPublisherID)
+            MobileAds.initialize(context) {
+
+            }
         }
 
     }
@@ -136,7 +143,8 @@ object FrogoAdmobHelper : FrogoAdmobView {
         override fun addBannerAds(
             context: Context,
             recyclerViewDataList: MutableList<Any>
-        ) { // Loop through the items array and place a new banner ad in every ith position in the items List.
+        ) {
+            // Loop through the items array and place a new banner ad in every ith position in the items List.
             var i = 0
             while (i <= recyclerViewDataList.size) {
                 val adView = AdView(context)

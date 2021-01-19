@@ -26,8 +26,7 @@ open class FrogoAdmobActivityRecycler : FrogoAdmobActivity() {
     override fun onResume() {
         for (item in arrayRecyclerView) {
             if (item is AdView) {
-                val adView = item as AdView
-                adView.resume()
+                item.resume()
             }
         }
         super.onResume()
@@ -36,8 +35,7 @@ open class FrogoAdmobActivityRecycler : FrogoAdmobActivity() {
     override fun onPause() {
         for (item in arrayRecyclerView) {
             if (item is AdView) {
-                val adView = item as AdView
-                adView.pause()
+                item.pause()
             }
         }
         super.onPause()
@@ -46,8 +44,7 @@ open class FrogoAdmobActivityRecycler : FrogoAdmobActivity() {
     override fun onDestroy() {
         for (item in arrayRecyclerView) {
             if (item is AdView) {
-                val adView = item as AdView
-                adView.destroy()
+                item.destroy()
             }
         }
         super.onDestroy()
