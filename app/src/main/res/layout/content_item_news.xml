@@ -29,22 +29,27 @@
     android:orientation="vertical"
     android:padding="@dimen/dimen_big_16dp">
 
+    <ImageView
+        android:id="@+id/iv_poster"
+        android:scaleType="centerCrop"
+        android:layout_width="match_parent"
+        android:layout_marginBottom="@dimen/frogo_dimen_8dp"
+        android:layout_height="@dimen/frogo_dimen_150dp" />
+
     <TextView
         android:id="@+id/tv_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="@dimen/dimen_medium_8dp"
-        android:textColor="@color/colorTextBlack"
-        android:textSize="@dimen/text_size_title_small_18sp"
         android:textStyle="bold"
+        android:maxLines="1"
         tools:text="@string/dummy" />
 
     <TextView
         android:id="@+id/tv_type"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:maxLines="2"
-        android:textSize="@dimen/text_size_medium_16sp"
+        android:maxLines="3"
         tools:text="@string/dummyLong" />
 
 </LinearLayout>

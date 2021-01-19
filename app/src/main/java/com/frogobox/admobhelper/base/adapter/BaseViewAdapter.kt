@@ -34,7 +34,7 @@ abstract class BaseViewAdapter<T> : RecyclerView.Adapter<BaseViewHolder<T>>() {
     private val mRecyclerViewDataList = mutableListOf<T>()
     private var mRecyclerViewLayout: Int = 0
 
-    fun setupRequirement(viewListener: BaseViewListener<T>, dataList: List<T>, layoutItem: Int) {
+    fun setupRequirement(dataList: List<T>, layoutItem: Int, viewListener: BaseViewListener<T>) {
 
         mRecyclerViewLayout = layoutItem
         mViewListener = viewListener

@@ -25,7 +25,7 @@ class MainActivity : BaseActivity() {
 
         }
         btn_recycler_view.setOnClickListener {
-            baseStartActivity<RecyclerViewActivity>()
+            baseStartActivity<NewsActivity>()
         }
     }
 

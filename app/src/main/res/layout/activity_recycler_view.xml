@@ -6,5 +6,5 @@
     android:layout_height="match_parent"
     android:clipToPadding="false"
     android:paddingBottom="@dimen/dimen_big_16dp"
-    tools:context=".ui.activity.RecyclerViewActivity"
-    tools:listitem="@layout/content_item_fruit" />
+    tools:context=".ui.activity.NewsActivity"
+    tools:listitem="@layout/content_item_news" />
