@@ -8,7 +8,9 @@
 - Implement all Admob Version
 
 # ScreenShot Apps
-<p align="center"><img width="200px" height="360px" src="docs/image/ss_apps.jpg"></p>
+Banner and Interstitial	|	RecyclerView with Banner	|
+:----------:|:-------------:|
+<span align="center"><img width="200px" height="360px" src="docs/image/ss_image_1.png"></span> | <span align="center"><img width="200px" height="360px" src="docs/image/ss_image_2.png"></span> |
 
 # Medium Link
 https://medium.com/@faisalamircs/dapatkan-penghasilan-dari-aplikasi-androidmu-di-play-store-dengan-admob-helper-f21288de5071
