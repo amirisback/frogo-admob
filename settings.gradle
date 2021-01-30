@@ -1,2 +1,2 @@
-include ':app', ':frogoadmobhelper'
+include ':app', ':frogoadmob'
 rootProject.name='AdmobSamples'

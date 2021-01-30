@@ -6,7 +6,7 @@ import com.frogobox.admobhelper.R
 import com.frogobox.admobhelper.base.adapter.BaseViewListener
 import com.frogobox.admobhelper.base.ui.BaseActivity
 import com.frogobox.admobhelper.ui.adapter.NewsAdapter
-import com.frogobox.frogoadmobhelper.FrogoAdmobHelper.RecyclerView.loadRecyclerBannerAds
+import com.frogobox.frogoadmobhelper.admob.FrogoAdmobHelper.RecyclerView.loadRecyclerBannerAds
 import com.frogobox.frogonewsapi.ConsumeNewsApi
 import com.frogobox.frogonewsapi.callback.NewsResultCallback
 import com.frogobox.frogonewsapi.data.response.ArticleResponse

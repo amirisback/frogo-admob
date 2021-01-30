@@ -4,9 +4,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.frogobox.frogoadmobhelper.FrogoConstantHelper.Var.RECYCLER_VIEW_ITEMS_PER_AD
-import com.frogobox.frogoadmobhelper.FrogoConstantHelper.Var.RECYCLER_VIEW_TYPE_BANNER_AD
-import com.frogobox.frogoadmobhelper.FrogoConstantHelper.Var.RECYCLER_VIEW_TYPE_MENU_ITEM
+import com.frogobox.frogoadmobhelper.util.FrogoConstantHelper.Var.RECYCLER_VIEW_ITEMS_PER_AD
+import com.frogobox.frogoadmobhelper.util.FrogoConstantHelper.Var.RECYCLER_VIEW_TYPE_BANNER_AD
+import com.frogobox.frogoadmobhelper.util.FrogoConstantHelper.Var.RECYCLER_VIEW_TYPE_MENU_ITEM
 
 
 /**

@@ -1,18 +1,16 @@
 package com.frogobox.admobhelper.base.ui
 
 import android.content.Intent
-import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
 import android.view.WindowManager
 import android.widget.Toast
-import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import com.frogobox.admobhelper.R
 import com.frogobox.admobhelper.base.util.BaseHelper
-import com.frogobox.frogoadmobhelper.FrogoAdmobActivity
+import com.frogobox.frogoadmobhelper.admob.FrogoAdmobActivity
 
 /**
  * Created by Faisal Amir
