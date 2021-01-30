@@ -2,7 +2,7 @@ package com.frogobox.frogoadmobhelper.admob
 
 import android.content.Context
 import android.util.Log
-import com.frogobox.frogoadmobhelper.util.FrogoConstantHelper.Var.RECYCLER_VIEW_ITEMS_PER_AD
+import com.frogobox.frogoadmobhelper.util.FrogoRvConstant.RECYCLER_VIEW_ITEMS_PER_AD
 import com.frogobox.frogolog.FrogoLog
 import com.google.android.gms.ads.*
 import com.google.android.gms.ads.reward.RewardedVideoAd

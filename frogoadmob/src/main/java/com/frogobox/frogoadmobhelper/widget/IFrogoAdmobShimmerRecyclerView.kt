@@ -1,4 +1,4 @@
-package com.frogobox.frogoadmobhelper.view
+package com.frogobox.frogoadmobhelper.widget
 
 import com.frogobox.frogoadmobhelper.boilerplate.shimmerrclass.FrogoSrvSingleton
 import com.frogobox.frogoadmobhelper.boilerplate.shimmerrclass.FrogoSrvSingletonRecycler
@@ -17,7 +17,7 @@ import com.frogobox.frogoadmobhelper.boilerplate.shimmerrclass.FrogoSrvSingleton
  *
  */
  
-interface FrogoShimmerRecyclerViewInterface {
+interface IFrogoAdmobShimmerRecyclerView {
 
     // Setup SrvSingleton
     fun <T> injector(): FrogoSrvSingleton<T>

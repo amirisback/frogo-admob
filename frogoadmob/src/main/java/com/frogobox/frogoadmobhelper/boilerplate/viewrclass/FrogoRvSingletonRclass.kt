@@ -9,7 +9,7 @@ import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.frogobox.frogoadmobhelper.R
 import com.frogobox.frogoadmobhelper.base.parent.FrogoRecyclerViewListener
 import com.frogobox.frogoadmobhelper.util.FrogoRvConstant
-import com.frogobox.frogoadmobhelper.widget.FrogoRecyclerView
+import com.frogobox.frogoadmobhelper.widget.FrogoAdmobRecyclerView
 
 /*
  * Created by Faisal Amir
@@ -27,7 +27,7 @@ import com.frogobox.frogoadmobhelper.widget.FrogoRecyclerView
  *
  */
 class FrogoRvSingletonRclass<T> :
-    FrogoRvSingletonRclassInterface<T> {
+    IFrogoRvSingletonRclass<T> {
 
     private var emptyViewInt: Int = R.layout.frogo_container_empty_view
     private var customViewInt: Int = 0
@@ -35,15 +35,15 @@ class FrogoRvSingletonRclass<T> :
     private lateinit var frogoAdapterCallback: FrogoViewAdapterCallback<T>
     private lateinit var frogoViewAdapter: FrogoViewAdapter<T>
 
-    private lateinit var mFrogoRecyclerView: FrogoRecyclerView
+    private lateinit var mFrogoAdmobRecyclerView: FrogoAdmobRecyclerView
     private var layoutSpanCount = 0
     private var optionLayoutManager = ""
     private var optionDividerItem = false
     private var listData: List<T>? = null
     private var optionAdapter = ""
 
-    override fun initSingleton(frogoRecyclerView: FrogoRecyclerView): FrogoRvSingletonRclass<T> {
-        mFrogoRecyclerView = frogoRecyclerView
+    override fun initSingleton(frogoAdmobRecyclerView: FrogoAdmobRecyclerView): FrogoRvSingletonRclass<T> {
+        mFrogoAdmobRecyclerView = frogoAdmobRecyclerView
         return this
     }
 
@@ -110,36 +110,36 @@ class FrogoRvSingletonRclass<T> :
         Log.d("injector-spanCount", layoutSpanCount.toString())
 
         if (optionLayoutManager.equals(FrogoRvConstant.LAYOUT_LINEAR_VERTICAL)) {
-            mFrogoRecyclerView.layoutManager =
-                LinearLayoutManager(mFrogoRecyclerView.context, LinearLayoutManager.VERTICAL, false)
+            mFrogoAdmobRecyclerView.layoutManager =
+                LinearLayoutManager(mFrogoAdmobRecyclerView.context, LinearLayoutManager.VERTICAL, false)
             if (optionDividerItem) {
-                mFrogoRecyclerView.addItemDecoration(
+                mFrogoAdmobRecyclerView.addItemDecoration(
                     DividerItemDecoration(
-                        mFrogoRecyclerView.context,
+                        mFrogoAdmobRecyclerView.context,
                         LinearLayoutManager.VERTICAL
                     )
                 )
             }
         } else if (optionLayoutManager.equals(FrogoRvConstant.LAYOUT_LINEAR_HORIZONTAL)) {
-            mFrogoRecyclerView.layoutManager = LinearLayoutManager(
-                mFrogoRecyclerView.context,
+            mFrogoAdmobRecyclerView.layoutManager = LinearLayoutManager(
+                mFrogoAdmobRecyclerView.context,
                 LinearLayoutManager.HORIZONTAL,
                 false
             )
             if (optionDividerItem) {
-                mFrogoRecyclerView.addItemDecoration(
+                mFrogoAdmobRecyclerView.addItemDecoration(
                     DividerItemDecoration(
-                        mFrogoRecyclerView.context,
+                        mFrogoAdmobRecyclerView.context,
                         LinearLayoutManager.HORIZONTAL
                     )
                 )
             }
         } else if (optionLayoutManager.equals(FrogoRvConstant.LAYOUT_STAGGERED_GRID)) {
-            mFrogoRecyclerView.layoutManager =
+            mFrogoAdmobRecyclerView.layoutManager =
                 StaggeredGridLayoutManager(layoutSpanCount, StaggeredGridLayoutManager.VERTICAL)
         } else if (optionLayoutManager.equals(FrogoRvConstant.LAYOUT_GRID)) {
-            mFrogoRecyclerView.layoutManager =
-                GridLayoutManager(mFrogoRecyclerView.context, layoutSpanCount)
+            mFrogoAdmobRecyclerView.layoutManager =
+                GridLayoutManager(mFrogoAdmobRecyclerView.context, layoutSpanCount)
         }
 
     }
@@ -172,7 +172,7 @@ class FrogoRvSingletonRclass<T> :
 
     private fun setupInnerAdapter() {
         Log.d("injector-optionAdapter", optionAdapter)
-        mFrogoRecyclerView.adapter = frogoViewAdapter
+        mFrogoAdmobRecyclerView.adapter = frogoViewAdapter
     }
 
     override fun build(): FrogoRvSingletonRclass<T> {

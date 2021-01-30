@@ -6,7 +6,7 @@ import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
-import com.frogobox.frogoadmobhelper.widget.FrogoRecyclerView
+import com.frogobox.frogoadmobhelper.widget.FrogoAdmobRecyclerView
 import com.frogobox.frogoadmobhelper.R
 import com.frogobox.frogoadmobhelper.base.parent.FrogoRecyclerViewListener
 import com.frogobox.frogoadmobhelper.boilerplate.adapter.callback.FrogoViewAdapterMultiCallback
@@ -28,7 +28,7 @@ import com.frogobox.frogoadmobhelper.util.FrogoRvConstant
  * 
  */
 class FrogoRvSingletonMulti<T> :
-    FrogoRvSingletonMultiInterface<T> {
+    IFrogoRvSingletonMulti<T> {
 
     private var emptyViewInt: Int = R.layout.frogo_container_empty_view
     
@@ -37,7 +37,7 @@ class FrogoRvSingletonMulti<T> :
     private lateinit var frogoViewAdapterMultiCallback: FrogoViewAdapterMultiCallback<T>
     private lateinit var frogoViewAdapterMulti: FrogoViewAdapterMulti<T>
 
-    private lateinit var mFrogoRecyclerView: FrogoRecyclerView
+    private lateinit var mFrogoAdmobRecyclerView: FrogoAdmobRecyclerView
     private var layoutSpanCount = 0
     private var optionLayoutManager = ""
     private var optionDividerItem = false
@@ -45,8 +45,8 @@ class FrogoRvSingletonMulti<T> :
     private var optionAdapter = ""
 
 
-    override fun initSingleton(frogoRecyclerView: FrogoRecyclerView): FrogoRvSingletonMulti<T> {
-        mFrogoRecyclerView = frogoRecyclerView
+    override fun initSingleton(frogoAdmobRecyclerView: FrogoAdmobRecyclerView): FrogoRvSingletonMulti<T> {
+        mFrogoAdmobRecyclerView = frogoAdmobRecyclerView
         return this
     }
 
@@ -123,36 +123,36 @@ class FrogoRvSingletonMulti<T> :
         Log.d("injector-spanCount", layoutSpanCount.toString())
 
         if (optionLayoutManager.equals(FrogoRvConstant.LAYOUT_LINEAR_VERTICAL)) {
-            mFrogoRecyclerView.layoutManager =
-                LinearLayoutManager(mFrogoRecyclerView.context, LinearLayoutManager.VERTICAL, false)
+            mFrogoAdmobRecyclerView.layoutManager =
+                LinearLayoutManager(mFrogoAdmobRecyclerView.context, LinearLayoutManager.VERTICAL, false)
             if (optionDividerItem) {
-                mFrogoRecyclerView.addItemDecoration(
+                mFrogoAdmobRecyclerView.addItemDecoration(
                     DividerItemDecoration(
-                        mFrogoRecyclerView.context,
+                        mFrogoAdmobRecyclerView.context,
                         LinearLayoutManager.VERTICAL
                     )
                 )
             }
         } else if (optionLayoutManager.equals(FrogoRvConstant.LAYOUT_LINEAR_HORIZONTAL)) {
-            mFrogoRecyclerView.layoutManager = LinearLayoutManager(
-                mFrogoRecyclerView.context,
+            mFrogoAdmobRecyclerView.layoutManager = LinearLayoutManager(
+                mFrogoAdmobRecyclerView.context,
                 LinearLayoutManager.HORIZONTAL,
                 false
             )
             if (optionDividerItem) {
-                mFrogoRecyclerView.addItemDecoration(
+                mFrogoAdmobRecyclerView.addItemDecoration(
                     DividerItemDecoration(
-                        mFrogoRecyclerView.context,
+                        mFrogoAdmobRecyclerView.context,
                         LinearLayoutManager.HORIZONTAL
                     )
                 )
             }
         } else if (optionLayoutManager.equals(FrogoRvConstant.LAYOUT_STAGGERED_GRID)) {
-            mFrogoRecyclerView.layoutManager =
+            mFrogoAdmobRecyclerView.layoutManager =
                 StaggeredGridLayoutManager(layoutSpanCount, StaggeredGridLayoutManager.VERTICAL)
         } else if (optionLayoutManager.equals(FrogoRvConstant.LAYOUT_GRID)) {
-            mFrogoRecyclerView.layoutManager =
-                GridLayoutManager(mFrogoRecyclerView.context, layoutSpanCount)
+            mFrogoAdmobRecyclerView.layoutManager =
+                GridLayoutManager(mFrogoAdmobRecyclerView.context, layoutSpanCount)
         }
 
     }
@@ -197,7 +197,7 @@ class FrogoRvSingletonMulti<T> :
 
     private fun setupInnerAdapter() {
         Log.d("injector-optionAdapter", optionAdapter)
-        mFrogoRecyclerView.adapter = frogoViewAdapterMulti
+        mFrogoAdmobRecyclerView.adapter = frogoViewAdapterMulti
     }
 
     override fun build(): FrogoRvSingletonMulti<T> {

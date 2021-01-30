@@ -1,7 +1,7 @@
 package com.frogobox.frogoadmobhelper.boilerplate.viewbinding
 
 import androidx.viewbinding.ViewBinding
-import com.frogobox.frogoadmobhelper.widget.FrogoRecyclerView
+import com.frogobox.frogoadmobhelper.widget.FrogoAdmobRecyclerView
 
 /*
  * Created by Faisal Amir
@@ -18,9 +18,9 @@ import com.frogobox.frogoadmobhelper.widget.FrogoRecyclerView
  * com.frogobox.frogoadmobhelper.boilerplate
  * 
  */
-interface FrogoRvSingletonViewBindingInterface<T, V: ViewBinding> {
+interface IFrogoRvSingletonViewBinding<T, V: ViewBinding> {
 
-    fun initSingleton(frogoRecyclerView: FrogoRecyclerView): FrogoRvSingletonViewBinding<T, V>
+    fun initSingleton(frogoAdmobRecyclerView: FrogoAdmobRecyclerView): FrogoRvSingletonViewBinding<T, V>
 
     fun createLayoutLinearVertical(dividerItem: Boolean): FrogoRvSingletonViewBinding<T, V>
 

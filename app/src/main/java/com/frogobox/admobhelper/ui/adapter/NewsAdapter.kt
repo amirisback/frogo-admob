@@ -6,8 +6,8 @@ import com.bumptech.glide.Glide
 import com.frogobox.admobhelper.R
 import com.frogobox.admobhelper.base.adapter.BaseViewAdapter
 import com.frogobox.admobhelper.base.adapter.BaseViewHolder
-import com.frogobox.frogoadmobhelper.util.FrogoConstantHelper.Var.RECYCLER_VIEW_TYPE_BANNER_AD
-import com.frogobox.frogoadmobhelper.util.FrogoConstantHelper.Var.RECYCLER_VIEW_TYPE_MENU_ITEM
+import com.frogobox.frogoadmobhelper.util.FrogoRvConstant.RECYCLER_VIEW_TYPE_BANNER_AD
+import com.frogobox.frogoadmobhelper.util.FrogoRvConstant.RECYCLER_VIEW_TYPE_MENU_ITEM
 import com.frogobox.frogonewsapi.data.model.Article
 import kotlinx.android.synthetic.main.content_item_news.view.*
 

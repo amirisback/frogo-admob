@@ -1,6 +1,6 @@
 package com.frogobox.frogoadmobhelper.boilerplate.viewmulti
 
-import com.frogobox.frogoadmobhelper.widget.FrogoRecyclerView
+import com.frogobox.frogoadmobhelper.widget.FrogoAdmobRecyclerView
 import com.frogobox.frogoadmobhelper.boilerplate.adapter.callback.FrogoViewAdapterMultiCallback
 
 /*
@@ -18,9 +18,9 @@ import com.frogobox.frogoadmobhelper.boilerplate.adapter.callback.FrogoViewAdapt
  * com.frogobox.frogoadmobhelper.boilerplate.singleton
  * 
  */
-interface FrogoRvSingletonMultiInterface<T> {
+interface IFrogoRvSingletonMulti<T> {
 
-    fun initSingleton(frogoRecyclerView: FrogoRecyclerView): FrogoRvSingletonMulti<T>
+    fun initSingleton(frogoAdmobRecyclerView: FrogoAdmobRecyclerView): FrogoRvSingletonMulti<T>
 
     fun createLayoutLinearVertical(dividerItem: Boolean): FrogoRvSingletonMulti<T>
 

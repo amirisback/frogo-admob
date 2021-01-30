@@ -21,7 +21,7 @@ import com.frogobox.frogodesignkit.databinding.FrogoRvListType2Binding
  * com.frogobox.frogoadmobhelper.util
  * 
  */
-interface FrogoRvViewBindingInterface {
+interface IFrogoRvViewBinding {
 
     fun frogoLayoutInflater(context: Context): LayoutInflater
 

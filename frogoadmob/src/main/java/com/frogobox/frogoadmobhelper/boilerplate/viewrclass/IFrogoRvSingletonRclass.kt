@@ -1,6 +1,6 @@
 package com.frogobox.frogoadmobhelper.boilerplate.viewrclass
 
-import com.frogobox.frogoadmobhelper.widget.FrogoRecyclerView
+import com.frogobox.frogoadmobhelper.widget.FrogoAdmobRecyclerView
 
 /*
  * Created by Faisal Amir
@@ -17,9 +17,9 @@ import com.frogobox.frogoadmobhelper.widget.FrogoRecyclerView
  * com.frogobox.frogoadmobhelper.util
  * 
  */
-interface FrogoRvSingletonRclassInterface<T> {
+interface IFrogoRvSingletonRclass<T> {
 
-    fun initSingleton(frogoRecyclerView: FrogoRecyclerView): FrogoRvSingletonRclass<T>
+    fun initSingleton(frogoAdmobRecyclerView: FrogoAdmobRecyclerView): FrogoRvSingletonRclass<T>
 
     fun createLayoutLinearVertical(dividerItem: Boolean): FrogoRvSingletonRclass<T>
 

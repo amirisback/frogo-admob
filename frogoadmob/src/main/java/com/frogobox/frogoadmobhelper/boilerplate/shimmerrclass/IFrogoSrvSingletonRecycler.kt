@@ -1,7 +1,7 @@
 package com.frogobox.frogoadmobhelper.boilerplate.shimmerrclass
 
 import com.frogobox.frogoadmobhelper.boilerplate.viewrclass.FrogoViewAdapterCallback
-import com.frogobox.frogoadmobhelper.widget.FrogoRecyclerView
+import com.frogobox.frogoadmobhelper.widget.FrogoAdmobRecyclerView
 
 /*
  * Created by Faisal Amir on 04/06/2020
@@ -16,9 +16,9 @@ import com.frogobox.frogoadmobhelper.widget.FrogoRecyclerView
  *
  */
  
-interface FrogoSrvSingletonRecyclerInterface<T> {
+interface IFrogoSrvSingletonRecycler<T> {
 
-    fun initSingleton(frogoRecyclerView: FrogoRecyclerView): FrogoSrvSingletonRecycler<T>
+    fun initSingleton(frogoAdmobRecyclerView: FrogoAdmobRecyclerView): FrogoSrvSingletonRecycler<T>
 
     fun createLayoutLinearVertical(dividerItem: Boolean): FrogoSrvSingletonRecycler<T>
 

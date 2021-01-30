@@ -13,7 +13,6 @@ import com.frogobox.frogoadmobhelper.boilerplate.viewbinding.FrogoRvSingletonVie
 import com.frogobox.frogoadmobhelper.boilerplate.viewmulti.FrogoViewAdapterMulti
 import com.frogobox.frogoadmobhelper.boilerplate.viewmulti.FrogoViewHolderMultiCallback
 import com.frogobox.frogoadmobhelper.util.FrogoRvConstant
-import com.frogobox.frogoadmobhelper.view.FrogoRecyclerViewInterface
 
 
 /**
@@ -33,8 +32,8 @@ import com.frogobox.frogoadmobhelper.view.FrogoRecyclerViewInterface
  * com.frogobox.frogoviewadapter.view
  *
  */
-class FrogoRecyclerView : RecyclerView,
-    FrogoRecyclerViewInterface {
+class FrogoAdmobRecyclerView : RecyclerView,
+    IFrogoAdmobRecyclerView {
 
     constructor(context: Context) : super(context)
 

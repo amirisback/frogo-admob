@@ -1,4 +1,4 @@
-package com.frogobox.frogoadmobhelper.view
+package com.frogobox.frogoadmobhelper.widget
 
 import androidx.viewbinding.ViewBinding
 import com.frogobox.frogoadmobhelper.boilerplate.adapter.callback.FrogoViewAdapterMultiCallback
@@ -24,7 +24,7 @@ import com.frogobox.frogoadmobhelper.boilerplate.viewbinding.FrogoRvSingletonVie
  *
  */
 
-interface FrogoRecyclerViewInterface {
+interface IFrogoAdmobRecyclerView {
 
     // Setup linear vertical recycler view
     fun isViewLinearVertical(dividerItem: Boolean)

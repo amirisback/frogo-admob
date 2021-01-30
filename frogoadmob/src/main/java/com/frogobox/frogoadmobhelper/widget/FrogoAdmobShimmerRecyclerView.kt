@@ -10,7 +10,6 @@ import com.frogobox.frogoadmobhelper.R
 import com.frogobox.frogoadmobhelper.boilerplate.shimmerrclass.FrogoSrvSingleton
 import com.frogobox.frogoadmobhelper.boilerplate.shimmerrclass.FrogoSrvSingletonRecycler
 import com.frogobox.frogoadmobhelper.boilerplate.shimmerrclass.FrogoSrvSingletonShimmer
-import com.frogobox.frogoadmobhelper.view.FrogoShimmerRecyclerViewInterface
 import kotlinx.android.synthetic.main.widget_frogo_shimmer_recyclerview.view.*
 
 /*
@@ -26,12 +25,12 @@ import kotlinx.android.synthetic.main.widget_frogo_shimmer_recyclerview.view.*
  *
  */
 
-class FrogoShimmerRecyclerView @JvmOverloads constructor(
+class FrogoAdmobShimmerRecyclerView @JvmOverloads constructor(
     context: Context,
     attrs: AttributeSet? = null,
     defStyle: Int = 0,
     defStyleRes: Int = 0
-) : RelativeLayout(context, attrs, defStyle, defStyleRes), FrogoShimmerRecyclerViewInterface {
+) : RelativeLayout(context, attrs, defStyle, defStyleRes), IFrogoAdmobShimmerRecyclerView {
 
     init {
         setupViewEditor()
@@ -55,7 +54,7 @@ class FrogoShimmerRecyclerView @JvmOverloads constructor(
         }
     }
 
-    private fun setupComponentView(typedArray: TypedArray, frogoRecyclerView: FrogoRecyclerView) {
+    private fun setupComponentView(typedArray: TypedArray, frogoAdmobRecyclerView: FrogoAdmobRecyclerView) {
         val attributePaddingTop =
             typedArray.getDimension(R.styleable.frogo_shimmer_recycler_view_frvPaddingTop, 0F)
         val attributePaddingRight =
@@ -67,8 +66,8 @@ class FrogoShimmerRecyclerView @JvmOverloads constructor(
         val attributeClipToPadding =
             typedArray.getBoolean(R.styleable.frogo_shimmer_recycler_view_frvClipToPadding, true)
 
-        frogoRecyclerView.clipToPadding = attributeClipToPadding
-        frogoRecyclerView.setPadding(
+        frogoAdmobRecyclerView.clipToPadding = attributeClipToPadding
+        frogoAdmobRecyclerView.setPadding(
             attributePaddingLeft.toInt(),
             attributePaddingTop.toInt(),
             attributePaddingRight.toInt(),

@@ -17,7 +17,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <com.frogobox.frogoadmobhelper.widget.FrogoRecyclerView
+    <com.frogobox.frogoadmobhelper.widget.FrogoAdmobRecyclerView
         android:id="@+id/widget_fsrv_recyclerview"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
@@ -28,7 +28,7 @@
         android:layout_height="match_parent"
         android:visibility="gone">
 
-        <com.frogobox.frogoadmobhelper.widget.FrogoRecyclerView
+        <com.frogobox.frogoadmobhelper.widget.FrogoAdmobRecyclerView
             android:id="@+id/widget_fsrv_shimmer_recyclerview"
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
