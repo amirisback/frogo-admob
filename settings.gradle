@@ -1,2 +1,2 @@
 include ':app', ':frogoadmob'
-rootProject.name='AdmobSamples'
+rootProject.name='FrogoAdmob'
