@@ -1,4 +1,4 @@
-package com.frogobox.admobhelper.base.util
+package com.frogobox.admobhelper.base
 
 import com.google.gson.Gson
 

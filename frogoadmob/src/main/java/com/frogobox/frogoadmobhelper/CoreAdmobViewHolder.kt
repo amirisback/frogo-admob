@@ -1,8 +1,10 @@
-package com.frogobox.admobhelper.base.adapter
+package com.frogobox.frogoadmobhelper
 
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.frogobox.recycler.core.CoreFrogoRecyclerViewHolder
+import com.frogobox.recycler.core.FrogoRecyclerViewListener
 import com.google.android.gms.ads.AdView
 
 /**
@@ -23,14 +25,9 @@ import com.google.android.gms.ads.AdView
  *
  */
 
-open class BaseViewHolder<T>(view: View) : RecyclerView.ViewHolder(view) {
+abstract class CoreAdmobViewHolder<T>(view: View) : CoreFrogoRecyclerViewHolder<T>(view) {
 
-    fun bindItem(data: T, viewListener: BaseViewListener<T>) {
-        onItemViewClicked(data, viewListener)
-        initComponent(data)
-    }
-
-    fun bindItemAdd(data: T) {
+    fun bindItemAdView(data: T) {
         val adView = data as AdView
         val adCardView = itemView as ViewGroup
 
@@ -42,21 +39,6 @@ open class BaseViewHolder<T>(view: View) : RecyclerView.ViewHolder(view) {
         }
 
         adCardView.addView(adView)
-    }
-
-    private fun onItemViewClicked(data: T, viewListener: BaseViewListener<T>) {
-        itemView.setOnClickListener {
-            viewListener.onItemClicked(data)
-        }
-
-        itemView.setOnLongClickListener {
-            viewListener.onItemLongClicked(data)
-            true
-        }
-    }
-
-    open fun initComponent(data: T) {
-        // component view
     }
 
 }

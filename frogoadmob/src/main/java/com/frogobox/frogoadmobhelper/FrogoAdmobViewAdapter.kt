@@ -1,37 +1,32 @@
-package com.frogobox.frogoadmobhelper.base.viewrclass
+package com.frogobox.frogoadmobhelper
 
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.frogobox.frogoadmobhelper.R
-import com.frogobox.frogoadmobhelper.base.parent.FrogoRecyclerViewListener
-import com.frogobox.frogoadmobhelper.base.parent.ParentFrogoRecyclerViewAdapter
+import com.frogobox.frogoadmobhelper.util.FrogoRvConstant
+import com.frogobox.recycler.R
+import com.frogobox.recycler.core.FrogoRecyclerViewListener
 
-/**
- * Created by Faisal Amir
- * FrogoBox Inc License
- * =========================================
- * FrogoRecyclerViewAdapter
- * Copyright (C) 20/12/2019.
- * All rights reserved
+/*
+ * Created by Faisal Amir on 31/01/2021
+ * AdmobSamples Source Code
  * -----------------------------------------
  * Name     : Muhammad Faisal Amir
  * E-mail   : faisalamircs@gmail.com
  * Github   : github.com/amirisback
- * LinkedIn : linkedin.com/in/faisalamircs
  * -----------------------------------------
- * FrogoBox Software Industries
- * com.frogobox.frogoviewadapter
+ * Copyright (C) 2021 FrogoBox Inc.      
+ * All rights reserved
  *
  */
-abstract class FrogoRecyclerViewAdapter<T> : ParentFrogoRecyclerViewAdapter<T>() {
+abstract class FrogoAdmobViewAdapter<T> : CoreAdmobViewAdapter<T>() {
 
     private var mLayoutRecyclerViewInt: Int = 0
     private var mLayoutCustomViewInt: Int = 0
     private var mLayoutEmptyViewInt: Int = R.layout.frogo_container_empty_view
 
     private fun verifyViewInt() {
-        if (mListData.isNotEmpty()) {
+        if (listData.isNotEmpty()) {
             mLayoutRecyclerViewInt = mLayoutCustomViewInt
         } else {
             mLayoutRecyclerViewInt = mLayoutEmptyViewInt
@@ -64,12 +59,12 @@ abstract class FrogoRecyclerViewAdapter<T> : ParentFrogoRecyclerViewAdapter<T>()
     ) {
 
         if (listener != null) {
-            mFrogoRecyclerViewListener = listener
+            viewListener = listener
         }
 
-        mListData.clear()
+        this.listData.clear()
         if (listData != null) {
-            mListData.addAll(listData)
+            this.listData.addAll(listData)
         }
 
         mLayoutCustomViewInt = customViewInt
@@ -79,5 +74,15 @@ abstract class FrogoRecyclerViewAdapter<T> : ParentFrogoRecyclerViewAdapter<T>()
     fun viewLayout(parent: ViewGroup): View {
         return LayoutInflater.from(parent.context).inflate(mLayoutRecyclerViewInt, parent, false)
     }
+
+    protected fun viewLayout(parent: ViewGroup, layout: Int): View {
+        return LayoutInflater.from(parent.context).inflate(layout, parent, false)
+    }
+
+    override fun getItemViewType(position: Int): Int {
+        return if (position % FrogoRvConstant.RECYCLER_VIEW_ITEMS_PER_AD == 0) FrogoRvConstant.RECYCLER_VIEW_TYPE_BANNER_AD else FrogoRvConstant.RECYCLER_VIEW_TYPE_MENU_ITEM
+    }
+
+
 
 }

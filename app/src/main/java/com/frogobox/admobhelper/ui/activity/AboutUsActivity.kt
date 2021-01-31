@@ -2,7 +2,7 @@ package com.frogobox.admobhelper.ui.activity
 
 import android.os.Bundle
 import com.frogobox.admobhelper.R
-import com.frogobox.admobhelper.base.ui.BaseActivity
+import com.frogobox.admobhelper.base.BaseActivity
 
 class AboutUsActivity : BaseActivity() {
 

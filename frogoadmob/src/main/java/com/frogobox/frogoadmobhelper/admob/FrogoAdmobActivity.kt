@@ -2,15 +2,15 @@ package com.frogobox.frogoadmobhelper.admob
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import com.frogobox.frogoadmobhelper.admob.FrogoAdmobHelper.Banner.setupBanner
-import com.frogobox.frogoadmobhelper.admob.FrogoAdmobHelper.Banner.showBanner
-import com.frogobox.frogoadmobhelper.admob.FrogoAdmobHelper.Interstitial.setupInterstitial
-import com.frogobox.frogoadmobhelper.admob.FrogoAdmobHelper.Interstitial.showInterstitial
-import com.frogobox.frogoadmobhelper.admob.FrogoAdmobHelper.Publisher.setupPublisher
-import com.frogobox.frogoadmobhelper.admob.FrogoAdmobHelper.setupBannerAdUnitID
-import com.frogobox.frogoadmobhelper.admob.FrogoAdmobHelper.setupInterstialAdUnitID
-import com.frogobox.frogoadmobhelper.admob.FrogoAdmobHelper.setupPublisherID
-import com.frogobox.frogoadmobhelper.admob.FrogoAdmobHelper.setupRewardedAdUnitID
+import com.frogobox.frogoadmobhelper.admob.FrogoAdmob.Banner.setupBanner
+import com.frogobox.frogoadmobhelper.admob.FrogoAdmob.Banner.showBanner
+import com.frogobox.frogoadmobhelper.admob.FrogoAdmob.Interstitial.setupInterstitial
+import com.frogobox.frogoadmobhelper.admob.FrogoAdmob.Interstitial.showInterstitial
+import com.frogobox.frogoadmobhelper.admob.FrogoAdmob.Publisher.setupPublisher
+import com.frogobox.frogoadmobhelper.admob.FrogoAdmob.setupBannerAdUnitID
+import com.frogobox.frogoadmobhelper.admob.FrogoAdmob.setupInterstialAdUnitID
+import com.frogobox.frogoadmobhelper.admob.FrogoAdmob.setupPublisherID
+import com.frogobox.frogoadmobhelper.admob.FrogoAdmob.setupRewardedAdUnitID
 import com.google.android.gms.ads.AdView
 import com.google.android.gms.ads.InterstitialAd
 import com.google.android.gms.ads.reward.RewardedVideoAd

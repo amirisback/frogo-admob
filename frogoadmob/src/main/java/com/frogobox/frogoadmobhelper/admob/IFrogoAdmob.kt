@@ -23,7 +23,7 @@ import com.google.android.gms.ads.reward.RewardedVideoAdListener
  * com.frogobox.basehelper
  *
  */
-interface FrogoAdmobView {
+interface IFrogoAdmob {
     fun setupPublisherID(mPublisherId : String)
     fun setupBannerAdUnitID(mAdUnitId : String)
     fun setupInterstialAdUnitID(mAdUnitId : String)

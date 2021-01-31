@@ -25,7 +25,7 @@ import com.google.android.gms.ads.reward.RewardedVideoAdListener
  * com.frogobox.admobhelper
  *
  */
-object FrogoAdmobHelper : FrogoAdmobView {
+object FrogoAdmob : IFrogoAdmob {
 
     private lateinit var admobPublisherID: String
     private lateinit var mAdUnitIdInterstitial: String
@@ -52,13 +52,13 @@ object FrogoAdmobHelper : FrogoAdmobView {
         FrogoLog.d(mAdUnitIdRewardedVideo)
     }
 
-    object Publisher : FrogoAdmobView.Publisher {
+    object Publisher : IFrogoAdmob.Publisher {
         override fun setupPublisher(context: Context) {
             MobileAds.initialize(context) {}
         }
     }
 
-    object Banner : FrogoAdmobView.Banner {
+    object Banner : IFrogoAdmob.Banner {
 
         override fun setupBanner(mAdView: AdView) {
             mAdView.adListener = object : AdListener() {
@@ -77,7 +77,7 @@ object FrogoAdmobHelper : FrogoAdmobView {
 
     }
 
-    object Interstitial : FrogoAdmobView.Interstitial {
+    object Interstitial : IFrogoAdmob.Interstitial {
 
         override fun setupInterstitial(mInterstitialAd: InterstitialAd) {
             mInterstitialAd.adUnitId = mAdUnitIdInterstitial
@@ -107,7 +107,7 @@ object FrogoAdmobHelper : FrogoAdmobView {
 
     }
 
-    object Video : FrogoAdmobView.Video {
+    object Video : IFrogoAdmob.Video {
 
         override fun setupVideo(
             rewardedVideoAdListener: RewardedVideoAdListener,
@@ -127,7 +127,7 @@ object FrogoAdmobHelper : FrogoAdmobView {
 
     }
 
-    object RecyclerView : FrogoAdmobView.RecyclerView {
+    object RecyclerView : IFrogoAdmob.RecyclerView {
 
         override fun loadRecyclerBannerAds(
             context: Context,

@@ -4,7 +4,7 @@ import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
 import com.frogobox.admobhelper.R
-import com.frogobox.admobhelper.base.ui.BaseActivity
+import com.frogobox.admobhelper.base.BaseActivity
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.ads_phone_tab_special_smart_banner.*
 

@@ -1,4 +1,4 @@
-package com.frogobox.admobhelper.base.ui
+package com.frogobox.admobhelper.base
 
 import android.content.Intent
 import android.os.Bundle
@@ -9,7 +9,6 @@ import android.view.WindowManager
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.frogobox.admobhelper.R
-import com.frogobox.admobhelper.base.util.BaseHelper
 import com.frogobox.frogoadmobhelper.admob.FrogoAdmobActivity
 
 /**

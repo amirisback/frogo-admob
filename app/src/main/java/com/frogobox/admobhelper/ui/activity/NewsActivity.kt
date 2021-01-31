@@ -3,15 +3,15 @@ package com.frogobox.admobhelper.ui.activity
 import android.os.Bundle
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.frogobox.admobhelper.R
-import com.frogobox.admobhelper.base.adapter.BaseViewListener
-import com.frogobox.admobhelper.base.ui.BaseActivity
+import com.frogobox.admobhelper.base.BaseActivity
 import com.frogobox.admobhelper.ui.adapter.NewsAdapter
-import com.frogobox.frogoadmobhelper.admob.FrogoAdmobHelper.RecyclerView.loadRecyclerBannerAds
+import com.frogobox.frogoadmobhelper.admob.FrogoAdmob.RecyclerView.loadRecyclerBannerAds
 import com.frogobox.frogonewsapi.ConsumeNewsApi
 import com.frogobox.frogonewsapi.callback.NewsResultCallback
 import com.frogobox.frogonewsapi.data.response.ArticleResponse
 import com.frogobox.frogonewsapi.util.NewsConstant
 import com.frogobox.frogonewsapi.util.NewsUrl
+import com.frogobox.recycler.core.FrogoRecyclerViewListener
 import kotlinx.android.synthetic.main.activity_recycler_view.*
 
 class NewsActivity : BaseActivity() {
@@ -57,7 +57,7 @@ class NewsActivity : BaseActivity() {
 
     private fun setupAdapter(): NewsAdapter {
         val adapter = NewsAdapter()
-        adapter.setupRequirement(arrayFrogoAdmobData, R.layout.content_item_news, object : BaseViewListener<Any>{
+        adapter.setupRequirement(R.layout.content_item_news, arrayFrogoAdmobData, object : FrogoRecyclerViewListener<Any> {
             override fun onItemClicked(data: Any) {}
             override fun onItemLongClicked(data: Any) {}
         })
