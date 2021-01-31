@@ -1,7 +1,7 @@
 ![ScreenShoot Apps](docs/image/ss_banner.png?raw=true)
 
 # About This Project
-[![](https://jitpack.io/v/amirisback/frogo-admob-helper.svg?style=flat-square)](https://jitpack.io/#amirisback/frogo-admob-helper)
+[![](https://jitpack.io/v/amirisback/frogo-admob.svg?style=flat-square)](https://jitpack.io/#amirisback/frogo-admob-helper)
 - Helper for activating admob
 - Example Source Code For Call Method Show Admob
 - Calling method on Inheritance Class
@@ -17,11 +17,11 @@ https://medium.com/@faisalamircs/dapatkan-penghasilan-dari-aplikasi-androidmu-di
 
 # Version Release
 
-    $version_release = 1.0.0
+    $version_release = 2.0.0
 
 What's New??
 
-    * Yes, Now Its Library *
+    * Remastered Code (Open Beta) *
     
 # How To Use / Implement This Project
 ### Step 1. Add the JitPack repository to your build file
@@ -42,7 +42,7 @@ Add it in your root build.gradle at the end of repositories:
             implementation 'com.google.android.gms:play-services-ads:${latest_version}'
 
             // library frogo-admob-helper
-	        implementation 'com.github.amirisback:frogo-admob-helper:1.0.0'
+	        implementation 'com.github.amirisback:frogo-admob:2.0.0'
 	}
 	
 ### Step 3. Adding meta-data on AndroidManifest.xml
