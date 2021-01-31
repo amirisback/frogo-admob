@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.frogobox.admobhelper">
+    package="com.frogobox.admobsample">
 
     <application
         android:allowBackup="true"
@@ -9,10 +9,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.KickStart">
-        <activity android:name=".ui.activity.MovieActivity"></activity>
-        <activity android:name=".ui.activity.NewsActivity" />
-        <activity android:name=".ui.activity.AboutUsActivity" />
-        <activity android:name=".ui.activity.MainActivity">
+        <activity android:name="com.frogobox.admobsample.ui.activity.MovieActivity"></activity>
+        <activity android:name="com.frogobox.admobsample.ui.activity.NewsActivity" />
+        <activity android:name="com.frogobox.admobsample.ui.activity.AboutUsActivity" />
+        <activity android:name="com.frogobox.admobsample.ui.activity.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
