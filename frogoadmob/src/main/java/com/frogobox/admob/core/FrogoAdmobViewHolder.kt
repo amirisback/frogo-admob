@@ -1,8 +1,8 @@
-package com.frogobox.admob
+package com.frogobox.admob.core
 
 import android.view.View
 import android.view.ViewGroup
-import com.frogobox.recycler.core.CoreFrogoRecyclerViewHolder
+import com.frogobox.recycler.core.FrogoRecyclerViewHolder
 import com.google.android.gms.ads.AdView
 
 /**
@@ -23,7 +23,7 @@ import com.google.android.gms.ads.AdView
  *
  */
 
-abstract class CoreAdmobViewHolder<T>(view: View) : CoreFrogoRecyclerViewHolder<T>(view) {
+abstract class FrogoAdmobViewHolder<T>(view: View) : FrogoRecyclerViewHolder<T>(view) {
 
     fun bindItemAdView(data: T) {
         val adView = data as AdView

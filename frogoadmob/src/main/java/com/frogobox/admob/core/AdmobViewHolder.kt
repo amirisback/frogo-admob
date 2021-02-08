@@ -1,4 +1,4 @@
-package com.frogobox.admob
+package com.frogobox.admob.core
 
 import android.view.View
 
@@ -15,6 +15,6 @@ import android.view.View
  *
  */
 
-class FrogoAdmobViewHolder(view: View) : CoreAdmobViewHolder<Any>(view) {
+class AdmobViewHolder(view: View) : FrogoAdmobViewHolder<Any>(view) {
     override fun initComponent(data: Any) {}
 }

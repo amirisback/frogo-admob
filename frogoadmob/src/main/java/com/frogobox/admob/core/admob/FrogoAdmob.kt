@@ -1,8 +1,8 @@
-package com.frogobox.admob.admob
+package com.frogobox.admob.core.admob
 
 import android.content.Context
 import android.util.Log
-import com.frogobox.admob.util.FrogoRvConstant.RECYCLER_VIEW_ITEMS_PER_AD
+import com.frogobox.admob.core.FrogoRvConstant.RECYCLER_VIEW_ITEMS_PER_AD
 import com.frogobox.frogolog.FrogoLog
 import com.google.android.gms.ads.*
 import com.google.android.gms.ads.reward.RewardedVideoAd

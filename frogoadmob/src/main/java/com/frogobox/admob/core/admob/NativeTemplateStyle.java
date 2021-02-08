@@ -12,7 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-package com.frogobox.admob;
+package com.frogobox.admob.core.admob;
 
 import android.graphics.Typeface;
 import android.graphics.drawable.ColorDrawable;

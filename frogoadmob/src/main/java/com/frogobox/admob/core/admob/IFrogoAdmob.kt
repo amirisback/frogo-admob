@@ -1,4 +1,4 @@
-package com.frogobox.admob.admob
+package com.frogobox.admob.core.admob
 
 import android.content.Context
 import com.google.android.gms.ads.AdView

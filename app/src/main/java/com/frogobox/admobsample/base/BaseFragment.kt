@@ -5,7 +5,7 @@ import android.os.Bundle
 import android.view.View
 import android.widget.Toast
 import androidx.fragment.app.Fragment
-import com.frogobox.admob.admob.FrogoAdmob.Interstitial.showInterstitial
+import com.frogobox.admob.core.admob.FrogoAdmob.Interstitial.showInterstitial
 
 /**
  * Created by Faisal Amir

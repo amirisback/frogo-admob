@@ -2,7 +2,10 @@ package com.frogobox.admobsample.ui.adapter
 
 import android.view.ViewGroup
 import com.frogobox.admobsample.R
-import com.frogobox.admob.*
+import com.frogobox.admob.core.AdmobViewHolder
+import com.frogobox.admob.core.FrogoAdmobViewAdapter
+import com.frogobox.admob.core.FrogoAdmobViewHolder
+import com.frogobox.admob.core.ICoreAdmobViewAdapter
 
 /**
  * Created by Faisal Amir
@@ -24,12 +27,12 @@ import com.frogobox.admob.*
 class NewsAdapter : FrogoAdmobViewAdapter<Any>() {
 
     init {
-        viewCallback = object : CoreAdmobViewAdapterCallback<Any> {
-            override fun onViewTypeMenuItem(parent: ViewGroup): CoreAdmobViewHolder<Any> {
+        viewCallback = object : ICoreAdmobViewAdapter<Any> {
+            override fun onViewTypeMenuItem(parent: ViewGroup): FrogoAdmobViewHolder<Any> {
                 return NewsHolder(viewLayout(parent))
             }
-            override fun onViewTypeBannerAds(parent: ViewGroup): CoreAdmobViewHolder<Any> {
-                return FrogoAdmobViewHolder(viewLayout(parent, R.layout.content_item_ad_banner))
+            override fun onViewTypeBannerAds(parent: ViewGroup): FrogoAdmobViewHolder<Any> {
+                return AdmobViewHolder(viewLayout(parent, R.layout.content_item_ad_banner))
             }
         }
     }

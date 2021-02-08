@@ -5,7 +5,7 @@ import androidx.recyclerview.widget.GridLayoutManager
 import com.frogobox.admobsample.R
 import com.frogobox.admobsample.base.BaseActivity
 import com.frogobox.admobsample.ui.adapter.NewsAdapter
-import com.frogobox.admob.admob.FrogoAdmob
+import com.frogobox.admob.core.admob.FrogoAdmob
 import com.frogobox.frogonewsapi.ConsumeNewsApi
 import com.frogobox.frogonewsapi.callback.NewsResultCallback
 import com.frogobox.frogonewsapi.data.response.ArticleResponse

@@ -1,4 +1,4 @@
-package com.frogobox.admob
+package com.frogobox.admob.core
 
 import android.view.ViewGroup
 
@@ -14,10 +14,10 @@ import android.view.ViewGroup
  * All rights reserved
  *
  */
-interface CoreAdmobViewAdapterCallback<T> {
+interface ICoreAdmobViewAdapter<T> {
 
-    fun onViewTypeMenuItem(parent: ViewGroup) : CoreAdmobViewHolder<T>
+    fun onViewTypeMenuItem(parent: ViewGroup) : FrogoAdmobViewHolder<T>
 
-    fun onViewTypeBannerAds(parent: ViewGroup) : CoreAdmobViewHolder<T>
+    fun onViewTypeBannerAds(parent: ViewGroup) : FrogoAdmobViewHolder<T>
 
 }

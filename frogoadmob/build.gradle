@@ -78,6 +78,6 @@ dependencies {
     implementation 'com.github.amirisback:frogo-ui-kit:1.0.3'
 
     // library frogo-recycler-view
-    implementation 'com.github.amirisback:frogo-recycler-view:3.2.0'
+    implementation 'com.github.amirisback:frogo-recycler-view:3.3.1'
 
 }

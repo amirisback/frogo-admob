@@ -159,7 +159,7 @@ dependencies {
     implementation 'com.github.amirisback:frogo-ui-kit:1.0.3'
 
     // library frogo-recycler-view
-    implementation 'com.github.amirisback:frogo-recycler-view:3.1.0'
+    implementation 'com.github.amirisback:frogo-recycler-view:3.3.1'
 
     // library consumable code movie tmdb api
     implementation 'com.github.amirisback:consumable-code-movie-tmdb-api:1.1.5'

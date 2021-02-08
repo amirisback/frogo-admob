@@ -2,7 +2,7 @@ package com.frogobox.admobsample.ui.adapter
 
 import android.view.View
 import com.bumptech.glide.Glide
-import com.frogobox.admob.CoreAdmobViewHolder
+import com.frogobox.admob.core.FrogoAdmobViewHolder
 import com.frogobox.frogonewsapi.data.model.Article
 import kotlinx.android.synthetic.main.content_item_news.view.*
 
@@ -18,7 +18,7 @@ import kotlinx.android.synthetic.main.content_item_news.view.*
  * All rights reserved
  *
  */
-class NewsHolder(view: View) : CoreAdmobViewHolder<Any>(view) {
+class NewsHolder(view: View) : FrogoAdmobViewHolder<Any>(view) {
 
     private val tv_name = view.tv_name
     private val tv_type = view.tv_type
