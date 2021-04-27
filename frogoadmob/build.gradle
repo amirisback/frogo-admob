@@ -12,7 +12,7 @@ android {
 
     def versionMajor = 1
     def versionMinor = 0
-    def versionPatch = 0
+    def versionPatch = 1
 
     def versionCodeLibrary = (versionMajor * 100) + (versionMinor * 10) + (versionPatch)
     def versionNameLibrary = "$versionMajor.$versionMinor.$versionPatch"
@@ -66,7 +66,7 @@ dependencies {
     implementation 'com.facebook.shimmer:shimmer:0.5.0'
 
     // lib google ads
-    implementation 'com.google.android.gms:play-services-ads:19.7.0'
+    implementation 'com.google.android.gms:play-services-ads:20.0.0'
     
     // library frogo-log
     implementation 'com.github.amirisback:frogo-log:1.0.1'

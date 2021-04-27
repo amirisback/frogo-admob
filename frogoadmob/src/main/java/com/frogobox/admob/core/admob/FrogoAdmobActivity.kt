@@ -12,8 +12,6 @@ import com.frogobox.admob.core.admob.FrogoAdmob.setupInterstialAdUnitID
 import com.frogobox.admob.core.admob.FrogoAdmob.setupPublisherID
 import com.frogobox.admob.core.admob.FrogoAdmob.setupRewardedAdUnitID
 import com.google.android.gms.ads.AdView
-import com.google.android.gms.ads.InterstitialAd
-import com.google.android.gms.ads.reward.RewardedVideoAd
 
 /**
  * Created by Faisal Amir
@@ -37,10 +35,7 @@ open class FrogoAdmobActivity : AppCompatActivity() {
 
     protected lateinit var mActivity: AppCompatActivity
     protected val arrayFrogoAdmobData = mutableListOf<Any>()
-    
-    lateinit var mInterstitialAd: InterstitialAd
 
-    private lateinit var mRewardedVideoAd: RewardedVideoAd
     private lateinit var baseAdmobPublisherID : String
     private lateinit var baseAdUnitIdBanner: String
     private lateinit var baseAdUnitIdInterstitial: String
@@ -80,12 +75,11 @@ open class FrogoAdmobActivity : AppCompatActivity() {
     }
 
     private fun setupAdmobInterstitial() {
-        mInterstitialAd = InterstitialAd(this)
-        setupInterstitial(mInterstitialAd)
+        setupInterstitial(this)
     }
 
     fun setupShowAdsInterstitial() {
-        showInterstitial(mInterstitialAd)
+        showInterstitial(this)
     }
 
     fun setupShowAdsBanner(mAdView : AdView) {

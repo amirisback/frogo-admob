@@ -41,7 +41,7 @@ open class BaseFragment : Fragment() {
     }
 
     protected fun setupShowAdsInterstitial() {
-        showInterstitial(mBaseActivity.mInterstitialAd)
+        mBaseActivity.setupShowAdsInterstitial()
     }
 
     fun <Model> baseNewInstance(argsKey: String, data: Model) {
