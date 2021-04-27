@@ -17,12 +17,14 @@ https://medium.com/@faisalamircs/dapatkan-penghasilan-dari-aplikasi-androidmu-di
 
 # Version Release
 
-    $version_release = 2.0.0
+    $version_release = 2.0.1
 
 What's New??
 
-    * Remastered Code (Open Beta) *
-    
+    * Remove unused code *
+    * Refactoring code *
+    * Update play services ads 20.0.0  *
+
 # How To Use / Implement This Project
 ### Step 1. Add the JitPack repository to your build file
 
@@ -42,7 +44,7 @@ Add it in your root build.gradle at the end of repositories:
             implementation 'com.google.android.gms:play-services-ads:${latest_version}'
 
             // library frogo-admob-helper
-	        implementation 'com.github.amirisback:frogo-admob:2.0.0'
+	        implementation 'com.github.amirisback:frogo-admob:2.0.1'
 	}
 	
 ### Step 3. Adding meta-data on AndroidManifest.xml
