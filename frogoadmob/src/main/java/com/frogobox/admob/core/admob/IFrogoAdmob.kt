@@ -1,10 +1,8 @@
 package com.frogobox.admob.core.admob
 
 import android.content.Context
+import androidx.appcompat.app.AppCompatActivity
 import com.google.android.gms.ads.AdView
-import com.google.android.gms.ads.InterstitialAd
-import com.google.android.gms.ads.reward.RewardedVideoAd
-import com.google.android.gms.ads.reward.RewardedVideoAdListener
 
 /**
  * Created by Faisal Amir
@@ -39,13 +37,8 @@ interface IFrogoAdmob {
     }
 
     interface Interstitial {
-        fun setupInterstitial(mInterstitialAd: InterstitialAd)
-        fun showInterstitial(mInterstitialAd: InterstitialAd)
-    }
-
-    interface Video {
-        fun setupVideo(rewardedVideoAdListener: RewardedVideoAdListener, mRewardedVideoAd: RewardedVideoAd)
-        fun showVideo(mRewardedVideoAd: RewardedVideoAd)
+        fun setupInterstitial(context: Context)
+        fun showInterstitial(activity: AppCompatActivity)
     }
 
     interface RecyclerView {
