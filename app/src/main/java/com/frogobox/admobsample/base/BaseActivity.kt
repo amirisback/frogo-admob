@@ -2,14 +2,12 @@ package com.frogobox.admobsample.base
 
 import android.content.Intent
 import android.os.Bundle
-import android.view.Menu
-import android.view.MenuItem
-import android.view.View
-import android.view.WindowManager
+import android.view.*
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.frogobox.admobsample.R
 import com.frogobox.admob.core.admob.FrogoAdmobActivity
+import com.frogobox.admobsample.databinding.*
 
 /**
  * Created by Faisal Amir
@@ -30,9 +28,20 @@ import com.frogobox.admob.core.admob.FrogoAdmobActivity
  */
 open class BaseActivity : FrogoAdmobActivity() {
 
+    protected lateinit var mainBinding: ActivityMainBinding
+    protected lateinit var recyclerViewBinding: ActivityRecyclerViewBinding
+    protected lateinit var aboutUsBinding: ActivityAboutUsBinding
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setupAdmob()
+        setupViewBinding()
+    }
+
+    private fun setupViewBinding() {
+        mainBinding = ActivityMainBinding.inflate(baseLayoutInflater())
+        recyclerViewBinding = ActivityRecyclerViewBinding.inflate(baseLayoutInflater())
+        aboutUsBinding = ActivityAboutUsBinding.inflate(baseLayoutInflater())
     }
 
     private fun setupAdmob(){
@@ -132,6 +141,10 @@ open class BaseActivity : FrogoAdmobActivity() {
         } else {
             view.visibility = View.GONE
         }
+    }
+
+    private fun baseLayoutInflater() : LayoutInflater {
+        return LayoutInflater.from(this)
     }
 
 }

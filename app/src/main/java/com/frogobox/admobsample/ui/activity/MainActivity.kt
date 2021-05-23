@@ -5,34 +5,36 @@ import android.view.Menu
 import android.view.MenuItem
 import com.frogobox.admobsample.R
 import com.frogobox.admobsample.base.BaseActivity
-import kotlinx.android.synthetic.main.activity_main.*
-import kotlinx.android.synthetic.main.ads_phone_tab_special_smart_banner.*
 
 class MainActivity : BaseActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        setContentView(mainBinding.root)
         setupButtonClick()
-        setupShowAdsBanner(ads_phone_tab_special_smart_banner)
+        setupShowAdsBanner(mainBinding.includeAdsView.adsPhoneTabSpecialSmartBanner)
     }
 
     private fun setupButtonClick() {
-        btn_interstitial.setOnClickListener {
-            setupShowAdsInterstitial()
-        }
-        btn_rewarded.setOnClickListener {
+
+        mainBinding.apply {
+
+            btnInterstitial.setOnClickListener {
+                setupShowAdsInterstitial()
+            }
+            btnRewarded.setOnClickListener {
+
+            }
+
+            btnRecyclerView.setOnClickListener {
+                baseStartActivity<NewsActivity>()
+            }
+
+            btnRecyclerView2.setOnClickListener {
+                baseStartActivity<MovieActivity>()
+            }
 
         }
-
-        btn_recycler_view.setOnClickListener {
-            baseStartActivity<NewsActivity>()
-        }
-
-        btn_recycler_view_2.setOnClickListener {
-            baseStartActivity<MovieActivity>()
-        }
-
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {

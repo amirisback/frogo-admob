@@ -5,7 +5,6 @@ import android.os.Bundle
 import android.view.View
 import android.widget.Toast
 import androidx.fragment.app.Fragment
-import com.frogobox.admob.core.admob.FrogoAdmob.Interstitial.showInterstitial
 
 /**
  * Created by Faisal Amir
@@ -59,7 +58,7 @@ open class BaseFragment : Fragment() {
     }
 
     protected fun checkArgument(argsKey: String): Boolean {
-        return arguments!!.containsKey(argsKey)
+        return requireArguments().containsKey(argsKey)
     }
 
     protected fun setupEventEmptyView(view: View, isEmpty: Boolean) {

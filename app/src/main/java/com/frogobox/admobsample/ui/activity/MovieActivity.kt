@@ -12,13 +12,12 @@ import com.frogobox.frogonewsapi.data.response.ArticleResponse
 import com.frogobox.frogonewsapi.util.NewsConstant
 import com.frogobox.frogonewsapi.util.NewsUrl
 import com.frogobox.recycler.core.FrogoRecyclerViewListener
-import kotlinx.android.synthetic.main.activity_recycler_view.*
 
 class MovieActivity : BaseActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_recycler_view)
+        setContentView(recyclerViewBinding.root)
         setupDetailActivity("RecyclerView (2)")
         setupNewsApi()
     }
@@ -69,8 +68,10 @@ class MovieActivity : BaseActivity() {
     }
 
     private fun setupRecyclerView() {
-        recycler_view.layoutManager = GridLayoutManager(this, 2)
-        recycler_view.adapter = setupAdapter()
+        recyclerViewBinding.recyclerView.apply {
+            layoutManager = GridLayoutManager(this@MovieActivity, 2)
+            adapter = setupAdapter()
+        }
     }
 
 }

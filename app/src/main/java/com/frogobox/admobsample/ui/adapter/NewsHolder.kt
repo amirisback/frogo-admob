@@ -1,10 +1,12 @@
 package com.frogobox.admobsample.ui.adapter
 
 import android.view.View
+import android.widget.ImageView
+import android.widget.TextView
 import com.bumptech.glide.Glide
 import com.frogobox.admob.core.FrogoAdmobViewHolder
+import com.frogobox.admobsample.R
 import com.frogobox.frogonewsapi.data.model.Article
-import kotlinx.android.synthetic.main.content_item_news.view.*
 
 /*
  * Created by Faisal Amir on 31/01/2021
@@ -20,9 +22,9 @@ import kotlinx.android.synthetic.main.content_item_news.view.*
  */
 class NewsHolder(view: View) : FrogoAdmobViewHolder<Any>(view) {
 
-    private val tv_name = view.tv_name
-    private val tv_type = view.tv_type
-    private val iv_poster = view.iv_poster
+    private val tv_name = view.findViewById<TextView>(R.id.tv_name)
+    private val tv_type = view.findViewById<TextView>(R.id.tv_type)
+    private val iv_poster = view.findViewById<ImageView>(R.id.iv_poster)
 
     override fun initComponent(data: Any) {
         val article = data as Article

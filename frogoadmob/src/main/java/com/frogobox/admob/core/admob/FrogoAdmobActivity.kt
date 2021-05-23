@@ -1,6 +1,7 @@
 package com.frogobox.admob.core.admob
 
 import android.os.Bundle
+import android.view.LayoutInflater
 import androidx.appcompat.app.AppCompatActivity
 import com.frogobox.admob.core.admob.FrogoAdmob.Banner.setupBanner
 import com.frogobox.admob.core.admob.FrogoAdmob.Banner.showBanner
@@ -34,6 +35,7 @@ import com.google.android.gms.ads.AdView
 open class FrogoAdmobActivity : AppCompatActivity() {
 
     protected lateinit var mActivity: AppCompatActivity
+
     protected val arrayFrogoAdmobData = mutableListOf<Any>()
 
     private lateinit var baseAdmobPublisherID : String
@@ -113,6 +115,5 @@ open class FrogoAdmobActivity : AppCompatActivity() {
         }
         super.onDestroy()
     }
-
 
 }
