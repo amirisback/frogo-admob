@@ -1,21 +1,19 @@
 ![ScreenShoot Apps](docs/image/ss_banner.png?raw=true)
 
-# About This Project
+## About This Project
 [![](https://jitpack.io/v/amirisback/frogo-admob.svg?style=flat-square)](https://jitpack.io/#amirisback/frogo-admob-helper)
+[![Medium Badge](https://img.shields.io/badge/-faisalamircs-black?style=flat-square&logo=Medium&logoColor=white&link=https://medium.com/@fiqryq)](https://medium.com/@faisalamircs/dapatkan-penghasilan-dari-aplikasi-androidmu-di-play-store-dengan-admob-helper-f21288de5071)
 - Helper for activating admob
 - Example Source Code For Call Method Show Admob
 - Calling method on Inheritance Class
 - Implement all Admob Version
 
-# ScreenShot Apps
+## ScreenShot Apps
 Banner and Interstitial	|	RecyclerView with Banner	|
 :----------:|:-------------:|
 <span align="center"><img width="200px" height="360px" src="docs/image/ss_image_1.png"></span> | <span align="center"><img width="200px" height="360px" src="docs/image/ss_image_2.png"></span> |
 
-# Medium Link
-https://medium.com/@faisalamircs/dapatkan-penghasilan-dari-aplikasi-androidmu-di-play-store-dengan-admob-helper-f21288de5071
-
-# Version Release
+## Version Release
 
     $version_release = 2.0.1
 
@@ -25,7 +23,7 @@ What's New??
     * Refactoring code *
     * Update play services ads 20.0.0  *
 
-# How To Use / Implement This Project
+## How To Use / Implement This Project
 ### Step 1. Add the JitPack repository to your build file
 
 Add it in your root build.gradle at the end of repositories:
@@ -85,7 +83,7 @@ Add it in your root build.gradle at the end of repositories:
     
     Get Ready For Publish Apps
 
-# Test Ads From Google
+## Test Ads From Google
 
     def debugAdmobPublisherId = "ca-app-pub-3940256099942544~3347511713"
     def debugAdmobBanner = "ca-app-pub-3940256099942544/6300978111"
@@ -95,12 +93,12 @@ Add it in your root build.gradle at the end of repositories:
     def debugAdmobNativeAdvanced = "ca-app-pub-3940256099942544/2247696110"
     def debugAdmobNativeAdvancedVideo = "ca-app-pub-3940256099942544/1044960115"
 
-# Still Confusing For Using This Project???
+## Still Confusing For Using This Project???
 - Just Clone This Project
 - branch : master 
 - branch : before-using-library <br> -- Pick Your Choice!! --
 
-# Colaborator
+## Colaborator
 Very open to anyone, I'll write your name under this, please contribute by sending an email to me
 
 - Mail To faisalamircs@gmail.com
@@ -114,11 +112,11 @@ Name Of Contribute
 
 Waiting for your contribute
 
-# Source
+## Source
 - Google Sample Code [Click Here](https://github.com/googleads/googleads-mobile-android-examples)
 - Test Ads [Click Here](https://developers.google.com/admob/android/test-ads)
 - For Get Started [Click Here](https://developers.google.com/admob/android/quick-start)
 
-# Attention !!!
+## Attention !!!
 Please enjoy and don't forget fork and give a star
 - Don't Forget Follow My Github Account
