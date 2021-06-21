@@ -15,13 +15,17 @@ Banner and Interstitial	|	RecyclerView with Banner	|
 
 ## Version Release
 
-    $version_release = 2.0.1
+    $version_release = 2.0.2
 
 What's New??
 
+    * Refactoring Code *
+    * Enhance Performance *
+    * Fixing Bug *
     * Remove unused code *
-    * Refactoring code *
-    * Update play services ads 20.0.0  *
+    * Update Documentation *
+    * Update build.gradle *
+    * Update play services ads 20.2.0  *
 
 ## How To Use / Implement This Project
 ### Step 1. Add the JitPack repository to your build file
@@ -42,7 +46,7 @@ Add it in your root build.gradle at the end of repositories:
             implementation 'com.google.android.gms:play-services-ads:${latest_version}'
 
             // library frogo-admob-helper
-	        implementation 'com.github.amirisback:frogo-admob:2.0.1'
+	        implementation 'com.github.amirisback:frogo-admob:2.0.2'
 	}
 	
 ### Step 3. Adding meta-data on AndroidManifest.xml
