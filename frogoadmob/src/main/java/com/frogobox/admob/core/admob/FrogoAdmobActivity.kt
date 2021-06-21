@@ -1,7 +1,6 @@
 package com.frogobox.admob.core.admob
 
 import android.os.Bundle
-import android.view.LayoutInflater
 import androidx.appcompat.app.AppCompatActivity
 import com.frogobox.admob.core.admob.FrogoAdmob.Banner.setupBanner
 import com.frogobox.admob.core.admob.FrogoAdmob.Banner.showBanner
