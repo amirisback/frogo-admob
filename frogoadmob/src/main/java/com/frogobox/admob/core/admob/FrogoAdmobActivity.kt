@@ -7,10 +7,15 @@ import com.frogobox.admob.core.admob.FrogoAdmob.Banner.showBanner
 import com.frogobox.admob.core.admob.FrogoAdmob.Interstitial.setupInterstitial
 import com.frogobox.admob.core.admob.FrogoAdmob.Interstitial.showInterstitial
 import com.frogobox.admob.core.admob.FrogoAdmob.Publisher.setupPublisher
+import com.frogobox.admob.core.admob.FrogoAdmob.Rewarded.setupRewarded
+import com.frogobox.admob.core.admob.FrogoAdmob.Rewarded.showRewarded
+import com.frogobox.admob.core.admob.FrogoAdmob.RewardedInterstitial.setupRewardedInterstitial
+import com.frogobox.admob.core.admob.FrogoAdmob.RewardedInterstitial.showRewardedInterstitial
 import com.frogobox.admob.core.admob.FrogoAdmob.setupBannerAdUnitID
 import com.frogobox.admob.core.admob.FrogoAdmob.setupInterstialAdUnitID
 import com.frogobox.admob.core.admob.FrogoAdmob.setupPublisherID
 import com.frogobox.admob.core.admob.FrogoAdmob.setupRewardedAdUnitID
+import com.frogobox.admob.core.admob.FrogoAdmob.setupRewardedInterstitialAdUnitID
 import com.google.android.gms.ads.AdView
 
 /**
@@ -40,7 +45,8 @@ open class FrogoAdmobActivity : AppCompatActivity() {
     private lateinit var baseAdmobPublisherID : String
     private lateinit var baseAdUnitIdBanner: String
     private lateinit var baseAdUnitIdInterstitial: String
-    private lateinit var baseAdUnitIdRewardedVideo: String
+    private lateinit var baseAdUnitIdRewarded: String
+    private lateinit var baseAdUnitIdRewardedInterstitial: String
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -60,23 +66,31 @@ open class FrogoAdmobActivity : AppCompatActivity() {
     }
 
     protected fun setBaseRewardedAdUnitID(mAdUnitId : String){
-        baseAdUnitIdRewardedVideo = mAdUnitId
+        baseAdUnitIdRewarded = mAdUnitId
+    }
+
+    protected fun setBaseRewardedInterstitialAdUnitID(mAdUnitId: String) {
+        baseAdUnitIdRewardedInterstitial = mAdUnitId
     }
 
     protected fun setBaseAdmob() {
-
         setupPublisherID(baseAdmobPublisherID)
         setupBannerAdUnitID(baseAdUnitIdBanner)
         setupInterstialAdUnitID(baseAdUnitIdInterstitial)
-        setupRewardedAdUnitID(baseAdUnitIdRewardedVideo)
-
+        setupRewardedAdUnitID(baseAdUnitIdRewarded)
+        setupRewardedInterstitialAdUnitID(baseAdUnitIdRewardedInterstitial)
         setupPublisher(this)
-        setupAdmobInterstitial()
-//        setupAdmobVideo(context)
+        setupInterstitial(this)
+        setupRewarded(this)
+        setupRewardedInterstitial(this)
     }
 
-    private fun setupAdmobInterstitial() {
-        setupInterstitial(this)
+    fun setupShowAdsRewarded(callback : IFrogoAdmob.UserEarned) {
+        showRewarded(this, callback)
+    }
+
+    fun setupShowAdsRewardedInterstitial(callback: IFrogoAdmob.UserEarned) {
+        showRewardedInterstitial(this, callback)
     }
 
     fun setupShowAdsInterstitial() {
