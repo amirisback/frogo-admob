@@ -52,7 +52,8 @@ android {
         def debugAdmobBanner = "ca-app-pub-3940256099942544/6300978111"
         def debugAdmobInterstitial = "ca-app-pub-3940256099942544/1033173712"
         def debugAdmobInterstitialVideo = "ca-app-pub-3940256099942544/8691691433"
-        def debugAdmobRewardedVideo = "ca-app-pub-3940256099942544/5224354917"
+        def debugAdmobRewarded = "ca-app-pub-3940256099942544/5224354917"
+        def debugAdmobRewardedInterstitial = "ca-app-pub-3940256099942544/5354046379"
         def debugAdmobNativeAdvanced = "ca-app-pub-3940256099942544/2247696110"
         def debugAdmobNativeAdvancedVideo = "ca-app-pub-3940256099942544/1044960115"
 
@@ -70,7 +71,8 @@ android {
         resValue "string", "admob_banner", debugAdmobBanner
         resValue "string", "admob_interstitial", debugAdmobInterstitial
         resValue "string", "admob_interstitial_video", debugAdmobInterstitialVideo
-        resValue "string", "admob_rewarded_video", debugAdmobRewardedVideo
+        resValue "string", "admob_rewarded", debugAdmobRewarded
+        resValue "string", "admob_rewarded_interstitial", debugAdmobRewardedInterstitial
         resValue "string", "admob_native_advanced", debugAdmobNativeAdvanced
         resValue "string", "admob_native_advanced_video", debugAdmobNativeAdvancedVideo
 
@@ -97,13 +99,14 @@ android {
             signingConfig signingConfigs.release
 
             // Declaration admob id for release
-            def releaseAdmobPublisherId = "ca-app-pub-3940256099942544~3347511713"
-            def releaseAdmobBanner = "ca-app-pub-3940256099942544/6300978111"
-            def releaseAdmobInterstitial = "ca-app-pub-3940256099942544/1033173712"
-            def releaseAdmobInterstitialVideo = "ca-app-pub-3940256099942544/8691691433"
-            def releaseAdmobRewardedVideo = "ca-app-pub-3940256099942544/5224354917"
-            def releaseAdmobNativeAdvanced = "ca-app-pub-3940256099942544/2247696110"
-            def releaseAdmobNativeAdvancedVideo = "ca-app-pub-3940256099942544/1044960115"
+            def releaseAdmobPublisherId = ""
+            def releaseAdmobBanner = ""
+            def releaseAdmobInterstitial = ""
+            def releaseAdmobInterstitialVideo = ""
+            def releaseAdmobRewarded = ""
+            def releaseAdmobRewardedInterstitial = ""
+            def releaseAdmobNativeAdvanced = ""
+            def releaseAdmobNativeAdvancedVideo = ""
 
             // Inject app name for release
             resValue "string", "app_name", nameApp
@@ -113,7 +116,8 @@ android {
             resValue "string", "admob_banner", releaseAdmobBanner
             resValue "string", "admob_interstitial", releaseAdmobInterstitial
             resValue "string", "admob_interstitial_video", releaseAdmobInterstitialVideo
-            resValue "string", "admob_rewarded_video", releaseAdmobRewardedVideo
+            resValue "string", "admob_rewarded", releaseAdmobRewarded
+            resValue "string", "admob_rewarded_interstitial", releaseAdmobRewardedInterstitial
             resValue "string", "admob_native_advanced", releaseAdmobNativeAdvanced
             resValue "string", "admob_native_advanced_video", releaseAdmobNativeAdvancedVideo
 
