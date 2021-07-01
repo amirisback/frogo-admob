@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:ads="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:ads="http://schemas.android.com/apk/res-auto"
     tools:context=".ui.activity.MainActivity">
 
     <LinearLayout
@@ -30,9 +30,19 @@
             android:layout_marginTop="@dimen/dimen_big_16dp"
             android:layout_marginEnd="@dimen/dimen_big_16dp"
             android:background="@drawable/background_button_primary"
-            android:text="Rewarded Video Ads"
-            android:textColor="@color/colorTextWhite"
-            android:visibility="gone" />
+            android:text="Rewarded Ads"
+            android:textColor="@color/colorTextWhite" />
+
+        <Button
+            android:id="@+id/btn_rewarded_interstitial"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dimen_big_16dp"
+            android:layout_marginTop="@dimen/dimen_big_16dp"
+            android:layout_marginEnd="@dimen/dimen_big_16dp"
+            android:background="@drawable/background_button_primary"
+            android:text="Rewarded Interstital Ads"
+            android:textColor="@color/colorTextWhite" />
 
         <Button
             android:id="@+id/btn_recycler_view"
@@ -57,7 +67,6 @@
             android:textColor="@color/colorTextWhite" />
 
     </LinearLayout>
-
 
     <include
         android:id="@+id/include_ads_view"

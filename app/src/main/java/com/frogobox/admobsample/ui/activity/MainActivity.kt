@@ -3,8 +3,10 @@ package com.frogobox.admobsample.ui.activity
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
+import com.frogobox.admob.core.admob.IFrogoAdmob
 import com.frogobox.admobsample.R
 import com.frogobox.admobsample.base.BaseActivity
+import com.google.android.gms.ads.rewarded.RewardItem
 
 class MainActivity : BaseActivity() {
 
@@ -22,8 +24,21 @@ class MainActivity : BaseActivity() {
             btnInterstitial.setOnClickListener {
                 setupShowAdsInterstitial()
             }
-            btnRewarded.setOnClickListener {
 
+            btnRewarded.setOnClickListener {
+                setupShowAdsRewarded(object : IFrogoAdmob.UserEarned {
+                    override fun onUserEarnedReward(rewardItem: RewardItem) {
+                        // TODO User Get Reward
+                    }
+                })
+            }
+
+            btnRewardedInterstitial.setOnClickListener {
+                setupShowAdsRewardedInterstitial(object : IFrogoAdmob.UserEarned {
+                    override fun onUserEarnedReward(rewardItem: RewardItem) {
+                        // TODO User Get Reward
+                    }
+                })
             }
 
             btnRecyclerView.setOnClickListener {
