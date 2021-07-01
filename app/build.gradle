@@ -152,13 +152,13 @@ dependencies {
     implementation 'com.google.android.gms:play-services-ads:20.2.0'
 
     // library frogo-log
-    implementation 'com.github.amirisback:frogo-log:2.0.0'
+    implementation 'com.github.amirisback:frogo-log:2.0.1'
 
     // library frogo-ui-kit
-    implementation 'com.github.amirisback:frogo-ui-kit:2.0.0'
+    implementation 'com.github.amirisback:frogo-ui-kit:2.0.1'
 
     // library frogo-recycler-view
-    implementation 'com.github.amirisback:frogo-recycler-view:3.7.0'
+    implementation 'com.github.amirisback:frogo-recycler-view:3.7.1'
 
     // library consumable code movie tmdb api
     implementation 'com.github.amirisback:consumable-code-movie-tmdb-api:1.2.0'

@@ -61,6 +61,9 @@ dependencies {
     implementation 'androidx.core:core-ktx:1.5.0'
     implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
 
+    // github lib circle-image-view
+    implementation 'de.hdodenhof:circleimageview:3.1.0'
+
     // facebook shimmer
     implementation 'com.facebook.shimmer:shimmer:0.5.0'
 
@@ -68,15 +71,12 @@ dependencies {
     implementation 'com.google.android.gms:play-services-ads:20.2.0'
     
     // library frogo-log
-    implementation 'com.github.amirisback:frogo-log:2.0.0'
-
-    // github lib circle-image-view
-    implementation 'de.hdodenhof:circleimageview:3.1.0'
-
+    implementation 'com.github.amirisback:frogo-log:2.0.1'
+    
     // library frogo-ui-kit
-    implementation 'com.github.amirisback:frogo-ui-kit:2.0.0'
+    implementation 'com.github.amirisback:frogo-ui-kit:2.0.1'
 
     // library frogo-recycler-view
-    implementation 'com.github.amirisback:frogo-recycler-view:3.7.0'
+    implementation 'com.github.amirisback:frogo-recycler-view:3.7.1'
 
 }
