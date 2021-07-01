@@ -36,13 +36,13 @@ import com.google.android.gms.ads.AdView
  *
  */
 
-open class FrogoAdmobActivity : AppCompatActivity() {
+open class FrogoAdmobActivity : AppCompatActivity(), IFrogoAdmobActivity {
 
     protected lateinit var mActivity: AppCompatActivity
 
     protected val arrayFrogoAdmobData = mutableListOf<Any>()
 
-    private lateinit var baseAdmobPublisherID : String
+    private lateinit var baseAdmobPublisherID: String
     private lateinit var baseAdUnitIdBanner: String
     private lateinit var baseAdUnitIdInterstitial: String
     private lateinit var baseAdUnitIdRewarded: String
@@ -53,27 +53,27 @@ open class FrogoAdmobActivity : AppCompatActivity() {
         mActivity = this
     }
 
-    protected fun setBasePublisherID(mPublisherId : String){
+    override fun setBasePublisherID(mPublisherId: String) {
         baseAdmobPublisherID = mPublisherId
     }
 
-    protected fun setBaseBannerAdUnitID(mAdUnitId : String){
+    override fun setBaseBannerAdUnitID(mAdUnitId: String) {
         baseAdUnitIdBanner = mAdUnitId
     }
 
-    protected fun setBaseInterstialAdUnitID(mAdUnitId : String){
+    override fun setBaseInterstialAdUnitID(mAdUnitId: String) {
         baseAdUnitIdInterstitial = mAdUnitId
     }
 
-    protected fun setBaseRewardedAdUnitID(mAdUnitId : String){
+    override fun setBaseRewardedAdUnitID(mAdUnitId: String) {
         baseAdUnitIdRewarded = mAdUnitId
     }
 
-    protected fun setBaseRewardedInterstitialAdUnitID(mAdUnitId: String) {
+    override fun setBaseRewardedInterstitialAdUnitID(mAdUnitId: String) {
         baseAdUnitIdRewardedInterstitial = mAdUnitId
     }
 
-    protected fun setBaseAdmob() {
+    override fun setBaseAdmob() {
         setupPublisherID(baseAdmobPublisherID)
         setupBannerAdUnitID(baseAdUnitIdBanner)
         setupInterstialAdUnitID(baseAdUnitIdInterstitial)
@@ -85,21 +85,21 @@ open class FrogoAdmobActivity : AppCompatActivity() {
         setupRewardedInterstitial(this)
     }
 
-    fun setupShowAdsRewarded(callback : IFrogoAdmob.UserEarned) {
-        showRewarded(this, callback)
+    override fun setupShowAdsBanner(mAdView: AdView) {
+        setupBanner(mAdView)
+        showBanner(mAdView)
     }
 
-    fun setupShowAdsRewardedInterstitial(callback: IFrogoAdmob.UserEarned) {
-        showRewardedInterstitial(this, callback)
-    }
-
-    fun setupShowAdsInterstitial() {
+    override fun setupShowAdsInterstitial() {
         showInterstitial(this)
     }
 
-    fun setupShowAdsBanner(mAdView : AdView) {
-        setupBanner(mAdView)
-        showBanner(mAdView)
+    override fun setupShowAdsRewarded(callback: IFrogoAdmob.UserEarned) {
+        showRewarded(this, callback)
+    }
+
+    override fun setupShowAdsRewardedInterstitial(callback: IFrogoAdmob.UserEarned) {
+        showRewardedInterstitial(this, callback)
     }
 
     override fun onResume() {
