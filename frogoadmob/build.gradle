@@ -9,9 +9,9 @@ android {
     // Declaration apk / aab name
     def nameLibrarySub = nameLibrary.toLowerCase().replace(" ", "-")
 
-    def versionMajor = 2
+    def versionMajor = 3
     def versionMinor = 0
-    def versionPatch = 2
+    def versionPatch = 0
 
     def versionCodeLibrary = (versionMajor * 100) + (versionMinor * 10) + (versionPatch)
     def versionNameLibrary = "$versionMajor.$versionMinor.$versionPatch"
@@ -71,12 +71,12 @@ dependencies {
     implementation 'com.google.android.gms:play-services-ads:20.2.0'
     
     // library frogo-log
-    implementation 'com.github.amirisback:frogo-log:2.0.1'
+    implementation 'com.github.amirisback:frogo-log:2.0.2'
     
     // library frogo-ui-kit
-    implementation 'com.github.amirisback:frogo-ui-kit:2.0.1'
+    implementation 'com.github.amirisback:frogo-ui-kit:2.0.2'
 
     // library frogo-recycler-view
-    implementation 'com.github.amirisback:frogo-recycler-view:3.7.1'
+    implementation 'com.github.amirisback:frogo-recycler-view:3.7.2'
 
 }
