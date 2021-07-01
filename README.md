@@ -9,13 +9,13 @@
 - Implement all Admob Version
 
 ## ScreenShot Apps
-Banner and Interstitial	|	RecyclerView with Banner	|
-:----------:|:-------------:|
-<span align="center"><img width="200px" height="360px" src="docs/image/ss_image_1.png"></span> | <span align="center"><img width="200px" height="360px" src="docs/image/ss_image_2.png"></span> |
+| Banner and Interstitial | RecyclerView with Banner | Rewarded Apps |
+|:-----------------------:|:------------------------:|:-------------:|
+|<span align="center"><img width="200px" height="360px" src="docs/image/ss_image_1.png"></span> | <span align="center"><img width="200px" height="360px" src="docs/image/ss_image_2.png"></span> | <span align="center"><img width="200px" height="360px" src="docs/image/ss_image_3.png"></span> |
 
 ## Version Release
 
-    $version_release = 2.0.2
+    $version_release = 2.1.0
 
 What's New??
 
@@ -23,9 +23,11 @@ What's New??
     * Enhance Performance *
     * Fixing Bug *
     * Remove unused code *
-    * Update Documentation *
+    * Update documentation *
     * Update build.gradle *
-    * Update play services ads 20.2.0  *
+    * Update sample code *
+    * Add: Rewarded Ad *
+    * Add: Rewarded Interstital Ad *
 
 ## How To Use / Implement This Project
 ### Step 1. Add the JitPack repository to your build file
@@ -46,7 +48,7 @@ Add it in your root build.gradle at the end of repositories:
             implementation 'com.google.android.gms:play-services-ads:${latest_version}'
 
             // library frogo-admob-helper
-	        implementation 'com.github.amirisback:frogo-admob:2.0.2'
+	        implementation 'com.github.amirisback:frogo-admob:2.1.0'
 	}
 	
 ### Step 3. Adding meta-data on AndroidManifest.xml
@@ -74,14 +76,24 @@ Add it in your root build.gradle at the end of repositories:
             setBaseBannerAdUnitID(<Your_Banner_Unit_ID>)
             setBaseInterstialAdUnitID(<Your_Interstitial_Unit_ID>)
             setBaseRewardedAdUnitID(<Your_Rewarded_Unit_ID>)
+            setBaseRewardedInterstitialAdUnitID(<Your_Rewarded_Interstitial_Unit_ID>)
             setBaseAdmob()
         }	
     }
 
 ### Step 5. Main function for calling Ads
-    
-     fun setupShowAdsInterstitial()
-     fun setupShowAdsBanner(<Your_Banner_Layout_ID>)
+
+    // Show Banner Ads
+    fun setupShowAdsBanner(<Your_Banner_Layout_ID>)
+
+    // Show Interstitial Ads
+    fun setupShowAdsInterstitial()
+
+    // Show Rewarded Ads
+    fun setupShowAdsRewarded(callback: IFrogoAdmob.UserEarned)
+
+    // Show Rewarded Interstitial Ads
+    fun setupShowAdsRewardedInterstitial(callback: IFrogoAdmob.UserEarned)
 
 ### Step 6. Now enjoy your earning by monetizing apps
     
@@ -89,11 +101,13 @@ Add it in your root build.gradle at the end of repositories:
 
 ## Test Ads From Google
 
+    // Declaration admob id for debug
     def debugAdmobPublisherId = "ca-app-pub-3940256099942544~3347511713"
     def debugAdmobBanner = "ca-app-pub-3940256099942544/6300978111"
     def debugAdmobInterstitial = "ca-app-pub-3940256099942544/1033173712"
     def debugAdmobInterstitialVideo = "ca-app-pub-3940256099942544/8691691433"
-    def debugAdmobRewardedVideo = "ca-app-pub-3940256099942544/5224354917"
+    def debugAdmobRewarded = "ca-app-pub-3940256099942544/5224354917"
+    def debugAdmobRewardedInterstitial = "ca-app-pub-3940256099942544/5354046379"
     def debugAdmobNativeAdvanced = "ca-app-pub-3940256099942544/2247696110"
     def debugAdmobNativeAdvancedVideo = "ca-app-pub-3940256099942544/1044960115"
 
