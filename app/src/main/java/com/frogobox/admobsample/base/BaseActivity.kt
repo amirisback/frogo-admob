@@ -6,7 +6,7 @@ import android.view.*
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.frogobox.admobsample.R
-import com.frogobox.admob.core.admob.FrogoAdmobActivity
+import com.frogobox.admob.ui.FrogoAdmobActivity
 import com.frogobox.admobsample.databinding.*
 
 /**

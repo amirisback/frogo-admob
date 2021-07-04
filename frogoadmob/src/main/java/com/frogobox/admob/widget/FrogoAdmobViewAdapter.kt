@@ -1,12 +1,13 @@
-package com.frogobox.admob.core
+package com.frogobox.admob.widget
 
 
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.frogobox.admob.core.FrogoRvConstant.RECYCLER_VIEW_TYPE_BANNER_AD
-import com.frogobox.admob.core.FrogoRvConstant.RECYCLER_VIEW_TYPE_MENU_ITEM
+import com.frogobox.admob.core.FrogoAdmobConstant
+import com.frogobox.admob.core.FrogoAdmobConstant.RECYCLER_VIEW_TYPE_BANNER_AD
+import com.frogobox.admob.core.FrogoAdmobConstant.RECYCLER_VIEW_TYPE_MENU_ITEM
 import com.frogobox.recycler.R
 import com.frogobox.recycler.core.FrogoHolder
 import com.frogobox.recycler.core.FrogoRecyclerViewListener
@@ -32,7 +33,7 @@ import com.frogobox.recycler.core.FrogoRecyclerViewListener
 
 abstract class FrogoAdmobViewAdapter<T> : RecyclerView.Adapter<FrogoAdmobViewHolder<T>>() {
 
-    protected var viewCallback: ICoreAdmobViewAdapter<T>? = null
+    protected var viewCallback: IFrogoAdmobViewAdapter<T>? = null
     protected var viewListener: FrogoRecyclerViewListener<T>? = null
 
     protected val frogoHolder = mutableListOf<FrogoHolder<T>>()
@@ -87,7 +88,7 @@ abstract class FrogoAdmobViewAdapter<T> : RecyclerView.Adapter<FrogoAdmobViewHol
     }
 
     override fun getItemViewType(position: Int): Int {
-        return if (position % FrogoRvConstant.RECYCLER_VIEW_ITEMS_PER_AD == 0) RECYCLER_VIEW_TYPE_BANNER_AD else RECYCLER_VIEW_TYPE_MENU_ITEM
+        return if (position % FrogoAdmobConstant.RECYCLER_VIEW_ITEMS_PER_AD == 0) RECYCLER_VIEW_TYPE_BANNER_AD else RECYCLER_VIEW_TYPE_MENU_ITEM
     }
 
     protected fun viewLayout(parent: ViewGroup, layout: Int): View {

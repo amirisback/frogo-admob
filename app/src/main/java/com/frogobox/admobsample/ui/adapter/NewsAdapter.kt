@@ -2,10 +2,10 @@ package com.frogobox.admobsample.ui.adapter
 
 import android.view.ViewGroup
 import com.frogobox.admobsample.R
-import com.frogobox.admob.core.AdmobViewHolder
-import com.frogobox.admob.core.FrogoAdmobViewAdapter
-import com.frogobox.admob.core.FrogoAdmobViewHolder
-import com.frogobox.admob.core.ICoreAdmobViewAdapter
+import com.frogobox.admob.widget.AdmobViewHolder
+import com.frogobox.admob.widget.FrogoAdmobViewAdapter
+import com.frogobox.admob.widget.FrogoAdmobViewHolder
+import com.frogobox.admob.widget.IFrogoAdmobViewAdapter
 
 /**
  * Created by Faisal Amir
@@ -27,7 +27,7 @@ import com.frogobox.admob.core.ICoreAdmobViewAdapter
 class NewsAdapter : FrogoAdmobViewAdapter<Any>() {
 
     init {
-        viewCallback = object : ICoreAdmobViewAdapter<Any> {
+        viewCallback = object : IFrogoAdmobViewAdapter<Any> {
             override fun onViewTypeMenuItem(parent: ViewGroup): FrogoAdmobViewHolder<Any> {
                 return NewsHolder(viewLayout(parent))
             }

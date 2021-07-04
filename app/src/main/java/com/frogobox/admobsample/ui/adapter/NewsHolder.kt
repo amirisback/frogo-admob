@@ -4,7 +4,7 @@ import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
 import com.bumptech.glide.Glide
-import com.frogobox.admob.core.FrogoAdmobViewHolder
+import com.frogobox.admob.widget.FrogoAdmobViewHolder
 import com.frogobox.admobsample.R
 import com.frogobox.frogonewsapi.data.model.Article
 

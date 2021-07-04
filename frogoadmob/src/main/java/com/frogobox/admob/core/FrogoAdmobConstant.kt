@@ -15,7 +15,7 @@ package com.frogobox.admob.core
  * com.frogobox.frogoadmobhelper.util
  * 
  */
-object FrogoRvConstant {
+object FrogoAdmobConstant {
 
     // Divider Admob
     const val RECYCLER_VIEW_ITEMS_PER_AD = 4 // A banner ad is placed in every 8th position in the RecyclerView.

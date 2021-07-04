@@ -1,4 +1,4 @@
-package com.frogobox.admob.core.admob
+package com.frogobox.admob.core
 
 import android.content.Context
 import androidx.appcompat.app.AppCompatActivity

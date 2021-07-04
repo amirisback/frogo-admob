@@ -1,5 +1,6 @@
-package com.frogobox.admob.core.admob
+package com.frogobox.admob.ui
 
+import com.frogobox.admob.core.IFrogoAdmob
 import com.google.android.gms.ads.AdView
 
 /*

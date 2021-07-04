@@ -1,4 +1,4 @@
-package com.frogobox.admob.core
+package com.frogobox.admob.widget
 
 import android.view.ViewGroup
 
@@ -14,7 +14,7 @@ import android.view.ViewGroup
  * All rights reserved
  *
  */
-interface ICoreAdmobViewAdapter<T> {
+interface IFrogoAdmobViewAdapter<T> {
 
     fun onViewTypeMenuItem(parent: ViewGroup) : FrogoAdmobViewHolder<T>
 
