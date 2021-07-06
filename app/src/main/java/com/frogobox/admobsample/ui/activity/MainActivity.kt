@@ -6,20 +6,24 @@ import android.view.MenuItem
 import com.frogobox.admob.core.IFrogoAdmob
 import com.frogobox.admobsample.R
 import com.frogobox.admobsample.base.BaseActivity
+import com.frogobox.admobsample.databinding.ActivityMainBinding
 import com.google.android.gms.ads.rewarded.RewardItem
 
-class MainActivity : BaseActivity() {
+class MainActivity : BaseActivity<ActivityMainBinding>() {
+
+    override fun setupViewBinding(): ActivityMainBinding {
+        return ActivityMainBinding.inflate(layoutInflater)
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(mainBinding.root)
         setupButtonClick()
-        setupShowAdsBanner(mainBinding.includeAdsView.adsPhoneTabSpecialSmartBanner)
+        setupShowAdsBanner(binding.includeAdsView.adsPhoneTabSpecialSmartBanner)
     }
 
     private fun setupButtonClick() {
 
-        mainBinding.apply {
+        binding.apply {
 
             btnInterstitial.setOnClickListener {
                 setupShowAdsInterstitial()
@@ -66,5 +70,6 @@ class MainActivity : BaseActivity() {
             else -> super.onOptionsItemSelected(item)
         }
     }
+
 
 }

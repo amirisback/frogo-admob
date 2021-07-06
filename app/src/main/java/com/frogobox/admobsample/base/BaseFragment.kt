@@ -2,9 +2,13 @@ package com.frogobox.admobsample.base
 
 import android.content.Intent
 import android.os.Bundle
+import android.view.LayoutInflater
 import android.view.View
+import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.viewbinding.ViewBinding
+import com.google.gson.Gson
 
 /**
  * Created by Faisal Amir
@@ -23,13 +27,30 @@ import androidx.fragment.app.Fragment
  * com.frogobox.admobhelper.activity
  *
  */
-open class BaseFragment : Fragment() {
+abstract class BaseFragment<VB : ViewBinding> : Fragment() {
 
-    lateinit var mBaseActivity: BaseActivity
+    protected var binding: VB? = null
+    protected lateinit var mBaseActivity: BaseActivity<*>
+
+    abstract fun setupViewBinding(inflater: LayoutInflater, container: ViewGroup?) : VB
+
+    override fun onDestroy() {
+        super.onDestroy()
+        binding = null
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        mBaseActivity = (activity as BaseActivity)
+        mBaseActivity = (activity as BaseActivity<*>)
+    }
+
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
+        binding = setupViewBinding(inflater, container)
+        return binding?.root
     }
 
     protected fun setupChildFragment(frameId: Int, fragment: Fragment) {
@@ -44,7 +65,7 @@ open class BaseFragment : Fragment() {
     }
 
     fun <Model> baseNewInstance(argsKey: String, data: Model) {
-        val argsData = BaseHelper().baseToJson(data)
+        val argsData = Gson().toJson(data)
         val bundleArgs = Bundle().apply {
             putString(argsKey, argsData)
         }
@@ -53,7 +74,7 @@ open class BaseFragment : Fragment() {
 
     protected inline fun <reified Model> baseGetInstance(argsKey: String): Model {
         val argsData = this.arguments?.getString(argsKey)
-        val instaceData = BaseHelper().baseFromJson<Model>(argsData)
+        val instaceData = Gson().fromJson<Model>(argsData, Model::class.java)
         return instaceData
     }
 
@@ -90,7 +111,7 @@ open class BaseFragment : Fragment() {
         data: Model
     ) {
         val intent = Intent(context, ClassActivity::class.java)
-        val extraData = BaseHelper().baseToJson(data)
+        val extraData = Gson().toJson(data)
         intent.putExtra(extraKey, extraData)
         this.startActivity(intent)
     }

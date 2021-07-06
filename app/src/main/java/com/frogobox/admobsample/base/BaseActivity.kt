@@ -5,9 +5,10 @@ import android.os.Bundle
 import android.view.*
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.viewbinding.ViewBinding
 import com.frogobox.admobsample.R
 import com.frogobox.admob.ui.FrogoAdmobActivity
-import com.frogobox.admobsample.databinding.*
+import com.google.gson.Gson
 
 /**
  * Created by Faisal Amir
@@ -26,31 +27,45 @@ import com.frogobox.admobsample.databinding.*
  * com.frogobox.admobhelper.base
  *
  */
-open class BaseActivity : FrogoAdmobActivity() {
+abstract class BaseActivity<VB : ViewBinding> : FrogoAdmobActivity() {
 
-    protected lateinit var mainBinding: ActivityMainBinding
-    protected lateinit var recyclerViewBinding: ActivityRecyclerViewBinding
-    protected lateinit var aboutUsBinding: ActivityAboutUsBinding
+    protected lateinit var binding: VB
+
+    abstract fun setupViewBinding() : VB
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        binding = setupViewBinding()
+        setContentView(binding.root)
         setupAdmob()
-        setupViewBinding()
-    }
-
-    private fun setupViewBinding() {
-        mainBinding = ActivityMainBinding.inflate(baseLayoutInflater())
-        recyclerViewBinding = ActivityRecyclerViewBinding.inflate(baseLayoutInflater())
-        aboutUsBinding = ActivityAboutUsBinding.inflate(baseLayoutInflater())
     }
 
     private fun setupAdmob(){
-        setBasePublisherID(getString(R.string.admob_publisher_id))
-        setBaseBannerAdUnitID(getString(R.string.admob_banner))
-        setBaseInterstialAdUnitID(getString(R.string.admob_interstitial))
-        setBaseRewardedAdUnitID(getString(R.string.admob_rewarded))
-        setBaseRewardedInterstitialAdUnitID(getString(R.string.admob_rewarded_interstitial))
-        setBaseAdmob()
+        setPublisher()
+        setBanner()
+        setInterstitial()
+        setRewarded()
+        setRewardedInterstitial()
+    }
+
+    private fun setPublisher() {
+        setupAdsPublisher(getString(R.string.admob_publisher_id))
+    }
+
+    private fun setBanner() {
+        setupAdsBanner(getString(R.string.admob_banner))
+    }
+
+    private fun setInterstitial() {
+        setupAdsInterstitial(getString(R.string.admob_interstitial))
+    }
+
+    private fun setRewarded() {
+        setupAdsRewarded(getString(R.string.admob_rewarded))
+    }
+
+    private fun setRewardedInterstitial() {
+        setupAdsRewardedInterstitial(getString(R.string.admob_rewarded_interstitial))
     }
 
     protected fun setupCustomTitleToolbar(title: Int) {
@@ -81,14 +96,14 @@ open class BaseActivity : FrogoAdmobActivity() {
         data: Model
     ) {
         val intent = Intent(this, ClassActivity::class.java)
-        val extraData = BaseHelper().baseToJson(data)
+        val extraData = Gson().toJson(data)
         intent.putExtra(extraKey, extraData)
         this.startActivity(intent)
     }
 
     protected inline fun <reified Model> baseGetExtraData(extraKey: String): Model {
         val extraIntent = intent.getStringExtra(extraKey)
-        val extraData = BaseHelper().baseFromJson<Model>(extraIntent)
+        val extraData = Gson().fromJson(extraIntent, Model::class.java)
         return extraData
     }
 
@@ -96,8 +111,8 @@ open class BaseActivity : FrogoAdmobActivity() {
         return intent?.hasExtra(extraKey)!!
     }
 
-    protected fun <Model> baseFragmentNewInstance(
-        fragment: BaseFragment,
+    protected fun <Model, VB: ViewBinding> baseFragmentNewInstance(
+        fragment: BaseFragment<VB>,
         argumentKey: String,
         extraDataResult: Model
     ) {
@@ -142,10 +157,6 @@ open class BaseActivity : FrogoAdmobActivity() {
         } else {
             view.visibility = View.GONE
         }
-    }
-
-    private fun baseLayoutInflater() : LayoutInflater {
-        return LayoutInflater.from(this)
     }
 
 }

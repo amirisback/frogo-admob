@@ -7,18 +7,18 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.frogobox.admobsample.R
 import com.frogobox.admobsample.base.BaseFragment
+import com.frogobox.admobsample.databinding.FragmentMainBinding
 
 /**
  * A simple [Fragment] subclass.
  */
-class MainFragment : BaseFragment() {
+class MainFragment : BaseFragment<FragmentMainBinding>() {
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_main, container, false)
+    override fun setupViewBinding(
+        inflater: LayoutInflater,
+        container: ViewGroup?
+    ): FragmentMainBinding {
+        return FragmentMainBinding.inflate(inflater, container, false)
     }
 
 

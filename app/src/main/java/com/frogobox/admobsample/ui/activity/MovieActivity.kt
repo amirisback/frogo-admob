@@ -6,6 +6,7 @@ import com.frogobox.admobsample.R
 import com.frogobox.admobsample.base.BaseActivity
 import com.frogobox.admobsample.ui.adapter.NewsAdapter
 import com.frogobox.admob.core.FrogoAdmob
+import com.frogobox.admobsample.databinding.ActivityRecyclerViewBinding
 import com.frogobox.frogonewsapi.ConsumeNewsApi
 import com.frogobox.frogonewsapi.callback.NewsResultCallback
 import com.frogobox.frogonewsapi.data.response.ArticleResponse
@@ -13,11 +14,14 @@ import com.frogobox.frogonewsapi.util.NewsConstant
 import com.frogobox.frogonewsapi.util.NewsUrl
 import com.frogobox.recycler.core.FrogoRecyclerViewListener
 
-class MovieActivity : BaseActivity() {
+class MovieActivity : BaseActivity<ActivityRecyclerViewBinding>() {
+
+    override fun setupViewBinding(): ActivityRecyclerViewBinding {
+        return ActivityRecyclerViewBinding.inflate(layoutInflater)
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(recyclerViewBinding.root)
         setupDetailActivity("RecyclerView (2)")
         setupNewsApi()
     }
@@ -68,7 +72,7 @@ class MovieActivity : BaseActivity() {
     }
 
     private fun setupRecyclerView() {
-        recyclerViewBinding.recyclerView.apply {
+        binding.recyclerView.apply {
             layoutManager = GridLayoutManager(this@MovieActivity, 2)
             adapter = setupAdapter()
         }
