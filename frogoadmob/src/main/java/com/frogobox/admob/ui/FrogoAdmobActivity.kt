@@ -39,47 +39,36 @@ import com.google.android.gms.ads.AdView
 
 open class FrogoAdmobActivity : AppCompatActivity(), IFrogoAdmobActivity {
 
-    protected lateinit var mActivity: AppCompatActivity
+    protected lateinit var mFrogoActivity: AppCompatActivity
 
     protected val arrayFrogoAdmobData = mutableListOf<Any>()
 
-    private lateinit var baseAdmobPublisherID: String
-    private lateinit var baseAdUnitIdBanner: String
-    private lateinit var baseAdUnitIdInterstitial: String
-    private lateinit var baseAdUnitIdRewarded: String
-    private lateinit var baseAdUnitIdRewardedInterstitial: String
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        mActivity = this
+        mFrogoActivity = this
     }
 
     override fun setupAdsPublisher(mPublisherId: String) {
-        baseAdmobPublisherID = mPublisherId
-        setupPublisherID(baseAdmobPublisherID)
+        setupPublisherID(mPublisherId)
         setupPublisher(this)
     }
 
     override fun setupAdsBanner(mAdUnitId: String) {
-        baseAdUnitIdBanner = mAdUnitId
-        setupBannerAdUnitID(baseAdUnitIdBanner)
+        setupBannerAdUnitID(mAdUnitId)
     }
 
     override fun setupAdsInterstitial(mAdUnitId: String) {
-        baseAdUnitIdInterstitial = mAdUnitId
-        setupInterstialAdUnitID(baseAdUnitIdInterstitial)
+        setupInterstialAdUnitID(mAdUnitId)
         setupInterstitial(this)
     }
 
     override fun setupAdsRewarded(mAdUnitId: String) {
-        baseAdUnitIdRewarded = mAdUnitId
-        setupRewardedAdUnitID(baseAdUnitIdRewarded)
+        setupRewardedAdUnitID(mAdUnitId)
         setupRewarded(this)
     }
 
     override fun setupAdsRewardedInterstitial(mAdUnitId: String) {
-        baseAdUnitIdRewardedInterstitial = mAdUnitId
-        setupRewardedInterstitialAdUnitID(baseAdUnitIdRewardedInterstitial)
+        setupRewardedInterstitialAdUnitID(mAdUnitId)
         setupRewardedInterstitial(this)
     }
 
