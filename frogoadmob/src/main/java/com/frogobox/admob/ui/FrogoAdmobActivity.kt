@@ -54,35 +54,32 @@ open class FrogoAdmobActivity : AppCompatActivity(), IFrogoAdmobActivity {
         mActivity = this
     }
 
-    override fun setBasePublisherID(mPublisherId: String) {
+    override fun setupAdsPublisher(mPublisherId: String) {
         baseAdmobPublisherID = mPublisherId
-    }
-
-    override fun setBaseBannerAdUnitID(mAdUnitId: String) {
-        baseAdUnitIdBanner = mAdUnitId
-    }
-
-    override fun setBaseInterstialAdUnitID(mAdUnitId: String) {
-        baseAdUnitIdInterstitial = mAdUnitId
-    }
-
-    override fun setBaseRewardedAdUnitID(mAdUnitId: String) {
-        baseAdUnitIdRewarded = mAdUnitId
-    }
-
-    override fun setBaseRewardedInterstitialAdUnitID(mAdUnitId: String) {
-        baseAdUnitIdRewardedInterstitial = mAdUnitId
-    }
-
-    override fun setBaseAdmob() {
         setupPublisherID(baseAdmobPublisherID)
-        setupBannerAdUnitID(baseAdUnitIdBanner)
-        setupInterstialAdUnitID(baseAdUnitIdInterstitial)
-        setupRewardedAdUnitID(baseAdUnitIdRewarded)
-        setupRewardedInterstitialAdUnitID(baseAdUnitIdRewardedInterstitial)
         setupPublisher(this)
+    }
+
+    override fun setupAdsBanner(mAdUnitId: String) {
+        baseAdUnitIdBanner = mAdUnitId
+        setupBannerAdUnitID(baseAdUnitIdBanner)
+    }
+
+    override fun setupAdsInterstitial(mAdUnitId: String) {
+        baseAdUnitIdInterstitial = mAdUnitId
+        setupInterstialAdUnitID(baseAdUnitIdInterstitial)
         setupInterstitial(this)
+    }
+
+    override fun setupAdsRewarded(mAdUnitId: String) {
+        baseAdUnitIdRewarded = mAdUnitId
+        setupRewardedAdUnitID(baseAdUnitIdRewarded)
         setupRewarded(this)
+    }
+
+    override fun setupAdsRewardedInterstitial(mAdUnitId: String) {
+        baseAdUnitIdRewardedInterstitial = mAdUnitId
+        setupRewardedInterstitialAdUnitID(baseAdUnitIdRewardedInterstitial)
         setupRewardedInterstitial(this)
     }
 

@@ -17,23 +17,20 @@ import com.google.android.gms.ads.AdView
  */
 interface IFrogoAdmobActivity {
 
-    // Set Pub-ID
-    fun setBasePublisherID(mPublisherId: String)
+    // Setup Admob Publisher
+    fun setupAdsPublisher(mPublisherId: String)
 
-    // Set Banner ID
-    fun setBaseBannerAdUnitID(mAdUnitId: String)
+    // Setup Admob Banner
+    fun setupAdsBanner(mAdUnitId: String)
 
-    // Set Interstitial ID
-    fun setBaseInterstialAdUnitID(mAdUnitId: String)
+    // Setup Admob Interstitial
+    fun setupAdsInterstitial(mAdUnitId: String)
 
-    // Set Rewarded ID
-    fun setBaseRewardedAdUnitID(mAdUnitId: String)
+    // Setup Admob Rewarded
+    fun setupAdsRewarded(mAdUnitId: String)
 
-    // set Rewarded Interstitial ID
-    fun setBaseRewardedInterstitialAdUnitID(mAdUnitId: String)
-
-    // Setup Frogo Admob
-    fun setBaseAdmob()
+    // Setup Admob RewardedInterstitial
+    fun setupAdsRewardedInterstitial(mAdUnitId: String)
 
     // Show Banner Ads
     fun setupShowAdsBanner(mAdView: AdView)
