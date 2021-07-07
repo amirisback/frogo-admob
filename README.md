@@ -15,19 +15,16 @@
 
 ## Version Release
 
-    $version_release = 3.0.0
+    $version_release = 4.0.0
 
 What's New??
 
-    * Refactoring Code *
     * Enhance Performance *
-    * Fixing Bug *
+    * Refactoring Code *
     * Remove unused code *
     * Update documentation *
     * Update build.gradle *
     * Update sample code *
-    * Add: Rewarded Ad *
-    * Add: Rewarded Interstital Ad *
 
 ## How To Use / Implement This Project
 ### Step 1. Add the JitPack repository to your build file
@@ -48,7 +45,7 @@ Add it in your root build.gradle at the end of repositories:
             implementation 'com.google.android.gms:play-services-ads:${latest_version}'
 
             // library frogo-admob-helper
-	        implementation 'com.github.amirisback:frogo-admob:3.0.0'
+	        implementation 'com.github.amirisback:frogo-admob:4.0.0'
 	}
 	
 ### Step 3. Adding meta-data on AndroidManifest.xml
@@ -62,7 +59,7 @@ Add it in your root build.gradle at the end of repositories:
         </application>
     </manifest>
 	
-### Step 4. Extend on your activity
+### Step 4. Setup Admob with Extend on your activity
 
     class <YourActivity> : FrogoAdmobActivity() {
     
@@ -70,36 +67,111 @@ Add it in your root build.gradle at the end of repositories:
             super.onCreate(savedInstanceState)
             setupAdmob()
         }
-    
+
         private fun setupAdmob(){
-            setBasePublisherID(<Your_Publisher_ID>)
-            setBaseBannerAdUnitID(<Your_Banner_Unit_ID>)
-            setBaseInterstialAdUnitID(<Your_Interstitial_Unit_ID>)
-            setBaseRewardedAdUnitID(<Your_Rewarded_Unit_ID>)
-            setBaseRewardedInterstitialAdUnitID(<Your_Rewarded_Interstitial_Unit_ID>)
-            setBaseAdmob()
-        }	
+            setPublisher()
+            setBanner()
+            setInterstitial()
+            setRewarded()
+            setRewardedInterstitial()
+        }
+
+        private fun setPublisher() {
+            setupAdsPublisher(getString(R.string.admob_publisher_id))
+        }
+
+        private fun setBanner() {
+            setupAdsBanner(getString(R.string.admob_banner))
+        }
+
+        private fun setInterstitial() {
+            setupAdsInterstitial(getString(R.string.admob_interstitial))
+        }
+
+        private fun setRewarded() {
+            setupAdsRewarded(getString(R.string.admob_rewarded))
+        }
+
+        private fun setRewardedInterstitial() {
+            setupAdsRewardedInterstitial(getString(R.string.admob_rewarded_interstitial))
+        }
+
     }
 
-### Step 5. Main function for calling Ads
 
-    // Show Banner Ads
-    fun setupShowAdsBanner(<Your_Banner_Layout_ID>)
+### Step 5. Showing ads
 
-    // Show Interstitial Ads
-    fun setupShowAdsInterstitial()
+    class <YourActivity> : FrogoAdmobActivity() {
 
-    // Show Rewarded Ads
-    fun setupShowAdsRewarded(callback: IFrogoAdmob.UserEarned)
+        override fun onCreate(savedInstanceState: Bundle?) {
+            super.onCreate(savedInstanceState)
+            setupAdmob()
+            setupButtonClick()
+        }
 
-    // Show Rewarded Interstitial Ads
-    fun setupShowAdsRewardedInterstitial(callback: IFrogoAdmob.UserEarned)
+        ...
+        ...
+        ...
 
-### Step 6. Now enjoy your earning by monetizing apps
-    
-    Get Ready For Publish Apps
+        private fun setupButtonClick() {
 
-## Test Ads From Google
+            binding.apply {
+
+                btnInterstitial.setOnClickListener {
+                    setupShowAdsInterstitial()
+                }
+
+                btnRewarded.setOnClickListener {
+                    setupShowAdsRewarded(object : IFrogoAdmob.UserEarned {
+                        override fun onUserEarnedReward(rewardItem: RewardItem) {
+                            // TODO User Get Reward
+                        }
+                    })
+                }
+
+                btnRewardedInterstitial.setOnClickListener {
+                    setupShowAdsRewardedInterstitial(object : IFrogoAdmob.UserEarned {
+                        override fun onUserEarnedReward(rewardItem: RewardItem) {
+                            // TODO User Get Reward
+                        }
+                    })
+                }
+
+                btnRecyclerView.setOnClickListener {
+                    baseStartActivity<NewsActivity>()
+                }
+
+                btnRecyclerView2.setOnClickListener {
+                    baseStartActivity<MovieActivity>()
+                }
+
+            }
+
+        }
+
+    }
+
+## Allert
+
+### Update
+
+    >> on version 3.0.0
+    - import com.frogobox.admob.core.FrogoRvConstant
+    - import com.frogobox.admob.core.admob.FrogoAdmob
+    - import com.frogobox.admob.core.admob.FrogoAdmobActivity
+    - import com.frogobox.admob.core.FrogoAdmobViewHolder
+    - import com.frogobox.admob.core.FrogoAdmobViewAdapter
+    - import com.frogobox.admob.core.AdmobViewHolder
+
+    >> on version 4.0.0
+    - import com.frogobox.admob.core.FrogoRvConstant
+    - import com.frogobox.admob.core.FrogoAdmob
+    - import com.frogobox.admob.ui.FrogoAdmobActivity
+    - import com.frogobox.admob.widget.FrogoAdmobViewHolder
+    - import com.frogobox.admob.widget.FrogoAdmobViewAdapter
+    - import com.frogobox.admob.widget.AdmobViewHolder
+
+### Test Ads From Google
 
     // Declaration admob id for debug
     def debugAdmobPublisherId = "ca-app-pub-3940256099942544~3347511713"
@@ -110,11 +182,6 @@ Add it in your root build.gradle at the end of repositories:
     def debugAdmobRewardedInterstitial = "ca-app-pub-3940256099942544/5354046379"
     def debugAdmobNativeAdvanced = "ca-app-pub-3940256099942544/2247696110"
     def debugAdmobNativeAdvancedVideo = "ca-app-pub-3940256099942544/1044960115"
-
-## Still Confusing For Using This Project???
-- Just Clone This Project
-- branch : master 
-- branch : before-using-library <br> -- Pick Your Choice!! --
 
 ## Colaborator
 Very open to anyone, I'll write your name under this, please contribute by sending an email to me

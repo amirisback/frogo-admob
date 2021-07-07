@@ -4,7 +4,7 @@ apply plugin: 'kotlin-kapt'
 
 android {
 
-    def versionMajor = 3
+    def versionMajor = 4
     def versionMinor = 0
     def versionPatch = 0
 
