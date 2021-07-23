@@ -1,4 +1,4 @@
-package com.frogobox.admobsample
+package com.frogobox.app
 
 import org.junit.Test
 

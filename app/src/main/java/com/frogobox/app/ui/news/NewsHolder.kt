@@ -1,11 +1,11 @@
-package com.frogobox.admobsample.ui.adapter
+package com.frogobox.app.ui.news
 
 import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
 import com.bumptech.glide.Glide
 import com.frogobox.admob.widget.FrogoAdmobViewHolder
-import com.frogobox.admobsample.R
+import com.frogobox.app.R
 import com.frogobox.frogonewsapi.data.model.Article
 
 /*

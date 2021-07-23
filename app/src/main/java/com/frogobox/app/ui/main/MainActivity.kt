@@ -1,12 +1,14 @@
-package com.frogobox.admobsample.ui.activity
+package com.frogobox.app.ui.main
 
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
 import com.frogobox.admob.core.IFrogoAdmob
-import com.frogobox.admobsample.R
-import com.frogobox.admobsample.base.BaseActivity
-import com.frogobox.admobsample.databinding.ActivityMainBinding
+import com.frogobox.app.R
+import com.frogobox.app.core.BaseActivity
+import com.frogobox.app.databinding.ActivityMainBinding
+import com.frogobox.app.ui.movie.MovieActivity
+import com.frogobox.app.ui.news.NewsActivity
 import com.google.android.gms.ads.rewarded.RewardItem
 
 class MainActivity : BaseActivity<ActivityMainBinding>() {

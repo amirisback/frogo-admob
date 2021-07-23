@@ -1,4 +1,4 @@
-package com.frogobox.admobsample.base
+package com.frogobox.app.core
 
 import android.content.Intent
 import android.os.Bundle

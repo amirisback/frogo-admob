@@ -1,12 +1,12 @@
-package com.frogobox.admobsample.ui.activity
+package com.frogobox.app.ui.movie
 
 import android.os.Bundle
 import androidx.recyclerview.widget.GridLayoutManager
-import com.frogobox.admobsample.R
-import com.frogobox.admobsample.base.BaseActivity
-import com.frogobox.admobsample.ui.adapter.NewsAdapter
+import com.frogobox.app.R
+import com.frogobox.app.core.BaseActivity
 import com.frogobox.admob.core.FrogoAdmob
-import com.frogobox.admobsample.databinding.ActivityRecyclerViewBinding
+import com.frogobox.app.databinding.ActivityRecyclerViewBinding
+import com.frogobox.app.ui.news.NewsAdapter
 import com.frogobox.frogonewsapi.ConsumeNewsApi
 import com.frogobox.frogonewsapi.callback.NewsResultCallback
 import com.frogobox.frogonewsapi.data.response.ArticleResponse

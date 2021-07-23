@@ -1,7 +1,7 @@
-package com.frogobox.admobsample.ui.adapter
+package com.frogobox.app.ui.news
 
 import android.view.ViewGroup
-import com.frogobox.admobsample.R
+import com.frogobox.app.R
 import com.frogobox.admob.widget.AdmobViewHolder
 import com.frogobox.admob.widget.FrogoAdmobViewAdapter
 import com.frogobox.admob.widget.FrogoAdmobViewHolder

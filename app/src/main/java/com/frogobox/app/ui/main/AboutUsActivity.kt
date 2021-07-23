@@ -1,8 +1,8 @@
-package com.frogobox.admobsample.ui.activity
+package com.frogobox.app.ui.main
 
 import android.os.Bundle
-import com.frogobox.admobsample.base.BaseActivity
-import com.frogobox.admobsample.databinding.ActivityAboutUsBinding
+import com.frogobox.app.core.BaseActivity
+import com.frogobox.app.databinding.ActivityAboutUsBinding
 
 class AboutUsActivity : BaseActivity<ActivityAboutUsBinding>() {
 

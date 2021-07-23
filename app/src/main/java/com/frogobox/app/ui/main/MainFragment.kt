@@ -1,13 +1,10 @@
-package com.frogobox.admobsample.ui.fragment
+package com.frogobox.app.ui.main
 
-import android.os.Bundle
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import com.frogobox.admobsample.R
-import com.frogobox.admobsample.base.BaseFragment
-import com.frogobox.admobsample.databinding.FragmentMainBinding
+import com.frogobox.app.core.BaseFragment
+import com.frogobox.app.databinding.FragmentMainBinding
 
 /**
  * A simple [Fragment] subclass.
