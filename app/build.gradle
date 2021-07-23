@@ -4,13 +4,9 @@ apply plugin: 'kotlin-kapt'
 
 android {
 
-    def versionMajor = 4
-    def versionMinor = 0
-    def versionPatch = 0
-
     def appDomain = "com"
     def appDevConsole = "frogobox"
-    def appName = "admobsample"
+    def appName = "app"
 
     def projectApplicationId = "$appDomain.$appDevConsole.$appName"
     def projectVersionCode = (versionMajor * 100) + (versionMinor * 10) + (versionPatch * 1)
@@ -56,15 +52,16 @@ android {
         jvmTarget = '1.8'
     }
 
-    compileSdkVersion 30
-    buildToolsVersion "30.0.3"
+    compileSdkVersion projectCompileSdkVersion
+    buildToolsVersion projectBuildToolsVersion
 
     defaultConfig {
         applicationId projectApplicationId
-        minSdkVersion 21
-        targetSdkVersion 30
+        minSdkVersion projectMinSdkVersion
+        targetSdkVersion projectTargetSdkVersion
         versionCode projectVersionCode
         versionName projectVersionName
+
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
 
         // Naming APK // AAB
@@ -147,28 +144,16 @@ dependencies {
     
     implementation 'com.google.code.gson:gson:2.8.6'
     implementation 'com.google.android.material:material:1.4.0'
-
-    // Glide
-    implementation 'com.github.bumptech.glide:glide:4.12.0'
-    kapt 'com.github.bumptech.glide:compiler:4.11.0'
-
-    // lib google ads
     implementation 'com.google.android.gms:play-services-ads:20.2.0'
 
-    // library frogo-log
+    implementation 'com.github.bumptech.glide:glide:4.12.0'
     implementation 'com.github.amirisback:frogo-log:2.0.2'
-
-    // library frogo-ui-kit
-    implementation 'com.github.amirisback:frogo-ui-kit:2.0.2'
-
-    // library frogo-recycler-view
-    implementation 'com.github.amirisback:frogo-recycler-view:3.7.2'
-
-    // library consumable code movie tmdb api
+    implementation 'com.github.amirisback:frogo-ui-kit:2.1.0'
+    implementation 'com.github.amirisback:frogo-recycler-view:3.8.0'
     implementation 'com.github.amirisback:consumable-code-movie-tmdb-api:1.2.0'
-
-    // library consumable code news api
     implementation 'com.github.amirisback:consumable-code-news-api:1.0.5'
+
+    kapt 'com.github.bumptech.glide:compiler:4.11.0'
 
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.3'
