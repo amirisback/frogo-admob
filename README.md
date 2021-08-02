@@ -9,6 +9,10 @@
 - Calling method on Inheritance Class
 - Implement all Admob Version
 
+## Note For Jitpack Build
+- Red : Failed (So don't use that version / Using previous version)
+- Green : Success / Pass (Use It)
+
 ## ScreenShot Apps
 | Banner and Interstitial | RecyclerView with Banner | Rewarded Apps |
 |:-----------------------:|:------------------------:|:-------------:|
