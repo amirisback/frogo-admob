@@ -6,7 +6,7 @@ buildscript {
 
         versionMajor = 4
         versionMinor = 0
-        versionPatch = 4
+        versionPatch = 5
 
         projectCompileSdkVersion = 30
         projectMinSdkVersion = 21

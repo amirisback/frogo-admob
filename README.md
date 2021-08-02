@@ -16,7 +16,7 @@
 
 ## Version Release
 
-    $version_release = 4.0.4
+    $version_release = 4.0.5
 
 What's New??
 
@@ -46,7 +46,7 @@ Add it in your root build.gradle at the end of repositories:
             implementation 'com.google.android.gms:play-services-ads:${latest_version}'
 
             // library frogo-admob-helper
-	        implementation 'com.github.amirisback:frogo-admob:4.0.4'
+	        implementation 'com.github.amirisback:frogo-admob:4.0.5'
 	}
 	
 ### Step 3. Adding meta-data on AndroidManifest.xml
