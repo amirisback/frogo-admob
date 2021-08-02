@@ -6,13 +6,13 @@ buildscript {
 
         versionMajor = 4
         versionMinor = 0
-        versionPatch = 5
+        versionPatch = 6
 
         projectCompileSdkVersion = 30
         projectMinSdkVersion = 21
         projectTargetSdkVersion = projectCompileSdkVersion
 
-        kotlin_version = "1.5.10"
+        kotlin_version = "1.5.20"
         compose_version = '1.0.0'
 
     }
@@ -23,10 +23,18 @@ buildscript {
     }
 
     dependencies {
-        classpath 'com.android.tools.build:gradle:7.0.0'
+        classpath 'com.android.tools.build:gradle:4.2.2'
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files
+    }
+}
+
+allprojects {
+    repositories {
+        google()
+        mavenCentral()
+        maven { url 'https://jitpack.io' }
     }
 }
 
