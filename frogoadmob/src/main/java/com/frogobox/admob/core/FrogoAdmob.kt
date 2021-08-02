@@ -1,10 +1,9 @@
 package com.frogobox.admob.core
 
 import android.content.Context
-import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import com.frogobox.admob.core.FrogoAdmobConstant.RECYCLER_VIEW_ITEMS_PER_AD
-import com.frogobox.frogolog.FrogoLog
+import com.frogobox.frogolog.FLog
 import com.google.android.gms.ads.*
 import com.google.android.gms.ads.interstitial.InterstitialAd
 import com.google.android.gms.ads.interstitial.InterstitialAdLoadCallback
@@ -47,27 +46,27 @@ object FrogoAdmob : IFrogoAdmob {
 
     override fun setupPublisherID(mPublisherId: String) {
         admobPublisherID = mPublisherId
-        FrogoLog.d(admobPublisherID)
+        FLog.d("Publisher Id : $admobPublisherID")
     }
 
     override fun setupBannerAdUnitID(mAdUnitId: String) {
         mAdUnitIdBanner = mAdUnitId
-        FrogoLog.d(mAdUnitIdBanner)
+        FLog.d("Banner Id : $mAdUnitIdBanner")
     }
 
     override fun setupInterstialAdUnitID(mAdUnitId: String) {
         mAdUnitIdInterstitial = mAdUnitId
-        FrogoLog.d(mAdUnitIdInterstitial)
+        FLog.d("Interstitial Id : $mAdUnitIdInterstitial")
     }
 
     override fun setupRewardedAdUnitID(mAdUnitId: String) {
         mAdUnitIdRewarded = mAdUnitId
-        FrogoLog.d(mAdUnitIdRewarded)
+        FLog.d("Rewarded Id : $mAdUnitIdRewarded")
     }
 
     override fun setupRewardedInterstitialAdUnitID(mAdUnitId: String) {
         mAdUnitIdRewardedInterstitial = mAdUnitId
-        FrogoLog.d(mAdUnitIdRewarded)
+        FLog.d("Rewarded Interstitial Id : $mAdUnitIdRewarded")
     }
 
     object Publisher : IFrogoAdmob.Publisher {
@@ -105,17 +104,17 @@ object FrogoAdmob : IFrogoAdmob {
                 adRequest,
                 object : InterstitialAdLoadCallback() {
                     override fun onAdFailedToLoad(adError: LoadAdError) {
-                        Log.d(TAG, adError.message)
+                        FLog.d(adError.message)
                         mInterstitialAd = null
                         val error =
                             "domain: ${adError.domain}, code: ${adError.code}, " + "message: ${adError.message}"
-                        Log.d(TAG, "onAdFailedToLoad() with error $error")
+                        FLog.d("onAdFailedToLoad() with error $error")
                     }
 
                     override fun onAdLoaded(interstitialAd: InterstitialAd) {
-                        Log.d(TAG, "Ad was loaded.")
+                        FLog.d("Ad was loaded.")
                         mInterstitialAd = interstitialAd
-                        Log.d(TAG, "onAdLoaded() success")
+                        FLog.d("onAdLoaded() success")
                     }
                 }
             )
@@ -125,7 +124,7 @@ object FrogoAdmob : IFrogoAdmob {
             if (mInterstitialAd != null) {
                 mInterstitialAd!!.fullScreenContentCallback = object : FullScreenContentCallback() {
                     override fun onAdDismissedFullScreenContent() {
-                        Log.d(TAG, "Ad was dismissed.")
+                        FLog.d("Ad was dismissed.")
                         // Don't forget to set the ad reference to null so you
                         // don't show the ad a second time.
                         mInterstitialAd = null
@@ -133,14 +132,14 @@ object FrogoAdmob : IFrogoAdmob {
                     }
 
                     override fun onAdFailedToShowFullScreenContent(adError: AdError?) {
-                        Log.d(TAG, "Ad failed to show.")
+                        FLog.d("Ad failed to show.")
                         // Don't forget to set the ad reference to null so you
                         // don't show the ad a second time.
                         mInterstitialAd = null
                     }
 
                     override fun onAdShowedFullScreenContent() {
-                        Log.d(TAG, "Ad showed fullscreen content.")
+                        FLog.d("Ad showed fullscreen content.")
                         // Called when ad is dismissed.
                     }
                 }
@@ -161,29 +160,29 @@ object FrogoAdmob : IFrogoAdmob {
                 adRequest,
                 object : RewardedAdLoadCallback() {
                     override fun onAdFailedToLoad(adError: LoadAdError) {
-                        Log.d(TAG, adError.message)
+                        FLog.d(adError.message)
                         mRewardedAd = null
                     }
 
                     override fun onAdLoaded(rewardedAd: RewardedAd) {
-                        Log.d(TAG, "Ad was loaded.")
+                        FLog.d("Ad was loaded.")
                         mRewardedAd = rewardedAd
                         mRewardedAd!!.fullScreenContentCallback =
                             object : FullScreenContentCallback() {
                                 override fun onAdShowedFullScreenContent() {
                                     // Called when ad is shown.
-                                    Log.d(TAG, "Ad was shown.")
+                                    FLog.d("Ad was shown.")
                                 }
 
                                 override fun onAdFailedToShowFullScreenContent(adError: AdError?) {
                                     // Called when ad fails to show.
-                                    Log.d(TAG, "Ad failed to show.")
+                                    FLog.d("Ad failed to show.")
                                 }
 
                                 override fun onAdDismissedFullScreenContent() {
                                     // Called when ad is dismissed.
                                     // Set the ad reference to null so you don't show the ad a second time.
-                                    Log.d(TAG, "Ad was dismissed.")
+                                    FLog.d("Ad was dismissed.")
                                     mRewardedAd = null
                                 }
                             }
@@ -201,7 +200,7 @@ object FrogoAdmob : IFrogoAdmob {
                     callback.onUserEarnedReward(it)
                 }
             } else {
-                Log.d(TAG, "The rewarded ad wasn't ready yet.")
+                FLog.d("The rewarded ad wasn't ready yet.")
             }
         }
 
@@ -220,24 +219,24 @@ object FrogoAdmob : IFrogoAdmob {
                             object : FullScreenContentCallback() {
                                 /** Called when the ad failed to show full screen content.  */
                                 override fun onAdFailedToShowFullScreenContent(adError: AdError) {
-                                    Log.i(TAG, "onAdFailedToShowFullScreenContent")
+                                    FLog.i("onAdFailedToShowFullScreenContent")
                                 }
 
                                 /** Called when ad showed the full screen content.  */
                                 override fun onAdShowedFullScreenContent() {
-                                    Log.i(TAG, "onAdShowedFullScreenContent")
+                                    FLog.i("onAdShowedFullScreenContent")
                                 }
 
                                 /** Called when full screen content is dismissed.  */
                                 override fun onAdDismissedFullScreenContent() {
-                                    Log.i(TAG, "onAdDismissedFullScreenContent")
+                                    FLog.i("onAdDismissedFullScreenContent")
                                 }
                             }
-                        Log.e(TAG, "onAdLoaded")
+                        FLog.e("onAdLoaded")
                     }
 
                     override fun onAdFailedToLoad(loadAdError: LoadAdError) {
-                        Log.e(TAG, "onAdFailedToLoad")
+                        FLog.e("onAdFailedToLoad")
                     }
                 })
         }
@@ -251,7 +250,7 @@ object FrogoAdmob : IFrogoAdmob {
                     callback.onUserEarnedReward(it)
                 }
             } else {
-                Log.d(TAG, "The rewarded ad wasn't ready yet.")
+                FLog.d("The rewarded ad wasn't ready yet.")
             }
         }
 
@@ -302,10 +301,7 @@ object FrogoAdmob : IFrogoAdmob {
                 }
 
                 override fun onAdFailedToLoad(p0: LoadAdError) { // The previous banner ad failed to load. Call this method again to load the next ad in the items list.
-                    Log.e(
-                        "MainActivity", "The previous banner ad failed to load. Attempting to"
-                                + " load the next banner ad in the items list."
-                    )
+                    FLog.e("The previous banner ad failed to load. Attempting to load the next banner ad in the items list.")
                     loadBannerAd(recyclerViewDataList, index + RECYCLER_VIEW_ITEMS_PER_AD)
                 }
             }

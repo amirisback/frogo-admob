@@ -37,16 +37,9 @@ import com.google.android.gms.ads.AdView
  *
  */
 
-open class FrogoAdmobActivity : AppCompatActivity(), IFrogoAdmobActivity {
-
-    protected lateinit var mFrogoActivity: AppCompatActivity
+abstract class FrogoAdmobActivity : AppCompatActivity(), IFrogoAdmobActivity {
 
     protected val arrayFrogoAdmobData = mutableListOf<Any>()
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        mFrogoActivity = this
-    }
 
     override fun setupAdsPublisher(mPublisherId: String) {
         setupPublisherID(mPublisherId)
