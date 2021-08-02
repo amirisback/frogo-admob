@@ -12,7 +12,8 @@ buildscript {
         projectMinSdkVersion = 21
         projectTargetSdkVersion = projectCompileSdkVersion
 
-        kotlin_version = "1.5.21"
+        kotlin_version = "1.5.10"
+        compose_version = '1.0.0'
 
     }
 
