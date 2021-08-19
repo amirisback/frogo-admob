@@ -1,20 +1,19 @@
-package com.frogobox.appadmob.ui.movie
+package com.frogobox.appadmob.mvvm.news
 
 import android.os.Bundle
-import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.frogobox.appadmob.R
-import com.frogobox.appadmob.core.BaseActivity
-import com.frogobox.admob.core.FrogoAdmob
+import com.frogobox.appadmob.base.BaseActivity
+import com.frogobox.admob.core.FrogoAdmob.RecyclerView.loadRecyclerBannerAds
 import com.frogobox.appadmob.databinding.ActivityRecyclerViewBinding
-import com.frogobox.appadmob.ui.news.NewsAdapter
-import com.frogobox.frogoconsumeapi.news.ConsumeNewsApi
-import com.frogobox.frogoconsumeapi.news.response.ArticleResponse
-import com.frogobox.frogoconsumeapi.news.util.NewsConstant
-import com.frogobox.frogoconsumeapi.news.util.NewsUrl
-import com.frogobox.frogosdk.core.FrogoResponseCallback
+import com.frogobox.frogonewsapi.ConsumeNewsApi
+import com.frogobox.frogonewsapi.callback.NewsResultCallback
+import com.frogobox.frogonewsapi.data.response.ArticleResponse
+import com.frogobox.frogonewsapi.util.NewsConstant
+import com.frogobox.frogonewsapi.util.NewsUrl
 import com.frogobox.recycler.core.FrogoRecyclerViewListener
 
-class MovieActivity : BaseActivity<ActivityRecyclerViewBinding>() {
+class NewsActivity : BaseActivity<ActivityRecyclerViewBinding>() {
 
     override fun setupViewBinding(): ActivityRecyclerViewBinding {
         return ActivityRecyclerViewBinding.inflate(layoutInflater)
@@ -22,12 +21,12 @@ class MovieActivity : BaseActivity<ActivityRecyclerViewBinding>() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setupDetailActivity("RecyclerView (2)")
+        setupDetailActivity("RecyclerView (1)")
         setupNewsApi()
     }
 
     private fun setupNewsApi() {
-        val consumeNewsApi = ConsumeNewsApi(NewsUrl.API_KEY) // Your API_KEY
+        val consumeNewsApi = ConsumeNewsApi(NewsUrl.NEWS_API_KEY) // Your API_KEY
         consumeNewsApi.usingChuckInterceptor(this) // Using Chuck Interceptor
         consumeNewsApi.getTopHeadline( // Adding Base Parameter on main function
             null,
@@ -36,7 +35,7 @@ class MovieActivity : BaseActivity<ActivityRecyclerViewBinding>() {
             NewsConstant.COUNTRY_ID,
             null,
             null,
-            object : FrogoResponseCallback<ArticleResponse> {
+            object : NewsResultCallback<ArticleResponse> {
 
                 override fun onShowProgress() {
                     // Your Progress Show
@@ -46,16 +45,13 @@ class MovieActivity : BaseActivity<ActivityRecyclerViewBinding>() {
                     // Your Progress Hide
                 }
 
-                override fun onFailed(statusCode: Int, errorMessage: String?) {
+                override fun failedResult(statusCode: Int, errorMessage: String?) {
                     // Your failed to do
                 }
 
-                override fun onSuccess(data: ArticleResponse) {
+                override fun getResultData(data: ArticleResponse) {
                     data.articles?.let { arrayFrogoAdmobData.addAll(it) }
-                    FrogoAdmob.RecyclerView.loadRecyclerBannerAds(
-                        this@MovieActivity,
-                        arrayFrogoAdmobData
-                    )
+                    loadRecyclerBannerAds(this@NewsActivity, arrayFrogoAdmobData)
                     setupRecyclerView()
                 }
 
@@ -64,8 +60,7 @@ class MovieActivity : BaseActivity<ActivityRecyclerViewBinding>() {
 
     private fun setupAdapter(): NewsAdapter {
         val adapter = NewsAdapter()
-        adapter.setupRequirement(R.layout.content_item_news, arrayFrogoAdmobData, object :
-            FrogoRecyclerViewListener<Any> {
+        adapter.setupRequirement(R.layout.content_item_news, arrayFrogoAdmobData, object : FrogoRecyclerViewListener<Any> {
             override fun onItemClicked(data: Any) {}
             override fun onItemLongClicked(data: Any) {}
         })
@@ -74,7 +69,7 @@ class MovieActivity : BaseActivity<ActivityRecyclerViewBinding>() {
 
     private fun setupRecyclerView() {
         binding.recyclerView.apply {
-            layoutManager = GridLayoutManager(this@MovieActivity, 2)
+            layoutManager = LinearLayoutManager(this@NewsActivity, LinearLayoutManager.VERTICAL, false)
             adapter = setupAdapter()
         }
     }

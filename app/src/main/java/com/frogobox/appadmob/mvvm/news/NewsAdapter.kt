@@ -1,4 +1,4 @@
-package com.frogobox.appadmob.ui.news
+package com.frogobox.appadmob.mvvm.news
 
 import android.view.ViewGroup
 import com.frogobox.appadmob.R

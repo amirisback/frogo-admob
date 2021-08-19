@@ -1,4 +1,4 @@
-package com.frogobox.appadmob.ui.news
+package com.frogobox.appadmob.mvvm.news
 
 import android.view.View
 import android.widget.ImageView
@@ -6,7 +6,7 @@ import android.widget.TextView
 import com.bumptech.glide.Glide
 import com.frogobox.admob.widget.FrogoAdmobViewHolder
 import com.frogobox.appadmob.R
-import com.frogobox.frogoconsumeapi.news.model.Article
+import com.frogobox.frogonewsapi.data.model.Article
 
 /*
  * Created by Faisal Amir on 31/01/2021
