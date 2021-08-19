@@ -1,12 +1,12 @@
-package com.frogobox.app.ui.movie
+package com.frogobox.appadmob.ui.movie
 
 import android.os.Bundle
 import androidx.recyclerview.widget.GridLayoutManager
-import com.frogobox.app.R
-import com.frogobox.app.core.BaseActivity
+import com.frogobox.appadmob.R
+import com.frogobox.appadmob.core.BaseActivity
 import com.frogobox.admob.core.FrogoAdmob
-import com.frogobox.app.databinding.ActivityRecyclerViewBinding
-import com.frogobox.app.ui.news.NewsAdapter
+import com.frogobox.appadmob.databinding.ActivityRecyclerViewBinding
+import com.frogobox.appadmob.ui.news.NewsAdapter
 import com.frogobox.frogoconsumeapi.news.ConsumeNewsApi
 import com.frogobox.frogoconsumeapi.news.response.ArticleResponse
 import com.frogobox.frogoconsumeapi.news.util.NewsConstant

@@ -1,11 +1,11 @@
-package com.frogobox.app.ui.news
+package com.frogobox.appadmob.ui.news
 
 import android.os.Bundle
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.frogobox.app.R
-import com.frogobox.app.core.BaseActivity
+import com.frogobox.appadmob.R
+import com.frogobox.appadmob.core.BaseActivity
 import com.frogobox.admob.core.FrogoAdmob.RecyclerView.loadRecyclerBannerAds
-import com.frogobox.app.databinding.ActivityRecyclerViewBinding
+import com.frogobox.appadmob.databinding.ActivityRecyclerViewBinding
 import com.frogobox.frogoconsumeapi.news.ConsumeNewsApi
 import com.frogobox.frogoconsumeapi.news.response.ArticleResponse
 import com.frogobox.frogoconsumeapi.news.util.NewsConstant

@@ -1,4 +1,4 @@
-package com.frogobox.app.core
+package com.frogobox.appadmob.core
 
 import android.content.Intent
 import android.os.Bundle
@@ -6,7 +6,7 @@ import android.view.*
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.viewbinding.ViewBinding
-import com.frogobox.app.R
+import com.frogobox.appadmob.R
 import com.frogobox.admob.ui.FrogoAdmobActivity
 import com.google.gson.Gson
 

@@ -1,4 +1,4 @@
-package com.frogobox.app.core
+package com.frogobox.appadmob.core
 
 import android.content.Intent
 import android.os.Bundle

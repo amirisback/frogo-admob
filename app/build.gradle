@@ -17,7 +17,7 @@ android {
     def releaseAdmobNativeAdvancedVideo = ""
 
     buildFeatures {
-        viewBinding = true
+        viewBinding true
     }
 
     compileOptions {

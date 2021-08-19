@@ -1,10 +1,10 @@
-package com.frogobox.app.ui.main
+package com.frogobox.appadmob.ui.main
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import com.frogobox.app.core.BaseFragment
-import com.frogobox.app.databinding.FragmentMainBinding
+import com.frogobox.appadmob.core.BaseFragment
+import com.frogobox.appadmob.databinding.FragmentMainBinding
 
 /**
  * A simple [Fragment] subclass.

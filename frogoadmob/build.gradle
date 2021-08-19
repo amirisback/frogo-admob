@@ -36,8 +36,6 @@ android {
     defaultConfig {
         minSdk projectMinSdk
         targetSdk projectTargetSdk
-        versionCode projectVersionCode
-        versionName projectVersionName
 
         multiDexEnabled true
 
