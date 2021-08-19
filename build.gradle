@@ -13,8 +13,8 @@ buildscript {
         def library = "admob"
 
         def versionMajor = 4
-        def versionMinor = 0
-        def versionPatch = 9
+        def versionMinor = 1
+        def versionPatch = 0
 
         projectCompileSdk = 31
         projectMinSdk = 21
