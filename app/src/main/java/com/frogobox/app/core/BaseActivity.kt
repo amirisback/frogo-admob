@@ -7,7 +7,7 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.viewbinding.ViewBinding
 import com.frogobox.app.R
-import com.frogobox.app.ui.FrogoAdmobActivity
+import com.frogobox.admob.ui.FrogoAdmobActivity
 import com.google.gson.Gson
 
 /**

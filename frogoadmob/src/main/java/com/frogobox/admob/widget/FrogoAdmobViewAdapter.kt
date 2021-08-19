@@ -1,13 +1,13 @@
-package com.frogobox.app.widget
+package com.frogobox.admob.widget
 
 
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.frogobox.app.core.FrogoAdmobConstant
-import com.frogobox.app.core.FrogoAdmobConstant.RECYCLER_VIEW_TYPE_BANNER_AD
-import com.frogobox.app.core.FrogoAdmobConstant.RECYCLER_VIEW_TYPE_MENU_ITEM
+import com.frogobox.admob.core.FrogoAdmobConstant
+import com.frogobox.admob.core.FrogoAdmobConstant.RECYCLER_VIEW_TYPE_BANNER_AD
+import com.frogobox.admob.core.FrogoAdmobConstant.RECYCLER_VIEW_TYPE_MENU_ITEM
 import com.frogobox.recycler.R
 import com.frogobox.recycler.core.FrogoHolder
 import com.frogobox.recycler.core.FrogoRecyclerViewListener

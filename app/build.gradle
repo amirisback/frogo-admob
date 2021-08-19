@@ -87,25 +87,10 @@ android {
 
     }
 
-    signingConfigs {
-        release {
-            // You need to specify either an absolute path or include the
-            // keystore file in the same directory as the build.gradle file.
-            // [PROJECT FOLDER NAME/app/[COPY YOUT KEY STORE] .jks in here
-            storeFile file("key.jks")
-            storePassword "key"
-            keyAlias "key"
-            keyPassword "key"
-        }
-    }
-
     buildTypes {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
-
-            // Generated Signed APK / AAB
-            signingConfig signingConfigs.release
 
             // Inject app name for release
             resValue "string", "app_name", nameApp

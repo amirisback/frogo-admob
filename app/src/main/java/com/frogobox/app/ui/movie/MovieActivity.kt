@@ -4,7 +4,7 @@ import android.os.Bundle
 import androidx.recyclerview.widget.GridLayoutManager
 import com.frogobox.app.R
 import com.frogobox.app.core.BaseActivity
-import com.frogobox.app.core.FrogoAdmob
+import com.frogobox.admob.core.FrogoAdmob
 import com.frogobox.app.databinding.ActivityRecyclerViewBinding
 import com.frogobox.app.ui.news.NewsAdapter
 import com.frogobox.frogoconsumeapi.news.ConsumeNewsApi

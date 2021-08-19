@@ -1,4 +1,4 @@
-package com.frogobox.app.core
+package com.frogobox.admob.core
 
 /*
  * Created by Faisal Amir

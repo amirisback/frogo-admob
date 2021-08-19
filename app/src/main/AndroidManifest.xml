@@ -10,12 +10,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.KickStart">
 
-        <activity android:name="com.frogobox.app.ui.movie.MovieActivity" />
-        <activity android:name="com.frogobox.app.ui.news.NewsActivity" />
-        <activity android:name="com.frogobox.app.ui.main.AboutUsActivity" />
+        <activity android:name=".ui.movie.MovieActivity" />
+        <activity android:name=".ui.news.NewsActivity" />
+        <activity android:name=".ui.main.AboutUsActivity" />
 
         <activity
-            android:name="com.frogobox.app.ui.main.MainActivity"
+            android:name=".ui.main.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

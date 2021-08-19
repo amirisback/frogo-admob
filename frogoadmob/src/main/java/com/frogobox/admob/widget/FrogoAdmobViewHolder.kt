@@ -1,4 +1,4 @@
-package com.frogobox.app.widget
+package com.frogobox.admob.widget
 
 import android.view.View
 import android.view.ViewGroup

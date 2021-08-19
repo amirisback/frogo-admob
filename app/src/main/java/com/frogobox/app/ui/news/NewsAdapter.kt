@@ -2,10 +2,10 @@ package com.frogobox.app.ui.news
 
 import android.view.ViewGroup
 import com.frogobox.app.R
-import com.frogobox.app.widget.AdmobViewHolder
-import com.frogobox.app.widget.FrogoAdmobViewAdapter
-import com.frogobox.app.widget.FrogoAdmobViewHolder
-import com.frogobox.app.widget.IFrogoAdmobViewAdapter
+import com.frogobox.admob.widget.AdmobViewHolder
+import com.frogobox.admob.widget.FrogoAdmobViewAdapter
+import com.frogobox.admob.widget.FrogoAdmobViewHolder
+import com.frogobox.admob.widget.IFrogoAdmobViewAdapter
 
 /**
  * Created by Faisal Amir
