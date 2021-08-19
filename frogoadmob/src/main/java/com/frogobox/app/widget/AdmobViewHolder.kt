@@ -1,8 +1,10 @@
-package com.frogobox.admob.widget
+package com.frogobox.app.widget
+
+import android.view.View
 
 /*
- * Created by Faisal Amir on 08/02/2021
- * FrogoAdmob Source Code
+ * Created by Faisal Amir on 31/01/2021
+ * AdmobSamples Source Code
  * -----------------------------------------
  * Name     : Muhammad Faisal Amir
  * E-mail   : faisalamircs@gmail.com
@@ -12,5 +14,7 @@ package com.frogobox.admob.widget
  * All rights reserved
  *
  */
-class FrogoAdmobRecyclerView {
+
+class AdmobViewHolder(view: View) : FrogoAdmobViewHolder<Any>(view) {
+    override fun initComponent(data: Any) {}
 }

@@ -4,16 +4,32 @@ buildscript {
 
     ext {
 
-        versionMajor = 4
-        versionMinor = 0
-        versionPatch = 6
+        // project settings
+        nameApp = "Frogo Admob"
 
-        projectCompileSdkVersion = 30
-        projectMinSdkVersion = 21
-        projectTargetSdkVersion = projectCompileSdkVersion
+        def appDomain = "com"
+        def appDevConsole = "frogobox"
+        def appName = "app"
+        def library = "admob"
 
-        kotlin_version = "1.5.20"
-        compose_version = '1.0.0'
+        def versionMajor = 4
+        def versionMinor = 0
+        def versionPatch = 6
+
+        projectCompileSdk = 31
+        projectMinSdk = 21
+        projectTargetSdk = projectCompileSdk
+
+        projectApplicationId = "$appDomain.$appDevConsole.$appName"
+        projectLibraryId = "$appDomain.$appDevConsole.$library"
+        projectVersionCode = (versionMajor * 100) + (versionMinor * 10) + (versionPatch * 1)
+        projectVersionName = "$versionMajor.$versionMinor.$versionPatch"
+
+        nameAPK = nameApp.toLowerCase().replace(" ", "-")
+
+        // dependencies version
+        kotlin_version = "1.5.21"
+        compose_version = '1.0.1'
 
     }
 
@@ -23,7 +39,7 @@ buildscript {
     }
 
     dependencies {
-        classpath 'com.android.tools.build:gradle:4.2.2'
+        classpath 'com.android.tools.build:gradle:7.0.0'
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files

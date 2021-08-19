@@ -6,31 +6,6 @@ plugins {
 
 android {
 
-    def appDomain = "com"
-    def appDevConsole = "frogobox"
-    def appName = "app"
-
-    def projectApplicationId = "$appDomain.$appDevConsole.$appName"
-    def projectVersionCode = (versionMajor * 100) + (versionMinor * 10) + (versionPatch * 1)
-    def projectVersionName = "$versionMajor.$versionMinor.$versionPatch"
-
-    // Declaration app name
-    def nameApp = "Frogo Admob"
-    def nameAppLower = nameApp.toLowerCase()
-
-    // Declaration apk / aab name
-    def nameAPK = nameAppLower.replace(" ", "-")
-
-    // Declaration admob id for debug
-    def debugAdmobPublisherId = "ca-app-pub-3940256099942544~3347511713"
-    def debugAdmobBanner = "ca-app-pub-3940256099942544/6300978111"
-    def debugAdmobInterstitial = "ca-app-pub-3940256099942544/1033173712"
-    def debugAdmobInterstitialVideo = "ca-app-pub-3940256099942544/8691691433"
-    def debugAdmobRewarded = "ca-app-pub-3940256099942544/5224354917"
-    def debugAdmobRewardedInterstitial = "ca-app-pub-3940256099942544/5354046379"
-    def debugAdmobNativeAdvanced = "ca-app-pub-3940256099942544/2247696110"
-    def debugAdmobNativeAdvancedVideo = "ca-app-pub-3940256099942544/1044960115"
-
     // Declaration admob id for release
     def releaseAdmobPublisherId = ""
     def releaseAdmobBanner = ""
@@ -46,8 +21,8 @@ android {
     }
 
     compileOptions {
-        sourceCompatibility JavaVersion.VERSION_1_8
-        targetCompatibility JavaVersion.VERSION_1_8
+        sourceCompatibility JavaVersion.VERSION_11
+        targetCompatibility JavaVersion.VERSION_11
     }
 
     composeOptions {
@@ -56,7 +31,7 @@ android {
     }
 
     kotlinOptions {
-        jvmTarget = '1.8'
+        jvmTarget = JavaVersion.VERSION_11.toString()
     }
 
     packagingOptions {
@@ -65,14 +40,16 @@ android {
         }
     }
 
-    compileSdk projectCompileSdkVersion
+    compileSdk projectCompileSdk
 
     defaultConfig {
         applicationId projectApplicationId
-        minSdk projectMinSdkVersion
-        targetSdk projectTargetSdkVersion
+        minSdk projectMinSdk
+        targetSdk projectTargetSdk
         versionCode projectVersionCode
         versionName projectVersionName
+
+        multiDexEnabled true
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
 
@@ -87,6 +64,16 @@ android {
 
         // Inject app name for debug
         resValue "string", "app_name", nameApp
+
+        // Declaration admob id for debug
+        def debugAdmobPublisherId = "ca-app-pub-3940256099942544~3347511713"
+        def debugAdmobBanner = "ca-app-pub-3940256099942544/6300978111"
+        def debugAdmobInterstitial = "ca-app-pub-3940256099942544/1033173712"
+        def debugAdmobInterstitialVideo = "ca-app-pub-3940256099942544/8691691433"
+        def debugAdmobRewarded = "ca-app-pub-3940256099942544/5224354917"
+        def debugAdmobRewardedInterstitial = "ca-app-pub-3940256099942544/5354046379"
+        def debugAdmobNativeAdvanced = "ca-app-pub-3940256099942544/2247696110"
+        def debugAdmobNativeAdvancedVideo = "ca-app-pub-3940256099942544/1044960115"
 
         // Inject admob id for debug
         resValue "string", "admob_publisher_id", debugAdmobPublisherId
@@ -153,25 +140,34 @@ dependencies {
     implementation project(':frogoadmob')
 
     implementation 'androidx.appcompat:appcompat:1.3.1'
-
     implementation 'androidx.core:core-ktx:1.6.0'
-    implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
+    implementation 'androidx.constraintlayout:constraintlayout:2.1.0'
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+
+    implementation "androidx.compose.ui:ui:$compose_version"
+    implementation "androidx.compose.material:material:$compose_version"
+    implementation "androidx.compose.ui:ui-tooling-preview:$compose_version"
+    implementation 'androidx.lifecycle:lifecycle-runtime-ktx:2.3.1'
+    implementation 'androidx.activity:activity-compose:1.3.1'
     
     implementation 'com.google.code.gson:gson:2.8.6'
     implementation 'com.google.android.material:material:1.4.0'
     implementation 'com.google.android.gms:play-services-ads:20.2.0'
 
     implementation 'com.github.bumptech.glide:glide:4.12.0'
-    implementation 'com.github.amirisback:frogo-log:2.0.2'
-    implementation 'com.github.amirisback:frogo-ui-kit:2.1.0'
+
+    implementation 'com.github.amirisback:frogo-log:2.0.3'
     implementation 'com.github.amirisback:frogo-recycler-view:3.8.1'
-    implementation 'com.github.amirisback:consumable-code-movie-tmdb-api:1.2.0'
-    implementation 'com.github.amirisback:consumable-code-news-api:1.0.5'
+
+    implementation 'com.github.frogobox:frogo-android-ui-kit:1.0.2'
+    implementation 'com.github.frogobox:frogo-consume-api:1.0.1'
+    implementation 'com.github.frogobox:frogo-android-sdk:1.0.6'
 
     kapt 'com.github.bumptech.glide:compiler:4.11.0'
 
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.3'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
+    androidTestImplementation "androidx.compose.ui:ui-test-junit4:$compose_version"
+    debugImplementation "androidx.compose.ui:ui-tooling:$compose_version"
 }

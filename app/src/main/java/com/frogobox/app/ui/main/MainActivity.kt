@@ -3,7 +3,7 @@ package com.frogobox.app.ui.main
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
-import com.frogobox.admob.core.IFrogoAdmob
+import com.frogobox.app.core.IFrogoAdmob
 import com.frogobox.app.R
 import com.frogobox.app.core.BaseActivity
 import com.frogobox.app.databinding.ActivityMainBinding
