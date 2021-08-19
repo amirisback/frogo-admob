@@ -141,10 +141,10 @@ dependencies {
 
     implementation 'com.github.bumptech.glide:glide:4.12.0'
 
-    implementation 'com.github.amirisback:frogo-log:2.0.3'
-    implementation 'com.github.amirisback:frogo-recycler-view:3.8.1'
+    implementation 'com.github.amirisback:frogo-log:2.0.4'
+    implementation 'com.github.amirisback:frogo-recycler-view:3.8.3'
+    implementation 'com.github.frogobox:frogo-android-ui-kit:1.0.4'
 
-    implementation 'com.github.frogobox:frogo-android-ui-kit:1.0.2'
     implementation 'com.github.frogobox:frogo-consume-api:1.0.1'
     implementation 'com.github.frogobox:frogo-android-sdk:1.0.6'
 

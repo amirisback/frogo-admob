@@ -72,9 +72,9 @@ dependencies {
     implementation 'de.hdodenhof:circleimageview:3.1.0'
 
     implementation 'com.facebook.shimmer:shimmer:0.5.0'
-    implementation 'com.github.amirisback:frogo-log:2.0.3'
-    implementation 'com.github.amirisback:frogo-recycler-view:3.8.1'
-    implementation 'com.github.frogobox:frogo-android-ui-kit:1.0.2'
+    implementation 'com.github.amirisback:frogo-log:2.0.4'
+    implementation 'com.github.amirisback:frogo-recycler-view:3.8.3'
+    implementation 'com.github.frogobox:frogo-android-ui-kit:1.0.4'
 
     androidTestImplementation "androidx.compose.ui:ui-test-junit4:$compose_version"
     debugImplementation "androidx.compose.ui:ui-tooling:$compose_version"
