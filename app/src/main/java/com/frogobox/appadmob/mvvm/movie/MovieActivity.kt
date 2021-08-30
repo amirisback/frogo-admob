@@ -5,13 +5,12 @@ import androidx.recyclerview.widget.GridLayoutManager
 import com.frogobox.appadmob.R
 import com.frogobox.appadmob.base.BaseActivity
 import com.frogobox.admob.core.FrogoAdmob
+import com.frogobox.api.core.ConsumeApiResponse
+import com.frogobox.api.movie.ConsumeMovieApi
+import com.frogobox.api.movie.model.TrendingMovie
+import com.frogobox.api.movie.response.Trending
+import com.frogobox.api.movie.util.MovieUrl
 import com.frogobox.appadmob.databinding.ActivityRecyclerViewBinding
-import com.frogobox.appadmob.mvvm.news.NewsAdapter
-import com.frogobox.frogonewsapi.ConsumeNewsApi
-import com.frogobox.frogonewsapi.callback.NewsResultCallback
-import com.frogobox.frogonewsapi.data.response.ArticleResponse
-import com.frogobox.frogonewsapi.util.NewsConstant
-import com.frogobox.frogonewsapi.util.NewsUrl
 import com.frogobox.recycler.core.FrogoRecyclerViewListener
 
 class MovieActivity : BaseActivity<ActivityRecyclerViewBinding>() {
@@ -27,16 +26,11 @@ class MovieActivity : BaseActivity<ActivityRecyclerViewBinding>() {
     }
 
     private fun setupNewsApi() {
-        val consumeNewsApi = ConsumeNewsApi(NewsUrl.NEWS_API_KEY) // Your API_KEY
-        consumeNewsApi.usingChuckInterceptor(this) // Using Chuck Interceptor
-        consumeNewsApi.getTopHeadline( // Adding Base Parameter on main function
-            null,
-            null,
-            NewsConstant.CATEGORY_HEALTH,
-            NewsConstant.COUNTRY_ID,
-            null,
-            null,
-            object : NewsResultCallback<ArticleResponse> {
+        val consumeMovieApi = ConsumeMovieApi(MovieUrl.API_KEY) // Your API_KEY
+        consumeMovieApi.usingChuckInterceptor(this) // Using Chuck Interceptor
+        consumeMovieApi.getTrendingMovieWeek( // Adding Base Parameter on main function
+
+            object : ConsumeApiResponse<Trending<TrendingMovie>> {
 
                 override fun onShowProgress() {
                     // Your Progress Show
@@ -46,12 +40,12 @@ class MovieActivity : BaseActivity<ActivityRecyclerViewBinding>() {
                     // Your Progress Hide
                 }
 
-                override fun failedResult(statusCode: Int, errorMessage: String?) {
+                override fun onFailed(statusCode: Int, errorMessage: String?) {
                     // Your failed to do
                 }
 
-                override fun getResultData(data: ArticleResponse) {
-                    data.articles?.let { arrayFrogoAdmobData.addAll(it) }
+                override fun onSuccess(data: Trending<TrendingMovie>) {
+                    data.results?.let { arrayFrogoAdmobData.addAll(it) }
                     FrogoAdmob.RecyclerView.loadRecyclerBannerAds(
                         this@MovieActivity,
                         arrayFrogoAdmobData
@@ -62,8 +56,8 @@ class MovieActivity : BaseActivity<ActivityRecyclerViewBinding>() {
             })
     }
 
-    private fun setupAdapter(): NewsAdapter {
-        val adapter = NewsAdapter()
+    private fun setupAdapter(): MovieAdapter {
+        val adapter = MovieAdapter()
         adapter.setupRequirement(R.layout.content_item_news, arrayFrogoAdmobData, object :
             FrogoRecyclerViewListener<Any> {
             override fun onItemClicked(data: Any) {}
