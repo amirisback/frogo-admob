@@ -21,7 +21,7 @@
 
 ## Version Release
 
-    $version_release = 4.1.1
+    $version_release = 4.1.2
 
 What's New??
 
@@ -32,6 +32,7 @@ What's New??
     * Update build.gradle *
     * Update sample code *
     * Update Android Gradle Plugin 7.0.1 *
+    * Update Admob Library Version 20.3.0 *
 
 ## How To Use / Implement This Project
 ### Step 1. Add the JitPack repository to your build file
@@ -52,7 +53,7 @@ Add it in your root build.gradle at the end of repositories:
             implementation 'com.google.android.gms:play-services-ads:${latest_version}'
 
             // library frogo-admob-helper
-	        implementation 'com.github.amirisback:frogo-admob:4.1.1'
+	        implementation 'com.github.amirisback:frogo-admob:4.1.2'
 	}
 	
 ### Step 3. Adding meta-data on AndroidManifest.xml
