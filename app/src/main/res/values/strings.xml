@@ -6,5 +6,7 @@
     <string name="title_about_us">toolbar_about_us</string>
     <string name="dummyLong">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam veniam similiquevoluptates odit, ipsum laborum architecto distinctio harum, provident fugiat praesentium ex quod doloreslaudantium aliquid quidem placeat incidunt vitae!</string>
     <string name="dummy">Dummy</string>
+    <string name="title_activity_main">MainActivity</string>
+    <string name="title_activity_compose">ComposeActivity</string>
 
 </resources>

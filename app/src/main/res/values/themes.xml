@@ -24,4 +24,13 @@
         <item name="colorTextDescription">@color/colorTextGrey</item>
 
     </style>
+
+    <style name="Theme.KickStart.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="Theme.KickStart.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="Theme.KickStart.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 </resources>
