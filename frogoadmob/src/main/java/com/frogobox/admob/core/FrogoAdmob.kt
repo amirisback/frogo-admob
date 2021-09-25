@@ -42,7 +42,7 @@ object FrogoAdmob : IFrogoAdmob {
 
     private var mInterstitialAd: InterstitialAd? = null
     private var mRewardedAd: RewardedAd? = null
-    private var rewardedInterstitialAd: RewardedInterstitialAd? = null
+    private var mRewardedInterstitialAd: RewardedInterstitialAd? = null
 
     override fun setupPublisherID(mPublisherId: String) {
         admobPublisherID = mPublisherId
@@ -66,7 +66,7 @@ object FrogoAdmob : IFrogoAdmob {
 
     override fun setupRewardedInterstitialAdUnitID(mAdUnitId: String) {
         mAdUnitIdRewardedInterstitial = mAdUnitId
-        FLog.d("Rewarded Interstitial Id : $mAdUnitIdRewarded")
+        FLog.d("Rewarded Interstitial Id : $mAdUnitIdRewardedInterstitial")
     }
 
     object Publisher : IFrogoAdmob.Publisher {
@@ -214,8 +214,8 @@ object FrogoAdmob : IFrogoAdmob {
             RewardedInterstitialAd.load(context, mAdUnitIdRewardedInterstitial, adRequest,
                 object : RewardedInterstitialAdLoadCallback() {
                     override fun onAdLoaded(ad: RewardedInterstitialAd) {
-                        rewardedInterstitialAd = ad
-                        rewardedInterstitialAd!!.fullScreenContentCallback =
+                        mRewardedInterstitialAd = ad
+                        mRewardedInterstitialAd!!.fullScreenContentCallback =
                             object : FullScreenContentCallback() {
                                 /** Called when the ad failed to show full screen content.  */
                                 override fun onAdFailedToShowFullScreenContent(adError: AdError) {
@@ -245,8 +245,8 @@ object FrogoAdmob : IFrogoAdmob {
             activity: AppCompatActivity,
             callback: IFrogoAdmob.UserEarned
         ) {
-            if (rewardedInterstitialAd != null) {
-                rewardedInterstitialAd?.show(activity) {
+            if (mRewardedInterstitialAd != null) {
+                mRewardedInterstitialAd?.show(activity) {
                     callback.onUserEarnedReward(it)
                 }
             } else {
