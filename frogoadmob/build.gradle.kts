@@ -77,7 +77,7 @@ dependencies {
     implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.3.1")
     implementation("androidx.activity:activity-compose:1.3.1")
 
-    implementation("com.google.android.gms:play-services-ads:20.3.0")
+    implementation("com.google.android.gms:play-services-ads:20.4.0")
     implementation("com.google.android.material:material:1.4.0")
 
     implementation("com.github.amirisback:frogo-log:2.0.4")

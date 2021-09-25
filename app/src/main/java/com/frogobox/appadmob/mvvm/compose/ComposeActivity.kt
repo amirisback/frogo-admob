@@ -1,4 +1,4 @@
-package com.frogobox.appadmob
+package com.frogobox.appadmob.mvvm.compose
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
@@ -10,6 +10,7 @@ import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.tooling.preview.Preview
 import com.frogobox.admob.core.FrogoAdmobBannerView
+import com.frogobox.appadmob.R
 import com.frogobox.appadmob.ui.theme.FrogoAdmobTheme
 
 class ComposeActivity : ComponentActivity() {
@@ -20,7 +21,6 @@ class ComposeActivity : ComponentActivity() {
                 // A surface container using the 'background' color from the theme
                 Surface(color = MaterialTheme.colors.background) {
                     Column {
-                        Greeting("Android")
                         FrogoAdmobBannerView(adUnitID = getString(R.string.admob_banner))
                     }
                 }

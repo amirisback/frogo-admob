@@ -6,67 +6,96 @@
     android:layout_height="match_parent"
     tools:context=".mvvm.main.MainActivity">
 
-    <LinearLayout
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:layout_above="@id/include_ads_view">
 
-        <Button
-            android:id="@+id/btn_interstitial"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/dimen_big_16dp"
-            android:layout_marginTop="@dimen/dimen_big_16dp"
-            android:layout_marginEnd="@dimen/dimen_big_16dp"
-            android:background="@drawable/background_button_primary"
-            android:text="Interstitial Ads"
-            android:textColor="@color/colorTextWhite" />
+            android:orientation="vertical">
 
-        <Button
-            android:id="@+id/btn_rewarded"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/dimen_big_16dp"
-            android:layout_marginTop="@dimen/dimen_big_16dp"
-            android:layout_marginEnd="@dimen/dimen_big_16dp"
-            android:background="@drawable/background_button_primary"
-            android:text="Rewarded Ads"
-            android:textColor="@color/colorTextWhite" />
+            <Button
+                android:id="@+id/btn_interstitial"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dimen_big_16dp"
+                android:layout_marginTop="@dimen/dimen_big_16dp"
+                android:layout_marginEnd="@dimen/dimen_big_16dp"
+                android:background="@drawable/background_button_primary"
+                android:text="Interstitial Ads"
+                android:textColor="@color/colorTextWhite" />
 
-        <Button
-            android:id="@+id/btn_rewarded_interstitial"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/dimen_big_16dp"
-            android:layout_marginTop="@dimen/dimen_big_16dp"
-            android:layout_marginEnd="@dimen/dimen_big_16dp"
-            android:background="@drawable/background_button_primary"
-            android:text="Rewarded Interstital Ads"
-            android:textColor="@color/colorTextWhite" />
+            <Button
+                android:id="@+id/btn_rewarded"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dimen_big_16dp"
+                android:layout_marginTop="@dimen/dimen_big_16dp"
+                android:layout_marginEnd="@dimen/dimen_big_16dp"
+                android:background="@drawable/background_button_primary"
+                android:text="Rewarded Ads"
+                android:textColor="@color/colorTextWhite" />
 
-        <Button
-            android:id="@+id/btn_recycler_view"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/dimen_big_16dp"
-            android:layout_marginTop="@dimen/dimen_big_16dp"
-            android:layout_marginEnd="@dimen/dimen_big_16dp"
-            android:background="@drawable/background_button_primary"
-            android:text="RecyclerView With Banner (1)"
-            android:textColor="@color/colorTextWhite" />
+            <Button
+                android:id="@+id/btn_rewarded_interstitial"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dimen_big_16dp"
+                android:layout_marginTop="@dimen/dimen_big_16dp"
+                android:layout_marginEnd="@dimen/dimen_big_16dp"
+                android:background="@drawable/background_button_primary"
+                android:text="Rewarded Interstital Ads"
+                android:textColor="@color/colorTextWhite" />
 
-        <Button
-            android:id="@+id/btn_recycler_view_2"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/dimen_big_16dp"
-            android:layout_marginTop="@dimen/dimen_big_16dp"
-            android:layout_marginEnd="@dimen/dimen_big_16dp"
-            android:background="@drawable/background_button_primary"
-            android:text="RecyclerView With Banner (2)"
-            android:textColor="@color/colorTextWhite" />
+            <Button
+                android:id="@+id/btn_recycler_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dimen_big_16dp"
+                android:layout_marginTop="@dimen/dimen_big_16dp"
+                android:layout_marginEnd="@dimen/dimen_big_16dp"
+                android:background="@drawable/background_button_primary"
+                android:text="RecyclerView With Banner (1)"
+                android:textColor="@color/colorTextWhite" />
 
-    </LinearLayout>
+            <Button
+                android:id="@+id/btn_recycler_view_2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dimen_big_16dp"
+                android:layout_marginTop="@dimen/dimen_big_16dp"
+                android:layout_marginEnd="@dimen/dimen_big_16dp"
+                android:background="@drawable/background_button_primary"
+                android:text="RecyclerView With Banner (2)"
+                android:textColor="@color/colorTextWhite" />
+
+            <Button
+                android:id="@+id/btn_compose_activity"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dimen_big_16dp"
+                android:layout_marginTop="@dimen/dimen_big_16dp"
+                android:layout_marginEnd="@dimen/dimen_big_16dp"
+                android:background="@drawable/background_button_primary"
+                android:text="Compose Function"
+                android:textColor="@color/colorTextWhite" />
+
+            <Button
+                android:id="@+id/btn_hybrid_activity"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dimen_big_16dp"
+                android:layout_marginTop="@dimen/dimen_big_16dp"
+                android:layout_marginEnd="@dimen/dimen_big_16dp"
+                android:background="@drawable/background_button_primary"
+                android:text="Mixed Compose and XML"
+                android:textColor="@color/colorTextWhite" />
+
+        </LinearLayout>
+
+    </ScrollView>
 
     <include
         android:id="@+id/include_ads_view"

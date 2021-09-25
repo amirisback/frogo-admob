@@ -1,12 +1,16 @@
 package com.frogobox.appadmob.mvvm.main
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
+import androidx.activity.ComponentActivity
 import com.frogobox.admob.core.IFrogoAdmob
 import com.frogobox.appadmob.R
 import com.frogobox.appadmob.base.BaseActivity
 import com.frogobox.appadmob.databinding.ActivityMainBinding
+import com.frogobox.appadmob.mvvm.compose.ComposeActivity
+import com.frogobox.appadmob.mvvm.compose.HybridActivity
 import com.frogobox.appadmob.mvvm.movie.MovieActivity
 import com.frogobox.appadmob.mvvm.news.NewsActivity
 import com.google.android.gms.ads.rewarded.RewardItem
@@ -53,6 +57,14 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
 
             btnRecyclerView2.setOnClickListener {
                 baseStartActivity<MovieActivity>()
+            }
+
+            btnComposeActivity.setOnClickListener {
+                baseStartActivity<ComposeActivity>()
+            }
+
+            btnHybridActivity.setOnClickListener {
+                baseStartActivity<HybridActivity>()
             }
 
         }

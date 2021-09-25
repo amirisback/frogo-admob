@@ -9,36 +9,27 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.KickStart">
-
         <activity
-            android:name=".ComposeActivity"
-            android:exported="true"
-            android:label="@string/title_activity_compose"
-            android:theme="@style/Theme.KickStart.NoActionBar" >
-
+            android:name=".mvvm.compose.HybridActivity"
+            android:exported="true" />
+        <activity
+            android:name=".mvvm.compose.ComposeActivity"
+            android:label="@string/title_activity_compose" />
+        <activity android:name=".mvvm.movie.MovieActivity" />
+        <activity android:name=".mvvm.news.NewsActivity" />
+        <activity android:name=".mvvm.main.AboutUsActivity" />
+        <activity
+            android:name=".mvvm.main.MainActivity"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-
-        </activity>
-
-        <activity android:name=".mvvm.movie.MovieActivity" />
-        <activity android:name=".mvvm.news.NewsActivity" />
-        <activity android:name=".mvvm.main.AboutUsActivity" />
-
-        <activity
-            android:name=".mvvm.main.MainActivity"
-            android:exported="true">
-
-        </activity>
-
-        <!-- Sample AdMob App ID: ca-app-pub-3940256099942544~3347511713 -->
+        </activity> <!-- Sample AdMob App ID: ca-app-pub-3940256099942544~3347511713 -->
         <meta-data
             android:name="com.google.android.gms.ads.APPLICATION_ID"
             android:value="@string/admob_publisher_id" />
-
     </application>
 
 </manifest>
