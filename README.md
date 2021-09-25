@@ -9,6 +9,7 @@
 - Example Source Code For Call Method Show Admob
 - Calling method on Inheritance Class
 - Implement all Admob Version
+- Jetpack Compose Function (Experimental)
 
 ## Note For Jitpack Build
 - Red : Failed (So don't use that version / Using previous version)
@@ -21,7 +22,7 @@
 
 ## Version Release
 
-    $version_release = 4.1.2
+    $version_release = 4.1.3
 
 What's New??
 
@@ -31,133 +32,298 @@ What's New??
     * Update documentation *
     * Update build.gradle *
     * Update sample code *
-    * Update Android Gradle Plugin 7.0.1 *
-    * Update Admob Library Version 20.3.0 *
+    * Update Android Gradle Plugin 7.0.2 *
+    * Update Admob Library Version 20.4.0 *
+    * Add Compose Implementation (Experimental) *
 
 ## How To Use / Implement This Project
 ### Step 1. Add the JitPack repository to your build file
 
-Add it in your root build.gradle at the end of repositories:
+#### <Option 1> Groovy Gradle
 
-	allprojects {
-		repositories {
-			...
-			maven { url 'https://jitpack.io' }
-		}
-	}
-  
+    // Add it in your root build.gradle at the end of repositories:
+
+    allprojects {
+        repositories {
+            ...
+            maven { url 'https://jitpack.io' }
+        }
+    }
+
+#### <Option 2> Kotlin DSL Gradle
+
+```kotlin
+// Add it in your root build.gradle.kts at the end of repositories:
+
+allprojects {
+    repositories {
+        ...
+        maven { url = uri("https://jitpack.io") }
+    }
+}
+```
+
 ### Step 2. Add the dependency
+
+#### <Option 1> Groovy
 
 	dependencies {
 	        // library google ads
             implementation 'com.google.android.gms:play-services-ads:${latest_version}'
 
             // library frogo-admob-helper
-	        implementation 'com.github.amirisback:frogo-admob:4.1.2'
+	        implementation 'com.github.amirisback:frogo-admob:4.1.3'
+	}
+
+#### <Option 2> Kotlin DSL
+
+	dependencies {
+	        // library google ads
+            implementation("com.google.android.gms:play-services-ads:${latest_version}")
+
+            // library frogo-admob-helper
+	        implementation("com.github.amirisback:frogo-admob:4.1.3")
 	}
 	
 ### Step 3. Adding meta-data on AndroidManifest.xml
-
-	<manifest>
-        <application>
-            <!-- Sample AdMob App ID: ca-app-pub-3940256099942544~3347511713 -->
-            <meta-data
-                android:name="com.google.android.gms.ads.APPLICATION_ID"
-                android:value="ca-app-pub-xxxxxxxxxxxxxxxx~yyyyyyyyyy"/>
-        </application>
-    </manifest>
+```xml
+<manifest>
+    <application>
+        <!-- Sample AdMob App ID: ca-app-pub-3940256099942544~3347511713 -->
+        <meta-data
+            android:name="com.google.android.gms.ads.APPLICATION_ID"
+            android:value="ca-app-pub-xxxxxxxxxxxxxxxx~yyyyyyyyyy"/>
+    </application>
+</manifest>
+```
 	
-### Step 4. Setup Admob with Extend on your activity
+### Step 4. Setup Admob and Showing Ads
 
-    class <YourActivity> : FrogoAdmobActivity() {
-    
-        override fun onCreate(savedInstanceState: Bundle?) {
-            super.onCreate(savedInstanceState)
-            setupAdmob()
-        }
+#### XML
+<details>
+  <summary>Click for detail!</summary>
 
-        private fun setupAdmob(){
-            setPublisher()
-            setBanner()
-            setInterstitial()
-            setRewarded()
-            setRewardedInterstitial()
-        }
+#### Setup Ads
+```kotlin
+class <YourActivity> : FrogoAdmobActivity() {
 
-        private fun setPublisher() {
-            setupAdsPublisher(getString(R.string.admob_publisher_id))
-        }
-
-        private fun setBanner() {
-            setupAdsBanner(getString(R.string.admob_banner))
-        }
-
-        private fun setInterstitial() {
-            setupAdsInterstitial(getString(R.string.admob_interstitial))
-        }
-
-        private fun setRewarded() {
-            setupAdsRewarded(getString(R.string.admob_rewarded))
-        }
-
-        private fun setRewardedInterstitial() {
-            setupAdsRewardedInterstitial(getString(R.string.admob_rewarded_interstitial))
-        }
-
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setupAdmob()
     }
 
+    private fun setupAdmob(){
+        setPublisher()
+        setBanner()
+        setInterstitial()
+        setRewarded()
+        setRewardedInterstitial()
+    }
 
-### Step 5. Showing ads
+    private fun setPublisher() {
+        setupAdsPublisher(getString(R.string.admob_publisher_id))
+    }
 
-    class <YourActivity> : FrogoAdmobActivity() {
+    private fun setBanner() {
+        setupAdsBanner(getString(R.string.admob_banner))
+    }
 
-        override fun onCreate(savedInstanceState: Bundle?) {
-            super.onCreate(savedInstanceState)
-            setupAdmob()
-            setupButtonClick()
-        }
+    private fun setInterstitial() {
+        setupAdsInterstitial(getString(R.string.admob_interstitial))
+    }
 
-        ...
-        ...
-        ...
+    private fun setRewarded() {
+        setupAdsRewarded(getString(R.string.admob_rewarded))
+    }
 
-        private fun setupButtonClick() {
+    private fun setRewardedInterstitial() {
+        setupAdsRewardedInterstitial(getString(R.string.admob_rewarded_interstitial))
+    }
 
-            binding.apply {
+}
+```
 
-                btnInterstitial.setOnClickListener {
-                    setupShowAdsInterstitial()
-                }
+#### Showing Ads
 
-                btnRewarded.setOnClickListener {
-                    setupShowAdsRewarded(object : IFrogoAdmob.UserEarned {
-                        override fun onUserEarnedReward(rewardItem: RewardItem) {
-                            // TODO User Get Reward
-                        }
-                    })
-                }
+```kotlin
+class <YourActivity> : FrogoAdmobActivity() {
 
-                btnRewardedInterstitial.setOnClickListener {
-                    setupShowAdsRewardedInterstitial(object : IFrogoAdmob.UserEarned {
-                        override fun onUserEarnedReward(rewardItem: RewardItem) {
-                            // TODO User Get Reward
-                        }
-                    })
-                }
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setupAdmob()
+        setupButtonClick()
+    }
 
-                btnRecyclerView.setOnClickListener {
-                    baseStartActivity<NewsActivity>()
-                }
+    ...
+    ...
+    ...
 
-                btnRecyclerView2.setOnClickListener {
-                    baseStartActivity<MovieActivity>()
-                }
+    private fun setupButtonClick() {
 
+        binding.apply {
+
+            btnInterstitial.setOnClickListener {
+                setupShowAdsInterstitial()
+            }
+
+            btnRewarded.setOnClickListener {
+                setupShowAdsRewarded(object : IFrogoAdmob.UserEarned {
+                    override fun onUserEarnedReward(rewardItem: RewardItem) {
+                        // TODO User Get Reward
+                    }
+                })
+            }
+
+            btnRewardedInterstitial.setOnClickListener {
+                setupShowAdsRewardedInterstitial(object : IFrogoAdmob.UserEarned {
+                    override fun onUserEarnedReward(rewardItem: RewardItem) {
+                        // TODO User Get Reward
+                    }
+                })
             }
 
         }
 
     }
+
+}
+```
+
+</details>
+
+#### Jetpack Compose
+
+<details>
+  <summary>Click for detail!</summary>
+
+#### ComposeActivity
+
+```kotlin
+
+class ComposeActivity : ComponentActivity() {
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContent {
+            FrogoAdmobTheme {
+                // A surface container using the 'background' color from the theme
+                Surface(color = MaterialTheme.colors.background) {
+                    Column {
+                        FrogoAdmobBannerView(
+                            mAdUnitID = getString(R.string.admob_banner),
+                            mAdSize = adsize_banner
+                        )
+                    }
+                }
+            }
+        }
+    }
+}
+
+```
+
+</details>
+
+#### Hybrid (Jetpack Compose + XML)
+
+<details>
+  <summary>Click for detail!</summary>
+
+#### XML Layout
+
+```xml
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:ads="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".mvvm.main.MainActivity">
+
+    <androidx.compose.ui.platform.ComposeView
+        android:id="@+id/compose_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@id/include_ads_view"/>
+
+    <include
+        android:id="@+id/include_ads_view"
+        layout="@layout/ads_phone_tab_special_smart_banner" />
+
+</RelativeLayout>
+
+```
+
+#### Kotlin Class
+
+```kotlin
+
+class HybridActivity : BaseActivity<ActivityHybridBinding>() {
+
+    override fun setupViewBinding(): ActivityHybridBinding {
+        return ActivityHybridBinding.inflate(layoutInflater)
+    }
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        binding.apply {
+            composeView.setContent {
+                Greeting("FrogoAdmob")
+            }
+
+            setupShowAdsBanner(includeAdsView.adsPhoneTabSpecialSmartBanner)
+        }
+
+    }
+
+    @Composable
+    fun Greeting(name: String) {
+        Text(text = "Hello $name!")
+    }
+
+}
+
+```
+
+</details>
+
+## Jetpack Compose Element
+
+### Variable
+
+```kotlin
+val adsize_banner: AdSize = AdSize.BANNER
+val adsize_full_banner: AdSize = AdSize.FULL_BANNER
+val adsize_large_banner: AdSize = AdSize.LARGE_BANNER
+val adsize_smart_banner: AdSize = AdSize.SMART_BANNER
+val adsize_medium_rectangle: AdSize = AdSize.MEDIUM_RECTANGLE
+val adsize_wide_skycraper: AdSize = AdSize.WIDE_SKYSCRAPER
+```
+
+### Function
+
+```kotlin
+
+@Composable
+fun FrogoAdmobBannerView(
+    mAdUnitID: String,
+    mAdSize: AdSize,
+    modifier: Modifier = Modifier
+) {
+    AndroidView(
+        modifier = modifier.fillMaxWidth(),
+        factory = { context ->
+            FLog.d("FrogoAdmobBannerView")
+            AdView(context).apply {
+                adSize = mAdSize
+                adUnitId = mAdUnitID
+                loadAd(AdRequest.Builder().build())
+            }
+        }
+    )
+}
+
+```
+
 
 ## Allert
 
