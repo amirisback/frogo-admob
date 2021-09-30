@@ -1,8 +1,4 @@
-![ScreenShoot Apps](https://raw.githubusercontent.com/amirisback/amirisback/master/docs/image/deprecated.png?raw=true)
-
-## Attention Please :bangbang:
-- Please use frogo-android-ads [Click Here](https://github.com/frogobox/frogo-android-ads) to get the latest updates
-- This library can still be used but is not developed, use the latest version if you still want to use this library
+![ScreenShoot Apps](docs/image/ss_banner.png?raw=true)
 
 ## About This Project
 [![Android Arsenal](https://img.shields.io/badge/Android%20Arsenal-frogo--admob-brightgreen.svg?style=flat-square)](https://android-arsenal.com/details/1/8251)
