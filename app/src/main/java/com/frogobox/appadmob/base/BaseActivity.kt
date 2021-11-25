@@ -129,7 +129,7 @@ abstract class BaseActivity<VB : ViewBinding> : FrogoAdmobActivity() {
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
     }
 
-    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+    override fun onCreateOptionsMenu(menu: Menu): Boolean {
         return true
     }
 

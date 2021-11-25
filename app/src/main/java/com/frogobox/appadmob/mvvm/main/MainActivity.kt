@@ -9,6 +9,7 @@ import com.frogobox.admob.core.IFrogoAdmob
 import com.frogobox.appadmob.R
 import com.frogobox.appadmob.base.BaseActivity
 import com.frogobox.appadmob.databinding.ActivityMainBinding
+import com.frogobox.appadmob.javasample.MainJavaActivity
 import com.frogobox.appadmob.mvvm.compose.ComposeActivity
 import com.frogobox.appadmob.mvvm.compose.HybridActivity
 import com.frogobox.appadmob.mvvm.movie.MovieActivity
@@ -67,10 +68,14 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
                 baseStartActivity<HybridActivity>()
             }
 
+            btnJavaSampleActivity.setOnClickListener {
+                baseStartActivity<MainJavaActivity>()
+            }
+
         }
     }
 
-    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+    override fun onCreateOptionsMenu(menu: Menu): Boolean {
         menuInflater.inflate(R.menu.menu_toolbar_main, menu)
         return true
     }

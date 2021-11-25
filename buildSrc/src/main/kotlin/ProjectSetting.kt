@@ -13,7 +13,7 @@
 
 object ProjectSetting {
     // project settings
-    const val NAME_APP = "Frogo Recycler View"
+    const val NAME_APP = "Frogo Admob"
     val NAME_APK = NAME_APP.toLowerCase().replace(" ", "-")
 
     const val APP_DOMAIN = "com"
@@ -24,7 +24,7 @@ object ProjectSetting {
 
     const val VERSION_MAJOR = 4
     const val VERSION_MINOR = 1
-    const val VERSION_PATCH = 3
+    const val VERSION_PATCH = 4
 
     const val PROJECT_COMPILE_SDK = 31
     const val PROJECT_MIN_SDK = 21

@@ -1,8 +1,7 @@
 plugins {
     id("com.android.application")
-    kotlin("android")
-    id("kotlin-kapt")
     id("kotlin-android")
+    id("kotlin-kapt")
 }
 
 android {
@@ -125,30 +124,30 @@ dependencies {
 
     implementation(project(":frogoadmob"))
 
-    implementation("androidx.appcompat:appcompat:1.3.1")
-    implementation("androidx.core:core-ktx:1.6.0")
-    implementation("androidx.constraintlayout:constraintlayout:2.1.0")
+    implementation("androidx.appcompat:appcompat:1.4.0")
+    implementation("androidx.core:core-ktx:1.7.0")
+    implementation("androidx.constraintlayout:constraintlayout:2.1.2")
     implementation("androidx.legacy:legacy-support-v4:1.0.0")
 
     implementation("androidx.compose.ui:ui:${Dependency.COMPOSE_VERSION}")
     implementation("androidx.compose.material:material:${Dependency.COMPOSE_VERSION}")
     implementation("androidx.compose.ui:ui-tooling-preview:${Dependency.COMPOSE_VERSION}")
-    implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.3.1")
-    implementation("androidx.activity:activity-compose:1.3.1")
+    implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.4.0")
+    implementation("androidx.activity:activity-compose:1.4.0")
     
     implementation("com.google.code.gson:gson:2.8.8")
     implementation("com.google.android.material:material:1.4.0")
-    implementation("com.google.android.gms:play-services-ads:20.4.0")
+    implementation("com.google.android.gms:play-services-ads:20.5.0")
 
     implementation("com.github.bumptech.glide:glide:4.12.0")
 
     implementation("com.github.amirisback:frogo-log:2.0.4")
     implementation("com.github.amirisback:frogo-recycler-view:3.8.8")
 
-    implementation("com.github.frogobox:frogo-consume-api:1.0.5")
+    implementation("com.github.frogobox:frogo-consume-api:1.0.7")
     implementation("com.github.frogobox:frogo-android-ui-kit:1.0.4")
 
-    kapt("com.github.bumptech.glide:compiler:4.11.0")
+    kapt("com.github.bumptech.glide:compiler:4.12.0")
 
     testImplementation("junit:junit:4.13.2")
     androidTestImplementation("androidx.test.ext:junit:1.1.3")

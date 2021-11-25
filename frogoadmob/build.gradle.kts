@@ -1,6 +1,6 @@
 plugins {
     id("com.android.library")
-    kotlin("android")
+    id("kotlin-android")
     id("kotlin-kapt")
     `maven-publish`
 }
@@ -70,14 +70,14 @@ dependencies {
     implementation("androidx.compose.material:material:${Dependency.COMPOSE_VERSION}")
     implementation("androidx.compose.ui:ui-tooling-preview:${Dependency.COMPOSE_VERSION}")
 
-    implementation("androidx.appcompat:appcompat:1.3.1")
-    implementation("androidx.core:core-ktx:1.6.0")
-    implementation("androidx.constraintlayout:constraintlayout:2.1.0")
+    implementation("androidx.appcompat:appcompat:1.4.0")
+    implementation("androidx.core:core-ktx:1.7.0")
+    implementation("androidx.constraintlayout:constraintlayout:2.1.2")
 
-    implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.3.1")
-    implementation("androidx.activity:activity-compose:1.3.1")
+    implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.4.0")
+    implementation("androidx.activity:activity-compose:1.4.0")
 
-    implementation("com.google.android.gms:play-services-ads:20.4.0")
+    implementation("com.google.android.gms:play-services-ads:20.5.0")
     implementation("com.google.android.material:material:1.4.0")
 
     implementation("com.github.amirisback:frogo-log:2.0.4")

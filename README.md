@@ -22,7 +22,7 @@
 
 ## Version Release
 
-    $version_release = 4.1.3
+    $version_release = 4.1.4
 
 What's New??
 
@@ -33,8 +33,9 @@ What's New??
     * Update build.gradle *
     * Update sample code *
     * Update Android Gradle Plugin 7.0.2 *
-    * Update Admob Library Version 20.4.0 *
+    * Update Admob Library Version 20.5.0 *
     * Add Compose Implementation (Experimental) *
+    * Add Java Sample *
 
 ## How To Use / Implement This Project
 ### Step 1. Add the JitPack repository to your build file
@@ -72,7 +73,7 @@ allprojects {
             implementation 'com.google.android.gms:play-services-ads:${latest_version}'
 
             // library frogo-admob-helper
-	        implementation 'com.github.amirisback:frogo-admob:4.1.3'
+	        implementation 'com.github.amirisback:frogo-admob:4.1.4'
 	}
 
 #### <Option 2> Kotlin DSL
@@ -82,7 +83,7 @@ allprojects {
             implementation("com.google.android.gms:play-services-ads:${latest_version}")
 
             // library frogo-admob-helper
-	        implementation("com.github.amirisback:frogo-admob:4.1.3")
+	        implementation("com.github.amirisback:frogo-admob:4.1.4")
 	}
 	
 ### Step 3. Adding meta-data on AndroidManifest.xml
@@ -278,6 +279,121 @@ class HybridActivity : BaseActivity<ActivityHybridBinding>() {
     @Composable
     fun Greeting(name: String) {
         Text(text = "Hello $name!")
+    }
+
+}
+
+```
+
+</details>
+
+## Java Sample Implementation
+- Click this for detail [Full Code]()
+
+<details>
+  <summary>Click for detail!</summary>
+
+### Setup Java BaseActivity
+```java
+public abstract class <Your BaseJavaActivity> extends FrogoAdmobActivity {
+
+    @Override
+    protected void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setupAdmob();
+    }
+
+    private void setupAdmob(){
+        setPublisher();
+        setBanner();
+        setInterstitial();
+        setRewarded();
+        setRewardedInterstitial();
+    }
+
+    private void setPublisher() {
+        // Your App ID
+        setupAdsPublisher(getString(R.string.admob_publisher_id));
+    }
+
+    private void setBanner() {
+        // Your Banner ID
+        setupAdsBanner(getString(R.string.admob_banner));
+    }
+
+    private void setInterstitial() {
+        // Your Interstitial ID
+        setupAdsInterstitial(getString(R.string.admob_interstitial));
+    }
+
+    private void setRewarded() {
+        // Your Rewarded ID
+        setupAdsRewarded(getString(R.string.admob_rewarded));
+    }
+
+    private void setRewardedInterstitial() {
+        // Your Rewarded ID
+        setupAdsRewardedInterstitial(getString(R.string.admob_rewarded_interstitial));
+    }
+
+}
+```
+
+### Setup Your Activity
+
+```java
+
+public class MainJavaActivity extends BaseJavaActivity {
+
+    private ActivityMainBinding binding;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        binding = ActivityMainBinding.inflate(LayoutInflater.from(this));
+        setContentView(binding.getRoot());
+        setupShowAdsBanner(binding.includeAdsView.adsPhoneTabSpecialSmartBanner);
+        hideButton();
+        setupButtonClick();
+    }
+
+    ...
+    ...
+    ...
+
+    private void setupButtonClick() {
+
+        binding.btnInterstitial.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                setupShowAdsInterstitial();
+            }
+        });
+
+        binding.btnRewarded.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                setupShowAdsRewarded(new IFrogoAdmob.UserEarned() {
+                    @Override
+                    public void onUserEarnedReward(@NonNull RewardItem rewardItem) {
+
+                    }
+                });
+            }
+        });
+
+        binding.btnRewardedInterstitial.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                setupShowAdsRewardedInterstitial(new IFrogoAdmob.UserEarned() {
+                    @Override
+                    public void onUserEarnedReward(@NonNull RewardItem rewardItem) {
+
+                    }
+                });
+            }
+        });
+
     }
 
 }

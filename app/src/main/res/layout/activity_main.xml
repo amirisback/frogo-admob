@@ -93,6 +93,17 @@
                 android:text="Mixed Compose and XML"
                 android:textColor="@color/colorTextWhite" />
 
+            <Button
+                android:id="@+id/btn_java_sample_activity"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dimen_big_16dp"
+                android:layout_marginTop="@dimen/dimen_big_16dp"
+                android:layout_marginEnd="@dimen/dimen_big_16dp"
+                android:background="@drawable/background_button_primary"
+                android:text="Java Sample"
+                android:textColor="@color/colorTextWhite" />
+
         </LinearLayout>
 
     </ScrollView>

@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.KickStart">
         <activity
+            android:name=".javasample.MainJavaActivity"
+            android:exported="false" />
+        <activity
             android:name=".mvvm.compose.HybridActivity"
             android:exported="true" />
         <activity
