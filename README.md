@@ -288,7 +288,7 @@ class HybridActivity : BaseActivity<ActivityHybridBinding>() {
 </details>
 
 ## Java Sample Implementation
-- Click this for detail [Full Code]()
+- You can follow sample below or go to Full Sample Code [Full Code](https://github.com/amirisback/frogo-admob/tree/master/app/src/main/java/com/frogobox/appadmob/javasample)
 
 <details>
   <summary>Click for detail!</summary>
