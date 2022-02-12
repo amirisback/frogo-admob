@@ -16,8 +16,8 @@ import android.view.ViewGroup
  */
 interface IFrogoAdmobViewAdapter<T> {
 
-    fun onViewTypeMenuItem(parent: ViewGroup) : FrogoAdmobViewHolder<T>
+    fun onViewTypeMenuItem(parent: ViewGroup): FrogoAdmobViewHolder<T>
 
-    fun onViewTypeBannerAds(parent: ViewGroup) : FrogoAdmobViewHolder<T>
+    fun onViewTypeBannerAds(parent: ViewGroup): FrogoAdmobViewHolder<T>
 
 }

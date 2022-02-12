@@ -1,20 +1,10 @@
 plugins {
     id("com.android.application")
-    id("kotlin-android")
+    id("org.jetbrains.kotlin.android")
     id("kotlin-kapt")
 }
 
 android {
-
-    // Declaration admob id for release
-    val releaseAdmobPublisherId = ""
-    val releaseAdmobBanner = ""
-    val releaseAdmobInterstitial = ""
-    val releaseAdmobInterstitialVideo = ""
-    val releaseAdmobRewarded = ""
-    val releaseAdmobRewardedInterstitial = ""
-    val releaseAdmobNativeAdvanced = ""
-    val releaseAdmobNativeAdvancedVideo = ""
 
     compileSdk = ProjectSetting.PROJECT_COMPILE_SDK
 
@@ -36,25 +26,15 @@ android {
         // Inject app name for debug
         resValue("string", "app_name", ProjectSetting.NAME_APP)
 
-        // Declaration admob id for debug
-        val debugAdmobPublisherId = "ca-app-pub-3940256099942544~3347511713"
-        val debugAdmobBanner = "ca-app-pub-3940256099942544/6300978111"
-        val debugAdmobInterstitial = "ca-app-pub-3940256099942544/1033173712"
-        val debugAdmobInterstitialVideo = "ca-app-pub-3940256099942544/8691691433"
-        val debugAdmobRewarded = "ca-app-pub-3940256099942544/5224354917"
-        val debugAdmobRewardedInterstitial = "ca-app-pub-3940256099942544/5354046379"
-        val debugAdmobNativeAdvanced = "ca-app-pub-3940256099942544/2247696110"
-        val debugAdmobNativeAdvancedVideo = "ca-app-pub-3940256099942544/1044960115"
-
         // Inject admob id for debug
-        resValue("string", "admob_publisher_id", debugAdmobPublisherId)
-        resValue("string", "admob_banner", debugAdmobBanner)
-        resValue("string", "admob_interstitial", debugAdmobInterstitial)
-        resValue("string", "admob_interstitial_video", debugAdmobInterstitialVideo)
-        resValue("string", "admob_rewarded", debugAdmobRewarded)
-        resValue("string", "admob_rewarded_interstitial", debugAdmobRewardedInterstitial)
-        resValue("string", "admob_native_advanced", debugAdmobNativeAdvanced)
-        resValue("string", "admob_native_advanced_video", debugAdmobNativeAdvancedVideo)
+        resValue("string", "admob_publisher_id", AdmobValue.debugAdmobPublisherId)
+        resValue("string", "admob_banner", AdmobValue.debugAdmobBanner)
+        resValue("string", "admob_interstitial", AdmobValue.debugAdmobInterstitial)
+        resValue("string", "admob_interstitial_video", AdmobValue.debugAdmobInterstitialVideo)
+        resValue("string", "admob_rewarded", AdmobValue.debugAdmobRewarded)
+        resValue("string", "admob_rewarded_interstitial", AdmobValue.debugAdmobRewardedInterstitial)
+        resValue("string", "admob_native_advanced", AdmobValue.debugAdmobNativeAdvanced)
+        resValue("string", "admob_native_advanced_video", AdmobValue.debugAdmobNativeAdvancedVideo)
     }
 
     buildTypes {
@@ -70,14 +50,14 @@ android {
             resValue("string", "app_name", ProjectSetting.NAME_APP)
 
             // Inject admob id for release
-            resValue("string", "admob_publisher_id", releaseAdmobPublisherId)
-            resValue("string", "admob_banner", releaseAdmobBanner)
-            resValue("string", "admob_interstitial", releaseAdmobInterstitial)
-            resValue("string", "admob_interstitial_video", releaseAdmobInterstitialVideo)
-            resValue("string", "admob_rewarded", releaseAdmobRewarded)
-            resValue("string", "admob_rewarded_interstitial", releaseAdmobRewardedInterstitial)
-            resValue("string", "admob_native_advanced", releaseAdmobNativeAdvanced)
-            resValue("string", "admob_native_advanced_video", releaseAdmobNativeAdvancedVideo)
+            resValue("string", "admob_publisher_id", AdmobValue.releaseAdmobPublisherId)
+            resValue("string", "admob_banner", AdmobValue.releaseAdmobBanner)
+            resValue("string", "admob_interstitial", AdmobValue.releaseAdmobInterstitial)
+            resValue("string", "admob_interstitial_video", AdmobValue.releaseAdmobInterstitialVideo)
+            resValue("string", "admob_rewarded", AdmobValue.releaseAdmobRewarded)
+            resValue("string", "admob_rewarded_interstitial", AdmobValue.releaseAdmobRewardedInterstitial)
+            resValue("string", "admob_native_advanced", AdmobValue.releaseAdmobNativeAdvanced)
+            resValue("string", "admob_native_advanced_video", AdmobValue.releaseAdmobNativeAdvancedVideo)
 
         }
     }
@@ -94,26 +74,22 @@ android {
 
     composeOptions {
         kotlinCompilerExtensionVersion = Dependency.COMPOSE_VERSION
-        kotlinCompilerVersion = Dependency.KOTLIN_VERSION
+    }
+
+    packagingOptions {
+        resources {
+            excludes += setOf("/META-INF/{AL2.0,LGPL2.1}", "META-INF/AL2.0", "META-INF/LGPL2.1")
+        }
     }
 
     tasks.withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile> {
         kotlinOptions {
             jvmTarget = JavaVersion.VERSION_11.toString()
-            useIR = true
         }
     }
 
-    packagingOptions {
-        exclude("META-INF/AL2.0")
-        exclude("META-INF/LGPL2.1")
-        resources {
-            excludes += "/META-INF/{AL2.0,LGPL2.1}"
-        }
-    }
     kotlinOptions {
         jvmTarget = "1.8"
-        useIR = true
     }
 
 }
@@ -124,28 +100,28 @@ dependencies {
 
     implementation(project(":frogoadmob"))
 
-    implementation("androidx.appcompat:appcompat:1.4.0")
+    implementation("androidx.appcompat:appcompat:1.4.1")
     implementation("androidx.core:core-ktx:1.7.0")
-    implementation("androidx.constraintlayout:constraintlayout:2.1.2")
+    implementation("androidx.constraintlayout:constraintlayout:2.1.3")
     implementation("androidx.legacy:legacy-support-v4:1.0.0")
 
     implementation("androidx.compose.ui:ui:${Dependency.COMPOSE_VERSION}")
     implementation("androidx.compose.material:material:${Dependency.COMPOSE_VERSION}")
     implementation("androidx.compose.ui:ui-tooling-preview:${Dependency.COMPOSE_VERSION}")
-    implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.4.0")
+    implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.4.1")
     implementation("androidx.activity:activity-compose:1.4.0")
     
-    implementation("com.google.code.gson:gson:2.8.8")
-    implementation("com.google.android.material:material:1.4.0")
+    implementation("com.google.code.gson:gson:2.8.9")
+    implementation("com.google.android.material:material:1.5.0")
     implementation("com.google.android.gms:play-services-ads:20.5.0")
 
     implementation("com.github.bumptech.glide:glide:4.12.0")
 
-    implementation("com.github.amirisback:frogo-log:2.0.4")
-    implementation("com.github.amirisback:frogo-recycler-view:3.8.8")
+    implementation("com.github.amirisback:frogo-log:2.0.6")
+    implementation("com.github.amirisback:frogo-recycler-view:4.0.2")
 
     implementation("com.github.frogobox:frogo-consume-api:1.0.7")
-    implementation("com.github.frogobox:frogo-android-ui-kit:1.0.4")
+    implementation("com.github.frogobox:frogo-android-ui-kit:1.0.5")
 
     kapt("com.github.bumptech.glide:compiler:4.12.0")
 

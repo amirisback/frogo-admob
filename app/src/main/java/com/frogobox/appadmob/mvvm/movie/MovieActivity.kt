@@ -1,16 +1,18 @@
 package com.frogobox.appadmob.mvvm.movie
 
 import android.os.Bundle
+import android.view.View
 import androidx.recyclerview.widget.GridLayoutManager
-import com.frogobox.appadmob.R
-import com.frogobox.appadmob.base.BaseActivity
 import com.frogobox.admob.core.FrogoAdmob
 import com.frogobox.api.core.ConsumeApiResponse
 import com.frogobox.api.movie.ConsumeMovieApi
 import com.frogobox.api.movie.model.TrendingMovie
 import com.frogobox.api.movie.response.Trending
 import com.frogobox.api.movie.util.MovieUrl
+import com.frogobox.appadmob.R
+import com.frogobox.appadmob.base.BaseActivity
 import com.frogobox.appadmob.databinding.ActivityRecyclerViewBinding
+import com.frogobox.recycler.core.FrogoRecyclerNotifyListener
 import com.frogobox.recycler.core.FrogoRecyclerViewListener
 
 class MovieActivity : BaseActivity<ActivityRecyclerViewBinding>() {
@@ -60,8 +62,21 @@ class MovieActivity : BaseActivity<ActivityRecyclerViewBinding>() {
         val adapter = MovieAdapter()
         adapter.setupRequirement(R.layout.content_item_news, arrayFrogoAdmobData, object :
             FrogoRecyclerViewListener<Any> {
-            override fun onItemClicked(data: Any) {}
-            override fun onItemLongClicked(data: Any) {}
+            override fun onItemClicked(
+                view: View,
+                data: Any,
+                position: Int,
+                notifyListener: FrogoRecyclerNotifyListener<Any>
+            ) {
+            }
+
+            override fun onItemLongClicked(
+                view: View,
+                data: Any,
+                position: Int,
+                notifyListener: FrogoRecyclerNotifyListener<Any>
+            ) {
+            }
         })
         return adapter
     }

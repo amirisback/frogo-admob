@@ -8,6 +8,7 @@ import com.frogobox.admob.widget.FrogoAdmobViewHolder
 import com.frogobox.api.movie.model.TrendingMovie
 import com.frogobox.api.movie.util.MovieUrl
 import com.frogobox.appadmob.R
+import com.frogobox.recycler.core.FrogoRecyclerNotifyListener
 
 /*
  * Created by Faisal Amir on 31/01/2021
@@ -27,7 +28,11 @@ class MovieHolder(view: View) : FrogoAdmobViewHolder<Any>(view) {
     private val tv_type = view.findViewById<TextView>(R.id.tv_type)
     private val iv_poster = view.findViewById<ImageView>(R.id.iv_poster)
 
-    override fun initComponent(data: Any) {
+    override fun initComponent(
+        data: Any,
+        position: Int,
+        notifyListener: FrogoRecyclerNotifyListener<Any>
+    ) {
         val movie = data as TrendingMovie
         Glide.with(itemView.context).load("${MovieUrl.BASE_URL_IMAGE_ORIGNAL}${movie.poster_path}").into(iv_poster)
         tv_name.text = movie.title

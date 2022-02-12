@@ -1,6 +1,7 @@
 package com.frogobox.appadmob.mvvm.news
 
 import android.os.Bundle
+import android.view.View
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.frogobox.appadmob.R
 import com.frogobox.appadmob.base.BaseActivity
@@ -11,6 +12,7 @@ import com.frogobox.api.news.response.ArticleResponse
 import com.frogobox.api.news.util.NewsConstant
 import com.frogobox.api.news.util.NewsUrl
 import com.frogobox.appadmob.databinding.ActivityRecyclerViewBinding
+import com.frogobox.recycler.core.FrogoRecyclerNotifyListener
 import com.frogobox.recycler.core.FrogoRecyclerViewListener
 
 class NewsActivity : BaseActivity<ActivityRecyclerViewBinding>() {
@@ -61,8 +63,18 @@ class NewsActivity : BaseActivity<ActivityRecyclerViewBinding>() {
     private fun setupAdapter(): NewsAdapter {
         val adapter = NewsAdapter()
         adapter.setupRequirement(R.layout.content_item_news, arrayFrogoAdmobData, object : FrogoRecyclerViewListener<Any> {
-            override fun onItemClicked(data: Any) {}
-            override fun onItemLongClicked(data: Any) {}
+            override fun onItemClicked(
+                view: View,
+                data: Any,
+                position: Int,
+                notifyListener: FrogoRecyclerNotifyListener<Any>
+            ) {}
+            override fun onItemLongClicked(
+                view: View,
+                data: Any,
+                position: Int,
+                notifyListener: FrogoRecyclerNotifyListener<Any>
+            ) {}
         })
         return adapter
     }
