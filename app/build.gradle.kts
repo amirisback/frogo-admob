@@ -37,6 +37,18 @@ android {
         resValue("string", "admob_native_advanced_video", AdmobValue.debugAdmobNativeAdvancedVideo)
     }
 
+    signingConfigs {
+        create("release") {
+            // You need to specify either an absolute path or include the
+            // keystore file in the same directory as the build.gradle file.
+            // [PROJECT FOLDER NAME/app/[COPY YOUT KEY STORE] .jks in here
+            storeFile = file(ProjectSetting.PLAYSTORE_STORE_FILE)
+            storePassword = ProjectSetting.PLAYSTORE_STORE_PASSWORD
+            keyAlias = ProjectSetting.PLAYSTORE_KEY_ALIAS
+            keyPassword = ProjectSetting.PLAYSTORE_KEY_PASSWORD
+        }
+    }
+
     buildTypes {
         getByName("release") {
             isMinifyEnabled = false
@@ -45,6 +57,9 @@ android {
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
             )
+
+            // Generated Signed APK / AAB
+            signingConfig = signingConfigs.getByName("release")
 
             // Inject app name for release
             resValue("string", "app_name", ProjectSetting.NAME_APP)
@@ -88,10 +103,6 @@ android {
         }
     }
 
-    kotlinOptions {
-        jvmTarget = "1.8"
-    }
-
 }
 
 dependencies {
@@ -120,15 +131,9 @@ dependencies {
     implementation("com.github.amirisback:frogo-log:2.0.6")
     implementation("com.github.amirisback:frogo-recycler-view:4.0.2")
 
-    implementation("com.github.frogobox:frogo-consume-api:1.0.7")
+    implementation("com.github.frogobox:frogo-consume-api:1.0.8")
     implementation("com.github.frogobox:frogo-android-ui-kit:1.0.5")
 
     kapt("com.github.bumptech.glide:compiler:4.12.0")
 
-    testImplementation("junit:junit:4.13.2")
-    androidTestImplementation("androidx.test.ext:junit:1.1.3")
-    androidTestImplementation("androidx.test.espresso:espresso-core:3.4.0")
-
-    androidTestImplementation("androidx.compose.ui:ui-test-junit4:${Dependency.COMPOSE_VERSION}")
-    debugImplementation("androidx.compose.ui:ui-tooling:${Dependency.COMPOSE_VERSION}")
 }

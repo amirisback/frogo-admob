@@ -24,7 +24,7 @@ object ProjectSetting {
 
     const val VERSION_MAJOR = 4
     const val VERSION_MINOR = 1
-    const val VERSION_PATCH = 5
+    const val VERSION_PATCH = 6
 
     const val PROJECT_COMPILE_SDK = 31
     const val PROJECT_MIN_SDK = 21
@@ -34,5 +34,11 @@ object ProjectSetting {
     const val PROJECT_LIB_ID = "$APP_DOMAIN.$APP_PLAY_CONSOLE.$LIBRARY_NAME"
     const val PROJECT_VERSION_CODE = (VERSION_MAJOR * 100) + (VERSION_MINOR * 10) + (VERSION_PATCH * 1)
     const val PROJECT_VERSION_NAME = "$VERSION_MAJOR.$VERSION_MINOR.$VERSION_PATCH"
+
+    // Key Store
+    const val PLAYSTORE_STORE_FILE = "frogoboxmedia.jks"
+    const val PLAYSTORE_STORE_PASSWORD = "amirisback"
+    const val PLAYSTORE_KEY_ALIAS = "frogoisback"
+    const val PLAYSTORE_KEY_PASSWORD = "amirisback"
 
 }
