@@ -118,16 +118,19 @@ dependencies {
     implementation("androidx.compose.material:material:${Dependency.COMPOSE_VERSION}")
     implementation("androidx.compose.ui:ui-tooling-preview:${Dependency.COMPOSE_VERSION}")
     implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.4.1")
+
+    implementation("androidx.work:work-runtime-ktx:2.7.1")
+
     implementation("androidx.activity:activity-compose:1.4.0")
     
     implementation("com.google.code.gson:gson:2.8.9")
     implementation("com.google.android.material:material:1.5.0")
-    implementation("com.google.android.gms:play-services-ads:20.5.0")
+    implementation("com.google.android.gms:play-services-ads:20.6.0")
 
     implementation("com.github.bumptech.glide:glide:4.12.0")
 
-    implementation("com.github.amirisback:frogo-log:2.0.6")
-    implementation("com.github.amirisback:frogo-recycler-view:4.0.2")
+    implementation("com.github.amirisback:frogo-log:2.0.8")
+    implementation("com.github.amirisback:frogo-recycler-view:4.0.4")
 
     implementation("com.github.frogobox:frogo-consume-api:1.0.8")
     implementation("com.github.frogobox:frogo-android-ui-kit:1.0.5")
