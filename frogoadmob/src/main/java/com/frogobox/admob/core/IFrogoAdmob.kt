@@ -57,13 +57,43 @@ interface IFrogoAdmob {
             bannerListener: IFrogoAdListener.Banner
         )
 
+        fun showBannerContainer(
+            context: Context,
+            bannerAdUnitId: String,
+            mAdsSize: AdSize,
+            container: RelativeLayout
+        )
+
+        fun showBannerContainer(
+            context: Context,
+            bannerAdUnitId: String,
+            mAdsSize: AdSize,
+            container: RelativeLayout,
+            bannerListener: IFrogoAdListener.Banner
+        )
+
     }
 
     interface Interstitial {
 
         fun setupInterstitial(context: Context)
 
+        fun setupInterstitial(context: Context, interstitialListener: IFrogoAdListener.Interstitial)
+
+        fun setupInterstitial(context: Context, interstitialAdUnitId: String)
+
+        fun setupInterstitial(
+            context: Context,
+            interstitialAdUnitId: String,
+            interstitialListener: IFrogoAdListener.Interstitial
+        )
+
         fun showInterstitial(activity: AppCompatActivity)
+
+        fun showInterstitial(
+            activity: AppCompatActivity,
+            interstitialListener: IFrogoAdListener.Interstitial
+        )
 
     }
 

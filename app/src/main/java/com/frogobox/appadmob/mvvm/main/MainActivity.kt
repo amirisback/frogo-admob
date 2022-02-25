@@ -3,6 +3,8 @@ package com.frogobox.appadmob.mvvm.main
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
+import com.frogobox.admob.core.FrogoAdmob
+import com.frogobox.admob.core.IFrogoAdListener
 import com.frogobox.admob.core.IFrogoAdmob
 import com.frogobox.appadmob.R
 import com.frogobox.appadmob.base.BaseActivity
@@ -13,6 +15,8 @@ import com.frogobox.appadmob.mvvm.compose.HybridActivity
 import com.frogobox.appadmob.mvvm.movie.MovieActivity
 import com.frogobox.appadmob.mvvm.news.NewsActivity
 import com.google.android.gms.ads.AdSize
+import com.google.android.gms.ads.LoadAdError
+import com.google.android.gms.ads.interstitial.InterstitialAd
 import com.google.android.gms.ads.rewarded.RewardItem
 
 class MainActivity : BaseActivity<ActivityMainBinding>() {
@@ -24,7 +28,11 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setupButtonClick()
-        setupShowAdsBannerContainer(this, AdSize.SMART_BANNER, binding.includeAdsView.frogoAdsBanner)
+        setupShowAdsBannerContainer(
+            this,
+            AdSize.SMART_BANNER,
+            binding.includeAdsView.frogoAdsBanner
+        )
         setupShowAdsBanner(binding.adsXml.adsPhoneTabSpecialSmartBanner)
     }
 
@@ -33,7 +41,19 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
         binding.apply {
 
             btnInterstitial.setOnClickListener {
-                setupShowAdsInterstitial()
+                // setupShowAdsInterstitial()
+                val listener = object : IFrogoAdListener.Interstitial {
+                    override fun onAdFailedToLoad(adError: LoadAdError) {
+                        showToast("Gagal Iklan")
+                    }
+
+                    override fun onAdLoaded(interstitialAd: InterstitialAd) {
+
+                    }
+                }
+
+                FrogoAdmob.Interstitial.setupInterstitial(this@MainActivity, "", listener)
+                FrogoAdmob.Interstitial.showInterstitial(this@MainActivity, listener)
             }
 
             btnRewarded.setOnClickListener {

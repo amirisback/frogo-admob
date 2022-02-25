@@ -57,7 +57,7 @@ abstract class BaseActivity<VB : ViewBinding> : FrogoAdmobActivity() {
     }
 
     private fun setInterstitial() {
-        setupAdsInterstitial(getString(R.string.admob_interstitial))
+        // setupAdsInterstitial(getString(R.string.admob_interstitial))
     }
 
     private fun setRewarded() {

@@ -1,6 +1,7 @@
 package com.frogobox.admob.core
 
 import com.google.android.gms.ads.LoadAdError
+import com.google.android.gms.ads.interstitial.InterstitialAd
 
 
 /*
@@ -48,6 +49,10 @@ interface IFrogoAdListener {
     }
 
     interface Interstitial {
+
+        fun onAdFailedToLoad(adError: LoadAdError)
+
+        fun onAdLoaded(interstitialAd: InterstitialAd)
 
     }
 
