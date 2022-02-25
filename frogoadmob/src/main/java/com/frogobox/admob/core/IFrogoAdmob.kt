@@ -1,7 +1,9 @@
 package com.frogobox.admob.core
 
 import android.content.Context
+import android.widget.RelativeLayout
 import androidx.appcompat.app.AppCompatActivity
+import com.google.android.gms.ads.AdSize
 import com.google.android.gms.ads.AdView
 import com.google.android.gms.ads.rewarded.RewardItem
 
@@ -42,9 +44,18 @@ interface IFrogoAdmob {
 
     interface Banner {
 
-        fun setupBanner(mAdView: AdView)
-
         fun showBanner(mAdView: AdView)
+
+        fun showBanner(mAdView: AdView, bannerListener: IFrogoAdListener.Banner)
+
+        fun showBannerContainer(context: Context, mAdsSize: AdSize, container: RelativeLayout)
+
+        fun showBannerContainer(
+            context: Context,
+            mAdsSize: AdSize,
+            container: RelativeLayout,
+            bannerListener: IFrogoAdListener.Banner
+        )
 
     }
 

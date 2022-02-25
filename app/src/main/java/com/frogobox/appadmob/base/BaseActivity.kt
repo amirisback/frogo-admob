@@ -103,8 +103,7 @@ abstract class BaseActivity<VB : ViewBinding> : FrogoAdmobActivity() {
 
     protected inline fun <reified Model> baseGetExtraData(extraKey: String): Model {
         val extraIntent = intent.getStringExtra(extraKey)
-        val extraData = Gson().fromJson(extraIntent, Model::class.java)
-        return extraData
+        return Gson().fromJson(extraIntent, Model::class.java)
     }
 
     protected fun checkExtra(extraKey: String): Boolean {

@@ -1,6 +1,10 @@
 package com.frogobox.admob.ui
 
+import android.content.Context
+import android.widget.RelativeLayout
+import com.frogobox.admob.core.IFrogoAdListener
 import com.frogobox.admob.core.IFrogoAdmob
+import com.google.android.gms.ads.AdSize
 import com.google.android.gms.ads.AdView
 
 /*
@@ -34,6 +38,20 @@ interface IFrogoAdmobActivity {
 
     // Show Banner Ads
     fun setupShowAdsBanner(mAdView: AdView)
+
+    // Show Banner Ads with listener
+    fun setupShowAdsBanner(mAdView: AdView, bannerListener: IFrogoAdListener.Banner)
+
+    // Show Banner Ads with container
+    fun setupShowAdsBannerContainer(context: Context, mAdsSize: AdSize, container: RelativeLayout)
+
+    // Show Banner Ads with container and listener
+    fun setupShowAdsBannerContainer(
+        context: Context,
+        mAdsSize: AdSize,
+        container: RelativeLayout,
+        bannerListener: IFrogoAdListener.Banner
+    )
 
     // Show Interstitial Ads
     fun setupShowAdsInterstitial()

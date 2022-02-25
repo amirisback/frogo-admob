@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:ads="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -110,6 +109,13 @@
 
     <include
         android:id="@+id/include_ads_view"
-        layout="@layout/ads_phone_tab_special_smart_banner" />
+        layout="@layout/frogo_ads_banner" />
+
+    <include
+        android:id="@+id/ads_xml"
+        layout="@layout/ads_phone_tab_special_smart_banner"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/include_ads_view" />
 
 </RelativeLayout>

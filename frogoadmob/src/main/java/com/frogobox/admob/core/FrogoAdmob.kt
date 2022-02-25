@@ -1,6 +1,7 @@
 package com.frogobox.admob.core
 
 import android.content.Context
+import android.widget.RelativeLayout
 import androidx.appcompat.app.AppCompatActivity
 import com.frogobox.admob.core.FrogoAdmobConstant.RECYCLER_VIEW_ITEMS_PER_AD
 import com.frogobox.frogolog.FLog
@@ -77,18 +78,96 @@ object FrogoAdmob : IFrogoAdmob {
 
     object Banner : IFrogoAdmob.Banner {
 
-        override fun setupBanner(mAdView: AdView) {
-            mAdView.adListener = object : AdListener() {
-                override fun onAdLoaded() {}
-                override fun onAdFailedToLoad(p0: LoadAdError) {}
-                override fun onAdOpened() {}
-                override fun onAdClicked() {}
-                override fun onAdClosed() {}
+        private val frogoAdRequest = AdRequest.Builder().build()
+
+        private fun frogoAdListener(): AdListener {
+            return object : AdListener() {
+                override fun onAdLoaded() {
+                    FLog.d("Ads Banner onAdLoaded")
+                }
+
+                override fun onAdFailedToLoad(p0: LoadAdError) {
+                    FLog.d("Ads Banner onAdFailedToLoad")
+                }
+
+                override fun onAdOpened() {
+                    FLog.d("Ads Banner onAdOpened")
+                }
+
+                override fun onAdClicked() {
+                    FLog.d("Ads Banner onAdClicked")
+                }
+
+                override fun onAdClosed() {
+                    FLog.d("Ads Banner onAdClosed")
+                }
+            }
+        }
+
+        private fun frogoAdListener(bannerListener: IFrogoAdListener.Banner): AdListener {
+            return object : AdListener() {
+                override fun onAdLoaded() {
+                    FLog.d("Ads Banner onAdLoaded")
+                    bannerListener.onAdLoaded()
+                }
+
+                override fun onAdFailedToLoad(p0: LoadAdError) {
+                    FLog.d("Ads Banner onAdFailedToLoad")
+                    bannerListener.onAdFailedToLoad(p0)
+                }
+
+                override fun onAdOpened() {
+                    FLog.d("Ads Banner onAdOpened")
+                    bannerListener.onAdOpened()
+                }
+
+                override fun onAdClicked() {
+                    FLog.d("Ads Banner onAdClicked")
+                    bannerListener.onAdClicked()
+                }
+
+                override fun onAdClosed() {
+                    FLog.d("Ads Banner onAdClosed")
+                    bannerListener.onAdClosed()
+                }
             }
         }
 
         override fun showBanner(mAdView: AdView) {
-            mAdView.loadAd(AdRequest.Builder().build())
+            mAdView.adListener = frogoAdListener()
+            mAdView.loadAd(frogoAdRequest)
+        }
+
+        override fun showBanner(mAdView: AdView, bannerListener: IFrogoAdListener.Banner) {
+            mAdView.adListener = frogoAdListener(bannerListener)
+            mAdView.loadAd(frogoAdRequest)
+        }
+
+        override fun showBannerContainer(
+            context: Context,
+            mAdsSize: AdSize,
+            container: RelativeLayout
+        ) {
+            val mAdView = AdView(context)
+            mAdView.adUnitId = mAdUnitIdBanner
+            mAdView.adSize = mAdsSize
+            mAdView.adListener = frogoAdListener()
+            container.addView(mAdView)
+            mAdView.loadAd(frogoAdRequest)
+        }
+
+        override fun showBannerContainer(
+            context: Context,
+            mAdsSize: AdSize,
+            container: RelativeLayout,
+            bannerListener: IFrogoAdListener.Banner
+        ) {
+            val mAdView = AdView(context)
+            mAdView.adUnitId = mAdUnitIdBanner
+            mAdView.adSize = mAdsSize
+            mAdView.adListener = frogoAdListener(bannerListener)
+            container.addView(mAdView)
+            mAdView.loadAd(frogoAdRequest)
         }
 
     }
@@ -208,7 +287,7 @@ object FrogoAdmob : IFrogoAdmob {
 
     object RewardedInterstitial : IFrogoAdmob.RewardedInterstitial {
 
-        val adRequest = AdRequest.Builder().build()
+        private val adRequest = AdRequest.Builder().build()
 
         override fun setupRewardedInterstitial(context: Context) {
             RewardedInterstitialAd.load(context, mAdUnitIdRewardedInterstitial, adRequest,

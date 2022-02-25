@@ -1,10 +1,8 @@
 package com.frogobox.appadmob.mvvm.main
 
-import android.content.Intent
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
-import androidx.activity.ComponentActivity
 import com.frogobox.admob.core.IFrogoAdmob
 import com.frogobox.appadmob.R
 import com.frogobox.appadmob.base.BaseActivity
@@ -14,6 +12,7 @@ import com.frogobox.appadmob.mvvm.compose.ComposeActivity
 import com.frogobox.appadmob.mvvm.compose.HybridActivity
 import com.frogobox.appadmob.mvvm.movie.MovieActivity
 import com.frogobox.appadmob.mvvm.news.NewsActivity
+import com.google.android.gms.ads.AdSize
 import com.google.android.gms.ads.rewarded.RewardItem
 
 class MainActivity : BaseActivity<ActivityMainBinding>() {
@@ -25,7 +24,8 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setupButtonClick()
-        setupShowAdsBanner(binding.includeAdsView.adsPhoneTabSpecialSmartBanner)
+        setupShowAdsBannerContainer(this, AdSize.SMART_BANNER, binding.includeAdsView.frogoAdsBanner)
+        setupShowAdsBanner(binding.adsXml.adsPhoneTabSpecialSmartBanner)
     }
 
     private fun setupButtonClick() {

@@ -1,8 +1,10 @@
 package com.frogobox.admob.ui
 
+import android.content.Context
+import android.widget.RelativeLayout
 import androidx.appcompat.app.AppCompatActivity
-import com.frogobox.admob.core.FrogoAdmob.Banner.setupBanner
 import com.frogobox.admob.core.FrogoAdmob.Banner.showBanner
+import com.frogobox.admob.core.FrogoAdmob.Banner.showBannerContainer
 import com.frogobox.admob.core.FrogoAdmob.Interstitial.setupInterstitial
 import com.frogobox.admob.core.FrogoAdmob.Interstitial.showInterstitial
 import com.frogobox.admob.core.FrogoAdmob.Publisher.setupPublisher
@@ -15,7 +17,9 @@ import com.frogobox.admob.core.FrogoAdmob.setupInterstialAdUnitID
 import com.frogobox.admob.core.FrogoAdmob.setupPublisherID
 import com.frogobox.admob.core.FrogoAdmob.setupRewardedAdUnitID
 import com.frogobox.admob.core.FrogoAdmob.setupRewardedInterstitialAdUnitID
+import com.frogobox.admob.core.IFrogoAdListener
 import com.frogobox.admob.core.IFrogoAdmob
+import com.google.android.gms.ads.AdSize
 import com.google.android.gms.ads.AdView
 
 /**
@@ -65,8 +69,28 @@ abstract class FrogoAdmobActivity : AppCompatActivity(), IFrogoAdmobActivity {
     }
 
     override fun setupShowAdsBanner(mAdView: AdView) {
-        setupBanner(mAdView)
         showBanner(mAdView)
+    }
+
+    override fun setupShowAdsBanner(mAdView: AdView, bannerListener: IFrogoAdListener.Banner) {
+        showBanner(mAdView, bannerListener)
+    }
+
+    override fun setupShowAdsBannerContainer(
+        context: Context,
+        mAdsSize: AdSize,
+        container: RelativeLayout
+    ) {
+        showBannerContainer(context, mAdsSize, container)
+    }
+
+    override fun setupShowAdsBannerContainer(
+        context: Context,
+        mAdsSize: AdSize,
+        container: RelativeLayout,
+        bannerListener: IFrogoAdListener.Banner
+    ) {
+        showBannerContainer(context, mAdsSize, container, bannerListener)
     }
 
     override fun setupShowAdsInterstitial() {

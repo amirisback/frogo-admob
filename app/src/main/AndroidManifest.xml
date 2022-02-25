@@ -11,7 +11,8 @@
         android:theme="@style/Theme.KickStart">
         <activity
             android:name=".javasample.MainJavaActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:hardwareAccelerated="true" />
         <activity
             android:name=".mvvm.compose.HybridActivity"
             android:exported="true" />
@@ -23,7 +24,8 @@
         <activity android:name=".mvvm.main.AboutUsActivity" />
         <activity
             android:name=".mvvm.main.MainActivity"
-            android:exported="true">
+            android:exported="true"
+            android:hardwareAccelerated="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
