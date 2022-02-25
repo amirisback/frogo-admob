@@ -22,13 +22,13 @@
 
 ## Version Release
 
-    $version_release = 4.1.6
+    $version_release = 4.1.7
 
 What's New??
 
     * Enhance Performance *
     * Refactoring Code *
-    * Update Admob Library Version 20.5.0 *
+    * Update Admob Library Version 20.6.0 *
 
 ## How To Use / Implement This Project
 ### Step 1. Add the JitPack repository to your build file
@@ -66,7 +66,7 @@ allprojects {
             implementation 'com.google.android.gms:play-services-ads:${latest_version}'
 
             // library frogo-admob-helper
-	        implementation 'com.github.amirisback:frogo-admob:4.1.6'
+	        implementation 'com.github.amirisback:frogo-admob:4.1.7'
 	}
 
 #### <Option 2> Kotlin DSL
@@ -76,7 +76,7 @@ allprojects {
             implementation("com.google.android.gms:play-services-ads:${latest_version}")
 
             // library frogo-admob-helper
-	        implementation("com.github.amirisback:frogo-admob:4.1.6")
+	        implementation("com.github.amirisback:frogo-admob:4.1.7")
 	}
 	
 ### Step 3. Adding meta-data on AndroidManifest.xml
@@ -123,7 +123,7 @@ class <YourActivity> : FrogoAdmobActivity() {
     }
 
     private fun setInterstitial() {
-        setupAdsInterstitial(getString(R.string.admob_interstitial))
+        // setupAdsInterstitial(getString(R.string.admob_interstitial))
     }
 
     private fun setRewarded() {
@@ -146,18 +146,40 @@ class <YourActivity> : FrogoAdmobActivity() {
         super.onCreate(savedInstanceState)
         setupAdmob()
         setupButtonClick()
+        setupBannerAds()
     }
 
     ...
     ...
     ...
 
+    private fun setupBannerAds() {
+        setupShowAdsBannerContainer(
+            this,
+            AdSize.SMART_BANNER,
+            binding.includeAdsView.frogoAdsBanner
+        )
+        setupShowAdsBanner(binding.adsXml.adsPhoneTabSpecialSmartBanner)
+    }
+
     private fun setupButtonClick() {
 
         binding.apply {
 
             btnInterstitial.setOnClickListener {
-                setupShowAdsInterstitial()
+                // setupShowAdsInterstitial()
+                val listener = object : IFrogoAdListener.Interstitial {
+                    override fun onAdFailedToLoad(adError: LoadAdError) {
+                        showToast("Gagal Iklan")
+                    }
+
+                    override fun onAdLoaded(interstitialAd: InterstitialAd) {
+
+                    }
+                }
+
+                FrogoAdmob.Interstitial.setupInterstitial(this@MainActivity, "", listener)
+                FrogoAdmob.Interstitial.showInterstitial(this@MainActivity, listener)
             }
 
             btnRewarded.setOnClickListener {
