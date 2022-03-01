@@ -4,14 +4,14 @@ import android.os.Bundle
 import android.view.View
 import androidx.recyclerview.widget.GridLayoutManager
 import com.frogobox.admob.core.FrogoAdmob
-import com.frogobox.api.core.ConsumeApiResponse
 import com.frogobox.api.movie.ConsumeMovieApi
-import com.frogobox.api.movie.model.TrendingMovie
-import com.frogobox.api.movie.response.Trending
-import com.frogobox.api.movie.util.MovieUrl
 import com.frogobox.appadmob.R
 import com.frogobox.appadmob.base.BaseActivity
 import com.frogobox.appadmob.databinding.ActivityRecyclerViewBinding
+import com.frogobox.coreapi.ConsumeApiResponse
+import com.frogobox.coreapi.movie.MovieUrl
+import com.frogobox.coreapi.movie.model.TrendingMovie
+import com.frogobox.coreapi.movie.response.Trending
 import com.frogobox.recycler.core.FrogoRecyclerNotifyListener
 import com.frogobox.recycler.core.FrogoRecyclerViewListener
 

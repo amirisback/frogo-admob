@@ -5,9 +5,9 @@ import android.widget.ImageView
 import android.widget.TextView
 import com.bumptech.glide.Glide
 import com.frogobox.admob.widget.FrogoAdmobViewHolder
-import com.frogobox.api.movie.model.TrendingMovie
-import com.frogobox.api.movie.util.MovieUrl
 import com.frogobox.appadmob.R
+import com.frogobox.coreapi.movie.MovieUrl
+import com.frogobox.coreapi.movie.model.TrendingMovie
 import com.frogobox.recycler.core.FrogoRecyclerNotifyListener
 
 /*

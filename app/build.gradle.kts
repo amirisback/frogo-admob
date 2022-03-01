@@ -123,7 +123,7 @@ dependencies {
 
     implementation("androidx.activity:activity-compose:1.4.0")
     
-    implementation("com.google.code.gson:gson:2.8.9")
+    implementation("com.google.code.gson:gson:2.9.0")
     implementation("com.google.android.material:material:1.5.0")
     implementation("com.google.android.gms:play-services-ads:20.6.0")
 
@@ -132,8 +132,8 @@ dependencies {
     implementation("com.github.amirisback:frogo-log:2.0.8")
     implementation("com.github.amirisback:frogo-recycler-view:4.0.4")
 
-    implementation("com.github.frogobox:frogo-consume-api:1.0.8")
-    implementation("com.github.frogobox:frogo-android-ui-kit:1.0.5")
+    implementation("com.github.frogobox:frogo-consume-api:2.0.0")
+    implementation("com.github.frogobox:frogo-ui:0.0.1-beta03")
 
     kapt("com.github.bumptech.glide:compiler:4.12.0")
 

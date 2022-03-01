@@ -52,7 +52,7 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
                     }
                 }
 
-                FrogoAdmob.Interstitial.setupInterstitial(this@MainActivity, "", listener)
+                FrogoAdmob.Interstitial.setupInterstitial(this@MainActivity, listener)
                 FrogoAdmob.Interstitial.showInterstitial(this@MainActivity, listener)
             }
 

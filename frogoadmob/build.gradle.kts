@@ -78,6 +78,8 @@ dependencies {
 
     implementation("com.github.amirisback:frogo-log:2.0.8")
     implementation("com.github.amirisback:frogo-recycler-view:4.0.4")
+    
+    implementation("com.github.frogobox:frogo-sdk:0.0.1-beta05")
 
 }
 

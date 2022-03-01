@@ -5,8 +5,8 @@ import android.widget.ImageView
 import android.widget.TextView
 import com.bumptech.glide.Glide
 import com.frogobox.admob.widget.FrogoAdmobViewHolder
-import com.frogobox.api.news.model.Article
 import com.frogobox.appadmob.R
+import com.frogobox.coreapi.news.model.Article
 import com.frogobox.recycler.core.FrogoRecyclerNotifyListener
 
 /*

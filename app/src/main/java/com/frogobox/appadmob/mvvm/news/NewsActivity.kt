@@ -6,12 +6,12 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.frogobox.appadmob.R
 import com.frogobox.appadmob.base.BaseActivity
 import com.frogobox.admob.core.FrogoAdmob.RecyclerView.loadRecyclerBannerAds
-import com.frogobox.api.core.ConsumeApiResponse
 import com.frogobox.api.news.ConsumeNewsApi
-import com.frogobox.api.news.response.ArticleResponse
-import com.frogobox.api.news.util.NewsConstant
-import com.frogobox.api.news.util.NewsUrl
 import com.frogobox.appadmob.databinding.ActivityRecyclerViewBinding
+import com.frogobox.coreapi.ConsumeApiResponse
+import com.frogobox.coreapi.news.NewsConstant
+import com.frogobox.coreapi.news.NewsUrl
+import com.frogobox.coreapi.news.response.ArticleResponse
 import com.frogobox.recycler.core.FrogoRecyclerNotifyListener
 import com.frogobox.recycler.core.FrogoRecyclerViewListener
 
