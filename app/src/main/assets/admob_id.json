@@ -1,0 +1,12 @@
+{
+  "testAdmobAppId": "ca-app-pub-3940256099942544~3347511713",
+  "testAdmobBanner": "ca-app-pub-3940256099942544/6300978111",
+  "testAdmobInterstitial": "ca-app-pub-3940256099942544/1033173712",
+  "appId" : "ca-app-pub-3940256099942544~3347511713",
+  "bannerID" : [
+    "ca-app-pub-3940256099942544/6300978111"
+  ],
+  "interstitialID" : [
+    "ca-app-pub-3940256099942544/1033173712"
+  ]
+}
