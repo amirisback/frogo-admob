@@ -8,14 +8,14 @@ import com.frogobox.admob.core.FrogoAdmob.Banner.showBanner
 import com.frogobox.admob.core.FrogoAdmob.Banner.showBannerContainer
 import com.frogobox.admob.core.FrogoAdmob.Interstitial.setupInterstitial
 import com.frogobox.admob.core.FrogoAdmob.Interstitial.showInterstitial
-import com.frogobox.admob.core.FrogoAdmob.Publisher.setupPublisher
+import com.frogobox.admob.core.FrogoAdmob.App.setupApp
 import com.frogobox.admob.core.FrogoAdmob.Rewarded.setupRewarded
 import com.frogobox.admob.core.FrogoAdmob.Rewarded.showRewarded
 import com.frogobox.admob.core.FrogoAdmob.RewardedInterstitial.setupRewardedInterstitial
 import com.frogobox.admob.core.FrogoAdmob.RewardedInterstitial.showRewardedInterstitial
 import com.frogobox.admob.core.FrogoAdmob.setupBannerAdUnitID
 import com.frogobox.admob.core.FrogoAdmob.setupInterstialAdUnitID
-import com.frogobox.admob.core.FrogoAdmob.setupPublisherID
+import com.frogobox.admob.core.FrogoAdmob.setupAppID
 import com.frogobox.admob.core.FrogoAdmob.setupRewardedAdUnitID
 import com.frogobox.admob.core.FrogoAdmob.setupRewardedInterstitialAdUnitID
 import com.frogobox.admob.core.IFrogoAdListener
@@ -56,9 +56,9 @@ abstract class FrogoAdmobActivity : AppCompatActivity(), IFrogoAdmobActivity {
         FLog.d("$TAG : Setup Admob")
     }
 
-    override fun setupAdsPublisher(mPublisherId: String) {
-        setupPublisherID(mPublisherId)
-        setupPublisher(this)
+    override fun setupAdsApp(mAppId: String) {
+        setupAppID(mAppId)
+        setupApp(this)
     }
 
     override fun setupAdsBanner(mAdUnitId: String) {

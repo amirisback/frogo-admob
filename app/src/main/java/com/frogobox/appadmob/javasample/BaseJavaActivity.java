@@ -29,16 +29,16 @@ public abstract class BaseJavaActivity extends FrogoAdmobActivity {
 
     @Override
     public void setupAdmob(){
-        setPublisher();
+        setApp();
         setBanner();
         setInterstitial();
         setRewarded();
         setRewardedInterstitial();
     }
 
-    private void setPublisher() {
+    private void setApp() {
         // Your App ID
-        setupAdsPublisher(getString(R.string.admob_publisher_id));
+        setupAdsApp(getString(R.string.admob_app_id));
     }
 
     private void setBanner() {

@@ -26,7 +26,7 @@ import com.google.android.gms.ads.rewarded.RewardItem
  */
 interface IFrogoAdmob {
 
-    fun setupPublisherID(mPublisherId: String)
+    fun setupAppID(mAppId: String)
 
     fun setupBannerAdUnitID(mAdUnitId: String)
 
@@ -36,9 +36,9 @@ interface IFrogoAdmob {
 
     fun setupRewardedInterstitialAdUnitID(mAdUnitId: String)
 
-    interface Publisher {
+    interface App {
 
-        fun setupPublisher(context: Context)
+        fun setupApp(context: Context)
 
     }
 

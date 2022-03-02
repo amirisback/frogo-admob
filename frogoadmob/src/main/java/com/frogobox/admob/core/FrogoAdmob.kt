@@ -36,7 +36,7 @@ object FrogoAdmob : IFrogoAdmob {
     private val TAG = "FrogoAdmob"
     private val frogoAdRequest = AdRequest.Builder().build()
 
-    private lateinit var admobPublisherID: String
+    private lateinit var admobAppID: String
     private lateinit var mAdUnitIdInterstitial: String
     private lateinit var mAdUnitIdBanner: String
     private lateinit var mAdUnitIdRewarded: String
@@ -46,9 +46,9 @@ object FrogoAdmob : IFrogoAdmob {
     private var mRewardedAd: RewardedAd? = null
     private var mRewardedInterstitialAd: RewardedInterstitialAd? = null
 
-    override fun setupPublisherID(mPublisherId: String) {
-        admobPublisherID = mPublisherId
-        FLog.d("Publisher Id : $admobPublisherID")
+    override fun setupAppID(mAppId: String) {
+        admobAppID = mAppId
+        FLog.d("App Id : $admobAppID")
     }
 
     override fun setupBannerAdUnitID(mAdUnitId: String) {
@@ -71,8 +71,8 @@ object FrogoAdmob : IFrogoAdmob {
         FLog.d("Rewarded Interstitial Id : $mAdUnitIdRewardedInterstitial")
     }
 
-    object Publisher : IFrogoAdmob.Publisher {
-        override fun setupPublisher(context: Context) {
+    object App : IFrogoAdmob.App {
+        override fun setupApp(context: Context) {
             MobileAds.initialize(context) {}
         }
     }

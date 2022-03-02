@@ -41,9 +41,9 @@ abstract class FrogoSdkAdmobActivity<VB : ViewBinding> : FrogoActivity<VB>(), IF
         FLog.d("$TAG : Setup Admob")
     }
 
-    override fun setupAdsPublisher(mPublisherId: String) {
-        FrogoAdmob.setupPublisherID(mPublisherId)
-        FrogoAdmob.Publisher.setupPublisher(this)
+    override fun setupAdsApp(mAppId: String) {
+        FrogoAdmob.setupAppID(mAppId)
+        FrogoAdmob.App.setupApp(this)
     }
 
     override fun setupAdsBanner(mAdUnitId: String) {

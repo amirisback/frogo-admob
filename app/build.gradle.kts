@@ -27,7 +27,7 @@ android {
         resValue("string", "app_name", ProjectSetting.NAME_APP)
 
         // Inject admob id for debug
-        resValue("string", "admob_publisher_id", AdmobValue.debugAdmobPublisherId)
+        resValue("string", "admob_app_id", AdmobValue.debugAdmobAppId)
         resValue("string", "admob_banner", AdmobValue.debugAdmobBanner)
         resValue("string", "admob_interstitial", AdmobValue.debugAdmobInterstitial)
         resValue("string", "admob_interstitial_video", AdmobValue.debugAdmobInterstitialVideo)
@@ -65,7 +65,7 @@ android {
             resValue("string", "app_name", ProjectSetting.NAME_APP)
 
             // Inject admob id for release
-            resValue("string", "admob_publisher_id", AdmobValue.releaseAdmobPublisherId)
+            resValue("string", "admob_app_id", AdmobValue.releaseAdmobAppId)
             resValue("string", "admob_banner", AdmobValue.releaseAdmobBanner)
             resValue("string", "admob_interstitial", AdmobValue.releaseAdmobInterstitial)
             resValue("string", "admob_interstitial_video", AdmobValue.releaseAdmobInterstitialVideo)

@@ -42,15 +42,15 @@ abstract class BaseActivity<VB : ViewBinding> : FrogoAdmobActivity() {
     }
 
     override fun setupAdmob() {
-        setPublisher()
+        setApp()
         setBanner()
         setInterstitial()
         setRewarded()
         setRewardedInterstitial()
     }
 
-    private fun setPublisher() {
-        setupAdsPublisher(getString(R.string.admob_publisher_id))
+    private fun setApp() {
+        setupAdsApp(getString(R.string.admob_app_id))
     }
 
     private fun setBanner() {

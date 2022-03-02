@@ -109,15 +109,15 @@ class <YourActivity> : FrogoAdmobActivity() {
     }
 
     private fun setupAdmob(){
-        setPublisher()
+        setApp()
         setBanner()
         setInterstitial()
         setRewarded()
         setRewardedInterstitial()
     }
 
-    private fun setPublisher() {
-        setupAdsPublisher(getString(R.string.admob_publisher_id))
+    private fun setApp() {
+        setupAdsApp(getString(R.string.admob_app_id))
     }
 
     private fun setBanner() {
@@ -321,16 +321,16 @@ public abstract class <Your BaseJavaActivity> extends FrogoAdmobActivity {
     }
 
     private void setupAdmob(){
-        setPublisher();
+        setApp();
         setBanner();
         setInterstitial();
         setRewarded();
         setRewardedInterstitial();
     }
 
-    private void setPublisher() {
+    private void setApp() {
         // Your App ID
-        setupAdsPublisher(getString(R.string.admob_publisher_id));
+        setupAdsApp(getString(R.string.admob_app_id));
     }
 
     private void setBanner() {
@@ -481,7 +481,7 @@ fun FrogoAdmobBannerView(
 ### Test Ads From Google
 
     // Declaration admob id for debug
-    def debugAdmobPublisherId = "ca-app-pub-3940256099942544~3347511713"
+    def debugAdmobAppId = "ca-app-pub-3940256099942544~3347511713"
     def debugAdmobBanner = "ca-app-pub-3940256099942544/6300978111"
     def debugAdmobInterstitial = "ca-app-pub-3940256099942544/1033173712"
     def debugAdmobInterstitialVideo = "ca-app-pub-3940256099942544/8691691433"

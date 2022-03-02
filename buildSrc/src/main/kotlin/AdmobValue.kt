@@ -14,7 +14,7 @@
 object AdmobValue {
 
     // Declaration admob id for debug
-    const val debugAdmobPublisherId = "ca-app-pub-3940256099942544~3347511713"
+    const val debugAdmobAppId = "ca-app-pub-3940256099942544~3347511713"
     const val debugAdmobBanner = "ca-app-pub-3940256099942544/6300978111"
     const val debugAdmobInterstitial = "ca-app-pub-3940256099942544/1033173712"
     const val debugAdmobInterstitialVideo = "ca-app-pub-3940256099942544/8691691433"
@@ -24,7 +24,7 @@ object AdmobValue {
     const val debugAdmobNativeAdvancedVideo = "ca-app-pub-3940256099942544/1044960115"
 
     // Declaration admob id for release
-    const val releaseAdmobPublisherId = "ca-app-pub-3940256099942544~3347511713"
+    const val releaseAdmobAppId = "ca-app-pub-3940256099942544~3347511713"
     const val releaseAdmobBanner = "ca-app-pub-3940256099942544/6300978111"
     const val releaseAdmobInterstitial = "ca-app-pub-3940256099942544/1033173712"
     const val releaseAdmobInterstitialVideo = "ca-app-pub-3940256099942544/8691691433"

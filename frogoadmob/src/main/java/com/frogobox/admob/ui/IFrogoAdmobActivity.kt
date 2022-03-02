@@ -21,8 +21,8 @@ import com.google.android.gms.ads.AdView
  */
 interface IFrogoAdmobActivity {
 
-    // Setup Admob Publisher
-    fun setupAdsPublisher(mPublisherId: String)
+    // Setup Admob App
+    fun setupAdsApp(mAppId: String)
 
     // Setup Admob Banner
     fun setupAdsBanner(mAdUnitId: String)
