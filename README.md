@@ -12,6 +12,7 @@
 - Calling method on Inheritance Class
 - Implement all Admob Version
 - Jetpack Compose Function (Experimental)
+- Don't forget implement frogo-sdk [Click Here](github.com/frogobox/frogo-sdk)
 
 ## Note For Jitpack Build
 - Red : Failed (So don't use that version / Using previous version)
@@ -24,13 +25,14 @@
 
 ## Version Release
 
-    $version_release = 4.1.7
+    $version_release = 4.1.8
 
 What's New??
 
     * Enhance Performance *
     * Refactoring Code *
     * Update Admob Library Version 20.6.0 *
+    * Update : Adding Function Request Admob From Server *
 
 ## How To Use / Implement This Project
 ### Step 1. Add the JitPack repository to your build file
@@ -68,7 +70,7 @@ allprojects {
             implementation 'com.google.android.gms:play-services-ads:${latest_version}'
 
             // library frogo-admob-helper
-	        implementation 'com.github.amirisback:frogo-admob:4.1.7'
+	        implementation 'com.github.amirisback:frogo-admob:4.1.8'
 	}
 
 #### <Option 2> Kotlin DSL
@@ -78,7 +80,7 @@ allprojects {
             implementation("com.google.android.gms:play-services-ads:${latest_version}")
 
             // library frogo-admob-helper
-	        implementation("com.github.amirisback:frogo-admob:4.1.7")
+	        implementation("com.github.amirisback:frogo-admob:4.1.8")
 	}
 	
 ### Step 3. Adding meta-data on AndroidManifest.xml
