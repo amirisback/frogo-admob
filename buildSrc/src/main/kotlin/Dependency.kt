@@ -19,4 +19,7 @@ object Dependency {
 
     const val GSON_VERSION = "2.9.0"
 
+    const val KOIN_VERSION = "3.1.5"
+
+    const val RETROFIT_VERSION = "2.9.0"
 }

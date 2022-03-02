@@ -74,6 +74,11 @@ dependencies {
     implementation("androidx.activity:activity-compose:1.4.0")
 
     implementation("com.google.code.gson:gson:${Dependency.GSON_VERSION}")
+    implementation("com.squareup.retrofit2:retrofit:${Dependency.RETROFIT_VERSION}")
+
+    implementation("io.reactivex.rxjava2:rxjava:2.2.21")
+    implementation("io.reactivex.rxjava2:rxandroid:2.1.1")
+
 
     implementation("com.google.android.gms:play-services-ads:20.6.0")
     implementation("com.google.android.material:material:1.5.0")

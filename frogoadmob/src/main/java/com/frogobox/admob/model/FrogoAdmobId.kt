@@ -15,7 +15,7 @@ import com.google.gson.annotations.SerializedName
  *
  */
 
-data class AdmobID(
+data class FrogoAdmobId(
 
     @SerializedName("testAdmobAppId")
     var testAdmobAppId: String = "ca-app-pub-3940256099942544~3347511713",

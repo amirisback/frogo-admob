@@ -9,8 +9,12 @@ import android.view.WindowManager
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.viewbinding.ViewBinding
+import com.frogobox.admob.model.FrogoAdmobId
+import com.frogobox.admob.source.FrogoAdmobApiResponse
+import com.frogobox.admob.source.FrogoAdmobRepository
 import com.frogobox.admob.ui.FrogoAdmobActivity
 import com.frogobox.appadmob.R
+import com.frogobox.frogolog.FLog
 import com.google.gson.Gson
 
 /**
@@ -39,6 +43,37 @@ abstract class BaseActivity<VB : ViewBinding> : FrogoAdmobActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
+        requestAdmobApi()
+    }
+
+    private fun requestAdmobApi() {
+        val baseUrl = "https://raw.githubusercontent.com/amirisback/frogo-admob/master/app/src/main/assets/"
+        val frogoAdmobRepository = FrogoAdmobRepository(baseUrl)
+        frogoAdmobRepository.usingClient()
+        frogoAdmobRepository.getFrogoAdmobId("admob_id", object : FrogoAdmobApiResponse<FrogoAdmobId> {
+            override fun onSuccess(data: FrogoAdmobId) {
+                runOnUiThread {
+                    FLog.d(data.appId)
+                    FLog.d(data.bannerID[0])
+                    FLog.d(data.interstitialID[0])
+                    FLog.d(data.testAdmobAppId)
+                    FLog.d(data.testAdmobBanner)
+                    FLog.d(data.testAdmobInterstitial)
+                }
+            }
+
+            override fun onFailed(statusCode: Int, errorMessage: String?) {
+                runOnUiThread {
+                    FLog.d(errorMessage)
+                }
+            }
+
+            override fun onShowProgress() {
+            }
+
+            override fun onHideProgress() {
+            }
+        })
     }
 
     override fun setupAdmob() {

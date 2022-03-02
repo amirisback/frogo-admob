@@ -22,4 +22,6 @@ object FrogoAdmobConstant {
     const val RECYCLER_VIEW_TYPE_MENU_ITEM = 0 // A menu item view type.
     const val RECYCLER_VIEW_TYPE_BANNER_AD = 1 // The banner ad view type.
 
+    const val BASE_URL_SERVER = "https://raw.githubusercontent.com/"
+
 }
