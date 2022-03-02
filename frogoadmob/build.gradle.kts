@@ -73,6 +73,8 @@ dependencies {
     implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.4.1")
     implementation("androidx.activity:activity-compose:1.4.0")
 
+    implementation("com.google.code.gson:gson:${Dependency.GSON_VERSION}")
+
     implementation("com.google.android.gms:play-services-ads:20.6.0")
     implementation("com.google.android.material:material:1.5.0")
 

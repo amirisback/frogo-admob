@@ -17,4 +17,6 @@ object Dependency {
     const val KOTLIN_VERSION = "1.5.31"
     const val COMPOSE_VERSION = "1.0.5"
 
+    const val GSON_VERSION = "2.9.0"
+
 }
