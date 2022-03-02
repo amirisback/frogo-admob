@@ -134,6 +134,7 @@ dependencies {
 
     implementation("com.github.frogobox:frogo-consume-api:2.0.0")
     implementation("com.github.frogobox:frogo-ui:0.0.1-beta03")
+    implementation("com.github.frogobox:frogo-sdk:0.0.1-beta05")
 
     kapt("com.github.bumptech.glide:compiler:4.12.0")
 

@@ -56,4 +56,8 @@ interface IFrogoAdListener {
 
     }
 
+    interface Rewarded {
+
+    }
+
 }

@@ -2,12 +2,15 @@ package com.frogobox.appadmob.base
 
 import android.content.Intent
 import android.os.Bundle
-import android.view.*
+import android.view.Menu
+import android.view.MenuItem
+import android.view.View
+import android.view.WindowManager
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.viewbinding.ViewBinding
-import com.frogobox.appadmob.R
 import com.frogobox.admob.ui.FrogoAdmobActivity
+import com.frogobox.appadmob.R
 import com.google.gson.Gson
 
 /**
@@ -29,18 +32,16 @@ import com.google.gson.Gson
  */
 abstract class BaseActivity<VB : ViewBinding> : FrogoAdmobActivity() {
 
-    protected lateinit var binding: VB
+    protected val binding: VB by lazy { setupViewBinding() }
 
-    abstract fun setupViewBinding() : VB
+    abstract fun setupViewBinding(): VB
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = setupViewBinding()
         setContentView(binding.root)
-        setupAdmob()
     }
 
-    private fun setupAdmob(){
+    override fun setupAdmob() {
         setPublisher()
         setBanner()
         setInterstitial()
@@ -57,7 +58,7 @@ abstract class BaseActivity<VB : ViewBinding> : FrogoAdmobActivity() {
     }
 
     private fun setInterstitial() {
-         setupAdsInterstitial(getString(R.string.admob_interstitial))
+        setupAdsInterstitial(getString(R.string.admob_interstitial))
     }
 
     private fun setRewarded() {
@@ -110,7 +111,7 @@ abstract class BaseActivity<VB : ViewBinding> : FrogoAdmobActivity() {
         return intent?.hasExtra(extraKey)!!
     }
 
-    protected fun <Model, VB: ViewBinding> baseFragmentNewInstance(
+    protected fun <Model, VB : ViewBinding> baseFragmentNewInstance(
         fragment: BaseFragment<VB>,
         argumentKey: String,
         extraDataResult: Model

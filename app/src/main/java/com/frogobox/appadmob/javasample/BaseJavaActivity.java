@@ -27,7 +27,8 @@ public abstract class BaseJavaActivity extends FrogoAdmobActivity {
         setupAdmob();
     }
 
-    private void setupAdmob(){
+    @Override
+    public void setupAdmob(){
         setPublisher();
         setBanner();
         setInterstitial();

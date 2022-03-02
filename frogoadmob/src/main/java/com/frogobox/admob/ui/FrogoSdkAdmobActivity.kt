@@ -1,11 +1,14 @@
 package com.frogobox.admob.ui
 
 import android.content.Context
+import android.os.Bundle
+import android.util.Log
 import android.widget.RelativeLayout
 import androidx.viewbinding.ViewBinding
 import com.frogobox.admob.core.FrogoAdmob
 import com.frogobox.admob.core.IFrogoAdListener
 import com.frogobox.admob.core.IFrogoAdmob
+import com.frogobox.frogolog.FLog
 import com.frogobox.sdk.FrogoActivity
 import com.google.android.gms.ads.AdSize
 import com.google.android.gms.ads.AdView
@@ -26,7 +29,17 @@ import com.google.android.gms.ads.AdView
 
 abstract class FrogoSdkAdmobActivity<VB : ViewBinding> : FrogoActivity<VB>(), IFrogoAdmobActivity {
 
+    private val TAG : String = FrogoSdkAdmobActivity::class.java.simpleName
+
     protected val arrayFrogoAdmobData = mutableListOf<Any>()
+
+    abstract fun setupAdmob()
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setupAdmob()
+        FLog.d("$TAG : Setup Admob")
+    }
 
     override fun setupAdsPublisher(mPublisherId: String) {
         FrogoAdmob.setupPublisherID(mPublisherId)
@@ -115,6 +128,5 @@ abstract class FrogoSdkAdmobActivity<VB : ViewBinding> : FrogoActivity<VB>(), IF
         }
         super.onDestroy()
     }
-
 
 }
