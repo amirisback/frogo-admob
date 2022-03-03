@@ -13,8 +13,8 @@ build
 .externalNativeBuild
 
 built application files
-.apk
-.ap_
+*.apk
+*.aab
 
 files for the dex VM
 *.dex
