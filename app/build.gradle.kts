@@ -109,33 +109,30 @@ dependencies {
 
     implementation(project(":frogoadmob"))
 
-    implementation("androidx.appcompat:appcompat:1.4.1")
-    implementation("androidx.core:core-ktx:1.7.0")
-    implementation("androidx.constraintlayout:constraintlayout:2.1.3")
-    implementation("androidx.legacy:legacy-support-v4:1.0.0")
+    implementation(Androidx.appCompat)
+    implementation(Androidx.Core.ktx)
+    implementation(Androidx.constraintLayout)
+    implementation(Androidx.Lifecycle.runtimeKtx)
+    implementation(Androidx.Work.runtimeKtx)
 
-    implementation("androidx.compose.ui:ui:${Dependency.COMPOSE_VERSION}")
-    implementation("androidx.compose.material:material:${Dependency.COMPOSE_VERSION}")
-    implementation("androidx.compose.ui:ui-tooling-preview:${Dependency.COMPOSE_VERSION}")
-    implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.4.1")
+    implementation(Compose.ui)
+    implementation(Compose.material)
+    implementation(Compose.tooling)
+    implementation(Compose.activity)
 
-    implementation("androidx.work:work-runtime-ktx:2.7.1")
+    implementation(Google.gson)
+    implementation(Google.material)
+    implementation(Google.admob)
 
-    implementation("androidx.activity:activity-compose:1.4.0")
-    
-    implementation("com.google.code.gson:gson:2.9.0")
-    implementation("com.google.android.material:material:1.5.0")
-    implementation("com.google.android.gms:play-services-ads:20.6.0")
+    implementation(Util.glide)
 
-    implementation("com.github.bumptech.glide:glide:4.12.0")
+    implementation("com.github.amirisback:frogo-log:2.0.9")
+    implementation("com.github.amirisback:frogo-recycler-view:4.0.5")
 
-    implementation("com.github.amirisback:frogo-log:2.0.8")
-    implementation("com.github.amirisback:frogo-recycler-view:4.0.4")
+    implementation("com.github.frogobox:frogo-consume-api:2.0.1")
+    implementation("com.github.frogobox:frogo-ui:0.0.1-beta04")
+    implementation("com.github.frogobox:frogo-sdk:0.0.1-beta08")
 
-    implementation("com.github.frogobox:frogo-consume-api:2.0.0")
-    implementation("com.github.frogobox:frogo-ui:0.0.1-beta03")
-    implementation("com.github.frogobox:frogo-sdk:0.0.1-beta05")
-
-    kapt("com.github.bumptech.glide:compiler:4.12.0")
+    kapt(Util.glideCompiler)
 
 }

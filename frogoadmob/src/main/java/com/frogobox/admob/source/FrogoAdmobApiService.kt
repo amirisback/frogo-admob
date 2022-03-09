@@ -1,7 +1,7 @@
 package com.frogobox.admob.source
 
 import com.frogobox.admob.model.FrogoAdmobId
-import io.reactivex.Observable
+import io.reactivex.rxjava3.core.Observable
 import retrofit2.http.GET
 import retrofit2.http.Path
 

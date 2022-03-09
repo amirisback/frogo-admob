@@ -62,31 +62,33 @@ android {
 
 dependencies {
 
-    implementation("androidx.compose.ui:ui:${Dependency.COMPOSE_VERSION}")
-    implementation("androidx.compose.material:material:${Dependency.COMPOSE_VERSION}")
-    implementation("androidx.compose.ui:ui-tooling-preview:${Dependency.COMPOSE_VERSION}")
+    implementation(Androidx.appCompat)
+    implementation(Androidx.Core.ktx)
+    implementation(Androidx.constraintLayout)
+    implementation(Androidx.Lifecycle.runtimeKtx)
+    implementation(Androidx.Work.runtimeKtx)
 
-    implementation("androidx.appcompat:appcompat:1.4.1")
-    implementation("androidx.core:core-ktx:1.7.0")
-    implementation("androidx.constraintlayout:constraintlayout:2.1.3")
+    implementation(Compose.ui)
+    implementation(Compose.material)
+    implementation(Compose.tooling)
+    implementation(Compose.activity)
 
-    implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.4.1")
-    implementation("androidx.activity:activity-compose:1.4.0")
+    implementation(Google.gson)
+    implementation(Google.material)
+    implementation(Google.admob)
 
-    implementation("com.google.code.gson:gson:${Dependency.GSON_VERSION}")
-    implementation("com.squareup.retrofit2:retrofit:${Dependency.RETROFIT_VERSION}")
+    implementation(Util.glide)
 
-    implementation("io.reactivex.rxjava2:rxjava:2.2.21")
-    implementation("io.reactivex.rxjava2:rxandroid:2.1.1")
+    implementation(Square.Retrofit2.retrofit)
+    implementation(Square.Retrofit2.converterGson)
+    implementation(Square.Retrofit2.adapterRxJava3)
+    implementation(Reactivex.rxJava3)
+    implementation(Reactivex.rxAndroid3)
 
-
-    implementation("com.google.android.gms:play-services-ads:20.6.0")
-    implementation("com.google.android.material:material:1.5.0")
-
-    implementation("com.github.amirisback:frogo-log:2.0.8")
-    implementation("com.github.amirisback:frogo-recycler-view:4.0.4")
+    implementation("com.github.amirisback:frogo-log:2.0.9")
+    implementation("com.github.amirisback:frogo-recycler-view:4.0.5")
     
-    implementation("com.github.frogobox:frogo-sdk:0.0.1-beta05")
+    implementation("com.github.frogobox:frogo-sdk:0.0.1-beta08")
 
 }
 
