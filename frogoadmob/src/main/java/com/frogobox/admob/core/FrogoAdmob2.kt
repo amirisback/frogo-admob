@@ -30,7 +30,6 @@ object FrogoAdmob2 {
 
     private val TAG = "FrogoAdmob"
 
-    private lateinit var admobAppID: String
     private lateinit var mAdUnitIdInterstitial: String
     private lateinit var mAdUnitIdBanner: String
 
@@ -93,7 +92,7 @@ object FrogoAdmob2 {
 
     fun setupAdmobApp(context: Context) {
         MobileAds.initialize(context) {}
-        FLog.d("App Id : $admobAppID")
+        FLog.d("Admob mobile Ads Initialized")
     }
 
     // ---------------------------------------------------------------------------------------------
