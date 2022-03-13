@@ -3,7 +3,7 @@ package com.frogobox.appadmob.mvvm.main
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
-import com.frogobox.admob.core.IFrogoAdmob
+import com.frogobox.admob.core.IFrogoAdRewarded
 import com.frogobox.appadmob.R
 import com.frogobox.appadmob.base.BaseActivity
 import com.frogobox.appadmob.databinding.ActivityMainBinding
@@ -24,12 +24,16 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setupButtonClick()
-        showBannerContainer(
+        setupBannerAds()
+    }
+
+    private fun setupBannerAds() {
+        showAdsBanner(binding.adsXml.adsPhoneTabSpecialSmartBanner)
+        showAdsBannerContainer(
             getString(R.string.admob_banner),
             AdSize.SMART_BANNER,
             binding.includeAdsView.frogoAdsBanner
         )
-        showBanner(binding.adsXml.adsPhoneTabSpecialSmartBanner)
     }
 
     private fun setupButtonClick() {
@@ -41,19 +45,52 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
             }
 
             btnRewarded.setOnClickListener {
-                setupShowAdsRewarded(object : IFrogoAdmob.UserEarned {
+                showAdsRewarded(getString(R.string.admob_rewarded), object : IFrogoAdRewarded {
                     override fun onUserEarnedReward(rewardItem: RewardItem) {
-                        // TODO User Get Reward
+                        // TODO("User Get Reward")
+                    }
+
+                    override fun onAdClosed() {
+                        // TODO("Not yet implemented")
+                    }
+
+                    override fun onAdFailedToLoad() {
+                        // TODO("Not yet implemented")
+                    }
+
+                    override fun onAdFailedToShow() {
+                        // TODO("Not yet implemented")
+                    }
+
+                    override fun onAdLoaded() {
+                        // TODO("Not yet implemented")
                     }
                 })
             }
 
             btnRewardedInterstitial.setOnClickListener {
-                setupShowAdsRewardedInterstitial(object : IFrogoAdmob.UserEarned {
-                    override fun onUserEarnedReward(rewardItem: RewardItem) {
-                        // TODO User Get Reward
-                    }
-                })
+                showAdsRewardedInterstitial(getString(R.string.admob_rewarded_interstitial),
+                    object : IFrogoAdRewarded {
+                        override fun onUserEarnedReward(rewardItem: RewardItem) {
+                            // TODO("User Get Reward")
+                        }
+
+                        override fun onAdClosed() {
+                            // TODO("Not yet implemented")
+                        }
+
+                        override fun onAdFailedToLoad() {
+                            // TODO("Not yet implemented")
+                        }
+
+                        override fun onAdFailedToShow() {
+                            // TODO("Not yet implemented")
+                        }
+
+                        override fun onAdLoaded() {
+                            // TODO("Not yet implemented")
+                        }
+                    })
             }
 
             btnRecyclerView.setOnClickListener {

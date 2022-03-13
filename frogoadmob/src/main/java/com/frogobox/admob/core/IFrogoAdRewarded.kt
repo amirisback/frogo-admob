@@ -1,11 +1,10 @@
 package com.frogobox.admob.core
 
-import com.google.android.gms.ads.LoadAdError
-import com.google.android.gms.ads.interstitial.InterstitialAd
+import com.google.android.gms.ads.rewarded.RewardItem
 
 
 /*
- * Created by faisalamir on 10/03/22
+ * Created by faisalamir on 13/03/22
  * FrogoAdmob
  * -----------------------------------------
  * Name     : Muhammad Faisal Amir
@@ -17,14 +16,8 @@ import com.google.android.gms.ads.interstitial.InterstitialAd
  *
  */
 
-interface IFrogoInterstitial {
+interface IFrogoAdRewarded : IFrogoAdInterstitial {
 
-    fun onAdClosed()
-
-    fun onAdFailedToLoad()
-
-    fun onAdFailedToShow()
-
-    fun onAdLoaded()
+    fun onUserEarnedReward(rewardItem: RewardItem)
 
 }

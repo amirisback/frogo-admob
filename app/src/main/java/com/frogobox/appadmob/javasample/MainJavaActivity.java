@@ -4,9 +4,13 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 
+import androidx.annotation.NonNull;
+
+import com.frogobox.admob.core.IFrogoAdRewarded;
 import com.frogobox.appadmob.R;
 import com.frogobox.appadmob.databinding.ActivityMainBinding;
 import com.google.android.gms.ads.AdSize;
+import com.google.android.gms.ads.rewarded.RewardItem;
 
 public class MainJavaActivity extends BaseJavaActivity {
 
@@ -17,8 +21,8 @@ public class MainJavaActivity extends BaseJavaActivity {
         super.onCreate(savedInstanceState);
         binding = ActivityMainBinding.inflate(LayoutInflater.from(this));
         setContentView(binding.getRoot());
-        showBannerContainer(getString(R.string.admob_banner), AdSize.SMART_BANNER, binding.includeAdsView.frogoAdsBanner);
-        showBanner(binding.adsXml.adsPhoneTabSpecialSmartBanner);
+        showAdsBannerContainer(getString(R.string.admob_banner), AdSize.SMART_BANNER, binding.includeAdsView.frogoAdsBanner);
+        showAdsBanner(binding.adsXml.adsPhoneTabSpecialSmartBanner);
         hideButton();
         setupButtonClick();
     }
@@ -33,14 +37,60 @@ public class MainJavaActivity extends BaseJavaActivity {
 
     private void setupButtonClick() {
 
-        binding.btnInterstitial.setOnClickListener(view -> showInterstitial(getString(R.string.admob_interstitial)));
+        binding.btnInterstitial.setOnClickListener(view -> showAdsInterstitial(getString(R.string.admob_interstitial)));
 
-        binding.btnRewarded.setOnClickListener(view -> setupShowAdsRewarded(rewardItem -> {
+        binding.btnRewarded.setOnClickListener(view -> showAdsRewarded(getString(R.string.admob_rewarded), new IFrogoAdRewarded() {
+            @Override
+            public void onUserEarnedReward(@NonNull RewardItem rewardItem) {
 
+            }
+
+            @Override
+            public void onAdClosed() {
+
+            }
+
+            @Override
+            public void onAdFailedToLoad() {
+
+            }
+
+            @Override
+            public void onAdFailedToShow() {
+
+            }
+
+            @Override
+            public void onAdLoaded() {
+
+            }
         }));
 
-        binding.btnRewardedInterstitial.setOnClickListener(view -> setupShowAdsRewardedInterstitial(rewardItem -> {
+        binding.btnRewardedInterstitial.setOnClickListener(view -> showAdsRewardedInterstitial(getString(R.string.admob_rewarded_interstitial), new IFrogoAdRewarded() {
+            @Override
+            public void onUserEarnedReward(@NonNull RewardItem rewardItem) {
 
+            }
+
+            @Override
+            public void onAdClosed() {
+
+            }
+
+            @Override
+            public void onAdFailedToLoad() {
+
+            }
+
+            @Override
+            public void onAdFailedToShow() {
+
+            }
+
+            @Override
+            public void onAdLoaded() {
+
+            }
         }));
 
     }

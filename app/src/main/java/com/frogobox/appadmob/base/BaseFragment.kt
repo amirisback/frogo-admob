@@ -61,7 +61,7 @@ abstract class BaseFragment<VB : ViewBinding> : Fragment() {
     }
 
     protected fun setupShowAdsInterstitial(interstitialAdUnitId: String) {
-        mBaseActivity.showInterstitial(interstitialAdUnitId)
+        mBaseActivity.showAdsInterstitial(interstitialAdUnitId)
     }
 
     fun <Model> baseNewInstance(argsKey: String, data: Model) {

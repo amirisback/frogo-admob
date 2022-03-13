@@ -101,41 +101,45 @@ allprojects {
 <details>
   <summary>Click for detail!</summary>
 
-#### Setup Ads
+#### Setup Ads Using Server
 ```kotlin
 class <YourActivity> : FrogoAdmobActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setupAdmob()
+        requestAdmobApi()
     }
 
-    private fun setupAdmob(){
-        setApp()
-        setBanner()
-        setInterstitial()
-        setRewarded()
-        setRewardedInterstitial()
-    }
+    private fun requestAdmobApi() {
+        val baseUrl = "https://raw.githubusercontent.com/amirisback/frogo-admob/master/app/src/main/assets/"
+        val frogoAdmobRepository = FrogoAdmobRepository(baseUrl)
+        frogoAdmobRepository.usingClient()
+        frogoAdmobRepository.getFrogoAdmobId(
+            "admob_id",
+            object : FrogoAdmobApiResponse<FrogoAdmobId> {
+                override fun onSuccess(data: FrogoAdmobId) {
+                    runOnUiThread {
+                        FLog.d(data.appId)
+                        FLog.d(data.bannerID[0])
+                        FLog.d(data.interstitialID[0])
+                        FLog.d(data.testAdmobAppId)
+                        FLog.d(data.testAdmobBanner)
+                        FLog.d(data.testAdmobInterstitial)
+                    }
+                }
 
-    private fun setApp() {
-        setupAdsApp(getString(R.string.admob_app_id))
-    }
+                override fun onFailed(statusCode: Int, errorMessage: String?) {
+                    runOnUiThread {
+                        FLog.d(errorMessage)
+                    }
+                }
 
-    private fun setBanner() {
-        setupAdsBanner(getString(R.string.admob_banner))
-    }
+                override fun onShowProgress() {
+                }
 
-    private fun setInterstitial() {
-        // setupAdsInterstitial(getString(R.string.admob_interstitial))
-    }
-
-    private fun setRewarded() {
-        setupAdsRewarded(getString(R.string.admob_rewarded))
-    }
-
-    private fun setRewardedInterstitial() {
-        setupAdsRewardedInterstitial(getString(R.string.admob_rewarded_interstitial))
+                override fun onHideProgress() {
+                }
+            })
     }
 
 }
@@ -148,7 +152,6 @@ class <YourActivity> : FrogoAdmobActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setupAdmob()
         setupButtonClick()
         setupBannerAds()
     }
@@ -158,12 +161,12 @@ class <YourActivity> : FrogoAdmobActivity() {
     ...
 
     private fun setupBannerAds() {
-        setupShowAdsBannerContainer(
-            this,
+        showBanner(binding.adsXml.adsPhoneTabSpecialSmartBanner)
+        showBannerContainer(
+            getString(R.string.admob_banner),
             AdSize.SMART_BANNER,
             binding.includeAdsView.frogoAdsBanner
         )
-        setupShowAdsBanner(binding.adsXml.adsPhoneTabSpecialSmartBanner)
     }
 
     private fun setupButtonClick() {
@@ -171,23 +174,38 @@ class <YourActivity> : FrogoAdmobActivity() {
         binding.apply {
 
             btnInterstitial.setOnClickListener {
-                // setupShowAdsInterstitial()
-                val listener = object : IFrogoAdListener.Interstitial {
-                    override fun onAdFailedToLoad(adError: LoadAdError) {
-                        showToast("Gagal Iklan")
+
+                // No Using Callback
+                showInterstitial(getString(R.string.admob_interstitial))
+
+                // With Callback
+                showInterstitial(
+                    getString(R.string.admob_interstitial),
+                    object : IFrogoInterstitial {
+
+                        override fun onAdClosed() {
+                            baseStartActivity<MainActivity>()
+                        }
+
+                        override fun onAdFailedToLoad() {
+                            baseStartActivity<MainActivity>()
+                        }
+
+                        override fun onAdFailedToShow() {
+                            baseStartActivity<MainActivity>()
+                        }
+
+                        override fun onAdLoaded() {
+
+                        }
+
                     }
+                )
 
-                    override fun onAdLoaded(interstitialAd: InterstitialAd) {
-
-                    }
-                }
-
-                FrogoAdmob.Interstitial.setupInterstitial(this@MainActivity, "", listener)
-                FrogoAdmob.Interstitial.showInterstitial(this@MainActivity, listener)
             }
 
             btnRewarded.setOnClickListener {
-                setupShowAdsRewarded(object : IFrogoAdmob.UserEarned {
+                showAdsRewarded(object : IFrogoAdmob.UserEarned {
                     override fun onUserEarnedReward(rewardItem: RewardItem) {
                         // TODO User Get Reward
                     }
@@ -195,7 +213,7 @@ class <YourActivity> : FrogoAdmobActivity() {
             }
 
             btnRewardedInterstitial.setOnClickListener {
-                setupShowAdsRewardedInterstitial(object : IFrogoAdmob.UserEarned {
+                showAdsRewardedInterstitial(object : IFrogoAdmob.UserEarned {
                     override fun onUserEarnedReward(rewardItem: RewardItem) {
                         // TODO User Get Reward
                     }
@@ -371,7 +389,7 @@ public class MainJavaActivity extends BaseJavaActivity {
         super.onCreate(savedInstanceState);
         binding = ActivityMainBinding.inflate(LayoutInflater.from(this));
         setContentView(binding.getRoot());
-        setupShowAdsBanner(binding.includeAdsView.adsPhoneTabSpecialSmartBanner);
+        showBanner(binding.includeAdsView.adsPhoneTabSpecialSmartBanner);
         hideButton();
         setupButtonClick();
     }

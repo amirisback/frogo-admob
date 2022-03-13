@@ -46,8 +46,7 @@ abstract class BaseActivity<VB : ViewBinding> : FrogoAdmobActivity() {
     }
 
     private fun requestAdmobApi() {
-        val baseUrl =
-            "https://raw.githubusercontent.com/amirisback/frogo-admob/master/app/src/main/assets/"
+        val baseUrl = "https://raw.githubusercontent.com/amirisback/frogo-admob/master/app/src/main/assets/"
         val frogoAdmobRepository = FrogoAdmobRepository(baseUrl)
         frogoAdmobRepository.usingClient()
         frogoAdmobRepository.getFrogoAdmobId(

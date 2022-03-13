@@ -1,11 +1,9 @@
 package com.frogobox.admob.ui
 
-import android.content.Context
 import android.widget.RelativeLayout
-import com.frogobox.admob.core.IFrogoAdListener
-import com.frogobox.admob.core.IFrogoAdmob
-import com.frogobox.admob.core.IFrogoBanner
-import com.frogobox.admob.core.IFrogoInterstitial
+import com.frogobox.admob.core.IFrogoAdBanner
+import com.frogobox.admob.core.IFrogoAdInterstitial
+import com.frogobox.admob.core.IFrogoAdRewarded
 import com.google.android.gms.ads.AdSize
 import com.google.android.gms.ads.AdView
 
@@ -24,39 +22,39 @@ import com.google.android.gms.ads.AdView
 interface IFrogoAdmobActivity {
 
     // Show Banner Ads
-    fun showBanner(mAdView: AdView)
+    fun showAdsBanner(mAdView: AdView)
 
     // Show Banner Ads with listener
-    fun showBanner(mAdView: AdView, listener: IFrogoBanner)
+    fun showAdsBanner(mAdView: AdView, listener: IFrogoAdBanner)
 
     // Show Banner Ads with container
-    fun showBannerContainer(
+    fun showAdsBannerContainer(
         bannerAdUnitId: String,
         mAdsSize: AdSize,
         container: RelativeLayout
     )
 
     // Show Banner Ads with container and listener
-    fun showBannerContainer(
+    fun showAdsBannerContainer(
         bannerAdUnitId: String,
         mAdsSize: AdSize,
         container: RelativeLayout,
-        listener: IFrogoBanner
+        listener: IFrogoAdBanner
     )
 
     // Show Interstitial Ads
-    fun showInterstitial(interstitialAdUnitId: String)
+    fun showAdsInterstitial(interstitialAdUnitId: String)
 
     // Show Interstitial Ads with listener
-    fun showInterstitial(
+    fun showAdsInterstitial(
         interstitialAdUnitId: String,
-        callback: IFrogoInterstitial
+        callback: IFrogoAdInterstitial
     )
 
     // Show Rewarded Ads
-    fun setupShowAdsRewarded(callback: IFrogoAdmob.UserEarned)
+    fun showAdsRewarded(mAdUnitIdRewarded: String, callback: IFrogoAdRewarded)
 
     // Show Rewarded Interstitial Ads
-    fun setupShowAdsRewardedInterstitial(callback: IFrogoAdmob.UserEarned)
+    fun showAdsRewardedInterstitial(mAdUnitIdRewardedInterstitial: String,callback: IFrogoAdRewarded)
 
 }

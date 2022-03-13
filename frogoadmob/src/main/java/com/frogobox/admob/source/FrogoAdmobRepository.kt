@@ -22,7 +22,10 @@ import io.reactivex.rxjava3.schedulers.Schedulers
 
 class FrogoAdmobRepository(private val baseUrl: String) : FrogoAdmobDataSource {
 
-    private val TAG = FrogoAdmobRepository::class.java.simpleName
+    companion object {
+        val TAG = FrogoAdmobRepository::class.java.simpleName
+    }
+
     private var frogoAdmobApiService = FrogoApiClient.create<FrogoAdmobApiService>(baseUrl)
 
     override fun usingClient() {

@@ -5,7 +5,6 @@ import android.widget.RelativeLayout
 import androidx.appcompat.app.AppCompatActivity
 import com.google.android.gms.ads.AdSize
 import com.google.android.gms.ads.AdView
-import com.google.android.gms.ads.rewarded.RewardItem
 
 /**
  * Created by Faisal Amir
@@ -36,7 +35,7 @@ interface IFrogoAdmob {
 
         fun showBanner(
             mAdView: AdView,
-            listener: IFrogoBanner
+            listener: IFrogoAdBanner
         )
 
         fun showBannerContainer(
@@ -51,7 +50,7 @@ interface IFrogoAdmob {
             bannerAdUnitId: String,
             mAdsSize: AdSize,
             container: RelativeLayout,
-            listener: IFrogoBanner
+            listener: IFrogoAdBanner
         )
 
     }
@@ -68,36 +67,26 @@ interface IFrogoAdmob {
         fun showInterstitial(
             activity: AppCompatActivity,
             interstitialAdUnitId: String,
-            callback: IFrogoInterstitial
+            callback: IFrogoAdInterstitial
         )
 
     }
 
     // ---------------------------------------------------------------------------------------------
 
-    interface Rewarded{
+    interface Rewarded {
 
-        fun setupRewarded(context: Context, mAdUnitIdRewarded: String)
+        fun showRewarded(
+            activity: AppCompatActivity,
+            mAdUnitIdRewarded: String,
+            callback: IFrogoAdRewarded
+        )
 
-        fun showRewarded(activity: AppCompatActivity, callback: IFrogoAdmob.UserEarned)
-
-    }
-
-    // ---------------------------------------------------------------------------------------------
-
-    interface RewardedInterstitial {
-
-        fun setupRewardedInterstitial(context: Context, mAdUnitIdRewardedInterstitial : String)
-
-        fun showRewardedInterstitial(activity: AppCompatActivity, callback: IFrogoAdmob.UserEarned)
-
-    }
-
-    // ---------------------------------------------------------------------------------------------
-
-    interface UserEarned {
-
-        fun onUserEarnedReward(rewardItem: RewardItem)
+        fun showRewardedInterstitial(
+            activity: AppCompatActivity,
+            mAdUnitIdRewardedInterstitial: String,
+            callback: IFrogoAdRewarded
+        )
 
     }
 
@@ -105,9 +94,17 @@ interface IFrogoAdmob {
 
     interface RecyclerView {
 
-        fun loadRecyclerBannerAds(bannerAdUnitId: String, context: Context, recyclerViewDataList: MutableList<Any>)
+        fun loadRecyclerBannerAds(
+            bannerAdUnitId: String,
+            context: Context,
+            recyclerViewDataList: MutableList<Any>
+        )
 
-        fun addBannerAds(bannerAdUnitId: String, context: Context, recyclerViewDataList: MutableList<Any>)
+        fun addBannerAds(
+            bannerAdUnitId: String,
+            context: Context,
+            recyclerViewDataList: MutableList<Any>
+        )
 
         fun loadBannerAd(recyclerViewDataList: MutableList<Any>, index: Int)
 
