@@ -132,6 +132,9 @@ dependencies {
     implementation("com.github.frogobox:frogo-consume-api:2.0.1")
     implementation("com.github.frogobox:frogo-ui:0.0.1-beta04")
     implementation("com.github.frogobox:frogo-sdk:0.0.1-beta08")
+    implementation("androidx.appcompat:appcompat:1.4.1")
+    implementation("com.google.android.material:material:1.5.0")
+    implementation("androidx.constraintlayout:constraintlayout:2.1.3")
 
     kapt(Util.glideCompiler)
 

@@ -18,12 +18,15 @@ import androidx.appcompat.app.AppCompatActivity
 
 interface IAdInterstitial {
 
-    fun showInterstitial(activity: AppCompatActivity, interstitialAdUnitId: String)
+    fun showInterstitial(
+        activity: AppCompatActivity,
+        interstitialAdUnitId: String
+    )
 
     fun showInterstitial(
         activity: AppCompatActivity,
         interstitialAdUnitId: String,
-        interstitialListener: IFrogoInterstitialListener
+        callback: IFrogoInterstitialCallback
     )
 
 }

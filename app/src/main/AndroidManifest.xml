@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.KickStart">
         <activity
+            android:name=".mvvm.main.SampleSdk2Activity"
+            android:exported="false" />
+        <activity
             android:name=".javasample.MainJavaActivity"
             android:exported="false"
             android:hardwareAccelerated="true" />

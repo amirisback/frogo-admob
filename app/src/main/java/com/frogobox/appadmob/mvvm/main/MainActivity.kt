@@ -92,6 +92,10 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
                 baseStartActivity<MainJavaActivity>()
             }
 
+            btnFrogoAdmobSdk2.setOnClickListener {
+                baseStartActivity<SampleSdk2Activity>()
+            }
+
         }
     }
 

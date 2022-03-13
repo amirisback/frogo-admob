@@ -17,10 +17,12 @@ import com.google.android.gms.ads.interstitial.InterstitialAd
  *
  */
 
-interface IFrogoInterstitialListener {
-
-    fun onAdFailedToLoad(adError: LoadAdError)
+interface IFrogoInterstitialCallback {
 
     fun onAdLoaded(interstitialAd: InterstitialAd)
+
+    fun onClosedAd()
+
+    fun onAdFailedToLoadAndShow()
 
 }

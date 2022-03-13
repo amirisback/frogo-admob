@@ -172,7 +172,7 @@ object FrogoAdmob2 {
             }
         }
 
-        private fun frogoInterstitialCallback(interstitialListener: IFrogoInterstitialListener): InterstitialAdLoadCallback {
+        private fun frogoInterstitialCallback(callback: IFrogoInterstitialCallback): InterstitialAdLoadCallback {
             return object : InterstitialAdLoadCallback() {
                 override fun onAdFailedToLoad(adError: LoadAdError) {
                     val error =
@@ -180,29 +180,25 @@ object FrogoAdmob2 {
                     FLog.d(adError.message)
                     FLog.d("onAdFailedToLoad() with error $error")
                     mInterstitialAd = null
-                    interstitialListener.onAdFailedToLoad(adError)
+                    callback.onAdFailedToLoadAndShow()
                 }
 
                 override fun onAdLoaded(interstitialAd: InterstitialAd) {
                     FLog.d("Ad was loaded.")
                     FLog.d("onAdLoaded() success")
                     mInterstitialAd = interstitialAd
-                    interstitialListener.onAdLoaded(interstitialAd)
+                    callback.onAdLoaded(interstitialAd)
                 }
             }
         }
 
-        private fun frogoFullScreenContentCallback(
-            activity: AppCompatActivity,
-            interstitialAdUnitId: String
-        ): FullScreenContentCallback {
+        private fun frogoFullScreenContentCallback(): FullScreenContentCallback {
             return object : FullScreenContentCallback() {
                 override fun onAdDismissedFullScreenContent() {
                     // Don't forget to set the ad reference to null so you
                     // don't show the ad a second time.
                     FLog.d("Ad was dismissed.")
                     mInterstitialAd = null
-                    showInterstitial(activity, interstitialAdUnitId)
                 }
 
                 override fun onAdFailedToShowFullScreenContent(adError: AdError?) {
@@ -219,17 +215,15 @@ object FrogoAdmob2 {
             }
         }
 
-        private fun frogoFullScreenContentCallback(
-            activity: AppCompatActivity, interstitialAdUnitId: String,
-            interstitialListener: IFrogoInterstitialListener
-        ): FullScreenContentCallback {
+        private fun frogoFullScreenContentCallback(callback: IFrogoInterstitialCallback): FullScreenContentCallback {
             return object : FullScreenContentCallback() {
                 override fun onAdDismissedFullScreenContent() {
                     // Don't forget to set the ad reference to null so you
                     // don't show the ad a second time.
                     FLog.d("Ad was dismissed.")
+                    FLog.d("Ad was closed and do callback.onClosedAd")
                     mInterstitialAd = null
-                    showInterstitial(activity, interstitialAdUnitId, interstitialListener)
+                    callback.onClosedAd()
                 }
 
                 override fun onAdFailedToShowFullScreenContent(adError: AdError?) {
@@ -237,6 +231,7 @@ object FrogoAdmob2 {
                     // don't show the ad a second time.
                     FLog.d("Ad failed to show.")
                     mInterstitialAd = null
+                    callback.onAdFailedToLoadAndShow()
                 }
 
                 override fun onAdShowedFullScreenContent() {
@@ -246,8 +241,7 @@ object FrogoAdmob2 {
             }
         }
 
-
-        override fun showInterstitial(activity: AppCompatActivity, interstitialAdUnitId: String) {
+        private fun loadInterstitialAd(activity: AppCompatActivity, interstitialAdUnitId: String) {
             mAdUnitIdInterstitial = interstitialAdUnitId
             FLog.d("Interstitial Id : $mAdUnitIdInterstitial")
             InterstitialAd.load(
@@ -256,38 +250,35 @@ object FrogoAdmob2 {
                 AdRequest.Builder().build(),
                 frogoInterstitialCallback()
             )
-
-            if (mInterstitialAd != null) {
-                mInterstitialAd!!.fullScreenContentCallback =
-                    frogoFullScreenContentCallback(activity, interstitialAdUnitId)
-                mInterstitialAd!!.show(activity)
-            }
         }
 
-        override fun showInterstitial(
-            activity: AppCompatActivity,
-            interstitialAdUnitId: String,
-            interstitialListener: IFrogoInterstitialListener
-        ) {
+        private fun loadInterstitialAd(activity: AppCompatActivity, interstitialAdUnitId: String, callback: IFrogoInterstitialCallback) {
             mAdUnitIdInterstitial = interstitialAdUnitId
             FLog.d("Interstitial Id : $mAdUnitIdInterstitial")
             InterstitialAd.load(
                 activity,
                 interstitialAdUnitId,
                 AdRequest.Builder().build(),
-                frogoInterstitialCallback(interstitialListener)
+                frogoInterstitialCallback(callback)
             )
+        }
 
+        override fun showInterstitial(activity: AppCompatActivity, interstitialAdUnitId: String, ) {
+            loadInterstitialAd(activity, interstitialAdUnitId)
             if (mInterstitialAd != null) {
-                mInterstitialAd!!.fullScreenContentCallback =
-                    frogoFullScreenContentCallback(
-                        activity,
-                        interstitialAdUnitId,
-                        interstitialListener
-                    )
+                mInterstitialAd!!.fullScreenContentCallback = frogoFullScreenContentCallback()
                 mInterstitialAd!!.show(activity)
             }
         }
+
+        override fun showInterstitial(activity: AppCompatActivity, interstitialAdUnitId: String, callback: IFrogoInterstitialCallback) {
+            loadInterstitialAd(activity, interstitialAdUnitId, callback)
+            if (mInterstitialAd != null) {
+                mInterstitialAd!!.fullScreenContentCallback = frogoFullScreenContentCallback(callback)
+                mInterstitialAd!!.show(activity)
+            }
+        }
+
     }
 
     // ---------------------------------------------------------------------------------------------
