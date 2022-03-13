@@ -26,35 +26,17 @@ import com.google.android.gms.ads.rewarded.RewardItem
  */
 interface IFrogoAdmob {
 
-    fun setupAppID(mAppId: String)
+    fun setupAdmobApp(context: Context)
 
-    fun setupBannerAdUnitID(mAdUnitId: String)
-
-    fun setupInterstialAdUnitID(mAdUnitId: String)
-
-    fun setupRewardedAdUnitID(mAdUnitId: String)
-
-    fun setupRewardedInterstitialAdUnitID(mAdUnitId: String)
-
-    interface App {
-
-        fun setupApp(context: Context)
-
-    }
+    // ---------------------------------------------------------------------------------------------
 
     interface Banner {
 
         fun showBanner(mAdView: AdView)
 
-        fun showBanner(mAdView: AdView, bannerListener: IFrogoAdListener.Banner)
-
-        fun showBannerContainer(context: Context, mAdsSize: AdSize, container: RelativeLayout)
-
-        fun showBannerContainer(
-            context: Context,
-            mAdsSize: AdSize,
-            container: RelativeLayout,
-            bannerListener: IFrogoAdListener.Banner
+        fun showBanner(
+            mAdView: AdView,
+            listener: IFrogoBanner
         )
 
         fun showBannerContainer(
@@ -69,49 +51,49 @@ interface IFrogoAdmob {
             bannerAdUnitId: String,
             mAdsSize: AdSize,
             container: RelativeLayout,
-            bannerListener: IFrogoAdListener.Banner
+            listener: IFrogoBanner
         )
 
     }
+
+    // ---------------------------------------------------------------------------------------------
 
     interface Interstitial {
 
-        fun setupInterstitial(context: Context)
-
-        fun setupInterstitial(context: Context, interstitialListener: IFrogoAdListener.Interstitial)
-
-        fun setupInterstitial(context: Context, interstitialAdUnitId: String)
-
-        fun setupInterstitial(
-            context: Context,
-            interstitialAdUnitId: String,
-            interstitialListener: IFrogoAdListener.Interstitial
+        fun showInterstitial(
+            activity: AppCompatActivity,
+            interstitialAdUnitId: String
         )
-
-        fun showInterstitial(activity: AppCompatActivity)
 
         fun showInterstitial(
             activity: AppCompatActivity,
-            interstitialListener: IFrogoAdListener.Interstitial
+            interstitialAdUnitId: String,
+            callback: IFrogoInterstitial
         )
 
     }
 
-    interface Rewarded {
+    // ---------------------------------------------------------------------------------------------
 
-        fun setupRewarded(context: Context)
+    interface Rewarded{
 
-        fun showRewarded(activity: AppCompatActivity, callback: UserEarned)
+        fun setupRewarded(context: Context, mAdUnitIdRewarded: String)
+
+        fun showRewarded(activity: AppCompatActivity, callback: IFrogoAdmob.UserEarned)
 
     }
+
+    // ---------------------------------------------------------------------------------------------
 
     interface RewardedInterstitial {
 
-        fun setupRewardedInterstitial(context: Context)
+        fun setupRewardedInterstitial(context: Context, mAdUnitIdRewardedInterstitial : String)
 
-        fun showRewardedInterstitial(activity: AppCompatActivity, callback: UserEarned)
+        fun showRewardedInterstitial(activity: AppCompatActivity, callback: IFrogoAdmob.UserEarned)
 
     }
+
+    // ---------------------------------------------------------------------------------------------
 
     interface UserEarned {
 
@@ -119,14 +101,18 @@ interface IFrogoAdmob {
 
     }
 
+    // ---------------------------------------------------------------------------------------------
+
     interface RecyclerView {
 
-        fun loadRecyclerBannerAds(context: Context, recyclerViewDataList: MutableList<Any>)
+        fun loadRecyclerBannerAds(bannerAdUnitId: String, context: Context, recyclerViewDataList: MutableList<Any>)
 
-        fun addBannerAds(context: Context, recyclerViewDataList: MutableList<Any>)
+        fun addBannerAds(bannerAdUnitId: String, context: Context, recyclerViewDataList: MutableList<Any>)
 
         fun loadBannerAd(recyclerViewDataList: MutableList<Any>, index: Int)
 
     }
+
+    // ---------------------------------------------------------------------------------------------
 
 }

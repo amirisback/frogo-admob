@@ -32,7 +32,7 @@ abstract class BaseFragment<VB : ViewBinding> : Fragment() {
     protected var binding: VB? = null
     protected lateinit var mBaseActivity: BaseActivity<*>
 
-    abstract fun setupViewBinding(inflater: LayoutInflater, container: ViewGroup?) : VB
+    abstract fun setupViewBinding(inflater: LayoutInflater, container: ViewGroup?): VB
 
     override fun onDestroy() {
         super.onDestroy()
@@ -60,8 +60,8 @@ abstract class BaseFragment<VB : ViewBinding> : Fragment() {
         }
     }
 
-    protected fun setupShowAdsInterstitial() {
-        mBaseActivity.setupShowAdsInterstitial()
+    protected fun setupShowAdsInterstitial(interstitialAdUnitId: String) {
+        mBaseActivity.showInterstitial(interstitialAdUnitId)
     }
 
     fun <Model> baseNewInstance(argsKey: String, data: Model) {
@@ -74,8 +74,7 @@ abstract class BaseFragment<VB : ViewBinding> : Fragment() {
 
     protected inline fun <reified Model> baseGetInstance(argsKey: String): Model {
         val argsData = this.arguments?.getString(argsKey)
-        val instaceData = Gson().fromJson<Model>(argsData, Model::class.java)
-        return instaceData
+        return Gson().fromJson(argsData, Model::class.java)
     }
 
     protected fun checkArgument(argsKey: String): Boolean {

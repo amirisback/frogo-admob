@@ -3,10 +3,10 @@ package com.frogobox.appadmob.mvvm.news
 import android.os.Bundle
 import android.view.View
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.frogobox.appadmob.R
-import com.frogobox.appadmob.base.BaseActivity
 import com.frogobox.admob.core.FrogoAdmob.RecyclerView.loadRecyclerBannerAds
 import com.frogobox.api.news.ConsumeNewsApi
+import com.frogobox.appadmob.R
+import com.frogobox.appadmob.base.BaseActivity
 import com.frogobox.appadmob.databinding.ActivityRecyclerViewBinding
 import com.frogobox.coreapi.ConsumeApiResponse
 import com.frogobox.coreapi.news.NewsConstant
@@ -53,7 +53,11 @@ class NewsActivity : BaseActivity<ActivityRecyclerViewBinding>() {
 
                 override fun onSuccess(data: ArticleResponse) {
                     data.articles?.let { arrayFrogoAdmobData.addAll(it) }
-                    loadRecyclerBannerAds(this@NewsActivity, arrayFrogoAdmobData)
+                    loadRecyclerBannerAds(
+                        getString(R.string.admob_banner),
+                        this@NewsActivity,
+                        arrayFrogoAdmobData
+                    )
                     setupRecyclerView()
                 }
 
@@ -62,26 +66,33 @@ class NewsActivity : BaseActivity<ActivityRecyclerViewBinding>() {
 
     private fun setupAdapter(): NewsAdapter {
         val adapter = NewsAdapter()
-        adapter.setupRequirement(R.layout.content_item_news, arrayFrogoAdmobData, object : FrogoRecyclerViewListener<Any> {
-            override fun onItemClicked(
-                view: View,
-                data: Any,
-                position: Int,
-                notifyListener: FrogoRecyclerNotifyListener<Any>
-            ) {}
-            override fun onItemLongClicked(
-                view: View,
-                data: Any,
-                position: Int,
-                notifyListener: FrogoRecyclerNotifyListener<Any>
-            ) {}
-        })
+        adapter.setupRequirement(
+            R.layout.content_item_news,
+            arrayFrogoAdmobData,
+            object : FrogoRecyclerViewListener<Any> {
+                override fun onItemClicked(
+                    view: View,
+                    data: Any,
+                    position: Int,
+                    notifyListener: FrogoRecyclerNotifyListener<Any>
+                ) {
+                }
+
+                override fun onItemLongClicked(
+                    view: View,
+                    data: Any,
+                    position: Int,
+                    notifyListener: FrogoRecyclerNotifyListener<Any>
+                ) {
+                }
+            })
         return adapter
     }
 
     private fun setupRecyclerView() {
         binding.recyclerView.apply {
-            layoutManager = LinearLayoutManager(this@NewsActivity, LinearLayoutManager.VERTICAL, false)
+            layoutManager =
+                LinearLayoutManager(this@NewsActivity, LinearLayoutManager.VERTICAL, false)
             adapter = setupAdapter()
         }
     }

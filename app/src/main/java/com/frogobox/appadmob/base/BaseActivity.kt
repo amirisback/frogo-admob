@@ -13,7 +13,6 @@ import com.frogobox.admob.model.FrogoAdmobId
 import com.frogobox.admob.source.FrogoAdmobApiResponse
 import com.frogobox.admob.source.FrogoAdmobRepository
 import com.frogobox.admob.ui.FrogoAdmobActivity
-import com.frogobox.appadmob.R
 import com.frogobox.frogolog.FLog
 import com.google.gson.Gson
 
@@ -47,61 +46,36 @@ abstract class BaseActivity<VB : ViewBinding> : FrogoAdmobActivity() {
     }
 
     private fun requestAdmobApi() {
-        val baseUrl = "https://raw.githubusercontent.com/amirisback/frogo-admob/master/app/src/main/assets/"
+        val baseUrl =
+            "https://raw.githubusercontent.com/amirisback/frogo-admob/master/app/src/main/assets/"
         val frogoAdmobRepository = FrogoAdmobRepository(baseUrl)
         frogoAdmobRepository.usingClient()
-        frogoAdmobRepository.getFrogoAdmobId("admob_id", object : FrogoAdmobApiResponse<FrogoAdmobId> {
-            override fun onSuccess(data: FrogoAdmobId) {
-                runOnUiThread {
-                    FLog.d(data.appId)
-                    FLog.d(data.bannerID[0])
-                    FLog.d(data.interstitialID[0])
-                    FLog.d(data.testAdmobAppId)
-                    FLog.d(data.testAdmobBanner)
-                    FLog.d(data.testAdmobInterstitial)
+        frogoAdmobRepository.getFrogoAdmobId(
+            "admob_id",
+            object : FrogoAdmobApiResponse<FrogoAdmobId> {
+                override fun onSuccess(data: FrogoAdmobId) {
+                    runOnUiThread {
+                        FLog.d(data.appId)
+                        FLog.d(data.bannerID[0])
+                        FLog.d(data.interstitialID[0])
+                        FLog.d(data.testAdmobAppId)
+                        FLog.d(data.testAdmobBanner)
+                        FLog.d(data.testAdmobInterstitial)
+                    }
                 }
-            }
 
-            override fun onFailed(statusCode: Int, errorMessage: String?) {
-                runOnUiThread {
-                    FLog.d(errorMessage)
+                override fun onFailed(statusCode: Int, errorMessage: String?) {
+                    runOnUiThread {
+                        FLog.d(errorMessage)
+                    }
                 }
-            }
 
-            override fun onShowProgress() {
-            }
+                override fun onShowProgress() {
+                }
 
-            override fun onHideProgress() {
-            }
-        })
-    }
-
-    override fun setupAdmob() {
-        setApp()
-        setBanner()
-        setInterstitial()
-        setRewarded()
-        setRewardedInterstitial()
-    }
-
-    private fun setApp() {
-        setupAdsApp(getString(R.string.admob_app_id))
-    }
-
-    private fun setBanner() {
-        setupAdsBanner(getString(R.string.admob_banner))
-    }
-
-    private fun setInterstitial() {
-        setupAdsInterstitial(getString(R.string.admob_interstitial))
-    }
-
-    private fun setRewarded() {
-        setupAdsRewarded(getString(R.string.admob_rewarded))
-    }
-
-    private fun setRewardedInterstitial() {
-        setupAdsRewardedInterstitial(getString(R.string.admob_rewarded_interstitial))
+                override fun onHideProgress() {
+                }
+            })
     }
 
     protected fun setupCustomTitleToolbar(title: Int) {

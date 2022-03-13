@@ -7,7 +7,7 @@
     android:orientation="vertical"
     android:gravity="center"
     android:padding="@dimen/frogo_dimen_16dp"
-    tools:context=".mvvm.main.SampleSdk2Activity">
+    tools:context=".mvvm.main.InterstitialActivity">
 
     <Button
         android:id="@+id/btn_interstitial"

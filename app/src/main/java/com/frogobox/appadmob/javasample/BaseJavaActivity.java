@@ -24,41 +24,6 @@ public abstract class BaseJavaActivity extends FrogoAdmobActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setupAdmob();
-    }
-
-    @Override
-    public void setupAdmob(){
-        setApp();
-        setBanner();
-        setInterstitial();
-        setRewarded();
-        setRewardedInterstitial();
-    }
-
-    private void setApp() {
-        // Your App ID
-        setupAdsApp(getString(R.string.admob_app_id));
-    }
-
-    private void setBanner() {
-        // Your Banner ID
-        setupAdsBanner(getString(R.string.admob_banner));
-    }
-
-    private void setInterstitial() {
-        // Your Interstitial ID
-        setupAdsInterstitial(getString(R.string.admob_interstitial));
-    }
-
-    private void setRewarded() {
-        // Your Rewarded ID
-        setupAdsRewarded(getString(R.string.admob_rewarded));
-    }
-
-    private void setRewardedInterstitial() {
-        // Your Rewarded ID
-        setupAdsRewardedInterstitial(getString(R.string.admob_rewarded_interstitial));
     }
 
 }

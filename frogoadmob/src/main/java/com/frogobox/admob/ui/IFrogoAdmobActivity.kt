@@ -4,6 +4,8 @@ import android.content.Context
 import android.widget.RelativeLayout
 import com.frogobox.admob.core.IFrogoAdListener
 import com.frogobox.admob.core.IFrogoAdmob
+import com.frogobox.admob.core.IFrogoBanner
+import com.frogobox.admob.core.IFrogoInterstitial
 import com.google.android.gms.ads.AdSize
 import com.google.android.gms.ads.AdView
 
@@ -21,40 +23,35 @@ import com.google.android.gms.ads.AdView
  */
 interface IFrogoAdmobActivity {
 
-    // Setup Admob App
-    fun setupAdsApp(mAppId: String)
-
-    // Setup Admob Banner
-    fun setupAdsBanner(mAdUnitId: String)
-
-    // Setup Admob Interstitial
-    fun setupAdsInterstitial(mAdUnitId: String)
-
-    // Setup Admob Rewarded
-    fun setupAdsRewarded(mAdUnitId: String)
-
-    // Setup Admob RewardedInterstitial
-    fun setupAdsRewardedInterstitial(mAdUnitId: String)
-
     // Show Banner Ads
-    fun setupShowAdsBanner(mAdView: AdView)
+    fun showBanner(mAdView: AdView)
 
     // Show Banner Ads with listener
-    fun setupShowAdsBanner(mAdView: AdView, bannerListener: IFrogoAdListener.Banner)
+    fun showBanner(mAdView: AdView, listener: IFrogoBanner)
 
     // Show Banner Ads with container
-    fun setupShowAdsBannerContainer(context: Context, mAdsSize: AdSize, container: RelativeLayout)
+    fun showBannerContainer(
+        bannerAdUnitId: String,
+        mAdsSize: AdSize,
+        container: RelativeLayout
+    )
 
     // Show Banner Ads with container and listener
-    fun setupShowAdsBannerContainer(
-        context: Context,
+    fun showBannerContainer(
+        bannerAdUnitId: String,
         mAdsSize: AdSize,
         container: RelativeLayout,
-        bannerListener: IFrogoAdListener.Banner
+        listener: IFrogoBanner
     )
 
     // Show Interstitial Ads
-    fun setupShowAdsInterstitial()
+    fun showInterstitial(interstitialAdUnitId: String)
+
+    // Show Interstitial Ads with listener
+    fun showInterstitial(
+        interstitialAdUnitId: String,
+        callback: IFrogoInterstitial
+    )
 
     // Show Rewarded Ads
     fun setupShowAdsRewarded(callback: IFrogoAdmob.UserEarned)

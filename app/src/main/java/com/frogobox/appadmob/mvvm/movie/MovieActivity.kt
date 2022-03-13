@@ -49,6 +49,7 @@ class MovieActivity : BaseActivity<ActivityRecyclerViewBinding>() {
                 override fun onSuccess(data: Trending<TrendingMovie>) {
                     data.results?.let { arrayFrogoAdmobData.addAll(it) }
                     FrogoAdmob.RecyclerView.loadRecyclerBannerAds(
+                        getString(R.string.admob_banner),
                         this@MovieActivity,
                         arrayFrogoAdmobData
                     )

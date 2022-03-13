@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 
+import com.frogobox.appadmob.R;
 import com.frogobox.appadmob.databinding.ActivityMainBinding;
 import com.google.android.gms.ads.AdSize;
 
@@ -16,8 +17,8 @@ public class MainJavaActivity extends BaseJavaActivity {
         super.onCreate(savedInstanceState);
         binding = ActivityMainBinding.inflate(LayoutInflater.from(this));
         setContentView(binding.getRoot());
-        setupShowAdsBannerContainer(this, AdSize.SMART_BANNER, binding.includeAdsView.frogoAdsBanner);
-        setupShowAdsBanner(binding.adsXml.adsPhoneTabSpecialSmartBanner);
+        showBannerContainer(getString(R.string.admob_banner), AdSize.SMART_BANNER, binding.includeAdsView.frogoAdsBanner);
+        showBanner(binding.adsXml.adsPhoneTabSpecialSmartBanner);
         hideButton();
         setupButtonClick();
     }
@@ -32,7 +33,7 @@ public class MainJavaActivity extends BaseJavaActivity {
 
     private void setupButtonClick() {
 
-        binding.btnInterstitial.setOnClickListener(view -> setupShowAdsInterstitial());
+        binding.btnInterstitial.setOnClickListener(view -> showInterstitial(getString(R.string.admob_interstitial)));
 
         binding.btnRewarded.setOnClickListener(view -> setupShowAdsRewarded(rewardItem -> {
 
