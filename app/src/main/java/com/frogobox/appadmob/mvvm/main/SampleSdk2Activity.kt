@@ -1,7 +1,7 @@
 package com.frogobox.appadmob.mvvm.main
 
 import android.os.Bundle
-import com.frogobox.admob.core.IFrogoInterstitialCallback
+import com.frogobox.admob.core.IFrogoInterstitial
 import com.frogobox.admob.ui.FrogoSdkAdmobActivity2
 import com.frogobox.appadmob.R
 import com.frogobox.appadmob.databinding.ActivitySampleSdk2Binding
@@ -28,7 +28,7 @@ class SampleSdk2Activity : FrogoSdkAdmobActivity2<ActivitySampleSdk2Binding>() {
             btnInterstitialCallback.setOnClickListener {
                 showInterstitial(
                     getString(R.string.admob_interstitial),
-                    object : IFrogoInterstitialCallback {
+                    object : IFrogoInterstitial {
                         override fun onAdLoaded(interstitialAd: InterstitialAd) {
 
                         }

@@ -17,7 +17,7 @@ import com.google.android.gms.ads.interstitial.InterstitialAd
  *
  */
 
-interface IFrogoInterstitialCallback {
+interface IFrogoInterstitial {
 
     fun onAdLoaded(interstitialAd: InterstitialAd)
 

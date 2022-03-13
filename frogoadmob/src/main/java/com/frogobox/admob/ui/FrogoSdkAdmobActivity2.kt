@@ -4,8 +4,8 @@ import android.os.Bundle
 import android.widget.RelativeLayout
 import androidx.viewbinding.ViewBinding
 import com.frogobox.admob.core.FrogoAdmob2
-import com.frogobox.admob.core.IFrogoBannerListener
-import com.frogobox.admob.core.IFrogoInterstitialCallback
+import com.frogobox.admob.core.IFrogoBanner
+import com.frogobox.admob.core.IFrogoInterstitial
 import com.frogobox.sdk.FrogoActivity
 import com.google.android.gms.ads.AdSize
 import com.google.android.gms.ads.AdView
@@ -40,7 +40,7 @@ abstract class FrogoSdkAdmobActivity2<VB : ViewBinding> : FrogoActivity<VB>(),
 
     override fun showInterstitial(
         interstitialAdUnitId: String,
-        interstitialListener: IFrogoInterstitialCallback
+        interstitialListener: IFrogoInterstitial
     ) {
         FrogoAdmob2.Interstitial.showInterstitial(this, interstitialAdUnitId, interstitialListener)
     }
@@ -52,7 +52,7 @@ abstract class FrogoSdkAdmobActivity2<VB : ViewBinding> : FrogoActivity<VB>(),
     override fun showBanner(
         mAdView: AdView,
         bannerAdUnitId: String,
-        bannerListener: IFrogoBannerListener
+        bannerListener: IFrogoBanner
     ) {
         FrogoAdmob2.Banner.showBanner(mAdView, bannerAdUnitId, bannerListener)
     }
@@ -69,7 +69,7 @@ abstract class FrogoSdkAdmobActivity2<VB : ViewBinding> : FrogoActivity<VB>(),
         bannerAdUnitId: String,
         mAdsSize: AdSize,
         container: RelativeLayout,
-        bannerListener: IFrogoBannerListener
+        bannerListener: IFrogoBanner
     ) {
         FrogoAdmob2.Banner.showBannerContainer(
             this,

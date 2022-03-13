@@ -26,7 +26,7 @@ interface IAdBanner {
     fun showBanner(
         mAdView: AdView,
         bannerAdUnitId: String,
-        bannerListener: IFrogoBannerListener
+        listener: IFrogoBanner
     )
 
     fun showBannerContainer(
@@ -41,7 +41,7 @@ interface IAdBanner {
         bannerAdUnitId: String,
         mAdsSize: AdSize,
         container: RelativeLayout,
-        bannerListener: IFrogoBannerListener
+        listener: IFrogoBanner
     )
 
 }

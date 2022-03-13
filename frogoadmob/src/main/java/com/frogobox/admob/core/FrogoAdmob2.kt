@@ -59,7 +59,7 @@ object FrogoAdmob2 {
         }
     }
 
-    private fun frogoAdListener(bannerListener: IFrogoBannerListener): AdListener {
+    private fun frogoAdListener(bannerListener: IFrogoBanner): AdListener {
         return object : AdListener() {
             override fun onAdLoaded() {
                 FLog.d("Ads Banner onAdLoaded")
@@ -108,9 +108,9 @@ object FrogoAdmob2 {
         override fun showBanner(
             mAdView: AdView,
             bannerAdUnitId: String,
-            bannerListener: IFrogoBannerListener
+            listener: IFrogoBanner
         ) {
-            mAdView.adListener = frogoAdListener(bannerListener)
+            mAdView.adListener = frogoAdListener(listener)
             mAdView.loadAd(AdRequest.Builder().build())
             mAdUnitIdBanner = bannerAdUnitId
             FLog.d("Banner Id : $mAdUnitIdBanner")
@@ -137,14 +137,14 @@ object FrogoAdmob2 {
             bannerAdUnitId: String,
             mAdsSize: AdSize,
             container: RelativeLayout,
-            bannerListener: IFrogoBannerListener
+            listener: IFrogoBanner
         ) {
             mAdUnitIdBanner = bannerAdUnitId
             FLog.d("Banner Id : $mAdUnitIdBanner")
             val mAdView = AdView(context)
             mAdView.adUnitId = bannerAdUnitId
             mAdView.adSize = mAdsSize
-            mAdView.adListener = frogoAdListener(bannerListener)
+            mAdView.adListener = frogoAdListener(listener)
             container.addView(mAdView)
             mAdView.loadAd(AdRequest.Builder().build())
         }
@@ -172,7 +172,7 @@ object FrogoAdmob2 {
             }
         }
 
-        private fun frogoInterstitialCallback(callback: IFrogoInterstitialCallback): InterstitialAdLoadCallback {
+        private fun frogoInterstitialCallback(callback: IFrogoInterstitial): InterstitialAdLoadCallback {
             return object : InterstitialAdLoadCallback() {
                 override fun onAdFailedToLoad(adError: LoadAdError) {
                     val error =
@@ -215,7 +215,7 @@ object FrogoAdmob2 {
             }
         }
 
-        private fun frogoFullScreenContentCallback(callback: IFrogoInterstitialCallback): FullScreenContentCallback {
+        private fun frogoFullScreenContentCallback(callback: IFrogoInterstitial): FullScreenContentCallback {
             return object : FullScreenContentCallback() {
                 override fun onAdDismissedFullScreenContent() {
                     // Don't forget to set the ad reference to null so you
@@ -252,7 +252,7 @@ object FrogoAdmob2 {
             )
         }
 
-        private fun loadInterstitialAd(activity: AppCompatActivity, interstitialAdUnitId: String, callback: IFrogoInterstitialCallback) {
+        private fun loadInterstitialAd(activity: AppCompatActivity, interstitialAdUnitId: String, callback: IFrogoInterstitial) {
             mAdUnitIdInterstitial = interstitialAdUnitId
             FLog.d("Interstitial Id : $mAdUnitIdInterstitial")
             InterstitialAd.load(
@@ -271,7 +271,7 @@ object FrogoAdmob2 {
             }
         }
 
-        override fun showInterstitial(activity: AppCompatActivity, interstitialAdUnitId: String, callback: IFrogoInterstitialCallback) {
+        override fun showInterstitial(activity: AppCompatActivity, interstitialAdUnitId: String, callback: IFrogoInterstitial) {
             loadInterstitialAd(activity, interstitialAdUnitId, callback)
             if (mInterstitialAd != null) {
                 mInterstitialAd!!.fullScreenContentCallback = frogoFullScreenContentCallback(callback)

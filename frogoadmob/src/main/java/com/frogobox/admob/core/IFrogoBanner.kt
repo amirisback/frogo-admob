@@ -16,7 +16,7 @@ import com.google.android.gms.ads.LoadAdError
  *
  */
 
-interface IFrogoBannerListener {
+interface IFrogoBanner {
     // Code to be executed when an ad finishes loading.
     // The onAdLoaded() method is executed when an ad has finished loading.
     // If you want to delay adding the AdView to your activity or fragment until you're sure an ad will be loaded,

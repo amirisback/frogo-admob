@@ -26,7 +26,7 @@ interface IAdInterstitial {
     fun showInterstitial(
         activity: AppCompatActivity,
         interstitialAdUnitId: String,
-        callback: IFrogoInterstitialCallback
+        callback: IFrogoInterstitial
     )
 
 }
