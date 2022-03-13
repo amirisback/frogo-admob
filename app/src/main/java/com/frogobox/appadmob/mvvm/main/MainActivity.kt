@@ -47,24 +47,29 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
             btnRewarded.setOnClickListener {
                 showAdRewarded(getString(R.string.admob_rewarded), object : IFrogoAdRewarded {
                     override fun onUserEarnedReward(rewardItem: RewardItem) {
-                        // TODO("User Get Reward")
-                    }
-
-                    override fun onAdClosed() {
                         // TODO("Not yet implemented")
                     }
 
-                    override fun onAdFailedToLoad() {
+                    override fun onAdDismissed(message: String) {
                         // TODO("Not yet implemented")
                     }
 
-                    override fun onAdFailedToShow() {
+                    override fun onAdFailedToLoad(errorMessage: String) {
                         // TODO("Not yet implemented")
                     }
 
-                    override fun onAdLoaded() {
+                    override fun onAdFailedToShow(errorMessage: String) {
                         // TODO("Not yet implemented")
                     }
+
+                    override fun onAdLoaded(message: String) {
+                        // TODO("Not yet implemented")
+                    }
+
+                    override fun onAdShowed(message: String) {
+                        // TODO("Not yet implemented")
+                    }
+
                 })
             }
 
@@ -72,24 +77,29 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
                 showAdRewardedInterstitial(getString(R.string.admob_rewarded_interstitial),
                     object : IFrogoAdRewarded {
                         override fun onUserEarnedReward(rewardItem: RewardItem) {
-                            // TODO("User Get Reward")
-                        }
-
-                        override fun onAdClosed() {
                             // TODO("Not yet implemented")
                         }
 
-                        override fun onAdFailedToLoad() {
+                        override fun onAdDismissed(message: String) {
                             // TODO("Not yet implemented")
                         }
 
-                        override fun onAdFailedToShow() {
+                        override fun onAdFailedToLoad(errorMessage: String) {
                             // TODO("Not yet implemented")
                         }
 
-                        override fun onAdLoaded() {
+                        override fun onAdFailedToShow(errorMessage: String) {
                             // TODO("Not yet implemented")
                         }
+
+                        override fun onAdLoaded(message: String) {
+                            // TODO("Not yet implemented")
+                        }
+
+                        override fun onAdShowed(message: String) {
+                            // TODO("Not yet implemented")
+                        }
+
                     })
             }
 

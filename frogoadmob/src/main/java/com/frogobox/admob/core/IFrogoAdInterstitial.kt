@@ -19,12 +19,14 @@ import com.google.android.gms.ads.interstitial.InterstitialAd
 
 interface IFrogoAdInterstitial {
 
-    fun onAdClosed()
+    fun onAdDismissed(message: String)
 
-    fun onAdFailedToLoad()
+    fun onAdFailedToLoad(errorMessage: String)
 
-    fun onAdFailedToShow()
+    fun onAdFailedToShow(errorMessage: String)
 
-    fun onAdLoaded()
+    fun onAdLoaded(message: String)
+
+    fun onAdShowed(message: String)
 
 }
