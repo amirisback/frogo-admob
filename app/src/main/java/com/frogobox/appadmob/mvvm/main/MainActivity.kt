@@ -28,8 +28,8 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
     }
 
     private fun setupBannerAds() {
-        showAdsBanner(binding.adsXml.adsPhoneTabSpecialSmartBanner)
-        showAdsBannerContainer(
+        showAdBanner(binding.adsXml.adsPhoneTabSpecialSmartBanner)
+        showAdBannerContainer(
             getString(R.string.admob_banner),
             AdSize.SMART_BANNER,
             binding.includeAdsView.frogoAdsBanner
@@ -45,7 +45,7 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
             }
 
             btnRewarded.setOnClickListener {
-                showAdsRewarded(getString(R.string.admob_rewarded), object : IFrogoAdRewarded {
+                showAdRewarded(getString(R.string.admob_rewarded), object : IFrogoAdRewarded {
                     override fun onUserEarnedReward(rewardItem: RewardItem) {
                         // TODO("User Get Reward")
                     }
@@ -69,7 +69,7 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
             }
 
             btnRewardedInterstitial.setOnClickListener {
-                showAdsRewardedInterstitial(getString(R.string.admob_rewarded_interstitial),
+                showAdRewardedInterstitial(getString(R.string.admob_rewarded_interstitial),
                     object : IFrogoAdRewarded {
                         override fun onUserEarnedReward(rewardItem: RewardItem) {
                             // TODO("User Get Reward")

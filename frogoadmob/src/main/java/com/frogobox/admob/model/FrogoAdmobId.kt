@@ -26,6 +26,9 @@ data class FrogoAdmobId(
     @SerializedName("testAdmobInterstitial")
     var testAdmobInterstitial: String = "ca-app-pub-3940256099942544/1033173712",
 
+    @SerializedName("testAdmobRewarded")
+    var testAdmobRewarded: String = "ca-app-pub-3940256099942544/5224354917",
+
     @SerializedName("appId")
     var appId: String,
 
@@ -33,6 +36,9 @@ data class FrogoAdmobId(
     var bannerID: List<String>,
 
     @SerializedName("interstitialID")
-    var interstitialID: List<String>
+    var interstitialID: List<String>,
+
+    @SerializedName("rewardedID")
+    var rewardedID: List<String>
 
 )

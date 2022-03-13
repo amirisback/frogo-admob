@@ -31,21 +31,21 @@ interface IFrogoAdmob {
 
     interface Banner {
 
-        fun showBanner(mAdView: AdView)
+        fun showAdBanner(mAdView: AdView)
 
-        fun showBanner(
+        fun showAdBanner(
             mAdView: AdView,
             listener: IFrogoAdBanner
         )
 
-        fun showBannerContainer(
+        fun showAdBannerContainer(
             context: Context,
             bannerAdUnitId: String,
             mAdsSize: AdSize,
             container: RelativeLayout
         )
 
-        fun showBannerContainer(
+        fun showAdBannerContainer(
             context: Context,
             bannerAdUnitId: String,
             mAdsSize: AdSize,
@@ -59,12 +59,12 @@ interface IFrogoAdmob {
 
     interface Interstitial {
 
-        fun showInterstitial(
+        fun showAdInterstitial(
             activity: AppCompatActivity,
             interstitialAdUnitId: String
         )
 
-        fun showInterstitial(
+        fun showAdInterstitial(
             activity: AppCompatActivity,
             interstitialAdUnitId: String,
             callback: IFrogoAdInterstitial
@@ -76,13 +76,13 @@ interface IFrogoAdmob {
 
     interface Rewarded {
 
-        fun showRewarded(
+        fun showAdRewarded(
             activity: AppCompatActivity,
             mAdUnitIdRewarded: String,
             callback: IFrogoAdRewarded
         )
 
-        fun showRewardedInterstitial(
+        fun showAdRewardedInterstitial(
             activity: AppCompatActivity,
             mAdUnitIdRewardedInterstitial: String,
             callback: IFrogoAdRewarded

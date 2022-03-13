@@ -19,7 +19,7 @@ class HybridActivity : BaseActivity<ActivityHybridBinding>() {
                 Greeting("FrogoAdmob")
             }
 
-            showAdsBanner(includeAdsView.adsPhoneTabSpecialSmartBanner)
+            showAdBanner(includeAdsView.adsPhoneTabSpecialSmartBanner)
         }
 
     }

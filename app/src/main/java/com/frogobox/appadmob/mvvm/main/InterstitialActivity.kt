@@ -20,11 +20,11 @@ class InterstitialActivity : FrogoSdkAdmobActivity<ActivityInterstitialBinding>(
         binding.apply {
 
             btnInterstitial.setOnClickListener {
-                showAdsInterstitial(getString(R.string.admob_interstitial))
+                showAdInterstitial(getString(R.string.admob_interstitial))
             }
 
             btnInterstitialCallback.setOnClickListener {
-                showAdsInterstitial(
+                showAdInterstitial(
                     getString(R.string.admob_interstitial),
                     object : IFrogoAdInterstitial {
 

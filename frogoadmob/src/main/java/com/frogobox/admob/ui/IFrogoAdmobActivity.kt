@@ -22,20 +22,20 @@ import com.google.android.gms.ads.AdView
 interface IFrogoAdmobActivity {
 
     // Show Banner Ads
-    fun showAdsBanner(mAdView: AdView)
+    fun showAdBanner(mAdView: AdView)
 
     // Show Banner Ads with listener
-    fun showAdsBanner(mAdView: AdView, listener: IFrogoAdBanner)
+    fun showAdBanner(mAdView: AdView, listener: IFrogoAdBanner)
 
     // Show Banner Ads with container
-    fun showAdsBannerContainer(
+    fun showAdBannerContainer(
         bannerAdUnitId: String,
         mAdsSize: AdSize,
         container: RelativeLayout
     )
 
     // Show Banner Ads with container and listener
-    fun showAdsBannerContainer(
+    fun showAdBannerContainer(
         bannerAdUnitId: String,
         mAdsSize: AdSize,
         container: RelativeLayout,
@@ -43,18 +43,18 @@ interface IFrogoAdmobActivity {
     )
 
     // Show Interstitial Ads
-    fun showAdsInterstitial(interstitialAdUnitId: String)
+    fun showAdInterstitial(interstitialAdUnitId: String)
 
     // Show Interstitial Ads with listener
-    fun showAdsInterstitial(
+    fun showAdInterstitial(
         interstitialAdUnitId: String,
         callback: IFrogoAdInterstitial
     )
 
     // Show Rewarded Ads
-    fun showAdsRewarded(mAdUnitIdRewarded: String, callback: IFrogoAdRewarded)
+    fun showAdRewarded(mAdUnitIdRewarded: String, callback: IFrogoAdRewarded)
 
     // Show Rewarded Interstitial Ads
-    fun showAdsRewardedInterstitial(mAdUnitIdRewardedInterstitial: String,callback: IFrogoAdRewarded)
+    fun showAdRewardedInterstitial(mAdUnitIdRewardedInterstitial: String, callback: IFrogoAdRewarded)
 
 }

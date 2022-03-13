@@ -21,8 +21,8 @@ public class MainJavaActivity extends BaseJavaActivity {
         super.onCreate(savedInstanceState);
         binding = ActivityMainBinding.inflate(LayoutInflater.from(this));
         setContentView(binding.getRoot());
-        showAdsBannerContainer(getString(R.string.admob_banner), AdSize.SMART_BANNER, binding.includeAdsView.frogoAdsBanner);
-        showAdsBanner(binding.adsXml.adsPhoneTabSpecialSmartBanner);
+        showAdBannerContainer(getString(R.string.admob_banner), AdSize.SMART_BANNER, binding.includeAdsView.frogoAdsBanner);
+        showAdBanner(binding.adsXml.adsPhoneTabSpecialSmartBanner);
         hideButton();
         setupButtonClick();
     }
@@ -37,9 +37,9 @@ public class MainJavaActivity extends BaseJavaActivity {
 
     private void setupButtonClick() {
 
-        binding.btnInterstitial.setOnClickListener(view -> showAdsInterstitial(getString(R.string.admob_interstitial)));
+        binding.btnInterstitial.setOnClickListener(view -> showAdInterstitial(getString(R.string.admob_interstitial)));
 
-        binding.btnRewarded.setOnClickListener(view -> showAdsRewarded(getString(R.string.admob_rewarded), new IFrogoAdRewarded() {
+        binding.btnRewarded.setOnClickListener(view -> showAdRewarded(getString(R.string.admob_rewarded), new IFrogoAdRewarded() {
             @Override
             public void onUserEarnedReward(@NonNull RewardItem rewardItem) {
 
@@ -66,7 +66,7 @@ public class MainJavaActivity extends BaseJavaActivity {
             }
         }));
 
-        binding.btnRewardedInterstitial.setOnClickListener(view -> showAdsRewardedInterstitial(getString(R.string.admob_rewarded_interstitial), new IFrogoAdRewarded() {
+        binding.btnRewardedInterstitial.setOnClickListener(view -> showAdRewardedInterstitial(getString(R.string.admob_rewarded_interstitial), new IFrogoAdRewarded() {
             @Override
             public void onUserEarnedReward(@NonNull RewardItem rewardItem) {
 

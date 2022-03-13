@@ -4,10 +4,10 @@ import android.os.Bundle
 import android.widget.RelativeLayout
 import androidx.viewbinding.ViewBinding
 import com.frogobox.admob.core.FrogoAdmob
-import com.frogobox.admob.core.FrogoAdmob.Banner.showBannerContainer
-import com.frogobox.admob.core.FrogoAdmob.Interstitial.showInterstitial
-import com.frogobox.admob.core.FrogoAdmob.Rewarded.showRewarded
-import com.frogobox.admob.core.FrogoAdmob.Rewarded.showRewardedInterstitial
+import com.frogobox.admob.core.FrogoAdmob.Banner.showAdBannerContainer
+import com.frogobox.admob.core.FrogoAdmob.Interstitial.showAdInterstitial
+import com.frogobox.admob.core.FrogoAdmob.Rewarded.showAdRewarded
+import com.frogobox.admob.core.FrogoAdmob.Rewarded.showAdRewardedInterstitial
 import com.frogobox.admob.core.IFrogoAdBanner
 import com.frogobox.admob.core.IFrogoAdInterstitial
 import com.frogobox.admob.core.IFrogoAdRewarded
@@ -43,51 +43,51 @@ abstract class FrogoSdkAdmobActivity<VB : ViewBinding> : FrogoActivity<VB>(), IF
         FLog.d("$TAG : Setup Admob")
     }
 
-    override fun showAdsBanner(mAdView: AdView) {
-        FrogoAdmob.Banner.showBanner(mAdView)
+    override fun showAdBanner(mAdView: AdView) {
+        FrogoAdmob.Banner.showAdBanner(mAdView)
     }
 
-    override fun showAdsBanner(mAdView: AdView, listener: IFrogoAdBanner) {
-        FrogoAdmob.Banner.showBanner(mAdView, listener)
+    override fun showAdBanner(mAdView: AdView, listener: IFrogoAdBanner) {
+        FrogoAdmob.Banner.showAdBanner(mAdView, listener)
     }
 
-    override fun showAdsBannerContainer(
+    override fun showAdBannerContainer(
         bannerAdUnitId: String,
         mAdsSize: AdSize,
         container: RelativeLayout
     ) {
-        FrogoAdmob.Banner.showBannerContainer(this, bannerAdUnitId, mAdsSize, container)
+        FrogoAdmob.Banner.showAdBannerContainer(this, bannerAdUnitId, mAdsSize, container)
     }
 
-    override fun showAdsBannerContainer(
+    override fun showAdBannerContainer(
         bannerAdUnitId: String,
         mAdsSize: AdSize,
         container: RelativeLayout,
         listener: IFrogoAdBanner
     ) {
-        showBannerContainer(this, bannerAdUnitId, mAdsSize, container, listener)
+        showAdBannerContainer(this, bannerAdUnitId, mAdsSize, container, listener)
     }
 
-    override fun showAdsInterstitial(interstitialAdUnitId: String) {
-        showInterstitial(this, interstitialAdUnitId)
+    override fun showAdInterstitial(interstitialAdUnitId: String) {
+        showAdInterstitial(this, interstitialAdUnitId)
     }
 
-    override fun showAdsInterstitial(
+    override fun showAdInterstitial(
         interstitialAdUnitId: String,
         callback: IFrogoAdInterstitial
     ) {
-        showInterstitial(this, interstitialAdUnitId, callback)
+        showAdInterstitial(this, interstitialAdUnitId, callback)
     }
 
-    override fun showAdsRewarded(mAdUnitIdRewarded: String, callback: IFrogoAdRewarded) {
-        showRewarded(this, mAdUnitIdRewarded, callback)
+    override fun showAdRewarded(mAdUnitIdRewarded: String, callback: IFrogoAdRewarded) {
+        showAdRewarded(this, mAdUnitIdRewarded, callback)
     }
 
-    override fun showAdsRewardedInterstitial(
+    override fun showAdRewardedInterstitial(
         mAdUnitIdRewardedInterstitial: String,
         callback: IFrogoAdRewarded
     ) {
-        showRewardedInterstitial(this, mAdUnitIdRewardedInterstitial, callback)
+        showAdRewardedInterstitial(this, mAdUnitIdRewardedInterstitial, callback)
     }
 
     override fun onResume() {

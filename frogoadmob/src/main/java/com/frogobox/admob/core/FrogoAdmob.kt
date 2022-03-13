@@ -102,19 +102,19 @@ object FrogoAdmob : IFrogoAdmob {
             }
         }
 
-        override fun showBanner(mAdView: AdView) {
+        override fun showAdBanner(mAdView: AdView) {
             mAdView.adListener = frogoAdListener()
             mAdView.loadAd(AdRequest.Builder().build())
             FLog.d("Banner Id : Attach on Xml Layout")
         }
 
-        override fun showBanner(mAdView: AdView, listener: IFrogoAdBanner) {
+        override fun showAdBanner(mAdView: AdView, listener: IFrogoAdBanner) {
             mAdView.adListener = frogoAdListener(listener)
             mAdView.loadAd(AdRequest.Builder().build())
             FLog.d("Banner Id : Attach on Xml Layout")
         }
 
-        override fun showBannerContainer(
+        override fun showAdBannerContainer(
             context: Context,
             bannerAdUnitId: String,
             mAdsSize: AdSize,
@@ -129,7 +129,7 @@ object FrogoAdmob : IFrogoAdmob {
             mAdView.loadAd(AdRequest.Builder().build())
         }
 
-        override fun showBannerContainer(
+        override fun showAdBannerContainer(
             context: Context,
             bannerAdUnitId: String,
             mAdsSize: AdSize,
@@ -263,7 +263,7 @@ object FrogoAdmob : IFrogoAdmob {
             )
         }
 
-        override fun showInterstitial(activity: AppCompatActivity, interstitialAdUnitId: String) {
+        override fun showAdInterstitial(activity: AppCompatActivity, interstitialAdUnitId: String) {
             loadInterstitialAd(activity, interstitialAdUnitId)
             if (mInterstitialAd != null) {
                 mInterstitialAd!!.fullScreenContentCallback = frogoFullScreenContentCallback()
@@ -271,7 +271,7 @@ object FrogoAdmob : IFrogoAdmob {
             }
         }
 
-        override fun showInterstitial(
+        override fun showAdInterstitial(
             activity: AppCompatActivity,
             interstitialAdUnitId: String,
             callback: IFrogoAdInterstitial
@@ -290,7 +290,7 @@ object FrogoAdmob : IFrogoAdmob {
 
     object Rewarded : IFrogoAdmob.Rewarded {
 
-        override fun showRewarded(
+        override fun showAdRewarded(
             activity: AppCompatActivity,
             mAdUnitIdRewarded: String,
             callback: IFrogoAdRewarded
@@ -343,7 +343,7 @@ object FrogoAdmob : IFrogoAdmob {
             }
         }
 
-        override fun showRewardedInterstitial(
+        override fun showAdRewardedInterstitial(
             activity: AppCompatActivity,
             mAdUnitIdRewardedInterstitial: String,
             callback: IFrogoAdRewarded
