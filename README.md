@@ -3,6 +3,8 @@
 ## About This Project
 [![Android Arsenal](https://img.shields.io/badge/Android%20Arsenal-frogo--admob-brightgreen.svg?style=flat-square)](https://android-arsenal.com/details/1/8251)
 [![JitPack](https://jitpack.io/v/amirisback/frogo-admob.svg?style=flat-square)](https://jitpack.io/#amirisback/frogo-admob)
+[![Android CI](https://github.com/amirisback/frogo-admob/actions/workflows/android-ci.yml/badge.svg)](https://github.com/amirisback/frogo-admob/actions/workflows/android-ci.yml)
+[![Scan with Detekt](https://github.com/amirisback/frogo-admob/actions/workflows/detekt-analysis.yml/badge.svg)](https://github.com/amirisback/frogo-admob/actions/workflows/detekt-analysis.yml)
 [![Medium Badge](https://img.shields.io/badge/-faisalamircs-black?style=flat-square&logo=Medium&logoColor=white&link=https://medium.com/@faisalamircs)](https://medium.com/@faisalamircs/dapatkan-penghasilan-dari-aplikasi-androidmu-di-play-store-dengan-admob-helper-f21288de5071)
 - Available on Google Dev Library - [Click Here](https://devlibrary.withgoogle.com/products/android/repos/amirisback-frogo-admob)
 - Privacy Policy [Click Here](https://github.com/amirisback/frogo-admob/blob/master/PRIVACY-POLICY.md)
@@ -25,7 +27,7 @@
 
 ## Version Release
 
-    $version_release = 4.1.9
+    $version_release = 4.2.0
 
 What's New??
 
@@ -33,6 +35,9 @@ What's New??
     * Refactoring Code *
     * Update Admob Library Version 20.6.0 *
     * Update : Adding Function Request Admob From Server *
+    * Add FrogoSdkAdmobActivity *
+    * New Setup Implementation *
+    * Fixing Bug : ShowBanner, ShowInterstitial, ShowRewarded *
 
 ## How To Use / Implement This Project
 ### Step 1. Add the JitPack repository to your build file
@@ -70,7 +75,7 @@ allprojects {
             implementation 'com.google.android.gms:play-services-ads:${latest_version}'
 
             // library frogo-admob-helper
-	        implementation 'com.github.amirisback:frogo-admob:4.1.9'
+	        implementation 'com.github.amirisback:frogo-admob:4.2.0'
 	}
 
 #### <Option 2> Kotlin DSL
@@ -80,7 +85,7 @@ allprojects {
             implementation("com.google.android.gms:play-services-ads:${latest_version}")
 
             // library frogo-admob-helper
-	        implementation("com.github.amirisback:frogo-admob:4.1.9")
+	        implementation("com.github.amirisback:frogo-admob:4.2.0")
 	}
 	
 ### Step 3. Adding meta-data on AndroidManifest.xml
@@ -176,10 +181,10 @@ class <YourActivity> : FrogoAdmobActivity() {
             btnInterstitial.setOnClickListener {
 
                 // No Using Callback
-                showInterstitial(getString(R.string.admob_interstitial))
+                showAdInterstitial(getString(R.string.admob_interstitial))
 
                 // With Callback
-                showInterstitial(
+                showAdInterstitial(
                     getString(R.string.admob_interstitial),
                     object : IFrogoInterstitial {
 
@@ -205,19 +210,52 @@ class <YourActivity> : FrogoAdmobActivity() {
             }
 
             btnRewarded.setOnClickListener {
-                showAdsRewarded(object : IFrogoAdmob.UserEarned {
+                showAdRewarded(getString(R.string.admob_rewarded), object : IFrogoAdRewarded {
                     override fun onUserEarnedReward(rewardItem: RewardItem) {
-                        // TODO User Get Reward
+                        // TODO("User Get Reward")
+                    }
+
+                    override fun onAdClosed() {
+                        // TODO("Not yet implemented")
+                    }
+
+                    override fun onAdFailedToLoad() {
+                        // TODO("Not yet implemented")
+                    }
+
+                    override fun onAdFailedToShow() {
+                        // TODO("Not yet implemented")
+                    }
+
+                    override fun onAdLoaded() {
+                        // TODO("Not yet implemented")
                     }
                 })
             }
 
             btnRewardedInterstitial.setOnClickListener {
-                showAdsRewardedInterstitial(object : IFrogoAdmob.UserEarned {
-                    override fun onUserEarnedReward(rewardItem: RewardItem) {
-                        // TODO User Get Reward
-                    }
-                })
+                showAdRewardedInterstitial(getString(R.string.admob_rewarded_interstitial),
+                    object : IFrogoAdRewarded {
+                        override fun onUserEarnedReward(rewardItem: RewardItem) {
+                            // TODO("User Get Reward")
+                        }
+
+                        override fun onAdClosed() {
+                            // TODO("Not yet implemented")
+                        }
+
+                        override fun onAdFailedToLoad() {
+                            // TODO("Not yet implemented")
+                        }
+
+                        override fun onAdFailedToShow() {
+                            // TODO("Not yet implemented")
+                        }
+
+                        override fun onAdLoaded() {
+                            // TODO("Not yet implemented")
+                        }
+                    })
             }
 
         }
@@ -337,40 +375,6 @@ public abstract class <Your BaseJavaActivity> extends FrogoAdmobActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setupAdmob();
-    }
-
-    private void setupAdmob(){
-        setApp();
-        setBanner();
-        setInterstitial();
-        setRewarded();
-        setRewardedInterstitial();
-    }
-
-    private void setApp() {
-        // Your App ID
-        setupAdsApp(getString(R.string.admob_app_id));
-    }
-
-    private void setBanner() {
-        // Your Banner ID
-        setupAdsBanner(getString(R.string.admob_banner));
-    }
-
-    private void setInterstitial() {
-        // Your Interstitial ID
-        setupAdsInterstitial(getString(R.string.admob_interstitial));
-    }
-
-    private void setRewarded() {
-        // Your Rewarded ID
-        setupAdsRewarded(getString(R.string.admob_rewarded));
-    }
-
-    private void setRewardedInterstitial() {
-        // Your Rewarded ID
-        setupAdsRewardedInterstitial(getString(R.string.admob_rewarded_interstitial));
     }
 
 }
@@ -403,33 +407,63 @@ public class MainJavaActivity extends BaseJavaActivity {
         binding.btnInterstitial.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                setupShowAdsInterstitial();
+                showAdInterstitial(getString(R.string.admob_interstitial))
             }
         });
 
-        binding.btnRewarded.setOnClickListener(new View.OnClickListener() {
+        binding.btnRewarded.setOnClickListener(view -> showAdRewarded(getString(R.string.admob_rewarded), new IFrogoAdRewarded() {
             @Override
-            public void onClick(View view) {
-                setupShowAdsRewarded(new IFrogoAdmob.UserEarned() {
-                    @Override
-                    public void onUserEarnedReward(@NonNull RewardItem rewardItem) {
+            public void onUserEarnedReward(@NonNull RewardItem rewardItem) {
 
-                    }
-                });
             }
-        });
 
-        binding.btnRewardedInterstitial.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
-                setupShowAdsRewardedInterstitial(new IFrogoAdmob.UserEarned() {
-                    @Override
-                    public void onUserEarnedReward(@NonNull RewardItem rewardItem) {
+            public void onAdClosed() {
 
-                    }
-                });
             }
-        });
+
+            @Override
+            public void onAdFailedToLoad() {
+
+            }
+
+            @Override
+            public void onAdFailedToShow() {
+
+            }
+
+            @Override
+            public void onAdLoaded() {
+
+            }
+        }));
+
+        binding.btnRewardedInterstitial.setOnClickListener(view -> showAdRewardedInterstitial(getString(R.string.admob_rewarded_interstitial), new IFrogoAdRewarded() {
+            @Override
+            public void onUserEarnedReward(@NonNull RewardItem rewardItem) {
+
+            }
+
+            @Override
+            public void onAdClosed() {
+
+            }
+
+            @Override
+            public void onAdFailedToLoad() {
+
+            }
+
+            @Override
+            public void onAdFailedToShow() {
+
+            }
+
+            @Override
+            public void onAdLoaded() {
+
+            }
+        }));
 
     }
 
@@ -477,7 +511,6 @@ fun FrogoAdmobBannerView(
 
 ```
 
-
 ## Allert
 
 ### Update
@@ -497,6 +530,11 @@ fun FrogoAdmobBannerView(
     - import com.frogobox.admob.widget.FrogoAdmobViewHolder
     - import com.frogobox.admob.widget.FrogoAdmobViewAdapter
     - import com.frogobox.admob.widget.AdmobViewHolder
+
+    >> on Version 4.2.0
+    - Add FrogoSdkAdmobActivity
+    - New Setup Implementation
+    - Fixing Bug : ShowBanner, ShowInterstitial, ShowRewarded
 
 ### Test Ads From Google
 

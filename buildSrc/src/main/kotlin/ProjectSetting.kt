@@ -12,7 +12,7 @@
  */
 
 object ProjectSetting {
-    // project settings
+
     const val NAME_APP = "Frogo Admob"
     val NAME_APK = NAME_APP.toLowerCase().replace(" ", "-")
 

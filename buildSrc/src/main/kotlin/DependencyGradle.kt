@@ -11,9 +11,9 @@
  *
  */
 
-object Dependency {
+object DependencyGradle {
 
     const val KOTLIN_VERSION = Version.JetBrains.kotlin
-    const val COMPOSE_VERSION = Version.Compose.compose
+    const val COMPOSE_VERSION = Version.AndroidX.compose
 
 }

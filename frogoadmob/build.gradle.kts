@@ -43,7 +43,7 @@ android {
     }
 
     composeOptions {
-        kotlinCompilerExtensionVersion = Dependency.COMPOSE_VERSION
+        kotlinCompilerExtensionVersion = DependencyGradle.COMPOSE_VERSION
     }
 
     packagingOptions {
@@ -68,10 +68,10 @@ dependencies {
     implementation(Androidx.Lifecycle.runtimeKtx)
     implementation(Androidx.Work.runtimeKtx)
 
-    implementation(Compose.ui)
-    implementation(Compose.material)
-    implementation(Compose.tooling)
-    implementation(Compose.activity)
+    implementation(Androidx.Compose.ui)
+    implementation(Androidx.Compose.material)
+    implementation(Androidx.Compose.uiTooling)
+    implementation(Androidx.Compose.activity)
 
     implementation(Google.gson)
     implementation(Google.material)
@@ -85,10 +85,9 @@ dependencies {
     implementation(Reactivex.rxJava3)
     implementation(Reactivex.rxAndroid3)
 
-    implementation("com.github.amirisback:frogo-log:2.0.9")
-    implementation("com.github.amirisback:frogo-recycler-view:4.0.5")
-    
-    implementation("com.github.frogobox:frogo-sdk:0.0.1-beta08")
+    implementation(Frogo.log("2.0.9"))
+    implementation(Frogo.recyclerView("4.0.5"))
+    implementation(Frogo.sdk("0.0.1-beta08"))
 
 }
 
