@@ -50,7 +50,7 @@ abstract class BaseActivity<VB : ViewBinding> : FrogoAdmobActivity() {
         val frogoAdmobRepository = FrogoAdmobRepository(baseUrl)
         frogoAdmobRepository.usingClient()
         frogoAdmobRepository.getFrogoAdmobId(
-            "admob_id",
+            "admob_id.json",
             object : FrogoAdmobApiResponse<FrogoAdmobId> {
                 override fun onSuccess(data: FrogoAdmobId) {
                     runOnUiThread {

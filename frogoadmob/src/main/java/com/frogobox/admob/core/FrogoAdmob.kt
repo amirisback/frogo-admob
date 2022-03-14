@@ -33,11 +33,7 @@ import com.google.android.gms.ads.rewardedinterstitial.RewardedInterstitialAdLoa
  */
 object FrogoAdmob : IFrogoAdmob {
 
-    val TAG = FrogoAdmob::class.java.simpleName
-
-    private var mInterstitialAd: InterstitialAd? = null
-    private var mRewardedAd: RewardedAd? = null
-    private var mRewardedInterstitialAd: RewardedInterstitialAd? = null
+    val TAG: String = FrogoAdmob::class.java.simpleName
 
     // ---------------------------------------------------------------------------------------------
 
@@ -164,6 +160,8 @@ object FrogoAdmob : IFrogoAdmob {
 
         override fun showAdInterstitial(activity: AppCompatActivity, interstitialAdUnitId: String) {
 
+            var mInterstitialAd: InterstitialAd? = null
+
             FLog.d("$TAG Interstitial Id : $interstitialAdUnitId")
 
             InterstitialAd.load(
@@ -219,6 +217,8 @@ object FrogoAdmob : IFrogoAdmob {
             interstitialAdUnitId: String,
             callback: IFrogoAdInterstitial
         ) {
+
+            var mInterstitialAd: InterstitialAd? = null
 
             FLog.d("$TAG Interstitial Id : $interstitialAdUnitId")
 
@@ -301,6 +301,9 @@ object FrogoAdmob : IFrogoAdmob {
             mAdUnitIdRewarded: String,
             callback: IFrogoAdRewarded
         ) {
+
+            var mRewardedAd: RewardedAd? = null
+
             RewardedAd.load(
                 activity,
                 mAdUnitIdRewarded,
@@ -377,6 +380,7 @@ object FrogoAdmob : IFrogoAdmob {
             mAdUnitIdRewardedInterstitial: String,
             callback: IFrogoAdRewarded
         ) {
+            var mRewardedInterstitialAd: RewardedInterstitialAd? = null
 
             RewardedInterstitialAd.load(
                 activity,

@@ -87,7 +87,7 @@ dependencies {
 
     implementation(Frogo.log("2.0.9"))
     implementation(Frogo.recyclerView("4.0.5"))
-    implementation(Frogo.sdk("0.0.1-beta08"))
+    implementation(Frogo.sdk("0.0.1-beta09"))
 
 }
 

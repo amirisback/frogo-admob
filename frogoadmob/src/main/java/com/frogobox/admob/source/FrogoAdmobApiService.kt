@@ -21,7 +21,7 @@ import retrofit2.http.Path
 
 interface FrogoAdmobApiService {
 
-    @GET("{json-file-name}.json")
+    @GET("{json-file-name}")
     fun getFrogoAdmobId(
         @Path("json-file-name") jsonFileName: String
     ): Observable<FrogoAdmobId>
