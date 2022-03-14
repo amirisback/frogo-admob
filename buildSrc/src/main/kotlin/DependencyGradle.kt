@@ -19,7 +19,7 @@ object DependencyGradle {
     const val FROGO_SDK = "0.0.1-beta09"
     const val FROGO_UI = "0.0.1-beta05"
     const val FROGO_LOG = "2.0.9"
-    const val FROGO_CONSUME_API = "2.0.1"
+    const val FROGO_CONSUME_API = "2.0.2"
     const val FROGO_RECYCLER_VIEW = "4.0.5"
 
 }

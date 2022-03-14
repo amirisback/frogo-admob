@@ -132,6 +132,8 @@ dependencies {
     implementation(Frogo.recyclerView(DependencyGradle.FROGO_RECYCLER_VIEW))
     implementation(Frogo.consumeApi(DependencyGradle.FROGO_CONSUME_API))
 
+    implementation("com.github.chuckerteam.chucker:library:3.5.2")
+
     kapt(Util.glideCompiler)
 
 }

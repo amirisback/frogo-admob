@@ -7,6 +7,7 @@ import android.view.MenuItem
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.viewbinding.ViewBinding
+import com.chuckerteam.chucker.api.ChuckerInterceptor
 import com.frogobox.admob.model.FrogoAdmobId
 import com.frogobox.admob.source.FrogoAdmobApiResponse
 import com.frogobox.admob.source.FrogoAdmobRepository
@@ -46,7 +47,7 @@ abstract class BaseActivity<VB : ViewBinding> : FrogoAdmobActivity() {
         val baseUrl =
             "https://raw.githubusercontent.com/amirisback/frogo-admob/master/app/src/main/assets/"
         val frogoAdmobRepository = FrogoAdmobRepository(baseUrl)
-        frogoAdmobRepository.usingClient()
+        frogoAdmobRepository.usingClient(ChuckerInterceptor(this))
         frogoAdmobRepository.getFrogoAdmobId(
             "admob_id.json",
             object : FrogoAdmobApiResponse<FrogoAdmobId> {
