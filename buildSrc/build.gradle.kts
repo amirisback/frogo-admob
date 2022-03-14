@@ -11,5 +11,5 @@ plugins {
 
 dependencies{
     implementation("com.github.frogobox:open-build-src:1.0.4")
-    implementation("com.github.frogobox:frogo-build-src:1.0.4")
+    implementation("com.github.frogobox:frogo-build-src:1.0.7")
 }

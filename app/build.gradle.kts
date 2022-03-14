@@ -126,12 +126,11 @@ dependencies {
 
     implementation(Util.glide)
 
-    implementation(Frogo.log("2.0.9"))
-    implementation(Frogo.recyclerView("4.0.5"))
-
-    implementation(Frogo.sdk("0.0.1-beta08"))
-    implementation(Frogo.ui("0.0.1-beta04"))
-    implementation(Frogo.consumeApi("2.0.1"))
+    implementation(Frogo.ui(DependencyGradle.FROGO_UI))
+    implementation(Frogo.sdk(DependencyGradle.FROGO_SDK))
+    implementation(Frogo.log(DependencyGradle.FROGO_LOG))
+    implementation(Frogo.recyclerView(DependencyGradle.FROGO_RECYCLER_VIEW))
+    implementation(Frogo.consumeApi(DependencyGradle.FROGO_CONSUME_API))
 
     kapt(Util.glideCompiler)
 

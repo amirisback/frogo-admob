@@ -85,9 +85,9 @@ dependencies {
     implementation(Reactivex.rxJava3)
     implementation(Reactivex.rxAndroid3)
 
-    implementation(Frogo.log("2.0.9"))
-    implementation(Frogo.recyclerView("4.0.5"))
-    implementation(Frogo.sdk("0.0.1-beta09"))
+    implementation(Frogo.log(DependencyGradle.FROGO_LOG))
+    implementation(Frogo.sdk(DependencyGradle.FROGO_SDK))
+    implementation(Frogo.recyclerView(DependencyGradle.FROGO_RECYCLER_VIEW))
 
 }
 
