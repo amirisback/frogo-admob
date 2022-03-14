@@ -29,4 +29,6 @@ interface IFrogoAdInterstitial {
 
     fun onAdShowed(message: String)
 
+    fun onAdNotReady(message: String)
+
 }

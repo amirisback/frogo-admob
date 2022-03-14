@@ -70,6 +70,9 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
                         // TODO("Not yet implemented")
                     }
 
+                    override fun onAdNotReady(message: String) {
+                        // TODO("Not yet implemented")
+                    }
                 })
             }
 
@@ -100,6 +103,9 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
                             // TODO("Not yet implemented")
                         }
 
+                        override fun onAdNotReady(message: String) {
+                            // TODO("Not yet implemented")
+                        }
                     })
             }
 

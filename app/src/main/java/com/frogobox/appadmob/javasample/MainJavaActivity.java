@@ -42,6 +42,11 @@ public class MainJavaActivity extends BaseJavaActivity {
         binding.btnRewarded.setOnClickListener(view -> showAdRewarded(getString(R.string.admob_rewarded), new IFrogoAdRewarded() {
 
             @Override
+            public void onAdNotReady(@NonNull String message) {
+
+            }
+
+            @Override
             public void onUserEarnedReward(@NonNull RewardItem rewardItem) {
 
             }
@@ -74,6 +79,11 @@ public class MainJavaActivity extends BaseJavaActivity {
         }));
 
         binding.btnRewardedInterstitial.setOnClickListener(view -> showAdRewardedInterstitial(getString(R.string.admob_rewarded_interstitial), new IFrogoAdRewarded() {
+
+            @Override
+            public void onAdNotReady(@NonNull String message) {
+
+            }
 
             @Override
             public void onUserEarnedReward(@NonNull RewardItem rewardItem) {

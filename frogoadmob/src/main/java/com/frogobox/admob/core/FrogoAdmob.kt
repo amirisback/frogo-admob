@@ -4,6 +4,7 @@ import android.content.Context
 import android.widget.RelativeLayout
 import androidx.appcompat.app.AppCompatActivity
 import com.frogobox.frogolog.FLog
+import com.frogobox.frogolog.FrogoLog
 import com.google.android.gms.ads.*
 import com.google.android.gms.ads.interstitial.InterstitialAd
 import com.google.android.gms.ads.interstitial.InterstitialAdLoadCallback
@@ -199,7 +200,7 @@ object FrogoAdmob : IFrogoAdmob {
             if (mInterstitialAd != null) {
                 mInterstitialAd!!.show(activity)
             } else {
-                FLog.d("$TAG : The interstitial ad wasn't ready yet.")
+                FLog.e("$TAG : The interstitial ad wasn't ready yet.")
             }
         }
 
@@ -274,7 +275,8 @@ object FrogoAdmob : IFrogoAdmob {
             if (mInterstitialAd != null) {
                 mInterstitialAd!!.show(activity)
             } else {
-                FLog.d("$TAG : The interstitialAd ad wasn't ready yet.")
+                FrogoLog.e("$TAG : The interstitialAd ad wasn't ready yet.")
+                callback.onAdNotReady("The interstitialAd ad wasn't ready yet")
             }
         }
 
@@ -355,7 +357,8 @@ object FrogoAdmob : IFrogoAdmob {
                     callback.onUserEarnedReward(it)
                 }
             } else {
-                FLog.d("$TAG : The rewarded ad wasn't ready yet.")
+                FLog.e("$TAG : The rewarded ad wasn't ready yet.")
+                callback.onAdNotReady("The rewarded ad wasn't ready yet")
             }
         }
 
@@ -427,7 +430,8 @@ object FrogoAdmob : IFrogoAdmob {
                     callback.onUserEarnedReward(it)
                 }
             } else {
-                FLog.d("$TAG : The rewarded ad wasn't ready yet.")
+                FLog.e("$TAG : The rewarded ad wasn't ready yet.")
+                callback.onAdNotReady("The rewarded ad wasn't ready yet")
             }
         }
 
