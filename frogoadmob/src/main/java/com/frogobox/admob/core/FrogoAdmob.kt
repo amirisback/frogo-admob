@@ -43,7 +43,7 @@ object FrogoAdmob : IFrogoAdmob {
 
     override fun setupAdmobApp(context: Context) {
         MobileAds.initialize(context) {}
-        FLog.d("Admob mobile Ads Initialized")
+        FLog.d("$TAG >> Setup MobileAds : Admob mobile Ads Initialized")
     }
 
     // ---------------------------------------------------------------------------------------------
@@ -53,52 +53,62 @@ object FrogoAdmob : IFrogoAdmob {
         private fun frogoAdListener(): AdListener {
             return object : AdListener() {
                 override fun onAdLoaded() {
-                    FLog.d("Ads Banner onAdLoaded")
+                    FLog.d("$TAG [Banner] >> Success - onAdLoaded [message] : Ads Banner onAdLoaded")
                 }
 
                 override fun onAdFailedToLoad(p0: LoadAdError) {
-                    FLog.d("Ads Banner onAdFailedToLoad")
+                    FLog.e("$TAG [Banner] >> Error - onAdFailedToLoad [code] : ${p0.code}")
+                    FLog.e("$TAG [Banner] >> Error - onAdFailedToLoad [domain] : ${p0.domain}")
+                    FLog.e("$TAG [Banner] >> Error - onAdFailedToLoad [message] : ${p0.message}")
                 }
 
                 override fun onAdOpened() {
-                    FLog.d("Ads Banner onAdOpened")
+                    FLog.d("$TAG [Banner] >> Success - onAdOpened [message] : Ads Banner onAdOpened")
                 }
 
                 override fun onAdClicked() {
-                    FLog.d("Ads Banner onAdClicked")
+                    FLog.d("$TAG [Banner] >> Success - onAdClicked [message] : Ads Banner onAdClicked")
                 }
 
                 override fun onAdClosed() {
-                    FLog.d("Ads Banner onAdClosed")
+                    FLog.d("$TAG [Banner] >> Success - onAdClosed [message] : Ads Banner onAdClosed")
                 }
             }
         }
 
-        private fun frogoAdListener(listener: IFrogoAdBanner): AdListener {
+        private fun frogoAdListener(callback: IFrogoAdBanner): AdListener {
             return object : AdListener() {
                 override fun onAdLoaded() {
-                    FLog.d("Ads Banner onAdLoaded")
-                    listener.onAdLoaded()
+                    FLog.d("$TAG [Banner] >> Run - IFrogoAdBanner [callback] : onAdLoaded()")
+                    FLog.d("$TAG [Banner] >> Success - onAdLoaded [message] : Ads Banner onAdLoaded")
+                    callback.onAdLoaded()
                 }
 
                 override fun onAdFailedToLoad(p0: LoadAdError) {
-                    FLog.d("Ads Banner onAdFailedToLoad")
-                    listener.onAdFailedToLoad(p0)
+                    FLog.e("$TAG [Banner] >> Run - IFrogoAdBanner [callback] : onAdFailedToLoad()")
+
+                    FLog.e("$TAG [Banner] >> Error - onAdFailedToLoad [code] : ${p0.code}")
+                    FLog.e("$TAG [Banner] >> Error - onAdFailedToLoad [domain] : ${p0.domain}")
+                    FLog.e("$TAG [Banner] >> Error - onAdFailedToLoad [message] : ${p0.message}")
+                    callback.onAdFailedToLoad(p0)
                 }
 
                 override fun onAdOpened() {
-                    FLog.d("Ads Banner onAdOpened")
-                    listener.onAdOpened()
+                    FLog.d("$TAG [Banner] >> Run - IFrogoAdBanner [callback] : onAdOpened()")
+                    FLog.d("$TAG [Banner] >> Success - onAdOpened [message] : Ads Banner onAdOpened")
+                    callback.onAdOpened()
                 }
 
                 override fun onAdClicked() {
-                    FLog.d("Ads Banner onAdClicked")
-                    listener.onAdClicked()
+                    FLog.d("$TAG [Banner] >> Run - IFrogoAdBanner [callback] : onAdClicked()")
+                    FLog.d("$TAG [Banner] >> Success - onAdClicked [message] : Ads Banner onAdClicked")
+                    callback.onAdClicked()
                 }
 
                 override fun onAdClosed() {
-                    FLog.d("Ads Banner onAdClosed")
-                    listener.onAdClosed()
+                    FLog.d("$TAG [Banner] >> Run - IFrogoAdBanner [callback] : onAdClicked()")
+                    FLog.d("$TAG [Banner] >> Success - onAdClosed [message] : Ads Banner onAdClosed")
+                    callback.onAdClosed()
                 }
             }
         }

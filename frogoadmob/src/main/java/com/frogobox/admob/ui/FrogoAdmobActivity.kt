@@ -57,7 +57,7 @@ abstract class FrogoAdmobActivity : AppCompatActivity(), IFrogoAdmobActivity {
         mAdsSize: AdSize,
         container: RelativeLayout
     ) {
-        FrogoAdmob.Banner.showAdBannerContainer(this, bannerAdUnitId, mAdsSize, container)
+        showAdBannerContainer(this, bannerAdUnitId, mAdsSize, container)
     }
 
     override fun showAdBannerContainer(

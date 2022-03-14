@@ -56,7 +56,7 @@ abstract class FrogoSdkAdmobActivity<VB : ViewBinding> : FrogoActivity<VB>(), IF
         mAdsSize: AdSize,
         container: RelativeLayout
     ) {
-        FrogoAdmob.Banner.showAdBannerContainer(this, bannerAdUnitId, mAdsSize, container)
+        showAdBannerContainer(this, bannerAdUnitId, mAdsSize, container)
     }
 
     override fun showAdBannerContainer(
