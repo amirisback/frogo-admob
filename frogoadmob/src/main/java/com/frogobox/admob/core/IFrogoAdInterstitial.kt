@@ -21,14 +21,10 @@ interface IFrogoAdInterstitial {
 
     fun onAdDismissed(message: String)
 
-    fun onAdFailedToLoad(errorMessage: String)
-
-    fun onAdFailedToShow(errorMessage: String)
+    fun onAdFailed(errorMessage: String)
 
     fun onAdLoaded(message: String)
 
     fun onAdShowed(message: String)
-
-    fun onAdNotReady(message: String)
 
 }

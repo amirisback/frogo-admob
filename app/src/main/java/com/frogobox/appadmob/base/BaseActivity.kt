@@ -4,8 +4,6 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
-import android.view.View
-import android.view.WindowManager
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.viewbinding.ViewBinding
@@ -42,11 +40,11 @@ abstract class BaseActivity<VB : ViewBinding> : FrogoAdmobActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
-        requestAdmobApi()
     }
 
-    private fun requestAdmobApi() {
-        val baseUrl = "https://raw.githubusercontent.com/amirisback/frogo-admob/master/app/src/main/assets/"
+    protected fun requestAdmobApi() {
+        val baseUrl =
+            "https://raw.githubusercontent.com/amirisback/frogo-admob/master/app/src/main/assets/"
         val frogoAdmobRepository = FrogoAdmobRepository(baseUrl)
         frogoAdmobRepository.usingClient()
         frogoAdmobRepository.getFrogoAdmobId(
@@ -75,18 +73,6 @@ abstract class BaseActivity<VB : ViewBinding> : FrogoAdmobActivity() {
                 override fun onHideProgress() {
                 }
             })
-    }
-
-    protected fun setupCustomTitleToolbar(title: Int) {
-        supportActionBar?.setTitle(title)
-    }
-
-    protected fun setupNoLimitStatBar() {
-        val windows = window // in Activity's onCreate() for instance
-        windows.setFlags(
-            WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS,
-            WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS
-        )
     }
 
     protected fun setupChildFragment(frameId: Int, fragment: Fragment) {
@@ -148,22 +134,6 @@ abstract class BaseActivity<VB : ViewBinding> : FrogoAdmobActivity() {
                 true
             }
             else -> super.onOptionsItemSelected(item)
-        }
-    }
-
-    protected fun setupEventEmptyView(view: View, isEmpty: Boolean) {
-        if (isEmpty) {
-            view.visibility = View.VISIBLE
-        } else {
-            view.visibility = View.GONE
-        }
-    }
-
-    protected fun setupEventProgressView(view: View, progress: Boolean) {
-        if (progress) {
-            view.visibility = View.VISIBLE
-        } else {
-            view.visibility = View.GONE
         }
     }
 

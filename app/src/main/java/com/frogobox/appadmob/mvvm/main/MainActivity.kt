@@ -23,6 +23,7 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        requestAdmobApi()
         setupButtonClick()
         setupBannerAds()
     }
@@ -46,66 +47,34 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
 
             btnRewarded.setOnClickListener {
                 showAdRewarded(getString(R.string.admob_rewarded), object : IFrogoAdRewarded {
-                    override fun onUserEarnedReward(rewardItem: RewardItem) {
-                        // TODO("Not yet implemented")
-                    }
 
-                    override fun onAdDismissed(message: String) {
-                        // TODO("Not yet implemented")
-                    }
+                    override fun onUserEarnedReward(rewardItem: RewardItem) {}
 
-                    override fun onAdFailedToLoad(errorMessage: String) {
-                        // TODO("Not yet implemented")
-                    }
+                    override fun onAdDismissed(message: String) {}
 
-                    override fun onAdFailedToShow(errorMessage: String) {
-                        // TODO("Not yet implemented")
-                    }
+                    override fun onAdFailed(errorMessage: String) {}
 
-                    override fun onAdLoaded(message: String) {
-                        // TODO("Not yet implemented")
-                    }
+                    override fun onAdLoaded(message: String) {}
 
-                    override fun onAdShowed(message: String) {
-                        // TODO("Not yet implemented")
-                    }
+                    override fun onAdShowed(message: String) {}
 
-                    override fun onAdNotReady(message: String) {
-                        // TODO("Not yet implemented")
-                    }
                 })
             }
 
             btnRewardedInterstitial.setOnClickListener {
                 showAdRewardedInterstitial(getString(R.string.admob_rewarded_interstitial),
                     object : IFrogoAdRewarded {
-                        override fun onUserEarnedReward(rewardItem: RewardItem) {
-                            // TODO("Not yet implemented")
-                        }
 
-                        override fun onAdDismissed(message: String) {
-                            // TODO("Not yet implemented")
-                        }
+                        override fun onUserEarnedReward(rewardItem: RewardItem) {}
 
-                        override fun onAdFailedToLoad(errorMessage: String) {
-                            // TODO("Not yet implemented")
-                        }
+                        override fun onAdDismissed(message: String) {}
 
-                        override fun onAdFailedToShow(errorMessage: String) {
-                            // TODO("Not yet implemented")
-                        }
+                        override fun onAdFailed(errorMessage: String) {}
 
-                        override fun onAdLoaded(message: String) {
-                            // TODO("Not yet implemented")
-                        }
+                        override fun onAdLoaded(message: String) {}
 
-                        override fun onAdShowed(message: String) {
-                            // TODO("Not yet implemented")
-                        }
+                        override fun onAdShowed(message: String) {}
 
-                        override fun onAdNotReady(message: String) {
-                            // TODO("Not yet implemented")
-                        }
                     })
             }
 

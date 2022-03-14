@@ -4,10 +4,6 @@ import android.os.Bundle
 import android.widget.RelativeLayout
 import androidx.appcompat.app.AppCompatActivity
 import com.frogobox.admob.core.*
-import com.frogobox.admob.core.FrogoAdmob.Banner.showAdBannerContainer
-import com.frogobox.admob.core.FrogoAdmob.Interstitial.showAdInterstitial
-import com.frogobox.admob.core.FrogoAdmob.Rewarded.showAdRewarded
-import com.frogobox.admob.core.FrogoAdmob.Rewarded.showAdRewardedInterstitial
 import com.frogobox.frogolog.FLog
 import com.google.android.gms.ads.AdSize
 import com.google.android.gms.ads.AdView
@@ -40,16 +36,18 @@ abstract class FrogoAdmobActivity : AppCompatActivity(), IFrogoAdmobActivity {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        FLog.d("$TAG : Setup Admob")
+        FLog.d("$TAG : Run From $TAG class : FrogoAdmob.setupAdmobApp ")
         FrogoAdmob.setupAdmobApp(this)
     }
 
     override fun showAdBanner(mAdView: AdView) {
-        FrogoAdmob.Banner.showAdBanner(mAdView)
+        FLog.d("$TAG : Run From $TAG class : FrogoAdmob.showAdBanner ")
+        FrogoAdmob.showAdBanner(mAdView)
     }
 
     override fun showAdBanner(mAdView: AdView, listener: IFrogoAdBanner) {
-        FrogoAdmob.Banner.showAdBanner(mAdView, listener)
+        FLog.d("$TAG : Run From $TAG class : FrogoAdmob.showAdBanner ")
+        FrogoAdmob.showAdBanner(mAdView, listener)
     }
 
     override fun showAdBannerContainer(
@@ -57,7 +55,8 @@ abstract class FrogoAdmobActivity : AppCompatActivity(), IFrogoAdmobActivity {
         mAdsSize: AdSize,
         container: RelativeLayout
     ) {
-        showAdBannerContainer(this, bannerAdUnitId, mAdsSize, container)
+        FLog.d("$TAG : Run From $TAG class : FrogoAdmob.showAdBannerContainer ")
+        FrogoAdmob.showAdBannerContainer(this, bannerAdUnitId, mAdsSize, container)
     }
 
     override fun showAdBannerContainer(
@@ -66,31 +65,36 @@ abstract class FrogoAdmobActivity : AppCompatActivity(), IFrogoAdmobActivity {
         container: RelativeLayout,
         listener: IFrogoAdBanner
     ) {
-        showAdBannerContainer(this, bannerAdUnitId, mAdsSize, container, listener)
+        FLog.d("$TAG : Run From $TAG class : FrogoAdmob.showAdBannerContainer ")
+        FrogoAdmob.showAdBannerContainer(this, bannerAdUnitId, mAdsSize, container, listener)
     }
 
     override fun showAdInterstitial(interstitialAdUnitId: String) {
-        showAdInterstitial(this, interstitialAdUnitId)
+        FLog.d("$TAG : Run From $TAG class : FrogoAdmob.showAdInterstitial ")
+        FrogoAdmob.showAdInterstitial(this, interstitialAdUnitId)
     }
 
     override fun showAdInterstitial(
         interstitialAdUnitId: String,
         callback: IFrogoAdInterstitial
     ) {
-        showAdInterstitial(this, interstitialAdUnitId, callback)
+        FLog.d("$TAG : Run From $TAG class : FrogoAdmob.showAdInterstitial ")
+        FrogoAdmob.showAdInterstitial(this, interstitialAdUnitId, callback)
     }
 
     override fun showAdRewarded(mAdUnitIdRewarded: String, callback: IFrogoAdRewarded) {
-        showAdRewarded(this, mAdUnitIdRewarded, callback)
+        FLog.d("$TAG : Run From $TAG class : FrogoAdmob.showAdRewarded ")
+        FrogoAdmob.showAdRewarded(this, mAdUnitIdRewarded, callback)
     }
 
     override fun showAdRewardedInterstitial(
         mAdUnitIdRewardedInterstitial: String,
         callback: IFrogoAdRewarded
     ) {
-        showAdRewardedInterstitial(this,mAdUnitIdRewardedInterstitial, callback)
+        FLog.d("$TAG : Run From $TAG class : FrogoAdmob.showAdRewardedInterstitial ")
+        FrogoAdmob.showAdRewardedInterstitial(this, mAdUnitIdRewardedInterstitial, callback)
     }
-
+    
     override fun onResume() {
         for (item in arrayFrogoAdmobData) {
             if (item is AdView) {

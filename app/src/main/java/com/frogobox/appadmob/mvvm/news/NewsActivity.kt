@@ -3,7 +3,7 @@ package com.frogobox.appadmob.mvvm.news
 import android.os.Bundle
 import android.view.View
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.frogobox.admob.core.FrogoAdmob.RecyclerView.loadRecyclerBannerAds
+import com.frogobox.admob.core.FrogoAdmob.loadRecyclerBannerAds
 import com.frogobox.api.news.ConsumeNewsApi
 import com.frogobox.appadmob.R
 import com.frogobox.appadmob.base.BaseActivity

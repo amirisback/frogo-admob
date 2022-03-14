@@ -32,12 +32,7 @@ class InterstitialActivity : FrogoSdkAdmobActivity<ActivityInterstitialBinding>(
                             finish()
                         }
 
-                        override fun onAdFailedToLoad(errorMessage: String) {
-                            baseStartActivity<MainActivity>()
-                            finish()
-                        }
-
-                        override fun onAdFailedToShow(errorMessage: String) {
+                        override fun onAdFailed(errorMessage: String) {
                             baseStartActivity<MainActivity>()
                             finish()
                         }
@@ -46,10 +41,6 @@ class InterstitialActivity : FrogoSdkAdmobActivity<ActivityInterstitialBinding>(
 
                         override fun onAdShowed(message: String) {}
 
-                        override fun onAdNotReady(message: String) {
-                            baseStartActivity<MainActivity>()
-                            finish()
-                        }
                     }
                 )
             }

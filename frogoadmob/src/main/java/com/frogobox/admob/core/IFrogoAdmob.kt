@@ -29,86 +29,70 @@ interface IFrogoAdmob {
 
     // ---------------------------------------------------------------------------------------------
 
-    interface Banner {
+    fun showAdBanner(mAdView: AdView)
 
-        fun showAdBanner(mAdView: AdView)
+    fun showAdBanner(
+        mAdView: AdView,
+        listener: IFrogoAdBanner
+    )
 
-        fun showAdBanner(
-            mAdView: AdView,
-            listener: IFrogoAdBanner
-        )
+    fun showAdBannerContainer(
+        context: Context,
+        bannerAdUnitId: String,
+        mAdsSize: AdSize,
+        container: RelativeLayout
+    )
 
-        fun showAdBannerContainer(
-            context: Context,
-            bannerAdUnitId: String,
-            mAdsSize: AdSize,
-            container: RelativeLayout
-        )
-
-        fun showAdBannerContainer(
-            context: Context,
-            bannerAdUnitId: String,
-            mAdsSize: AdSize,
-            container: RelativeLayout,
-            listener: IFrogoAdBanner
-        )
-
-    }
+    fun showAdBannerContainer(
+        context: Context,
+        bannerAdUnitId: String,
+        mAdsSize: AdSize,
+        container: RelativeLayout,
+        listener: IFrogoAdBanner
+    )
 
     // ---------------------------------------------------------------------------------------------
 
-    interface Interstitial {
+    fun showAdInterstitial(
+        activity: AppCompatActivity,
+        interstitialAdUnitId: String
+    )
 
-        fun showAdInterstitial(
-            activity: AppCompatActivity,
-            interstitialAdUnitId: String
-        )
-
-        fun showAdInterstitial(
-            activity: AppCompatActivity,
-            interstitialAdUnitId: String,
-            callback: IFrogoAdInterstitial
-        )
-
-    }
+    fun showAdInterstitial(
+        activity: AppCompatActivity,
+        interstitialAdUnitId: String,
+        callback: IFrogoAdInterstitial
+    )
 
     // ---------------------------------------------------------------------------------------------
 
-    interface Rewarded {
+    fun showAdRewarded(
+        activity: AppCompatActivity,
+        mAdUnitIdRewarded: String,
+        callback: IFrogoAdRewarded
+    )
 
-        fun showAdRewarded(
-            activity: AppCompatActivity,
-            mAdUnitIdRewarded: String,
-            callback: IFrogoAdRewarded
-        )
-
-        fun showAdRewardedInterstitial(
-            activity: AppCompatActivity,
-            mAdUnitIdRewardedInterstitial: String,
-            callback: IFrogoAdRewarded
-        )
-
-    }
+    fun showAdRewardedInterstitial(
+        activity: AppCompatActivity,
+        mAdUnitIdRewardedInterstitial: String,
+        callback: IFrogoAdRewarded
+    )
 
     // ---------------------------------------------------------------------------------------------
 
-    interface RecyclerView {
+    fun loadRecyclerBannerAds(
+        bannerAdUnitId: String,
+        context: Context,
+        recyclerViewDataList: MutableList<Any>
+    )
 
-        fun loadRecyclerBannerAds(
-            bannerAdUnitId: String,
-            context: Context,
-            recyclerViewDataList: MutableList<Any>
-        )
+    fun addBannerAds(
+        bannerAdUnitId: String,
+        context: Context,
+        recyclerViewDataList: MutableList<Any>
+    )
 
-        fun addBannerAds(
-            bannerAdUnitId: String,
-            context: Context,
-            recyclerViewDataList: MutableList<Any>
-        )
-
-        fun loadBannerAd(recyclerViewDataList: MutableList<Any>, index: Int)
-
-    }
+    fun loadBannerAd(recyclerViewDataList: MutableList<Any>, index: Int)
 
     // ---------------------------------------------------------------------------------------------
 

@@ -1,6 +1,7 @@
 package com.frogobox.admob.source
 
 import com.frogobox.admob.model.FrogoAdmobId
+import okhttp3.Interceptor
 
 
 /*
@@ -20,6 +21,8 @@ interface FrogoAdmobDataSource {
 
     // Switch For Using OkHttpClient Interceptor
     fun usingClient()
+
+    fun usingClient(chuckInterceptor: Interceptor)
 
     // Callback Get FrogoAdmobId
     fun getFrogoAdmobId(jsonFileName: String, callback: FrogoAdmobApiResponse<FrogoAdmobId>)
