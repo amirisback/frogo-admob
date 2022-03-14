@@ -27,7 +27,7 @@
 
 ## Version Release
 
-    $version_release = 4.2.0
+    $version_release = 4.2.1
 
 What's New??
 
@@ -75,7 +75,7 @@ allprojects {
             implementation 'com.google.android.gms:play-services-ads:${latest_version}'
 
             // library frogo-admob-helper
-	        implementation 'com.github.amirisback:frogo-admob:4.2.0'
+	        implementation 'com.github.amirisback:frogo-admob:4.2.1'
 	}
 
 #### <Option 2> Kotlin DSL
@@ -85,7 +85,7 @@ allprojects {
             implementation("com.google.android.gms:play-services-ads:${latest_version}")
 
             // library frogo-admob-helper
-	        implementation("com.github.amirisback:frogo-admob:4.2.0")
+	        implementation("com.github.amirisback:frogo-admob:4.2.1")
 	}
 	
 ### Step 3. Adding meta-data on AndroidManifest.xml
@@ -188,20 +188,28 @@ class <YourActivity> : FrogoAdmobActivity() {
                     getString(R.string.admob_interstitial),
                     object : IFrogoInterstitial {
 
-                        override fun onAdClosed() {
+                        override fun onAdDismissed(message: String) {
                             baseStartActivity<MainActivity>()
+                            finish()
                         }
 
-                        override fun onAdFailedToLoad() {
+                        override fun onAdFailedToLoad(errorMessage: String) {
                             baseStartActivity<MainActivity>()
+                            finish()
                         }
 
-                        override fun onAdFailedToShow() {
+                        override fun onAdFailedToShow(errorMessage: String) {
                             baseStartActivity<MainActivity>()
+                            finish()
                         }
 
-                        override fun onAdLoaded() {
+                        override fun onAdLoaded(message: String) {}
 
+                        override fun onAdShowed(message: String) {}
+
+                        override fun onAdNotReady(message: String) {
+                            baseStartActivity<MainActivity>()
+                            finish()
                         }
 
                     }
@@ -230,6 +238,10 @@ class <YourActivity> : FrogoAdmobActivity() {
                     override fun onAdLoaded() {
                         // TODO("Not yet implemented")
                     }
+
+                    override fun onAdNotReady(message: String) {
+                        // TODO("Not yet implemented")
+                    }
                 })
             }
 
@@ -253,6 +265,10 @@ class <YourActivity> : FrogoAdmobActivity() {
                         }
 
                         override fun onAdLoaded() {
+                            // TODO("Not yet implemented")
+                        }
+
+                        override fun onAdNotReady(message: String) {
                             // TODO("Not yet implemented")
                         }
                     })
@@ -436,6 +452,11 @@ public class MainJavaActivity extends BaseJavaActivity {
             public void onAdLoaded() {
 
             }
+
+            @Override
+            public void onAdNotReady(@NonNull String message) {
+
+            }
         }));
 
         binding.btnRewardedInterstitial.setOnClickListener(view -> showAdRewardedInterstitial(getString(R.string.admob_rewarded_interstitial), new IFrogoAdRewarded() {
@@ -463,6 +484,12 @@ public class MainJavaActivity extends BaseJavaActivity {
             public void onAdLoaded() {
 
             }
+
+            @Override
+            public void onAdNotReady(@NonNull String message) {
+
+            }
+
         }));
 
     }
