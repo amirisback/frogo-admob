@@ -32,12 +32,12 @@ class FrogoAdmobRepository(private val baseUrl: String) : FrogoAdmobDataSource {
 
     override fun usingClient() {
         FLog.d("$TAG : Using Client OkHttp Client")
-        frogoAdmobApiService = FrogoApiClient.createWithClient(baseUrl)
+        frogoAdmobApiService = FrogoApiClient.createWithInterceptor(baseUrl)
     }
 
     override fun usingClient(chuckInterceptor: Interceptor) {
         FLog.d("$TAG : Using Client OkHttp Client + Chuck Interceptor")
-        frogoAdmobApiService = FrogoApiClient.createWithClient(baseUrl, chuckInterceptor)
+        frogoAdmobApiService = FrogoApiClient.createWithInterceptor(baseUrl, chuckInterceptor)
     }
 
     override fun getFrogoAdmobId(
