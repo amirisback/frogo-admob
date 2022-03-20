@@ -27,7 +27,7 @@
 
 ## Version Release
 
-    $version_release = 4.2.4
+    $version_release = 4.2.5
 
 What's New??
 
@@ -75,7 +75,7 @@ allprojects {
             implementation 'com.google.android.gms:play-services-ads:${latest_version}'
 
             // library frogo-admob-helper
-	        implementation 'com.github.amirisback:frogo-admob:4.2.4'
+	        implementation 'com.github.amirisback:frogo-admob:4.2.5'
 	}
 
 #### <Option 2> Kotlin DSL
@@ -85,7 +85,7 @@ allprojects {
             implementation("com.google.android.gms:play-services-ads:${latest_version}")
 
             // library frogo-admob-helper
-	        implementation("com.github.amirisback:frogo-admob:4.2.4")
+	        implementation("com.github.amirisback:frogo-admob:4.2.5")
 	}
 	
 ### Step 3. Adding meta-data on AndroidManifest.xml
