@@ -101,11 +101,11 @@ abstract class BaseFragment<VB : ViewBinding> : Fragment() {
         Toast.makeText(context, message, Toast.LENGTH_SHORT).show()
     }
 
-    protected inline fun <reified ClassActivity> baseStartActivity() {
+    protected inline fun <reified ClassActivity> frogoStartActivity() {
         context?.startActivity(Intent(context, ClassActivity::class.java))
     }
 
-    protected inline fun <reified ClassActivity, Model> baseStartActivity(
+    protected inline fun <reified ClassActivity, Model> frogoStartActivity(
         extraKey: String,
         data: Model
     ) {

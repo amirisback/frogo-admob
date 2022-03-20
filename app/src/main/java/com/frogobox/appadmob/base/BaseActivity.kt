@@ -83,11 +83,11 @@ abstract class BaseActivity<VB : ViewBinding> : FrogoAdmobActivity() {
         }
     }
 
-    protected inline fun <reified ClassActivity> baseStartActivity() {
+    protected inline fun <reified ClassActivity> frogoStartActivity() {
         this.startActivity(Intent(this, ClassActivity::class.java))
     }
 
-    protected inline fun <reified ClassActivity, Model> baseStartActivity(
+    protected inline fun <reified ClassActivity, Model> frogoStartActivity(
         extraKey: String,
         data: Model
     ) {

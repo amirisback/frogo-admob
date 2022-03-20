@@ -189,17 +189,17 @@ class <YourActivity> : FrogoAdmobActivity() {
                     object : IFrogoInterstitial {
 
                         override fun onAdDismissed(message: String) {
-                            baseStartActivity<MainActivity>()
+                            frogoStartActivity<MainActivity>()
                             finish()
                         }
 
                         override fun onAdFailedToLoad(errorMessage: String) {
-                            baseStartActivity<MainActivity>()
+                            frogoStartActivity<MainActivity>()
                             finish()
                         }
 
                         override fun onAdFailedToShow(errorMessage: String) {
-                            baseStartActivity<MainActivity>()
+                            frogoStartActivity<MainActivity>()
                             finish()
                         }
 
@@ -208,7 +208,7 @@ class <YourActivity> : FrogoAdmobActivity() {
                         override fun onAdShowed(message: String) {}
 
                         override fun onAdNotReady(message: String) {
-                            baseStartActivity<MainActivity>()
+                            frogoStartActivity<MainActivity>()
                             finish()
                         }
 

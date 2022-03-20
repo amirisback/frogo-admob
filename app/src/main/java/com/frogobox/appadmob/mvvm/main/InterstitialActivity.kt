@@ -28,12 +28,12 @@ class InterstitialActivity : FrogoSdkAdmobActivity<ActivityInterstitialBinding>(
                     getString(R.string.admob_interstitial),
                     object : IFrogoAdInterstitial {
                         override fun onAdDismissed(message: String) {
-                            baseStartActivity<MainActivity>()
+                            frogoStartActivity<MainActivity>()
                             finish()
                         }
 
                         override fun onAdFailed(errorMessage: String) {
-                            baseStartActivity<MainActivity>()
+                            frogoStartActivity<MainActivity>()
                             finish()
                         }
 

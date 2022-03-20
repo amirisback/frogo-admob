@@ -42,7 +42,7 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
         binding.apply {
 
             btnInterstitial.setOnClickListener {
-                baseStartActivity<InterstitialActivity>()
+                frogoStartActivity<InterstitialActivity>()
             }
 
             btnRewarded.setOnClickListener {
@@ -79,23 +79,23 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
             }
 
             btnRecyclerView.setOnClickListener {
-                baseStartActivity<NewsActivity>()
+                frogoStartActivity<NewsActivity>()
             }
 
             btnRecyclerView2.setOnClickListener {
-                baseStartActivity<MovieActivity>()
+                frogoStartActivity<MovieActivity>()
             }
 
             btnComposeActivity.setOnClickListener {
-                baseStartActivity<ComposeActivity>()
+                frogoStartActivity<ComposeActivity>()
             }
 
             btnHybridActivity.setOnClickListener {
-                baseStartActivity<HybridActivity>()
+                frogoStartActivity<HybridActivity>()
             }
 
             btnJavaSampleActivity.setOnClickListener {
-                baseStartActivity<MainJavaActivity>()
+                frogoStartActivity<MainJavaActivity>()
             }
 
         }
@@ -109,7 +109,7 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when (item.itemId) {
             R.id.toolbar_menu_about -> {
-                baseStartActivity<AboutUsActivity>()
+                frogoStartActivity<AboutUsActivity>()
                 true
             }
             else -> super.onOptionsItemSelected(item)
