@@ -18,5 +18,21 @@
     "ca-app-pub-3940256099942544/5224354917",
     "ca-app-pub-3940256099942544/5224354917",
     "ca-app-pub-3940256099942544/5224354917"
+  ],
+  "unityGameID": "",
+  "unityInterstitialID": [
+    "",
+    "",
+    ""
+  ],
+  "unityBannerId": [
+    "",
+    "",
+    ""
+  ],
+  "unityRewardedID": [
+    "",
+    "",
+    ""
   ]
 }
