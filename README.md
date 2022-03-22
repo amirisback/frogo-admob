@@ -27,7 +27,7 @@
 
 ## Version Release
 
-    $version_release = 4.2.5
+    $version_release = 4.2.6
 
 What's New??
 
@@ -38,6 +38,7 @@ What's New??
     * Add FrogoSdkAdmobActivity *
     * New Setup Implementation *
     * Fixing Bug : ShowBanner, ShowInterstitial, ShowRewarded *
+    * Adding Unity Ads *
 
 ## How To Use / Implement This Project
 ### Step 1. Add the JitPack repository to your build file
@@ -61,7 +62,7 @@ What's New??
 allprojects {
     repositories {
         ...
-        maven { url = uri("https://jitpack.io") }
+        maven("https://jitpack.io")
     }
 }
 ```
@@ -75,7 +76,7 @@ allprojects {
             implementation 'com.google.android.gms:play-services-ads:${latest_version}'
 
             // library frogo-admob-helper
-	        implementation 'com.github.amirisback:frogo-admob:4.2.5'
+	        implementation 'com.github.amirisback:frogo-admob:4.2.6'
 	}
 
 #### <Option 2> Kotlin DSL
@@ -85,7 +86,7 @@ allprojects {
             implementation("com.google.android.gms:play-services-ads:${latest_version}")
 
             // library frogo-admob-helper
-	        implementation("com.github.amirisback:frogo-admob:4.2.5")
+	        implementation("com.github.amirisback:frogo-admob:4.2.6")
 	}
 	
 ### Step 3. Adding meta-data on AndroidManifest.xml
@@ -562,6 +563,10 @@ fun FrogoAdmobBannerView(
     - Add FrogoSdkAdmobActivity
     - New Setup Implementation
     - Fixing Bug : ShowBanner, ShowInterstitial, ShowRewarded
+
+    >> on Version 4.2.6 +
+    - Add Unity Ads
+    - Basic Interstitial
 
 ### Test Ads From Google
 

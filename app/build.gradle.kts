@@ -133,6 +133,7 @@ dependencies {
     implementation(Frogo.consumeApi(DependencyGradle.FROGO_CONSUME_API))
 
     implementation("com.unity3d.ads:unity-ads:4.0.1")
+    implementation("com.google.ads.mediation:unity:4.0.1.0")
 
     implementation("com.github.chuckerteam.chucker:library:3.5.2")
 
