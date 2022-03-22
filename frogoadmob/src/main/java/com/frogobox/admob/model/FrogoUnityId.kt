@@ -19,15 +19,15 @@ import com.google.gson.annotations.SerializedName
 data class FrogoUnityId(
 
     @SerializedName("unityGameID")
-    var unityGameID: String,
+    var unityGameID: String = "",
 
     @SerializedName("unityInterstitialID")
-    var unityInterstitialID: List<String>,
+    var unityInterstitialID: List<String> = listOf("", "", ""),
 
     @SerializedName("unityBannerId")
-    var unityBannerId: List<String>,
+    var unityBannerId: List<String> = listOf("", "", ""),
 
     @SerializedName("unityRewardedID")
-    var unityRewardedID: List<String>
+    var unityRewardedID: List<String> = listOf("", "", "")
 
 )

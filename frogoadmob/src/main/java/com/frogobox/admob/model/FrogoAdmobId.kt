@@ -30,15 +30,15 @@ data class FrogoAdmobId(
     var testAdmobRewarded: String = "ca-app-pub-3940256099942544/5224354917",
 
     @SerializedName("admobAppId")
-    var admobAppId: String,
+    var admobAppId: String = "",
 
     @SerializedName("admobBannerID")
-    var admobBannerID: List<String>,
+    var admobBannerID: List<String> = listOf("", "", ""),
 
     @SerializedName("admobInterstitialID")
-    var admobInterstitialID: List<String>,
+    var admobInterstitialID: List<String> = listOf("", "", ""),
 
     @SerializedName("admobRewardedID")
-    var admobRewardedID: List<String>,
+    var admobRewardedID: List<String> = listOf("", "", "")
 
 )
