@@ -3,10 +3,7 @@ package com.frogobox.admob.ui
 import android.os.Bundle
 import android.widget.RelativeLayout
 import androidx.viewbinding.ViewBinding
-import com.frogobox.admob.core.FrogoAdmob
-import com.frogobox.admob.core.IFrogoAdBanner
-import com.frogobox.admob.core.IFrogoAdInterstitial
-import com.frogobox.admob.core.IFrogoAdRewarded
+import com.frogobox.admob.core.*
 import com.frogobox.frogolog.FLog
 import com.frogobox.sdk.FrogoActivity
 import com.google.android.gms.ads.AdSize
@@ -94,6 +91,127 @@ abstract class FrogoSdkAdmobActivity<VB : ViewBinding> : FrogoActivity<VB>(), IF
         FLog.d("$TAG : Run From $TAG class : FrogoAdmob.showAdRewardedInterstitial ")
         FrogoAdmob.showAdRewardedInterstitial(this, mAdUnitIdRewardedInterstitial, callback)
     }
+
+    // ---------------------------------------------------------------------------------------------
+
+    override fun setupUnityAdApp(testMode: Boolean, unityGameId: String) {
+        FrogoUnityAd.setupUnityAdApp(this, testMode, unityGameId)
+    }
+
+    override fun setupUnityAdApp(
+        testMode: Boolean,
+        unityGameId: String,
+        callback: IFrogoUnityAdInitialization
+    ) {
+        FrogoUnityAd.setupUnityAdApp(this, testMode, unityGameId, callback)
+    }
+
+    override fun showUnityAdInterstitial(adInterstitialUnitId: String) {
+        FrogoUnityAd.showAdInterstitial(this, adInterstitialUnitId)
+    }
+
+    override fun showUnityAdInterstitial(
+        adInterstitialUnitId: String,
+        callback: IFrogoUnityAdInterstitial
+    ) {
+        FrogoUnityAd.showAdInterstitial(this, adInterstitialUnitId, callback)
+    }
+
+    // ---------------------------------------------------------------------------------------------
+
+    // Mixed Ads Admob >> Unity
+    override fun showAdmobXUnityAdInterstitial(
+        admobInterstitialId: String,
+        unityInterstitialId: String,
+        callback: IFrogoMixedAdsInterstitial
+    ) {
+        showAdInterstitial(admobInterstitialId, object : IFrogoAdInterstitial {
+            override fun onAdDismissed(tag: String, message: String) {
+                callback.onAdDismissed(tag, message)
+            }
+
+            override fun onAdFailed(tag: String, errorMessage: String) {
+                showUnityAdInterstitial(unityInterstitialId,
+                    object : IFrogoUnityAdInterstitial {
+                        override fun onClicked(tag: String, message: String) {
+                            callback.onClicked(tag, message)
+                        }
+
+                        override fun onAdDismissed(tag: String, message: String) {
+                            callback.onClicked(tag, message)
+                        }
+
+                        override fun onAdFailed(tag: String, errorMessage: String) {
+                            callback.onAdFailed(tag, errorMessage)
+                        }
+
+                        override fun onAdLoaded(tag: String, message: String) {
+                            callback.onAdLoaded(tag, message)
+                        }
+
+                        override fun onAdShowed(tag: String, message: String) {
+                            callback.onAdShowed(tag, message)
+                        }
+                    })
+            }
+
+            override fun onAdLoaded(tag: String, message: String) {
+                callback.onAdLoaded(tag, message)
+            }
+
+            override fun onAdShowed(tag: String, message: String) {
+                callback.onAdShowed(tag, message)
+            }
+        })
+    }
+
+    // Mixed Ads Unity >> Admob
+    override fun showUnityXAdmobAdInterstitial(
+        admobInterstitialId: String,
+        unityInterstitialId: String,
+        callback: IFrogoMixedAdsInterstitial
+    ) {
+        showUnityAdInterstitial(unityInterstitialId, object : IFrogoUnityAdInterstitial {
+            override fun onAdDismissed(tag: String, message: String) {
+                callback.onAdDismissed(tag, message)
+            }
+
+            override fun onAdFailed(tag: String, errorMessage: String) {
+                showAdInterstitial(admobInterstitialId,
+                    object : IFrogoAdInterstitial {
+
+                        override fun onAdDismissed(tag: String, message: String) {
+                            callback.onClicked(tag, message)
+                        }
+
+                        override fun onAdFailed(tag: String, errorMessage: String) {
+                            callback.onAdFailed(tag, errorMessage)
+                        }
+
+                        override fun onAdLoaded(tag: String, message: String) {
+                            callback.onAdLoaded(tag, message)
+                        }
+
+                        override fun onAdShowed(tag: String, message: String) {
+                            callback.onAdShowed(tag, message)
+                        }
+                    })
+            }
+
+            override fun onAdLoaded(tag: String, message: String) {
+                callback.onAdLoaded(tag, message)
+            }
+
+            override fun onAdShowed(tag: String, message: String) {
+                callback.onAdShowed(tag, message)
+            }
+
+            override fun onClicked(tag: String, message: String) {
+                callback.onClicked(tag, message)
+            }
+        })
+    }
+
 
     override fun onResume() {
         for (item in arrayFrogoAdmobData) {

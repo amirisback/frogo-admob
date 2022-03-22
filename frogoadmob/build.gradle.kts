@@ -73,6 +73,8 @@ dependencies {
     implementation(Androidx.Compose.uiTooling)
     implementation(Androidx.Compose.activity)
 
+    implementation("com.unity3d.ads:unity-ads:4.0.1")
+
     implementation(Google.gson)
     implementation(Google.material)
     implementation(Google.admob)

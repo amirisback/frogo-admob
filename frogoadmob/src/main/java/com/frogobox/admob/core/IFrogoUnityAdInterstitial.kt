@@ -2,7 +2,7 @@ package com.frogobox.admob.core
 
 
 /*
- * Created by faisalamir on 10/03/22
+ * Created by faisalamir on 22/03/22
  * FrogoAdmob
  * -----------------------------------------
  * Name     : Muhammad Faisal Amir
@@ -14,14 +14,8 @@ package com.frogobox.admob.core
  *
  */
 
-interface IFrogoAdInterstitial {
+interface IFrogoUnityAdInterstitial : IFrogoAdInterstitial {
 
-    fun onAdDismissed(tag: String, message: String)
-
-    fun onAdFailed(tag: String, errorMessage: String)
-
-    fun onAdLoaded(tag: String, message: String)
-
-    fun onAdShowed(tag: String, message: String)
+    fun onClicked(tag: String, message: String)
 
 }

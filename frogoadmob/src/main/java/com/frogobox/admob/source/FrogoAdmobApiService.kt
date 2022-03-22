@@ -1,6 +1,8 @@
 package com.frogobox.admob.source
 
 import com.frogobox.admob.model.FrogoAdmobId
+import com.frogobox.admob.model.FrogoMonetizeId
+import com.frogobox.admob.model.FrogoUnityId
 import io.reactivex.rxjava3.core.Observable
 import retrofit2.http.GET
 import retrofit2.http.Path
@@ -25,5 +27,15 @@ interface FrogoAdmobApiService {
     fun getFrogoAdmobId(
         @Path("json-file-name") jsonFileName: String
     ): Observable<FrogoAdmobId>
+
+    @GET("{json-file-name}")
+    fun getMonetizeId(
+        @Path("json-file-name") jsonFileName: String
+    ): Observable<FrogoMonetizeId>
+
+    @GET("{json-file-name}")
+    fun getUnityId(
+        @Path("json-file-name") jsonFileName: String
+    ): Observable<FrogoUnityId>
 
 }

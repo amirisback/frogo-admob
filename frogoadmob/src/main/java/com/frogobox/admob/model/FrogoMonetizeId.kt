@@ -2,20 +2,21 @@ package com.frogobox.admob.model
 
 import com.google.gson.annotations.SerializedName
 
+
 /*
- * Created by faisalamir on 02/03/22
+ * Created by faisalamir on 22/03/22
  * FrogoAdmob
  * -----------------------------------------
  * Name     : Muhammad Faisal Amir
  * E-mail   : faisalamircs@gmail.com
  * Github   : github.com/amirisback
  * -----------------------------------------
- * Copyright (C) 2022 Frogobox Media Inc.
+ * Copyright (C) 2022 Frogobox Media Inc.      
  * All rights reserved
  *
  */
 
-data class FrogoAdmobId(
+data class FrogoMonetizeId(
 
     @SerializedName("testAdmobAppId")
     var testAdmobAppId: String = "ca-app-pub-3940256099942544~3347511713",
@@ -40,5 +41,17 @@ data class FrogoAdmobId(
 
     @SerializedName("admobRewardedID")
     var admobRewardedID: List<String>,
+
+    @SerializedName("unityGameID")
+    var unityGameID: String,
+
+    @SerializedName("unityInterstitialID")
+    var unityInterstitialID: List<String>,
+
+    @SerializedName("unityBannerId")
+    var unityBannerId: List<String>,
+
+    @SerializedName("unityRewardedID")
+    var unityRewardedID: List<String>
 
 )

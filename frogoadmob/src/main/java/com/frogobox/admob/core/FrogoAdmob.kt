@@ -74,7 +74,7 @@ object FrogoAdmob : IFrogoAdmob {
             override fun onAdLoaded() {
                 FLog.d("$TAG [Banner] >> Run - IFrogoAdBanner [callback] : onAdLoaded()")
                 FLog.d("$TAG [Banner] >> Success - onAdLoaded [message] : Ad Banner onAdLoaded")
-                callback.onAdLoaded("Ad Banner onAdLoaded")
+                callback.onAdLoaded(TAG, "Ad Banner onAdLoaded")
             }
 
             override fun onAdFailedToLoad(p0: LoadAdError) {
@@ -83,25 +83,25 @@ object FrogoAdmob : IFrogoAdmob {
                 FLog.e("$TAG [Banner] >> Error - onAdFailedToLoad [code] : ${p0.code}")
                 FLog.e("$TAG [Banner] >> Error - onAdFailedToLoad [domain] : ${p0.domain}")
                 FLog.e("$TAG [Banner] >> Error - onAdFailedToLoad [message] : ${p0.message}")
-                callback.onAdFailedToLoad(p0.code.toString(), p0.message)
+                callback.onAdFailedToLoad(TAG, p0.code.toString(), p0.message)
             }
 
             override fun onAdOpened() {
                 FLog.d("$TAG [Banner] >> Run - IFrogoAdBanner [callback] : onAdOpened()")
                 FLog.d("$TAG [Banner] >> Success - onAdOpened [message] : Ad Banner onAdOpened")
-                callback.onAdOpened("Ad Banner onAdOpened")
+                callback.onAdOpened(TAG, "Ad Banner onAdOpened")
             }
 
             override fun onAdClicked() {
                 FLog.d("$TAG [Banner] >> Run - IFrogoAdBanner [callback] : onAdClicked()")
                 FLog.d("$TAG [Banner] >> Success - onAdClicked [message] : Ad Banner onAdClicked")
-                callback.onAdClicked("Ad Banner onAdClicked")
+                callback.onAdClicked(TAG, "Ad Banner onAdClicked")
             }
 
             override fun onAdClosed() {
                 FLog.d("$TAG [Banner] >> Run - IFrogoAdBanner [callback] : onAdClicked()")
                 FLog.d("$TAG [Banner] >> Success - onAdClosed [message] : Ad Banner onAdClosed")
-                callback.onAdClosed("Ad Banner onAdClosed")
+                callback.onAdClosed(TAG, "Ad Banner onAdClosed")
             }
         }
     }
@@ -213,7 +213,7 @@ object FrogoAdmob : IFrogoAdmob {
                     FLog.e("$TAG [Interstitial] >> Error - onAdFailedToLoad [code] : ${adError.code}")
                     FLog.e("$TAG [Interstitial] >> Error - onAdFailedToLoad [domain] : ${adError.domain}")
                     FLog.e("$TAG [Interstitial] >> Error - onAdFailedToLoad [message] : ${adError.message}")
-                    callback.onAdFailed("Interstitial ${adError.message}")
+                    callback.onAdFailed(TAG, "Interstitial ${adError.message}")
                 }
 
                 override fun onAdLoaded(interstitialAd: InterstitialAd) {
@@ -222,14 +222,14 @@ object FrogoAdmob : IFrogoAdmob {
                     FLog.d("$TAG [Interstitial] >> Succes - onAdLoaded [unit id] : ${interstitialAd.adUnitId}")
                     FLog.d("$TAG [Interstitial] >> Succes - onAdLoaded [response Info] : ${interstitialAd.responseInfo}")
                     FLog.d("$TAG [Interstitial] >> Suggest : You Can Give Your Reward Here")
-                    callback.onAdLoaded("Interstitial Ad was loaded")
+                    callback.onAdLoaded(TAG, "Interstitial Ad was loaded")
 
                     interstitialAd.fullScreenContentCallback =
                         object : FullScreenContentCallback() {
                             override fun onAdDismissedFullScreenContent() {
                                 FLog.d("$TAG [Interstitial] >> Run - IFrogoAdInterstitial [callback] : onAdDismissed()")
                                 FLog.d("$TAG [Interstitial] >> Succes - onAdDismissedFullScreenContent [message] : Ad was dismissed")
-                                callback.onAdDismissed("Interstitial Ad was dismissed")
+                                callback.onAdDismissed(TAG, "Interstitial Ad was dismissed")
                             }
 
                             override fun onAdFailedToShowFullScreenContent(adError: AdError?) {
@@ -238,13 +238,16 @@ object FrogoAdmob : IFrogoAdmob {
                                 FLog.e("$TAG [Interstitial] >> Error - onAdFailedToShowFullScreenContent [domain] : ${adError?.domain}")
                                 FLog.e("$TAG [Interstitial] >> Error - onAdFailedToShowFullScreenContent [message] : ${adError?.message}")
                                 FLog.e("$TAG [Interstitial] >> Error : Ad failed to show")
-                                callback.onAdFailed("Interstitial Ad failed to show")
+                                callback.onAdFailed(TAG, "Interstitial Ad failed to show")
                             }
 
                             override fun onAdShowedFullScreenContent() {
                                 FLog.d("$TAG [Interstitial] >> Run - IFrogoAdInterstitial [callback] : onAdShowed()")
                                 FLog.d("$TAG [Interstitial] >> Succes - onAdShowedFullScreenContent [message] : Ad showed fullscreen content")
-                                callback.onAdShowed("Interstitial Ad showed fullscreen content")
+                                callback.onAdShowed(
+                                    TAG,
+                                    "Interstitial Ad showed fullscreen content"
+                                )
                             }
                         }
                     interstitialAd.show(activity)
@@ -272,7 +275,7 @@ object FrogoAdmob : IFrogoAdmob {
                     FLog.e("$TAG [RewardedAd] >> Error - onAdFailedToLoad [code] : ${adError.code}")
                     FLog.e("$TAG [RewardedAd] >> Error - onAdFailedToLoad [domain] : ${adError.domain}")
                     FLog.e("$TAG [RewardedAd] >> Error - onAdFailedToLoad [message] : ${adError.message}")
-                    callback.onAdFailed("RewardedAd ${adError.message}")
+                    callback.onAdFailed(TAG, "RewardedAd ${adError.message}")
                 }
 
                 override fun onAdLoaded(rewardedAd: RewardedAd) {
@@ -280,13 +283,13 @@ object FrogoAdmob : IFrogoAdmob {
                     FLog.d("$TAG [RewardedAd] >> Succes - onAdLoaded [message] : Ad was loaded")
                     FLog.d("$TAG [RewardedAd] >> Succes - onAdLoaded [unit id] : ${rewardedAd.adUnitId}")
                     FLog.d("$TAG [RewardedAd] >> Succes - onAdLoaded [response Info] : ${rewardedAd.responseInfo}")
-                    callback.onAdLoaded("RewardedAd was loaded")
+                    callback.onAdLoaded(TAG, "RewardedAd was loaded")
                     rewardedAd.fullScreenContentCallback =
                         object : FullScreenContentCallback() {
                             override fun onAdDismissedFullScreenContent() {
                                 FLog.d("$TAG [Rewarded] >> Run - IFrogoAdRewarded [callback] : onAdDismissed()")
                                 FLog.d("$TAG [Rewarded] >> Succes - onAdDismissedFullScreenContent [message] : Ad was dismissed")
-                                callback.onAdDismissed("Rewarded Ad was dismissed")
+                                callback.onAdDismissed(TAG, "Rewarded Ad was dismissed")
                             }
 
                             override fun onAdFailedToShowFullScreenContent(adError: AdError?) {
@@ -295,13 +298,13 @@ object FrogoAdmob : IFrogoAdmob {
                                 FLog.e("$TAG [Rewarded] >> Error - onAdFailedToShowFullScreenContent [domain] : ${adError?.domain}")
                                 FLog.e("$TAG [Rewarded] >> Error - onAdFailedToShowFullScreenContent [message] : ${adError?.message}")
                                 FLog.e("$TAG [Rewarded] >> Error : Ad failed to show")
-                                callback.onAdFailed("Interstitial Ad failed to show")
+                                callback.onAdFailed(TAG, "Interstitial Ad failed to show")
                             }
 
                             override fun onAdShowedFullScreenContent() {
                                 FLog.d("$TAG [Rewarded] >> Run - IFrogoAdRewarded [callback] : onAdShowed()")
                                 FLog.d("$TAG [Rewarded] >> Succes - onAdShowedFullScreenContent [message] : Ad showed fullscreen content")
-                                callback.onAdShowed("Rewarded Ad showed fullscreen content")
+                                callback.onAdShowed(TAG, "Rewarded Ad showed fullscreen content")
                             }
                         }
 
@@ -309,7 +312,7 @@ object FrogoAdmob : IFrogoAdmob {
                         FLog.d("$TAG [RewardedAd] >> Suggest : You Can Give Your Reward Here")
                         FLog.d("$TAG [RewardedAd] >> User Earned [ammount] : ${it.amount}")
                         FLog.d("$TAG [RewardedAd] >> User Earned [type] : ${it.type}")
-                        callback.onUserEarnedReward(it)
+                        callback.onUserEarnedReward(TAG, it)
                     }
                 }
             })
@@ -333,7 +336,7 @@ object FrogoAdmob : IFrogoAdmob {
                     FLog.e("$TAG [RewardedInterstitial] >> Error - onAdFailedToLoad [code] : ${loadAdError.code}")
                     FLog.e("$TAG [RewardedInterstitial] >> Error - onAdFailedToLoad [domain] : ${loadAdError.domain}")
                     FLog.e("$TAG [RewardedInterstitial] >> Error - onAdFailedToLoad [message] : ${loadAdError.message}")
-                    callback.onAdFailed("RewardedInterstitial ${loadAdError.message}")
+                    callback.onAdFailed(TAG, "RewardedInterstitial ${loadAdError.message}")
                 }
 
                 override fun onAdLoaded(ad: RewardedInterstitialAd) {
@@ -341,13 +344,13 @@ object FrogoAdmob : IFrogoAdmob {
                     FLog.d("$TAG [RewardedInterstitial] >> Succes - onAdLoaded [message] : Ad was loaded")
                     FLog.d("$TAG [RewardedInterstitial] >> Succes - onAdLoaded [unit id] : ${ad.adUnitId}")
                     FLog.d("$TAG [RewardedInterstitial] >> Succes - onAdLoaded [response Info] : ${ad.responseInfo}")
-                    callback.onAdLoaded("RewardedInterstitial Ad was loaded")
+                    callback.onAdLoaded(TAG, "RewardedInterstitial Ad was loaded")
                     ad.fullScreenContentCallback =
                         object : FullScreenContentCallback() {
                             override fun onAdDismissedFullScreenContent() {
                                 FLog.d("$TAG [RewardedInterstitial] >> Run - IFrogoAdRewarded [callback] : onAdDismissed()")
                                 FLog.d("$TAG [RewardedInterstitial] >> Succes - onAdDismissedFullScreenContent [message] : Ad was dismissed")
-                                callback.onAdDismissed("RewardedInterstitial Ad was dismissed")
+                                callback.onAdDismissed(TAG, "RewardedInterstitial Ad was dismissed")
                             }
 
                             override fun onAdFailedToShowFullScreenContent(adError: AdError?) {
@@ -356,18 +359,21 @@ object FrogoAdmob : IFrogoAdmob {
                                 FLog.e("$TAG [RewardedInterstitial] >> Error - onAdFailedToShowFullScreenContent [domain] : ${adError?.domain}")
                                 FLog.e("$TAG [RewardedInterstitial] >> Error - onAdFailedToShowFullScreenContent [message] : ${adError?.message}")
                                 FLog.e("$TAG [RewardedInterstitial] >> Error : Ad failed to show")
-                                callback.onAdFailed("RewardedInterstitial Ad failed to show")
+                                callback.onAdFailed(TAG, "RewardedInterstitial Ad failed to show")
                             }
 
                             override fun onAdShowedFullScreenContent() {
                                 FLog.d("$TAG [RewardedInterstitial] >> Run - IFrogoAdRewarded [callback] : onAdShowed()")
                                 FLog.d("$TAG [RewardedInterstitial] >> Succes - onAdShowedFullScreenContent [message] : Ad showed fullscreen content")
-                                callback.onAdShowed("RewardedInterstitial Ad showed fullscreen content")
+                                callback.onAdShowed(
+                                    TAG,
+                                    "RewardedInterstitial Ad showed fullscreen content"
+                                )
                             }
                         }
 
                     ad.show(activity) {
-                        callback.onUserEarnedReward(it)
+                        callback.onUserEarnedReward(TAG, it)
                     }
 
                 }

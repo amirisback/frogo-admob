@@ -1,9 +1,7 @@
 package com.frogobox.admob.ui
 
 import android.widget.RelativeLayout
-import com.frogobox.admob.core.IFrogoAdBanner
-import com.frogobox.admob.core.IFrogoAdInterstitial
-import com.frogobox.admob.core.IFrogoAdRewarded
+import com.frogobox.admob.core.*
 import com.google.android.gms.ads.AdSize
 import com.google.android.gms.ads.AdView
 
@@ -55,6 +53,47 @@ interface IFrogoAdmobActivity {
     fun showAdRewarded(mAdUnitIdRewarded: String, callback: IFrogoAdRewarded)
 
     // Show Rewarded Interstitial Ads
-    fun showAdRewardedInterstitial(mAdUnitIdRewardedInterstitial: String, callback: IFrogoAdRewarded)
+    fun showAdRewardedInterstitial(
+        mAdUnitIdRewardedInterstitial: String,
+        callback: IFrogoAdRewarded
+    )
+
+    // ---------------------------------------------------------------------------------------------
+
+    // Unity Ads
+
+    fun setupUnityAdApp(
+        testMode: Boolean,
+        unityGameId: String
+    )
+
+    fun setupUnityAdApp(
+        testMode: Boolean,
+        unityGameId: String,
+        callback: IFrogoUnityAdInitialization
+    )
+
+    fun showUnityAdInterstitial(
+        adInterstitialUnitId: String
+    )
+
+    fun showUnityAdInterstitial(
+        adInterstitialUnitId: String,
+        callback: IFrogoUnityAdInterstitial
+    )
+
+    // ---------------------------------------------------------------------------------------------
+
+    fun showAdmobXUnityAdInterstitial(
+        admobInterstitialId: String,
+        unityInterstitialId: String,
+        callback: IFrogoMixedAdsInterstitial
+    )
+
+    fun showUnityXAdmobAdInterstitial(
+        admobInterstitialId: String,
+        unityInterstitialId: String,
+        callback: IFrogoMixedAdsInterstitial
+    )
 
 }

@@ -48,15 +48,15 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
             btnRewarded.setOnClickListener {
                 showAdRewarded(getString(R.string.admob_rewarded), object : IFrogoAdRewarded {
 
-                    override fun onUserEarnedReward(rewardItem: RewardItem) {}
+                    override fun onUserEarnedReward(tag: String, rewardItem: RewardItem) {}
 
-                    override fun onAdDismissed(message: String) {}
+                    override fun onAdDismissed(tag: String, message: String) {}
 
-                    override fun onAdFailed(errorMessage: String) {}
+                    override fun onAdFailed(tag: String, errorMessage: String) {}
 
-                    override fun onAdLoaded(message: String) {}
+                    override fun onAdLoaded(tag: String, message: String) {}
 
-                    override fun onAdShowed(message: String) {}
+                    override fun onAdShowed(tag: String, message: String) {}
 
                 })
             }
@@ -65,15 +65,15 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
                 showAdRewardedInterstitial(getString(R.string.admob_rewarded_interstitial),
                     object : IFrogoAdRewarded {
 
-                        override fun onUserEarnedReward(rewardItem: RewardItem) {}
+                        override fun onUserEarnedReward(tag: String, rewardItem: RewardItem) {}
 
-                        override fun onAdDismissed(message: String) {}
+                        override fun onAdDismissed(tag: String, message: String) {}
 
-                        override fun onAdFailed(errorMessage: String) {}
+                        override fun onAdFailed(tag: String, errorMessage: String) {}
 
-                        override fun onAdLoaded(message: String) {}
+                        override fun onAdLoaded(tag: String, message: String) {}
 
-                        override fun onAdShowed(message: String) {}
+                        override fun onAdShowed(tag: String, message: String) {}
 
                     })
             }

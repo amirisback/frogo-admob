@@ -53,9 +53,9 @@ abstract class BaseActivity<VB : ViewBinding> : FrogoAdmobActivity() {
             object : FrogoAdmobApiResponse<FrogoAdmobId> {
                 override fun onSuccess(data: FrogoAdmobId) {
                     runOnUiThread {
-                        FLog.d(data.appId)
-                        FLog.d(data.bannerID[0])
-                        FLog.d(data.interstitialID[0])
+                        FLog.d(data.admobAppId)
+                        FLog.d(data.admobBannerID[0])
+                        FLog.d(data.admobInterstitialID[0])
                         FLog.d(data.testAdmobAppId)
                         FLog.d(data.testAdmobBanner)
                         FLog.d(data.testAdmobInterstitial)

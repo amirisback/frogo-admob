@@ -42,39 +42,58 @@ public class MainJavaActivity extends BaseJavaActivity {
         binding.btnRewarded.setOnClickListener(view -> showAdRewarded(getString(R.string.admob_rewarded), new IFrogoAdRewarded() {
 
             @Override
-            public void onUserEarnedReward(@NonNull RewardItem rewardItem) { }
+            public void onUserEarnedReward(@NonNull String tag, @NonNull RewardItem rewardItem) {
+
+            }
 
             @Override
-            public void onAdShowed(@NonNull String message) { }
+            public void onAdShowed(@NonNull String tag, @NonNull String message) {
+
+            }
 
             @Override
-            public void onAdLoaded(@NonNull String message) { }
+            public void onAdLoaded(@NonNull String tag, @NonNull String message) {
+
+            }
 
             @Override
-            public void onAdFailed(@NonNull String errorMessage) { }
+            public void onAdFailed(@NonNull String tag, @NonNull String errorMessage) {
+
+            }
 
             @Override
-            public void onAdDismissed(@NonNull String message) { }
+            public void onAdDismissed(@NonNull String tag, @NonNull String message) {
 
+            }
         }));
 
         binding.btnRewardedInterstitial.setOnClickListener(view -> showAdRewardedInterstitial(getString(R.string.admob_rewarded_interstitial), new IFrogoAdRewarded() {
 
-            @Override
-            public void onUserEarnedReward(@NonNull RewardItem rewardItem) { }
 
             @Override
-            public void onAdShowed(@NonNull String message) { }
+            public void onUserEarnedReward(@NonNull String tag, @NonNull RewardItem rewardItem) {
+
+            }
 
             @Override
-            public void onAdLoaded(@NonNull String message) { }
+            public void onAdShowed(@NonNull String tag, @NonNull String message) {
+
+            }
 
             @Override
-            public void onAdFailed(@NonNull String errorMessage) { }
+            public void onAdLoaded(@NonNull String tag, @NonNull String message) {
+
+            }
 
             @Override
-            public void onAdDismissed(@NonNull String message) { }
+            public void onAdFailed(@NonNull String tag, @NonNull String errorMessage) {
 
+            }
+
+            @Override
+            public void onAdDismissed(@NonNull String tag, @NonNull String message) {
+
+            }
         }));
 
     }

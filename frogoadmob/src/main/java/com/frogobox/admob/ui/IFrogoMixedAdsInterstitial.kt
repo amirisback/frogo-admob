@@ -1,10 +1,10 @@
-package com.frogobox.admob.core
+package com.frogobox.admob.ui
 
-import com.google.android.gms.ads.rewarded.RewardItem
+import com.frogobox.admob.core.IFrogoUnityAdInterstitial
 
 
 /*
- * Created by faisalamir on 13/03/22
+ * Created by faisalamir on 22/03/22
  * FrogoAdmob
  * -----------------------------------------
  * Name     : Muhammad Faisal Amir
@@ -16,8 +16,6 @@ import com.google.android.gms.ads.rewarded.RewardItem
  *
  */
 
-interface IFrogoAdRewarded : IFrogoAdInterstitial {
-
-    fun onUserEarnedReward(tag: String, rewardItem: RewardItem)
+interface IFrogoMixedAdsInterstitial : IFrogoUnityAdInterstitial {
 
 }

@@ -1,6 +1,8 @@
 package com.frogobox.admob.source
 
 import com.frogobox.admob.model.FrogoAdmobId
+import com.frogobox.admob.model.FrogoMonetizeId
+import com.frogobox.admob.model.FrogoUnityId
 import com.frogobox.coresdk.FrogoApiClient
 import com.frogobox.coresdk.FrogoApiObserver
 import com.frogobox.frogolog.FLog
@@ -61,4 +63,45 @@ class FrogoAdmobRepository(private val baseUrl: String) : FrogoAdmobDataSource {
             })
     }
 
+    override fun getFrogoMonetizeId(
+        jsonFileName: String,
+        callback: FrogoAdmobApiResponse<FrogoMonetizeId>
+    ) {
+        FLog.d("$TAG : Get Data From Json Server FrogoMonetizeId")
+        frogoAdmobApiService.getMonetizeId(jsonFileName)
+            .subscribeOn(Schedulers.io())
+            .observeOn(AndroidSchedulers.mainThread())
+            .doOnSubscribe { callback.onShowProgress() }
+            .doOnTerminate { callback.onHideProgress() }
+            .subscribe(object : FrogoApiObserver<FrogoMonetizeId>() {
+                override fun onSuccess(data: FrogoMonetizeId) {
+                    callback.onSuccess(data)
+                }
+
+                override fun onFailure(code: Int, errorMessage: String) {
+                    callback.onFailed(code, errorMessage)
+                }
+            })
+    }
+
+    override fun getFrogoUnityId(
+        jsonFileName: String,
+        callback: FrogoAdmobApiResponse<FrogoUnityId>
+    ) {
+        FLog.d("$TAG : Get Data From Json Server FrogoUnityId")
+        frogoAdmobApiService.getUnityId(jsonFileName)
+            .subscribeOn(Schedulers.io())
+            .observeOn(AndroidSchedulers.mainThread())
+            .doOnSubscribe { callback.onShowProgress() }
+            .doOnTerminate { callback.onHideProgress() }
+            .subscribe(object : FrogoApiObserver<FrogoUnityId>() {
+                override fun onSuccess(data: FrogoUnityId) {
+                    callback.onSuccess(data)
+                }
+
+                override fun onFailure(code: Int, errorMessage: String) {
+                    callback.onFailed(code, errorMessage)
+                }
+            })
+    }
 }
