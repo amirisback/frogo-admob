@@ -1,24 +1,48 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:gravity="center"
     android:padding="@dimen/frogo_dimen_16dp"
     tools:context=".mvvm.main.InterstitialActivity">
 
     <Button
-        android:id="@+id/btn_interstitial"
+        android:id="@+id/btn_admob_interstitial"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Easy Interstitial"/>
+        android:text="Admob Easy Interstitial" />
 
     <Button
-        android:id="@+id/btn_interstitial_callback"
+        android:id="@+id/btn_admob_interstitial_callback"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Interstital Callback"/>
+        android:layout_marginBottom="@dimen/frogo_dimen_16dp"
+        android:text="Admob Interstital Callback" />
+
+    <Button
+        android:id="@+id/btn_unity_interstitial"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Unity Ads Easy Interstitial" />
+
+    <Button
+        android:id="@+id/btn_unity_interstitial_callback"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/frogo_dimen_16dp"
+        android:text="Unity Ads Interstital Callback" />
+
+    <Button
+        android:id="@+id/btn_admob_x_unity_interstitial"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Admob >> Unity Interstitial" />
+
+    <Button
+        android:id="@+id/btn_unity_x_admob_interstitial_callback"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Unity >> Admob Interstital" />
 
 </LinearLayout>

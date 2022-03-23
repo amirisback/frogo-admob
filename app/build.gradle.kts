@@ -27,14 +27,18 @@ android {
         resValue("string", "app_name", ProjectSetting.NAME_APP)
 
         // Inject admob id for debug
-        resValue("string", "admob_app_id", AdmobValue.debugAdmobAppId)
-        resValue("string", "admob_banner", AdmobValue.debugAdmobBanner)
-        resValue("string", "admob_interstitial", AdmobValue.debugAdmobInterstitial)
-        resValue("string", "admob_interstitial_video", AdmobValue.debugAdmobInterstitialVideo)
-        resValue("string", "admob_rewarded", AdmobValue.debugAdmobRewarded)
-        resValue("string", "admob_rewarded_interstitial", AdmobValue.debugAdmobRewardedInterstitial)
-        resValue("string", "admob_native_advanced", AdmobValue.debugAdmobNativeAdvanced)
-        resValue("string", "admob_native_advanced_video", AdmobValue.debugAdmobNativeAdvancedVideo)
+        resValue("string", "admob_app_id", AdValue.debugAdmobAppId)
+        resValue("string", "admob_banner", AdValue.debugAdmobBanner)
+        resValue("string", "admob_interstitial", AdValue.debugAdmobInterstitial)
+        resValue("string", "admob_interstitial_video", AdValue.debugAdmobInterstitialVideo)
+        resValue("string", "admob_rewarded", AdValue.debugAdmobRewarded)
+        resValue("string", "admob_rewarded_interstitial", AdValue.debugAdmobRewardedInterstitial)
+        resValue("string", "admob_native_advanced", AdValue.debugAdmobNativeAdvanced)
+        resValue("string", "admob_native_advanced_video", AdValue.debugAdmobNativeAdvancedVideo)
+
+        resValue("string", "unity_ad_game_id", AdValue.debugUnityAdGameId)
+        resValue("string", "unity_ad_interstitial", AdValue.debugUnityAdInterstitial)
+
     }
 
     signingConfigs {
@@ -65,14 +69,17 @@ android {
             resValue("string", "app_name", ProjectSetting.NAME_APP)
 
             // Inject admob id for release
-            resValue("string", "admob_app_id", AdmobValue.releaseAdmobAppId)
-            resValue("string", "admob_banner", AdmobValue.releaseAdmobBanner)
-            resValue("string", "admob_interstitial", AdmobValue.releaseAdmobInterstitial)
-            resValue("string", "admob_interstitial_video", AdmobValue.releaseAdmobInterstitialVideo)
-            resValue("string", "admob_rewarded", AdmobValue.releaseAdmobRewarded)
-            resValue("string", "admob_rewarded_interstitial", AdmobValue.releaseAdmobRewardedInterstitial)
-            resValue("string", "admob_native_advanced", AdmobValue.releaseAdmobNativeAdvanced)
-            resValue("string", "admob_native_advanced_video", AdmobValue.releaseAdmobNativeAdvancedVideo)
+            resValue("string", "admob_app_id", AdValue.releaseAdmobAppId)
+            resValue("string", "admob_banner", AdValue.releaseAdmobBanner)
+            resValue("string", "admob_interstitial", AdValue.releaseAdmobInterstitial)
+            resValue("string", "admob_interstitial_video", AdValue.releaseAdmobInterstitialVideo)
+            resValue("string", "admob_rewarded", AdValue.releaseAdmobRewarded)
+            resValue("string", "admob_rewarded_interstitial", AdValue.releaseAdmobRewardedInterstitial)
+            resValue("string", "admob_native_advanced", AdValue.releaseAdmobNativeAdvanced)
+            resValue("string", "admob_native_advanced_video", AdValue.releaseAdmobNativeAdvancedVideo)
+
+            resValue("string", "unity_ad_game_id", AdValue.releaseUnityAdGameId)
+            resValue("string", "unity_ad_interstitial", AdValue.releaseUnityAdInterstitial)
 
         }
     }

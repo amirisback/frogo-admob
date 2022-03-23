@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
 import com.frogobox.admob.core.IFrogoAdRewarded
+import com.frogobox.appadmob.BuildConfig
 import com.frogobox.appadmob.R
 import com.frogobox.appadmob.base.BaseActivity
 import com.frogobox.appadmob.databinding.ActivityMainBinding
@@ -26,6 +27,7 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
         requestAdmobApi()
         setupButtonClick()
         setupBannerAds()
+        setupUnityAdApp(BuildConfig.DEBUG, getString(R.string.unity_ad_game_id))
     }
 
     private fun setupBannerAds() {
@@ -115,6 +117,4 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
             else -> super.onOptionsItemSelected(item)
         }
     }
-
-
 }

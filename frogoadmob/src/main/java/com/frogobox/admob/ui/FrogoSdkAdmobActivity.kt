@@ -138,7 +138,7 @@ abstract class FrogoSdkAdmobActivity<VB : ViewBinding> : FrogoActivity<VB>(), IF
                         }
 
                         override fun onAdDismissed(tag: String, message: String) {
-                            callback.onClicked(tag, message)
+                            callback.onAdDismissed(tag, message)
                         }
 
                         override fun onAdFailed(tag: String, errorMessage: String) {
@@ -181,7 +181,7 @@ abstract class FrogoSdkAdmobActivity<VB : ViewBinding> : FrogoActivity<VB>(), IF
                     object : IFrogoAdInterstitial {
 
                         override fun onAdDismissed(tag: String, message: String) {
-                            callback.onClicked(tag, message)
+                            callback.onAdDismissed(tag, message)
                         }
 
                         override fun onAdFailed(tag: String, errorMessage: String) {
