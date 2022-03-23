@@ -19,10 +19,10 @@
     "ca-app-pub-3940256099942544/5224354917",
     "ca-app-pub-3940256099942544/5224354917"
   ],
-  "unityGameID": "",
+  "unityGameID": "4416083",
   "unityInterstitialID": [
-    "",
-    "",
+    "Interstitial_Android",
+    "boo",
     ""
   ],
   "unityBannerId": [
