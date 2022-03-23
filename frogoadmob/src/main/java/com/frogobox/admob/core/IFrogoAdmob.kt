@@ -33,7 +33,7 @@ interface IFrogoAdmob {
 
     fun showAdBanner(
         mAdView: AdView,
-        listener: IFrogoAdBanner
+        callback: IFrogoAdBanner
     )
 
     fun showAdBannerContainer(
@@ -48,7 +48,7 @@ interface IFrogoAdmob {
         bannerAdUnitId: String,
         mAdsSize: AdSize,
         container: RelativeLayout,
-        listener: IFrogoAdBanner
+        callback: IFrogoAdBanner
     )
 
     // ---------------------------------------------------------------------------------------------

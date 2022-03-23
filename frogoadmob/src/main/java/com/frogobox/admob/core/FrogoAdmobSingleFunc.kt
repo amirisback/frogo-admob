@@ -20,10 +20,12 @@ object FrogoAdmobSingleFunc {
 
     val TAG = FrogoAdmobSingleFunc::class.java.simpleName
 
+    const val LINE = "------------------------------------------------------------------------------------------------"
+
     fun waterMark() {
-        FLog.w("------------------------------------------------------------------------------------------------")
+        FLog.w(LINE)
         FLog.w("You are using Frogo Admob, Created by Muhammmad Faisal Amir, Please follow github.com/amirisback")
-        FLog.w("------------------------------------------------------------------------------------------------")
+        FLog.w(LINE)
     }
 
 }
