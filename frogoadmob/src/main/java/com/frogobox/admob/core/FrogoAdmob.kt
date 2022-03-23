@@ -38,6 +38,7 @@ object FrogoAdmob : IFrogoAdmob {
 
     override fun setupAdmobApp(context: Context) {
         MobileAds.initialize(context) {}
+        FrogoAdmobSingleFunc.waterMark()
         FLog.d("$TAG >> Setup MobileAds : Admob mobile Ads Initialized")
     }
 
@@ -46,10 +47,12 @@ object FrogoAdmob : IFrogoAdmob {
     private fun frogoAdListener(): AdListener {
         return object : AdListener() {
             override fun onAdLoaded() {
+                FrogoAdmobSingleFunc.waterMark()
                 FLog.d("$TAG [Banner] >> Success - onAdLoaded [message] : Ad Banner onAdLoaded")
             }
 
             override fun onAdFailedToLoad(p0: LoadAdError) {
+                FrogoAdmobSingleFunc.waterMark()
                 FLog.e("$TAG [Banner] >> Error - onAdFailedToLoad [code] : ${p0.code}")
                 FLog.e("$TAG [Banner] >> Error - onAdFailedToLoad [domain] : ${p0.domain}")
                 FLog.e("$TAG [Banner] >> Error - onAdFailedToLoad [message] : ${p0.message}")
@@ -72,12 +75,14 @@ object FrogoAdmob : IFrogoAdmob {
     private fun frogoAdListener(callback: IFrogoAdBanner): AdListener {
         return object : AdListener() {
             override fun onAdLoaded() {
+                FrogoAdmobSingleFunc.waterMark()
                 FLog.d("$TAG [Banner] >> Run - IFrogoAdBanner [callback] : onAdLoaded()")
                 FLog.d("$TAG [Banner] >> Success - onAdLoaded [message] : Ad Banner onAdLoaded")
                 callback.onAdLoaded(TAG, "Ad Banner onAdLoaded")
             }
 
             override fun onAdFailedToLoad(p0: LoadAdError) {
+                FrogoAdmobSingleFunc.waterMark()
                 FLog.e("$TAG [Banner] >> Run - IFrogoAdBanner [callback] : onAdFailedToLoad()")
 
                 FLog.e("$TAG [Banner] >> Error - onAdFailedToLoad [code] : ${p0.code}")
@@ -161,12 +166,14 @@ object FrogoAdmob : IFrogoAdmob {
             AdRequest.Builder().build(),
             object : InterstitialAdLoadCallback() {
                 override fun onAdFailedToLoad(adError: LoadAdError) {
+                    FrogoAdmobSingleFunc.waterMark()
                     FLog.e("$TAG [Interstitial] >> Error - onAdFailedToLoad [code] : ${adError.code}")
                     FLog.e("$TAG [Interstitial] >> Error - onAdFailedToLoad [domain] : ${adError.domain}")
                     FLog.e("$TAG [Interstitial] >> Error - onAdFailedToLoad [message] : ${adError.message}")
                 }
 
                 override fun onAdLoaded(interstitialAd: InterstitialAd) {
+                    FrogoAdmobSingleFunc.waterMark()
                     FLog.d("$TAG [Interstitial] >> Succes - onAdLoaded [message] : Ad was loaded")
                     FLog.d("$TAG [Interstitial] >> Succes - onAdLoaded [unit id] : ${interstitialAd.adUnitId}")
                     FLog.d("$TAG [Interstitial] >> Succes - onAdLoaded [response Info] : ${interstitialAd.responseInfo}")
@@ -209,6 +216,7 @@ object FrogoAdmob : IFrogoAdmob {
             AdRequest.Builder().build(),
             object : InterstitialAdLoadCallback() {
                 override fun onAdFailedToLoad(adError: LoadAdError) {
+                    FrogoAdmobSingleFunc.waterMark()
                     FLog.e("$TAG [Interstitial] >> Run - IFrogoAdInterstitial [callback] : onAdFailedToLoad()")
                     FLog.e("$TAG [Interstitial] >> Error - onAdFailedToLoad [code] : ${adError.code}")
                     FLog.e("$TAG [Interstitial] >> Error - onAdFailedToLoad [domain] : ${adError.domain}")
@@ -217,6 +225,7 @@ object FrogoAdmob : IFrogoAdmob {
                 }
 
                 override fun onAdLoaded(interstitialAd: InterstitialAd) {
+                    FrogoAdmobSingleFunc.waterMark()
                     FLog.d("$TAG [Interstitial] >> Run - IFrogoAdInterstitial [callback] : onAdLoaded()")
                     FLog.d("$TAG [Interstitial] >> Succes - onAdLoaded [message] : Ad was loaded")
                     FLog.d("$TAG [Interstitial] >> Succes - onAdLoaded [unit id] : ${interstitialAd.adUnitId}")
@@ -271,6 +280,7 @@ object FrogoAdmob : IFrogoAdmob {
             AdRequest.Builder().build(),
             object : RewardedAdLoadCallback() {
                 override fun onAdFailedToLoad(adError: LoadAdError) {
+                    FrogoAdmobSingleFunc.waterMark()
                     FLog.e("$TAG [RewardedAd] >> Run - IFrogoAdRewarded [callback] : onAdFailedToLoad()")
                     FLog.e("$TAG [RewardedAd] >> Error - onAdFailedToLoad [code] : ${adError.code}")
                     FLog.e("$TAG [RewardedAd] >> Error - onAdFailedToLoad [domain] : ${adError.domain}")
@@ -279,6 +289,7 @@ object FrogoAdmob : IFrogoAdmob {
                 }
 
                 override fun onAdLoaded(rewardedAd: RewardedAd) {
+                    FrogoAdmobSingleFunc.waterMark()
                     FLog.d("$TAG [RewardedAd] >> Run - IFrogoAdRewarded [callback] : onAdLoaded()")
                     FLog.d("$TAG [RewardedAd] >> Succes - onAdLoaded [message] : Ad was loaded")
                     FLog.d("$TAG [RewardedAd] >> Succes - onAdLoaded [unit id] : ${rewardedAd.adUnitId}")
