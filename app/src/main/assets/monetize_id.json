@@ -22,8 +22,8 @@
   "unityGameID": "4416083",
   "unityInterstitialID": [
     "Interstitial_Android",
-    "boo",
-    ""
+    "",
+    "Interstitial_Android"
   ],
   "unityBannerId": [
     "",
