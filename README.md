@@ -27,7 +27,11 @@
 
 ## Version Release
 
-    $version_release = 4.2.6
+    $version_release = 4.2.7
+
+    // Suport Library
+    $admob_version = 20.6.0
+    $unity_ad_version = 4.0.1
 
 What's New??
 
@@ -72,21 +76,27 @@ allprojects {
 #### <Option 1> Groovy
 
 	dependencies {
-	        // library google ads
-            implementation 'com.google.android.gms:play-services-ads:${latest_version}'
+	        // library google admob
+            implementation 'com.google.android.gms:play-services-ads:${admob_version}'
+
+            // library unity ads
+            implementation 'com.unity3d.ads:unity-ads:${unity_ad_version}'
 
             // library frogo-admob-helper
-	        implementation 'com.github.amirisback:frogo-admob:4.2.6'
+	        implementation 'com.github.amirisback:frogo-admob:4.2.7'
 	}
 
 #### <Option 2> Kotlin DSL
 
 	dependencies {
-	        // library google ads
-            implementation("com.google.android.gms:play-services-ads:${latest_version}")
+	        // library google admob
+            implementation("com.google.android.gms:play-services-ads:${admob_version}")
+
+            // library unity ads
+            implementation("com.unity3d.ads:unity-ads:${unity_ad_version}")
 
             // library frogo-admob-helper
-	        implementation("com.github.amirisback:frogo-admob:4.2.6")
+	        implementation("com.github.amirisback:frogo-admob:4.2.7")
 	}
 	
 ### Step 3. Adding meta-data on AndroidManifest.xml
