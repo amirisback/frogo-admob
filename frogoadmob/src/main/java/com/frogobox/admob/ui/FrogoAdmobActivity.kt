@@ -141,7 +141,7 @@ abstract class FrogoAdmobActivity : AppCompatActivity(), IFrogoAdmobActivity {
                         }
 
                         override fun onAdDismissed(tag: String, message: String) {
-                            callback.onClicked(tag, message)
+                            callback.onAdDismissed(tag, message)
                         }
 
                         override fun onAdFailed(tag: String, errorMessage: String) {
@@ -184,7 +184,7 @@ abstract class FrogoAdmobActivity : AppCompatActivity(), IFrogoAdmobActivity {
                     object : IFrogoAdInterstitial {
 
                         override fun onAdDismissed(tag: String, message: String) {
-                            callback.onClicked(tag, message)
+                            callback.onAdDismissed(tag, message)
                         }
 
                         override fun onAdFailed(tag: String, errorMessage: String) {
