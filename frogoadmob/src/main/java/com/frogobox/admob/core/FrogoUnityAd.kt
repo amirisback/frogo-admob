@@ -44,6 +44,7 @@ object FrogoUnityAd {
                             error: UnityAds.UnityAdsInitializationError?,
                             message: String?
                         ) {
+                            FLog.e("$TAG [Unity Initialization] >> Error - Unity Game Id : $unityGameId")
                             FLog.e("$TAG [Unity Initialization] >> Error - onInitializationFailed [error] : $error")
                             FLog.e("$TAG [Unity Initialization] >> Error - onInitializationFailed [message] : $message")
                         }
@@ -87,6 +88,7 @@ object FrogoUnityAd {
                             error: UnityAds.UnityAdsInitializationError?,
                             message: String?
                         ) {
+                            FLog.e("$TAG [Unity Initialization] >> Error - Unity Game Id : $unityGameId")
                             FLog.e("$TAG [Unity Initialization] >> Error - onInitializationFailed [error] : $error")
                             FLog.e("$TAG [Unity Initialization] >> Error - onInitializationFailed [message] : $message")
                             callback.onInitializationFailed(
@@ -127,6 +129,7 @@ object FrogoUnityAd {
                                     error: UnityAds.UnityAdsShowError,
                                     message: String
                                 ) {
+                                    FLog.e("$TAG [Unity showAdInterstitial] >> Error - Unity Ad Interstitial [Unit Id] : $adInterstitialUnitId")
                                     FLog.e("$TAG [Unity showAdInterstitial] >> Error - onUnityAdsShowFailure [placementId] : $placementId")
                                     FLog.e("$TAG [Unity showAdInterstitial] >> Error - onUnityAdsShowFailure [error] : $error")
                                     FLog.e("$TAG [Unity showAdInterstitial] >> Error - onUnityAdsShowFailure [message] : ${UnityAds.isInitialized()}")
@@ -155,6 +158,7 @@ object FrogoUnityAd {
                         error: UnityAds.UnityAdsLoadError,
                         message: String
                     ) {
+                        FLog.e("$TAG [Unity showAdInterstitial] >> Error - Unity Ad Interstitial [Unit Id] : $adInterstitialUnitId")
                         FLog.e("$TAG [Unity showAdInterstitial] >> Error - onUnityAdsFailedToLoad [placementId] : $placementId")
                         FLog.e("$TAG [Unity showAdInterstitial] >> Error - onUnityAdsFailedToLoad [error] : $error")
                         FLog.e("$TAG [Unity showAdInterstitial] >> Error - onUnityAdsFailedToLoad [message] : ${UnityAds.isInitialized()}")

@@ -18,5 +18,4 @@ class MainFragment : BaseFragment<FragmentMainBinding>() {
         return FragmentMainBinding.inflate(inflater, container, false)
     }
 
-
 }

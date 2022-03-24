@@ -19,7 +19,6 @@ class InterstitialActivity : FrogoSdkAdmobActivity<ActivityInterstitialBinding>(
 
     override fun setupOnCreate(savedInstanceState: Bundle?) {
         setupDetailActivity("Sample Frogo Sdk Admob 2")
-        setupUnityAdApp(BuildConfig.DEBUG, getString(R.string.unity_ad_game_id))
         setupUI()
     }
 

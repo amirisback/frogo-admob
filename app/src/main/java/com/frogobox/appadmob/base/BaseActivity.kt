@@ -12,6 +12,8 @@ import com.frogobox.admob.model.FrogoAdmobId
 import com.frogobox.admob.source.FrogoAdmobApiResponse
 import com.frogobox.admob.source.FrogoAdmobRepository
 import com.frogobox.admob.ui.FrogoAdmobActivity
+import com.frogobox.appadmob.BuildConfig
+import com.frogobox.appadmob.R
 import com.frogobox.frogolog.FLog
 import com.google.gson.Gson
 
@@ -41,6 +43,7 @@ abstract class BaseActivity<VB : ViewBinding> : FrogoAdmobActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
+        setupUnityAdApp(BuildConfig.DEBUG, getString(R.string.unity_ad_game_id))
     }
 
     protected fun requestAdmobApi() {

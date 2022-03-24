@@ -27,7 +27,6 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
         requestAdmobApi()
         setupButtonClick()
         setupBannerAds()
-        setupUnityAdApp(BuildConfig.DEBUG, getString(R.string.unity_ad_game_id))
     }
 
     private fun setupBannerAds() {
