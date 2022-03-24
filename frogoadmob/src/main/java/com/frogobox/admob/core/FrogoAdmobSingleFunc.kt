@@ -23,7 +23,6 @@ object FrogoAdmobSingleFunc {
     const val LINE = "------------------------------------------------------------------------------------------------"
 
     fun waterMark() {
-        FLog.w(LINE)
         FLog.w("You are using Frogo Admob, Created by Muhammmad Faisal Amir, Please follow github.com/amirisback")
         FLog.w(LINE)
     }
