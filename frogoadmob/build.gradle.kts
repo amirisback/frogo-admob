@@ -73,20 +73,21 @@ dependencies {
     implementation(Androidx.Compose.uiTooling)
     implementation(Androidx.Compose.activity)
 
-    implementation("com.unity3d.ads:unity-ads:4.0.1")
-    implementation("com.google.ads.mediation:unity:4.0.1.0")
+    implementation(Ad.unityAds)
+    implementation(Google.adMediationUnityAd)
 
     implementation(Google.gson)
     implementation(Google.material)
     implementation(Google.admob)
-
-    implementation(Util.glide)
+    implementation(Google.userMessagingPlatform)
 
     implementation(Square.Retrofit2.retrofit)
     implementation(Square.Retrofit2.converterGson)
     implementation(Square.Retrofit2.adapterRxJava3)
     implementation(Reactivex.rxJava3)
     implementation(Reactivex.rxAndroid3)
+
+    implementation(Util.glide)
 
     implementation(Frogo.log(DependencyGradle.FROGO_LOG))
     implementation(Frogo.sdk(DependencyGradle.FROGO_SDK))

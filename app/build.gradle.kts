@@ -127,22 +127,20 @@ dependencies {
     implementation(Androidx.Compose.uiTooling)
     implementation(Androidx.Compose.activity)
 
+    implementation(Ad.unityAds)
+    implementation(Google.adMediationUnityAd)
     implementation(Google.gson)
     implementation(Google.material)
     implementation(Google.admob)
-
-    implementation(Util.glide)
-
+    
     implementation(Frogo.ui(DependencyGradle.FROGO_UI))
     implementation(Frogo.sdk(DependencyGradle.FROGO_SDK))
     implementation(Frogo.log(DependencyGradle.FROGO_LOG))
     implementation(Frogo.recyclerView(DependencyGradle.FROGO_RECYCLER_VIEW))
     implementation(Frogo.consumeApi(DependencyGradle.FROGO_CONSUME_API))
 
-    implementation("com.unity3d.ads:unity-ads:4.0.1")
-    implementation("com.google.ads.mediation:unity:4.0.1.0")
-
-    implementation("com.github.chuckerteam.chucker:library:3.5.2")
+    implementation(Util.glide)
+    implementation(Util.chucker)
 
     kapt(Util.glideCompiler)
 
