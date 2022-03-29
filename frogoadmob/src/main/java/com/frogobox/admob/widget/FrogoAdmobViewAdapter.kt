@@ -8,7 +8,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.frogobox.admob.core.FrogoAdmobConstant
 import com.frogobox.admob.core.FrogoAdmobConstant.RECYCLER_VIEW_TYPE_BANNER_AD
 import com.frogobox.admob.core.FrogoAdmobConstant.RECYCLER_VIEW_TYPE_MENU_ITEM
-import com.frogobox.frogolog.FLog
+import com.frogobox.log.FLog
 import com.frogobox.recycler.R
 import com.frogobox.recycler.core.FrogoHolder
 import com.frogobox.recycler.core.FrogoRecyclerNotifyListener

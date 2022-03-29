@@ -1,3 +1,5 @@
+import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
+
 plugins {
     id("com.android.library")
     id("org.jetbrains.kotlin.android")
@@ -52,7 +54,7 @@ android {
         }
     }
 
-    tasks.withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile> {
+    tasks.withType<KotlinCompile> {
         kotlinOptions {
             jvmTarget = JavaVersion.VERSION_11.toString()
         }
@@ -87,11 +89,12 @@ dependencies {
     implementation(Reactivex.rxJava3)
     implementation(Reactivex.rxAndroid3)
 
-    implementation(Util.glide)
+    implementation(GitHub.glide)
 
-    implementation(Frogo.log(DependencyGradle.FROGO_LOG))
     implementation(Frogo.sdk(DependencyGradle.FROGO_SDK))
     implementation(Frogo.recyclerView(DependencyGradle.FROGO_RECYCLER_VIEW))
+
+    kapt(GitHub.glideCompiler)
 
 }
 

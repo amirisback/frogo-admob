@@ -3,7 +3,7 @@ package com.frogobox.admob.core
 import android.content.Context
 import android.widget.RelativeLayout
 import androidx.appcompat.app.AppCompatActivity
-import com.frogobox.frogolog.FLog
+import com.frogobox.log.FLog
 import com.google.android.gms.ads.*
 import com.google.android.gms.ads.initialization.AdapterStatus
 import com.google.android.gms.ads.interstitial.InterstitialAd

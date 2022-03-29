@@ -14,7 +14,7 @@ import com.frogobox.admob.source.FrogoAdmobRepository
 import com.frogobox.admob.ui.FrogoAdmobActivity
 import com.frogobox.appadmob.BuildConfig
 import com.frogobox.appadmob.R
-import com.frogobox.frogolog.FLog
+import com.frogobox.log.FLog
 import com.google.gson.Gson
 
 /**

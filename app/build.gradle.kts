@@ -1,3 +1,5 @@
+import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
+
 plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
@@ -94,6 +96,12 @@ android {
         targetCompatibility = JavaVersion.VERSION_11
     }
 
+    tasks.withType<KotlinCompile> {
+        kotlinOptions {
+            jvmTarget = JavaVersion.VERSION_11.toString()
+        }
+    }
+
     composeOptions {
         kotlinCompilerExtensionVersion = DependencyGradle.COMPOSE_VERSION
     }
@@ -104,17 +112,11 @@ android {
         }
     }
 
-    tasks.withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile> {
-        kotlinOptions {
-            jvmTarget = JavaVersion.VERSION_11.toString()
-        }
-    }
-
 }
 
 dependencies {
 
-    implementation(project(":frogoadmob"))
+    implementation(project(DependencyGradle.FROGO_PATH_ADMOB))
 
     implementation(Androidx.appCompat)
     implementation(Androidx.Core.ktx)
@@ -135,13 +137,12 @@ dependencies {
     
     implementation(Frogo.ui(DependencyGradle.FROGO_UI))
     implementation(Frogo.sdk(DependencyGradle.FROGO_SDK))
-    implementation(Frogo.log(DependencyGradle.FROGO_LOG))
     implementation(Frogo.recyclerView(DependencyGradle.FROGO_RECYCLER_VIEW))
     implementation(Frogo.consumeApi(DependencyGradle.FROGO_CONSUME_API))
 
-    implementation(Util.glide)
-    implementation(Util.chucker)
+    implementation(GitHub.glide)
+    implementation(GitHub.chucker)
 
-    kapt(Util.glideCompiler)
+    kapt(GitHub.glideCompiler)
 
 }

@@ -5,7 +5,7 @@ import com.frogobox.admob.model.FrogoMonetizeId
 import com.frogobox.admob.model.FrogoUnityId
 import com.frogobox.coresdk.FrogoApiClient
 import com.frogobox.coresdk.FrogoApiObserver
-import com.frogobox.frogolog.FLog
+import com.frogobox.log.FLog
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.schedulers.Schedulers
 import okhttp3.Interceptor
