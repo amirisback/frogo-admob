@@ -36,7 +36,7 @@ abstract class FrogoAdmobActivity : AppCompatActivity(), IFrogoAdmobActivity {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        FLog.d("$TAG : Run From $TAG class : FrogoAdmob.setupAdmobApp ")
+        FLog.d("$TAG : Run From $TAG class : FrogoAdmob.setupAdmobApp")
         FrogoAdmob.setupAdmobApp(this)
     }
 
@@ -44,14 +44,51 @@ abstract class FrogoAdmobActivity : AppCompatActivity(), IFrogoAdmobActivity {
         FrogoAdConsent.showConsent(this)
     }
 
+    // ---------------------------------------------------------------------------------------------
+
     override fun showAdBanner(mAdView: AdView) {
-        FLog.d("$TAG : Run From $TAG class : FrogoAdmob.showAdBanner ")
+        FLog.d("$TAG : Run From $TAG class : FrogoAdmob.showAdBanner")
         FrogoAdmob.showAdBanner(mAdView)
     }
 
-    override fun showAdBanner(mAdView: AdView, listener: IFrogoAdBanner) {
-        FLog.d("$TAG : Run From $TAG class : FrogoAdmob.showAdBanner ")
-        FrogoAdmob.showAdBanner(mAdView, listener)
+    override fun showAdBanner(mAdView: AdView, callback: IFrogoAdBanner) {
+        FLog.d("$TAG : Run From $TAG class : FrogoAdmob.showAdBanner")
+        FrogoAdmob.showAdBanner(mAdView, callback)
+    }
+
+    override fun showAdBanner(mAdView: AdView, timeoutMilliSecond: Int) {
+        FLog.d("$TAG : Run From $TAG class : FrogoAdmob.showAdBanner")
+        FrogoAdmob.showAdBanner(mAdView, timeoutMilliSecond)
+    }
+
+    override fun showAdBanner(mAdView: AdView, keyword: List<String>) {
+        FLog.d("$TAG : Run From $TAG class : FrogoAdmob.showAdBanner")
+        FrogoAdmob.showAdBanner(mAdView, keyword)
+    }
+
+    override fun showAdBanner(mAdView: AdView, timeoutMilliSecond: Int, keyword: List<String>) {
+        FLog.d("$TAG : Run From $TAG class : FrogoAdmob.showAdBanner")
+        FrogoAdmob.showAdBanner(mAdView, timeoutMilliSecond, keyword)
+    }
+
+    override fun showAdBanner(
+        mAdView: AdView,
+        timeoutMilliSecond: Int,
+        keyword: List<String>,
+        callback: IFrogoAdBanner
+    ) {
+        FLog.d("$TAG : Run From $TAG class : FrogoAdmob.showAdBanner")
+        FrogoAdmob.showAdBanner(mAdView, timeoutMilliSecond, keyword, callback)
+    }
+
+    override fun showAdBanner(mAdView: AdView, timeoutMilliSecond: Int, callback: IFrogoAdBanner) {
+        FLog.d("$TAG : Run From $TAG class : FrogoAdmob.showAdBanner")
+        FrogoAdmob.showAdBanner(mAdView, timeoutMilliSecond, callback)
+    }
+
+    override fun showAdBanner(mAdView: AdView, keyword: List<String>, callback: IFrogoAdBanner) {
+        FLog.d("$TAG : Run From $TAG class : FrogoAdmob.showAdBanner")
+        FrogoAdmob.showAdBanner(mAdView, keyword, callback)
     }
 
     override fun showAdBannerContainer(
@@ -59,7 +96,7 @@ abstract class FrogoAdmobActivity : AppCompatActivity(), IFrogoAdmobActivity {
         mAdsSize: AdSize,
         container: RelativeLayout
     ) {
-        FLog.d("$TAG : Run From $TAG class : FrogoAdmob.showAdBannerContainer ")
+        FLog.d("$TAG : Run From $TAG class : FrogoAdmob.showAdBannerContainer")
         FrogoAdmob.showAdBannerContainer(this, bannerAdUnitId, mAdsSize, container)
     }
 
@@ -67,16 +104,116 @@ abstract class FrogoAdmobActivity : AppCompatActivity(), IFrogoAdmobActivity {
         bannerAdUnitId: String,
         mAdsSize: AdSize,
         container: RelativeLayout,
-        listener: IFrogoAdBanner
+        callback: IFrogoAdBanner
     ) {
-        FLog.d("$TAG : Run From $TAG class : FrogoAdmob.showAdBannerContainer ")
-        FrogoAdmob.showAdBannerContainer(this, bannerAdUnitId, mAdsSize, container, listener)
+        FLog.d("$TAG : Run From $TAG class : FrogoAdmob.showAdBannerContainer")
+        FrogoAdmob.showAdBannerContainer(this, bannerAdUnitId, mAdsSize, container, callback)
+    }
+
+    override fun showAdBannerContainer(
+        bannerAdUnitId: String,
+        mAdsSize: AdSize,
+        container: RelativeLayout,
+        timeoutMilliSecond: Int
+    ) {
+        FLog.d("$TAG : Run From $TAG class : FrogoAdmob.showAdBannerContainer")
+        FrogoAdmob.showAdBannerContainer(
+            this,
+            bannerAdUnitId,
+            mAdsSize,
+            container,
+            timeoutMilliSecond
+        )
+    }
+
+    override fun showAdBannerContainer(
+        bannerAdUnitId: String,
+        mAdsSize: AdSize,
+        container: RelativeLayout,
+        keyword: List<String>
+    ) {
+        FLog.d("$TAG : Run From $TAG class : FrogoAdmob.showAdBannerContainer")
+        FrogoAdmob.showAdBannerContainer(this, bannerAdUnitId, mAdsSize, container, keyword)
+    }
+
+    override fun showAdBannerContainer(
+        bannerAdUnitId: String,
+        mAdsSize: AdSize,
+        container: RelativeLayout,
+        timeoutMilliSecond: Int,
+        keyword: List<String>
+    ) {
+        FLog.d("$TAG : Run From $TAG class : FrogoAdmob.showAdBannerContainer")
+        FrogoAdmob.showAdBannerContainer(
+            this,
+            bannerAdUnitId,
+            mAdsSize,
+            container,
+            timeoutMilliSecond,
+            keyword
+        )
+    }
+
+    override fun showAdBannerContainer(
+        bannerAdUnitId: String,
+        mAdsSize: AdSize,
+        container: RelativeLayout,
+        timeoutMilliSecond: Int,
+        callback: IFrogoAdBanner
+    ) {
+        FLog.d("$TAG : Run From $TAG class : FrogoAdmob.showAdBannerContainer")
+        FrogoAdmob.showAdBannerContainer(
+            this,
+            bannerAdUnitId,
+            mAdsSize,
+            container,
+            timeoutMilliSecond,
+            callback
+        )
+    }
+
+    override fun showAdBannerContainer(
+        bannerAdUnitId: String,
+        mAdsSize: AdSize,
+        container: RelativeLayout,
+        keyword: List<String>,
+        callback: IFrogoAdBanner
+    ) {
+        FLog.d("$TAG : Run From $TAG class : FrogoAdmob.showAdBannerContainer")
+        FrogoAdmob.showAdBannerContainer(
+            this,
+            bannerAdUnitId,
+            mAdsSize,
+            container,
+            keyword,
+            callback
+        )
+    }
+
+    override fun showAdBannerContainer(
+        bannerAdUnitId: String,
+        mAdsSize: AdSize,
+        container: RelativeLayout,
+        timeoutMilliSecond: Int,
+        keyword: List<String>,
+        callback: IFrogoAdBanner
+    ) {
+        FLog.d("$TAG : Run From $TAG class : FrogoAdmob.showAdBannerContainer")
+        FrogoAdmob.showAdBannerContainer(
+            this,
+            bannerAdUnitId,
+            mAdsSize,
+            container,
+            timeoutMilliSecond,
+            keyword,
+            callback
+        )
     }
 
     // ---------------------------------------------------------------------------------------------
 
     override fun showAdInterstitial(interstitialAdUnitId: String) {
-        FLog.d("$TAG : Run From $TAG class : FrogoAdmob.showAdInterstitial ")
+        FLog.d("$TAG : Run From $TAG class : FrogoAdmob.showAdInterstitial")
         FrogoAdmob.showAdInterstitial(this, interstitialAdUnitId)
     }
 
@@ -84,7 +221,7 @@ abstract class FrogoAdmobActivity : AppCompatActivity(), IFrogoAdmobActivity {
         interstitialAdUnitId: String,
         callback: IFrogoAdInterstitial
     ) {
-        FLog.d("$TAG : Run From $TAG class : FrogoAdmob.showAdInterstitial ")
+        FLog.d("$TAG : Run From $TAG class : FrogoAdmob.showAdInterstitial")
         FrogoAdmob.showAdInterstitial(this, interstitialAdUnitId, callback)
     }
 
@@ -94,7 +231,7 @@ abstract class FrogoAdmobActivity : AppCompatActivity(), IFrogoAdmobActivity {
         keyword: List<String>,
         callback: IFrogoAdInterstitial
     ) {
-        FLog.d("$TAG : Run From $TAG class : FrogoAdmob.showAdInterstitial ")
+        FLog.d("$TAG : Run From $TAG class : FrogoAdmob.showAdInterstitial")
         FrogoAdmob.showAdInterstitial(
             this,
             interstitialAdUnitId,
@@ -109,17 +246,17 @@ abstract class FrogoAdmobActivity : AppCompatActivity(), IFrogoAdmobActivity {
         timeoutMilliSecond: Int,
         keyword: List<String>
     ) {
-        FLog.d("$TAG : Run From $TAG class : FrogoAdmob.showAdInterstitial ")
+        FLog.d("$TAG : Run From $TAG class : FrogoAdmob.showAdInterstitial")
         FrogoAdmob.showAdInterstitial(this, interstitialAdUnitId, timeoutMilliSecond, keyword)
     }
 
     override fun showAdInterstitial(interstitialAdUnitId: String, timeoutMilliSecond: Int) {
-        FLog.d("$TAG : Run From $TAG class : FrogoAdmob.showAdInterstitial ")
+        FLog.d("$TAG : Run From $TAG class : FrogoAdmob.showAdInterstitial")
         FrogoAdmob.showAdInterstitial(this, interstitialAdUnitId, timeoutMilliSecond)
     }
 
     override fun showAdInterstitial(interstitialAdUnitId: String, keyword: List<String>) {
-        FLog.d("$TAG : Run From $TAG class : FrogoAdmob.showAdInterstitial ")
+        FLog.d("$TAG : Run From $TAG class : FrogoAdmob.showAdInterstitial")
         FrogoAdmob.showAdInterstitial(this, interstitialAdUnitId, keyword)
     }
 
@@ -128,7 +265,7 @@ abstract class FrogoAdmobActivity : AppCompatActivity(), IFrogoAdmobActivity {
         timeoutMilliSecond: Int,
         callback: IFrogoAdInterstitial
     ) {
-        FLog.d("$TAG : Run From $TAG class : FrogoAdmob.showAdInterstitial ")
+        FLog.d("$TAG : Run From $TAG class : FrogoAdmob.showAdInterstitial")
         FrogoAdmob.showAdInterstitial(this, interstitialAdUnitId, timeoutMilliSecond, callback)
     }
 
@@ -137,14 +274,14 @@ abstract class FrogoAdmobActivity : AppCompatActivity(), IFrogoAdmobActivity {
         keyword: List<String>,
         callback: IFrogoAdInterstitial
     ) {
-        FLog.d("$TAG : Run From $TAG class : FrogoAdmob.showAdInterstitial ")
+        FLog.d("$TAG : Run From $TAG class : FrogoAdmob.showAdInterstitial")
         FrogoAdmob.showAdInterstitial(this, interstitialAdUnitId, keyword, callback)
     }
 
     // ---------------------------------------------------------------------------------------------
 
     override fun showAdRewarded(mAdUnitIdRewarded: String, callback: IFrogoAdRewarded) {
-        FLog.d("$TAG : Run From $TAG class : FrogoAdmob.showAdRewarded ")
+        FLog.d("$TAG : Run From $TAG class : FrogoAdmob.showAdRewarded")
         FrogoAdmob.showAdRewarded(this, mAdUnitIdRewarded, callback)
     }
 
@@ -152,7 +289,7 @@ abstract class FrogoAdmobActivity : AppCompatActivity(), IFrogoAdmobActivity {
         mAdUnitIdRewardedInterstitial: String,
         callback: IFrogoAdRewarded
     ) {
-        FLog.d("$TAG : Run From $TAG class : FrogoAdmob.showAdRewardedInterstitial ")
+        FLog.d("$TAG : Run From $TAG class : FrogoAdmob.showAdRewardedInterstitial")
         FrogoAdmob.showAdRewardedInterstitial(this, mAdUnitIdRewardedInterstitial, callback)
     }
 

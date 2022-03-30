@@ -1,7 +1,6 @@
 package com.frogobox.admob.ui
 
 import android.widget.RelativeLayout
-import androidx.appcompat.app.AppCompatActivity
 import com.frogobox.admob.core.*
 import com.google.android.gms.ads.AdSize
 import com.google.android.gms.ads.AdView
@@ -23,27 +22,107 @@ interface IFrogoAdmobActivity {
     // Show Ad Consent
     fun showAdConsent()
 
+    // ---------------------------------------------------------------------------------------------
+
     // Show Banner Ads
     fun showAdBanner(mAdView: AdView)
 
-    // Show Banner Ads with listener
-    fun showAdBanner(mAdView: AdView, listener: IFrogoAdBanner)
+    // Show Banner Ads with timeout millisecond
+    fun showAdBanner(mAdView: AdView, timeoutMilliSecond: Int)
+
+    // Show Banner Ads with keyword
+    fun showAdBanner(mAdView: AdView, keyword: List<String>)
+
+    // Show Banner Ads with timeout millisecond and keyword
+    fun showAdBanner(mAdView: AdView, timeoutMilliSecond: Int, keyword: List<String>)
+
+    // Show Banner Ads  with timeout millisecond and keyword and callback
+    fun showAdBanner(
+        mAdView: AdView,
+        timeoutMilliSecond: Int,
+        keyword: List<String>,
+        callback: IFrogoAdBanner
+    )
+
+    // Show Banner Ads with callback
+    fun showAdBanner(mAdView: AdView, callback: IFrogoAdBanner)
+
+    // Show Banner Ads  with timeout millisecond and callback
+    fun showAdBanner(mAdView: AdView, timeoutMilliSecond: Int, callback: IFrogoAdBanner)
+
+    // Show Banner Ads  with and keyword and callback
+    fun showAdBanner(mAdView: AdView, keyword: List<String>, callback: IFrogoAdBanner)
+
+    // ---------------------------------------------------------------------------------------------
 
     // Show Banner Ads with container
     fun showAdBannerContainer(
         bannerAdUnitId: String,
         mAdsSize: AdSize,
-        container: RelativeLayout
+        container: RelativeLayout,
     )
 
-    // Show Banner Ads with container and listener
+    // Show Banner Ads with container and timeout millisecond
     fun showAdBannerContainer(
         bannerAdUnitId: String,
         mAdsSize: AdSize,
         container: RelativeLayout,
-        listener: IFrogoAdBanner
+        timeoutMilliSecond: Int,
     )
-    
+
+    // Show Banner Ads with container and keyword
+    fun showAdBannerContainer(
+        bannerAdUnitId: String,
+        mAdsSize: AdSize,
+        container: RelativeLayout,
+        keyword: List<String>,
+    )
+
+    // Show Banner Ads with container and keyword and timeout millisecond
+    fun showAdBannerContainer(
+        bannerAdUnitId: String,
+        mAdsSize: AdSize,
+        container: RelativeLayout,
+        timeoutMilliSecond: Int,
+        keyword: List<String>
+    )
+
+    // Show Banner Ads with container and callback
+    fun showAdBannerContainer(
+        bannerAdUnitId: String,
+        mAdsSize: AdSize,
+        container: RelativeLayout,
+        callback: IFrogoAdBanner
+    )
+
+    // Show Banner Ads with container and timeout millisecond and callback
+    fun showAdBannerContainer(
+        bannerAdUnitId: String,
+        mAdsSize: AdSize,
+        container: RelativeLayout,
+        timeoutMilliSecond: Int,
+        callback: IFrogoAdBanner
+    )
+
+    // Show Banner Ads with container and keyword and callback
+    fun showAdBannerContainer(
+        bannerAdUnitId: String,
+        mAdsSize: AdSize,
+        container: RelativeLayout,
+        keyword: List<String>,
+        callback: IFrogoAdBanner
+    )
+
+    // Show Banner Ads with container and timeout millisecond and keyword and callback
+    fun showAdBannerContainer(
+        bannerAdUnitId: String,
+        mAdsSize: AdSize,
+        container: RelativeLayout,
+        timeoutMilliSecond: Int,
+        keyword: List<String>,
+        callback: IFrogoAdBanner
+    )
+
     // ---------------------------------------------------------------------------------------------
 
     // Show Interstitial Ads with timeout millisecond, keyword, callback

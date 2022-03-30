@@ -3,8 +3,6 @@ package com.frogobox.admob.core
 import android.content.Context
 import android.widget.RelativeLayout
 import androidx.appcompat.app.AppCompatActivity
-import com.frogobox.log.FLog
-import com.google.android.gms.ads.AdRequest
 import com.google.android.gms.ads.AdSize
 import com.google.android.gms.ads.AdView
 
@@ -51,7 +49,7 @@ interface IFrogoAdmob {
     fun showAdBanner(mAdView: AdView, timeoutMilliSecond: Int, callback: IFrogoAdBanner)
 
     fun showAdBanner(mAdView: AdView, keyword: List<String>, callback: IFrogoAdBanner)
-    
+
     // ---------------------------------------------------------------------------------------------
 
     fun showAdBannerContainer(
