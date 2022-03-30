@@ -24,7 +24,7 @@
     android:layout_marginStart="@dimen/dimen_big_16dp"
     android:layout_marginTop="@dimen/dimen_big_16dp"
     android:layout_marginEnd="@dimen/dimen_big_16dp"
-    android:background="@drawable/background_card"
+    android:background="@drawable/frogo_bg_card_16dp"
     android:elevation="@dimen/dimen_small_4dp"
     android:orientation="vertical"
     android:padding="@dimen/dimen_big_16dp"/>
