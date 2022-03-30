@@ -5,11 +5,23 @@ import com.frogobox.admob.core.IFrogoAdInterstitial
 import com.frogobox.admob.core.IFrogoUnityAdInterstitial
 import com.frogobox.admob.ui.FrogoSdkAdmobActivity
 import com.frogobox.admob.ui.IFrogoMixedAdsInterstitial
-import com.frogobox.appadmob.BuildConfig
 import com.frogobox.appadmob.R
 import com.frogobox.appadmob.databinding.ActivityInterstitialBinding
 
-class InterstitialActivity : FrogoSdkAdmobActivity<ActivityInterstitialBinding>() {
+class InterstitialActivity : FrogoSdkAdmobActivity<ActivityInterstitialBinding>(),
+    IFrogoAdInterstitial, IFrogoUnityAdInterstitial, IFrogoMixedAdsInterstitial {
+
+    private fun getKeyword(): MutableList<String> {
+        val keywords = mutableListOf<String>()
+        keywords.add("Kids")
+        keywords.add("Toys")
+        keywords.add("Game")
+        keywords.add("Music")
+        keywords.add("Piano")
+        return keywords
+    }
+
+    private val HTTP_TIMEOUT_MILLIS = 30000
 
     override fun setupViewBinding(): ActivityInterstitialBinding {
         return ActivityInterstitialBinding.inflate(layoutInflater)
@@ -22,6 +34,7 @@ class InterstitialActivity : FrogoSdkAdmobActivity<ActivityInterstitialBinding>(
         setupUI()
     }
 
+
     private fun setupUI() {
         binding.apply {
 
@@ -29,23 +42,51 @@ class InterstitialActivity : FrogoSdkAdmobActivity<ActivityInterstitialBinding>(
                 showAdInterstitial(getString(R.string.admob_interstitial))
             }
 
+            btnAdmobInterstitialTimeout.setOnClickListener {
+                showAdInterstitial(getString(R.string.admob_interstitial), HTTP_TIMEOUT_MILLIS)
+            }
+
+            btnAdmobInterstitialKeyword.setOnClickListener {
+                showAdInterstitial(getString(R.string.admob_interstitial), getKeyword())
+            }
+
+            btnAdmobInterstitialTimeoutKeyword.setOnClickListener {
+                showAdInterstitial(
+                    getString(R.string.admob_interstitial),
+                    HTTP_TIMEOUT_MILLIS,
+                    getKeyword()
+                )
+            }
+
             btnAdmobInterstitialCallback.setOnClickListener {
                 showAdInterstitial(
                     getString(R.string.admob_interstitial),
-                    object : IFrogoAdInterstitial {
-                        override fun onAdDismissed(tag: String, message: String) {
-                            showToast(message)
-                        }
+                    this@InterstitialActivity
+                )
+            }
 
-                        override fun onAdFailed(tag: String, errorMessage: String) {
-                            showToast(errorMessage)
-                        }
+            btnAdmobInterstitialCallbackTimeout.setOnClickListener {
+                showAdInterstitial(
+                    getString(R.string.admob_interstitial),
+                    HTTP_TIMEOUT_MILLIS,
+                    this@InterstitialActivity
+                )
+            }
 
-                        override fun onAdLoaded(tag: String, message: String) {}
+            btnAdmobInterstitialCallbackKeyword.setOnClickListener {
+                showAdInterstitial(
+                    getString(R.string.admob_interstitial),
+                    getKeyword(),
+                    this@InterstitialActivity
+                )
+            }
 
-                        override fun onAdShowed(tag: String, message: String) {}
-
-                    }
+            btnAdmobInterstitialCallbackTimeoutKeyword.setOnClickListener {
+                showAdInterstitial(
+                    getString(R.string.admob_interstitial),
+                    HTTP_TIMEOUT_MILLIS,
+                    getKeyword(),
+                    this@InterstitialActivity
                 )
             }
 
@@ -54,43 +95,17 @@ class InterstitialActivity : FrogoSdkAdmobActivity<ActivityInterstitialBinding>(
             }
 
             btnUnityInterstitialCallback.setOnClickListener {
-                showUnityAdInterstitial(getString(R.string.unity_ad_interstitial),
-                    object : IFrogoUnityAdInterstitial {
-                        override fun onClicked(tag: String, message: String) {}
-
-                        override fun onAdDismissed(tag: String, message: String) {
-                            showToast(message)
-                        }
-
-                        override fun onAdFailed(tag: String, errorMessage: String) {
-                            showToast(errorMessage)
-                        }
-
-                        override fun onAdLoaded(tag: String, message: String) {}
-
-                        override fun onAdShowed(tag: String, message: String) {}
-                    })
+                showUnityAdInterstitial(
+                    getString(R.string.unity_ad_interstitial),
+                    this@InterstitialActivity
+                )
             }
 
             btnAdmobXUnityInterstitial.setOnClickListener {
                 showAdmobXUnityAdInterstitial(
                     "",
                     getString(R.string.unity_ad_interstitial),
-                    object : IFrogoMixedAdsInterstitial {
-                        override fun onClicked(tag: String, message: String) {}
-
-                        override fun onAdDismissed(tag: String, message: String) {
-                            showToast(message)
-                        }
-
-                        override fun onAdFailed(tag: String, errorMessage: String) {
-                            showToast(errorMessage)
-                        }
-
-                        override fun onAdLoaded(tag: String, message: String) {}
-
-                        override fun onAdShowed(tag: String, message: String) {}
-                    }
+                    this@InterstitialActivity
                 )
             }
 
@@ -98,24 +113,24 @@ class InterstitialActivity : FrogoSdkAdmobActivity<ActivityInterstitialBinding>(
                 showUnityXAdmobAdInterstitial(
                     getString(R.string.admob_interstitial),
                     "",
-                    object : IFrogoMixedAdsInterstitial {
-                        override fun onClicked(tag: String, message: String) {}
-
-                        override fun onAdDismissed(tag: String, message: String) {
-                            showToast(message)
-                        }
-
-                        override fun onAdFailed(tag: String, errorMessage: String) {
-                            showToast(errorMessage)
-                        }
-
-                        override fun onAdLoaded(tag: String, message: String) {}
-
-                        override fun onAdShowed(tag: String, message: String) {}
-                    }
+                    this@InterstitialActivity
                 )
             }
         }
     }
+
+    override fun onClicked(tag: String, message: String) {}
+
+    override fun onAdDismissed(tag: String, message: String) {
+        showToast(message)
+    }
+
+    override fun onAdFailed(tag: String, errorMessage: String) {
+        showToast(errorMessage)
+    }
+
+    override fun onAdLoaded(tag: String, message: String) {}
+
+    override fun onAdShowed(tag: String, message: String) {}
 
 }
