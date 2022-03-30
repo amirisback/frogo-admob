@@ -3,8 +3,10 @@ package com.frogobox.admob.core
 import android.content.Context
 import android.widget.RelativeLayout
 import androidx.appcompat.app.AppCompatActivity
-import com.google.android.gms.ads.AdSize
-import com.google.android.gms.ads.AdView
+import com.frogobox.log.FLog
+import com.google.android.gms.ads.*
+import com.google.android.gms.ads.rewarded.RewardedAd
+import com.google.android.gms.ads.rewarded.RewardedAdLoadCallback
 
 /**
  * Created by Faisal Amir
@@ -179,8 +181,32 @@ interface IFrogoAdmob {
     fun showAdRewarded(
         activity: AppCompatActivity,
         mAdUnitIdRewarded: String,
+        timeoutMilliSecond: Int?,
+        keyword: List<String>?,
         callback: IFrogoAdRewarded
     )
+
+    fun showAdRewarded(
+        activity: AppCompatActivity,
+        mAdUnitIdRewarded: String,
+        callback: IFrogoAdRewarded
+    )
+
+    fun showAdRewarded(
+        activity: AppCompatActivity,
+        mAdUnitIdRewarded: String,
+        timeoutMilliSecond: Int,
+        callback: IFrogoAdRewarded
+    )
+
+    fun showAdRewarded(
+        activity: AppCompatActivity,
+        mAdUnitIdRewarded: String,
+        keyword: List<String>,
+        callback: IFrogoAdRewarded
+    )
+
+    // ---------------------------------------------------------------------------------------------
 
     fun showAdRewardedInterstitial(
         activity: AppCompatActivity,

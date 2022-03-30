@@ -10,6 +10,15 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.KickStart">
         <activity
+            android:name=".mvvm.main.RewardedInterstitialActivity"
+            android:exported="false" />
+        <activity
+            android:name=".mvvm.main.BannerActivity"
+            android:exported="false" />
+        <activity
+            android:name=".mvvm.main.RewardedActivity"
+            android:exported="false" />
+        <activity
             android:name=".mvvm.main.InterstitialActivity"
             android:exported="false" />
         <activity
@@ -35,11 +44,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity> <!-- Sample AdMob App ID: ca-app-pub-3940256099942544~3347511713 -->
-
         <meta-data
             android:name="com.google.android.gms.ads.APPLICATION_ID"
             android:value="@string/admob_app_id" />
-
     </application>
 
 </manifest>

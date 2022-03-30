@@ -282,6 +282,36 @@ abstract class FrogoSdkAdmobActivity<VB : ViewBinding> : FrogoActivity<VB>(), IF
         FrogoAdmob.showAdRewarded(this, mAdUnitIdRewarded, callback)
     }
 
+    override fun showAdRewarded(
+        mAdUnitIdRewarded: String,
+        timeoutMilliSecond: Int,
+        callback: IFrogoAdRewarded
+    ) {
+        FLog.d("$TAG : Run From $TAG class : FrogoAdmob.showAdRewarded")
+        FrogoAdmob.showAdRewarded(this, mAdUnitIdRewarded, timeoutMilliSecond, callback)
+    }
+
+    override fun showAdRewarded(
+        mAdUnitIdRewarded: String,
+        keyword: List<String>,
+        callback: IFrogoAdRewarded
+    ) {
+        FLog.d("$TAG : Run From $TAG class : FrogoAdmob.showAdRewarded")
+        FrogoAdmob.showAdRewarded(this, mAdUnitIdRewarded, keyword, callback)
+    }
+
+    override fun showAdRewarded(
+        mAdUnitIdRewarded: String,
+        timeoutMilliSecond: Int,
+        keyword: List<String>,
+        callback: IFrogoAdRewarded
+    ) {
+        FLog.d("$TAG : Run From $TAG class : FrogoAdmob.showAdRewarded")
+        FrogoAdmob.showAdRewarded(this, mAdUnitIdRewarded, timeoutMilliSecond, keyword, callback)
+    }
+
+    // ---------------------------------------------------------------------------------------------
+
     override fun showAdRewardedInterstitial(
         mAdUnitIdRewardedInterstitial: String,
         callback: IFrogoAdRewarded

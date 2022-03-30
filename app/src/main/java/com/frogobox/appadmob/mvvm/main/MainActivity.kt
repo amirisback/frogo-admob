@@ -1,6 +1,5 @@
 package com.frogobox.appadmob.mvvm.main
 
-import android.app.Activity
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
@@ -15,10 +14,6 @@ import com.frogobox.appadmob.mvvm.movie.MovieActivity
 import com.frogobox.appadmob.mvvm.news.NewsActivity
 import com.google.android.gms.ads.AdSize
 import com.google.android.gms.ads.rewarded.RewardItem
-import com.google.android.ump.ConsentDebugSettings
-import com.google.android.ump.ConsentInformation
-import com.google.android.ump.ConsentRequestParameters
-import com.google.android.ump.UserMessagingPlatform
 
 class MainActivity : BaseActivity<ActivityMainBinding>() {
 

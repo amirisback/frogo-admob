@@ -44,7 +44,7 @@ object FrogoAdmob : IFrogoAdmob {
 
     // ---------------------------------------------------------------------------------------------
 
-    private fun getInitializedState(name: String, code: Int) {
+    fun getInitializedState(name: String, code: Int) {
         FLog.d(FrogoAdmobConstant.LINE)
         FLog.d("$TAG >> Setup MobileAds [Key] : $mobileAdsKey")
         FLog.d("$TAG >> Setup MobileAds [Initialization State Name] : $name")
@@ -465,6 +465,8 @@ object FrogoAdmob : IFrogoAdmob {
     override fun showAdRewarded(
         activity: AppCompatActivity,
         mAdUnitIdRewarded: String,
+        timeoutMilliSecond: Int?,
+        keyword: List<String>?,
         callback: IFrogoAdRewarded
     ) {
 
@@ -473,16 +475,32 @@ object FrogoAdmob : IFrogoAdmob {
 
         getInitializedState(initializationName, initializationCode)
 
-        if (mAdUnitIdRewarded == "") {
-            callback.onAdFailed(TAG, "$TAG : Rewarded Unit Id is Empty")
-        } else {
+        if (mAdUnitIdRewarded != "") {
+
+            val adRequest = AdRequest.Builder()
+
+            if (timeoutMilliSecond != null) {
+                FLog.d("$TAG Rewarded HttpTimeOut Millisecond : $timeoutMilliSecond")
+                adRequest.setHttpTimeoutMillis(timeoutMilliSecond)
+            }
+
+            if (keyword != null) {
+                for (i in keyword.indices) {
+                    FLog.d("$TAG Rewarded Keyworad Ads [$i] : ${keyword[i]}")
+                    adRequest.addKeyword(keyword[i])
+                }
+            }
+
             RewardedAd.load(
                 activity,
                 mAdUnitIdRewarded,
-                AdRequest.Builder().build(),
+                adRequest.build(),
                 object : RewardedAdLoadCallback() {
                     override fun onAdFailedToLoad(adError: LoadAdError) {
-                        getInitializedState(initializationName, initializationCode)
+                        getInitializedState(
+                            initializationName,
+                            initializationCode
+                        )
                         FLog.e("$TAG [RewardedAd] >> Run - IFrogoAdRewarded [callback] : onAdFailedToLoad()")
                         FLog.d("$TAG [RewardedAd] >> Error - onAdFailedToLoad [unit id] : $mAdUnitIdRewarded")
                         FLog.e("$TAG [RewardedAd] >> Error - onAdFailedToLoad [code] : ${adError.code}")
@@ -502,18 +520,27 @@ object FrogoAdmob : IFrogoAdmob {
                                 override fun onAdDismissedFullScreenContent() {
                                     FLog.d("$TAG [RewardedAd] >> Run - IFrogoAdRewarded [callback] : onAdDismissed()")
                                     FLog.d("$TAG [RewardedAd] >> Succes - onAdDismissedFullScreenContent [message] : Ad was dismissed")
-                                    callback.onAdDismissed(TAG, "Rewarded Ad was dismissed")
+                                    callback.onAdDismissed(
+                                        TAG,
+                                        "Rewarded Ad was dismissed"
+                                    )
                                 }
 
                                 override fun onAdFailedToShowFullScreenContent(adError: AdError?) {
-                                    getInitializedState(initializationName, initializationCode)
+                                    getInitializedState(
+                                        initializationName,
+                                        initializationCode
+                                    )
                                     FLog.e("$TAG [RewardedAd] >> Run - IFrogoAdRewarded [callback] : onAdFailedToShow()")
                                     FLog.d("$TAG [RewardedAd] >> Error - onAdFailedToShowFullScreenContent [unit id] : $mAdUnitIdRewarded")
                                     FLog.e("$TAG [RewardedAd] >> Error - onAdFailedToShowFullScreenContent [code] : ${adError?.code}")
                                     FLog.e("$TAG [RewardedAd] >> Error - onAdFailedToShowFullScreenContent [domain] : ${adError?.domain}")
                                     FLog.e("$TAG [RewardedAd] >> Error - onAdFailedToShowFullScreenContent [message] : ${adError?.message}")
                                     FLog.e("$TAG [RewardedAd] >> Error : Ad failed to show")
-                                    callback.onAdFailed(TAG, "Interstitial Ad failed to show")
+                                    callback.onAdFailed(
+                                        TAG,
+                                        "Interstitial Ad failed to show"
+                                    )
                                 }
 
                                 override fun onAdShowedFullScreenContent() {
@@ -534,9 +561,39 @@ object FrogoAdmob : IFrogoAdmob {
                         }
                     }
                 })
+        } else {
+            callback.onAdFailed(TAG, "$TAG : Rewarded Unit Id is Empty")
         }
 
     }
+
+    override fun showAdRewarded(
+        activity: AppCompatActivity,
+        mAdUnitIdRewarded: String,
+        callback: IFrogoAdRewarded
+    ) {
+        showAdRewarded(activity, mAdUnitIdRewarded, null, null, callback)
+    }
+
+    override fun showAdRewarded(
+        activity: AppCompatActivity,
+        mAdUnitIdRewarded: String,
+        timeoutMilliSecond: Int,
+        callback: IFrogoAdRewarded
+    ) {
+        showAdRewarded(activity, mAdUnitIdRewarded, timeoutMilliSecond, null, callback)
+    }
+
+    override fun showAdRewarded(
+        activity: AppCompatActivity,
+        mAdUnitIdRewarded: String,
+        keyword: List<String>,
+        callback: IFrogoAdRewarded
+    ) {
+        showAdRewarded(activity, mAdUnitIdRewarded, null, keyword, callback)
+    }
+
+    // ---------------------------------------------------------------------------------------------
 
     override fun showAdRewardedInterstitial(
         activity: AppCompatActivity,
@@ -616,6 +673,8 @@ object FrogoAdmob : IFrogoAdmob {
                 })
         }
     }
+
+    // ---------------------------------------------------------------------------------------------
 
     override fun loadRecyclerBannerAds(
         bannerAdUnitId: String,
