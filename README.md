@@ -1,4 +1,4 @@
-![ScreenShoot Apps](docs/image/ss_banner.png?raw=true)
+![ScreenShoot Apps](https://raw.githubusercontent.com/amirisback/frogo-admob/master/docs/image/ss_banner.png?raw=true)
 
 ## About This Project
 [![Android Arsenal](https://img.shields.io/badge/Android%20Arsenal-frogo--admob-brightgreen.svg?style=flat-square)](https://android-arsenal.com/details/1/8251)
@@ -27,7 +27,7 @@
 
 ## Version Release
 
-    $version_release = 4.2.9
+    $version_release = 4.3.0
 
     // Suport Library
     $admob_version = 20.6.0
@@ -43,6 +43,8 @@ What's New??
     * New Setup Implementation *
     * Fixing Bug : ShowBanner, ShowInterstitial, ShowRewarded *
     * Adding Unity Ads *
+    * Add http timeout millis for google admob interstitial ad *
+    * Add keyword for google admob interstitial ad *
 
 ## How To Use / Implement This Project
 ### Step 1. Add the JitPack repository to your build file
@@ -83,7 +85,7 @@ allprojects {
             implementation 'com.unity3d.ads:unity-ads:${unity_ad_version}'
 
             // library frogo-admob-helper
-	        implementation 'com.github.amirisback:frogo-admob:4.2.9'
+	        implementation 'com.github.amirisback:frogo-admob:4.3.0'
 	}
 
 #### <Option 2> Kotlin DSL
@@ -96,7 +98,7 @@ allprojects {
             implementation("com.unity3d.ads:unity-ads:${unity_ad_version}")
 
             // library frogo-admob-helper
-	        implementation("com.github.amirisback:frogo-admob:4.2.9")
+	        implementation("com.github.amirisback:frogo-admob:4.3.0")
 	}
 	
 ### Step 3. Adding meta-data on AndroidManifest.xml
