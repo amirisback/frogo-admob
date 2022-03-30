@@ -27,7 +27,7 @@
 
 ## Version Release
 
-    $version_release = 4.3.0
+    $version_release = 4.3.1
 
     // Suport Library
     $admob_version = 20.6.0
@@ -44,7 +44,7 @@ What's New??
     * Fixing Bug : ShowBanner, ShowInterstitial, ShowRewarded *
     * Adding Unity Ads *
     * Add http timeout millis for google admob interstitial ad *
-    * Add keyword for google admob interstitial ad *
+    * Add keyword for google admob ad *
 
 ## How To Use / Implement This Project
 ### Step 1. Add the JitPack repository to your build file
@@ -85,7 +85,7 @@ allprojects {
             implementation 'com.unity3d.ads:unity-ads:${unity_ad_version}'
 
             // library frogo-admob-helper
-	        implementation 'com.github.amirisback:frogo-admob:4.3.0'
+	        implementation 'com.github.amirisback:frogo-admob:4.3.1'
 	}
 
 #### <Option 2> Kotlin DSL
@@ -98,7 +98,7 @@ allprojects {
             implementation("com.unity3d.ads:unity-ads:${unity_ad_version}")
 
             // library frogo-admob-helper
-	        implementation("com.github.amirisback:frogo-admob:4.3.0")
+	        implementation("com.github.amirisback:frogo-admob:4.3.1")
 	}
 	
 ### Step 3. Adding meta-data on AndroidManifest.xml
@@ -391,7 +391,7 @@ class HybridActivity : BaseActivity<ActivityHybridBinding>() {
 
 </details>
 
-## Java Sample Implementation
+#### Java Sample Implementation
 - You can follow sample below or go to Full Sample Code [Full Code](https://github.com/amirisback/frogo-admob/tree/master/app/src/main/java/com/frogobox/appadmob/javasample)
 
 <details>
@@ -512,6 +512,260 @@ public class MainJavaActivity extends BaseJavaActivity {
 ```
 
 </details>
+
+## List Function FrogoAdmobActivity and FrogoSdkAdmobActivity
+```kotlin
+// Show Ad Consent
+fun showAdConsent()
+
+// ---------------------------------------------------------------------------------------------
+
+// Show Banner Ads
+fun showAdBanner(mAdView: AdView)
+
+// Show Banner Ads with timeout millisecond
+fun showAdBanner(mAdView: AdView, timeoutMilliSecond: Int)
+
+// Show Banner Ads with keyword
+fun showAdBanner(mAdView: AdView, keyword: List<String>)
+
+// Show Banner Ads with timeout millisecond and keyword
+fun showAdBanner(mAdView: AdView, timeoutMilliSecond: Int, keyword: List<String>)
+
+// Show Banner Ads  with timeout millisecond and keyword and callback
+fun showAdBanner(
+    mAdView: AdView,
+    timeoutMilliSecond: Int,
+    keyword: List<String>,
+    callback: IFrogoAdBanner
+)
+
+// Show Banner Ads with callback
+fun showAdBanner(mAdView: AdView, callback: IFrogoAdBanner)
+
+// Show Banner Ads  with timeout millisecond and callback
+fun showAdBanner(mAdView: AdView, timeoutMilliSecond: Int, callback: IFrogoAdBanner)
+
+// Show Banner Ads  with and keyword and callback
+fun showAdBanner(mAdView: AdView, keyword: List<String>, callback: IFrogoAdBanner)
+
+// ---------------------------------------------------------------------------------------------
+
+// Show Banner Ads with container
+fun showAdBannerContainer(
+    bannerAdUnitId: String,
+    mAdsSize: AdSize,
+    container: RelativeLayout,
+)
+
+// Show Banner Ads with container and timeout millisecond
+fun showAdBannerContainer(
+    bannerAdUnitId: String,
+    mAdsSize: AdSize,
+    container: RelativeLayout,
+    timeoutMilliSecond: Int,
+)
+
+// Show Banner Ads with container and keyword
+fun showAdBannerContainer(
+    bannerAdUnitId: String,
+    mAdsSize: AdSize,
+    container: RelativeLayout,
+    keyword: List<String>,
+)
+
+// Show Banner Ads with container and keyword and timeout millisecond
+fun showAdBannerContainer(
+    bannerAdUnitId: String,
+    mAdsSize: AdSize,
+    container: RelativeLayout,
+    timeoutMilliSecond: Int,
+    keyword: List<String>
+)
+
+// Show Banner Ads with container and callback
+fun showAdBannerContainer(
+    bannerAdUnitId: String,
+    mAdsSize: AdSize,
+    container: RelativeLayout,
+    callback: IFrogoAdBanner
+)
+
+// Show Banner Ads with container and timeout millisecond and callback
+fun showAdBannerContainer(
+    bannerAdUnitId: String,
+    mAdsSize: AdSize,
+    container: RelativeLayout,
+    timeoutMilliSecond: Int,
+    callback: IFrogoAdBanner
+)
+
+// Show Banner Ads with container and keyword and callback
+fun showAdBannerContainer(
+    bannerAdUnitId: String,
+    mAdsSize: AdSize,
+    container: RelativeLayout,
+    keyword: List<String>,
+    callback: IFrogoAdBanner
+)
+
+// Show Banner Ads with container and timeout millisecond and keyword and callback
+fun showAdBannerContainer(
+    bannerAdUnitId: String,
+    mAdsSize: AdSize,
+    container: RelativeLayout,
+    timeoutMilliSecond: Int,
+    keyword: List<String>,
+    callback: IFrogoAdBanner
+)
+
+// ---------------------------------------------------------------------------------------------
+
+// Show Interstitial Ads with timeout millisecond, keyword, callback
+fun showAdInterstitial(
+    interstitialAdUnitId: String,
+    timeoutMilliSecond: Int,
+    keyword: List<String>,
+    callback: IFrogoAdInterstitial
+)
+
+// Show Interstitial Ads with timeout millisecond and keyword
+fun showAdInterstitial(
+    interstitialAdUnitId: String,
+    timeoutMilliSecond: Int,
+    keyword: List<String>
+)
+
+// Show Interstitial Ads with timeout millisecond
+fun showAdInterstitial(
+    interstitialAdUnitId: String,
+    timeoutMilliSecond: Int
+)
+
+// Show Interstitial Ads with keyword
+fun showAdInterstitial(
+    interstitialAdUnitId: String,
+    keyword: List<String>
+)
+
+// Show Interstitial Ads
+fun showAdInterstitial(interstitialAdUnitId: String)
+
+// Show Interstitial Ads with timeout milliSecond and callback
+fun showAdInterstitial(
+    interstitialAdUnitId: String,
+    timeoutMilliSecond: Int,
+    callback: IFrogoAdInterstitial
+)
+
+// Show Interstitial Ads with keyword and callback
+fun showAdInterstitial(
+    interstitialAdUnitId: String,
+    keyword: List<String>,
+    callback: IFrogoAdInterstitial
+)
+
+// Show Interstitial Ads with callback
+fun showAdInterstitial(
+    interstitialAdUnitId: String,
+    callback: IFrogoAdInterstitial
+)
+
+// ---------------------------------------------------------------------------------------------
+
+// Show Rewarded Ads
+fun showAdRewarded(mAdUnitIdRewarded: String, callback: IFrogoAdRewarded)
+
+// Show Rewarded Ads with timeout millisecond
+fun showAdRewarded(
+    mAdUnitIdRewarded: String,
+    timeoutMilliSecond: Int,
+    callback: IFrogoAdRewarded
+)
+
+// Show Rewarded Ads with keyword
+fun showAdRewarded(
+    mAdUnitIdRewarded: String,
+    keyword: List<String>,
+    callback: IFrogoAdRewarded
+)
+
+// Show Rewarded Ads with timeout millisecond and keyword
+fun showAdRewarded(
+    mAdUnitIdRewarded: String,
+    timeoutMilliSecond: Int,
+    keyword: List<String>,
+    callback: IFrogoAdRewarded
+)
+
+// ---------------------------------------------------------------------------------------------
+
+// Show Rewarded Interstitial Ads
+fun showAdRewardedInterstitial(
+    mAdUnitIdRewardedInterstitial: String,
+    callback: IFrogoAdRewarded
+)
+
+// Show Rewarded Interstitial Ads with timeout millisecond
+fun showAdRewardedInterstitial(
+    mAdUnitIdRewardedInterstitial: String,
+    timeoutMilliSecond: Int,
+    callback: IFrogoAdRewarded
+)
+
+// Show Rewarded Interstitial Ads with keyword
+fun showAdRewardedInterstitial(
+    mAdUnitIdRewardedInterstitial: String,
+    keyword: List<String>,
+    callback: IFrogoAdRewarded
+)
+
+// Show Rewarded Interstitial Ads with timeout millisecond and keyword
+fun showAdRewardedInterstitial(
+    mAdUnitIdRewardedInterstitial: String,
+    timeoutMilliSecond: Int,
+    keyword: List<String>,
+    callback: IFrogoAdRewarded
+)
+
+// ---------------------------------------------------------------------------------------------
+
+// Unity Ads
+
+fun setupUnityAdApp(
+    testMode: Boolean,
+    unityGameId: String
+)
+
+fun setupUnityAdApp(
+    testMode: Boolean,
+    unityGameId: String,
+    callback: IFrogoUnityAdInitialization
+)
+
+fun showUnityAdInterstitial(
+    adInterstitialUnitId: String
+)
+
+fun showUnityAdInterstitial(
+    adInterstitialUnitId: String,
+    callback: IFrogoUnityAdInterstitial
+)
+
+// ---------------------------------------------------------------------------------------------
+
+fun showAdmobXUnityAdInterstitial(
+    admobInterstitialId: String,
+    unityInterstitialId: String,
+    callback: IFrogoMixedAdsInterstitial
+)
+
+fun showUnityXAdmobAdInterstitial(
+    admobInterstitialId: String,
+    unityInterstitialId: String,
+    callback: IFrogoMixedAdsInterstitial
+)
+```
 
 ## Jetpack Compose Element
 
