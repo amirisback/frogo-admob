@@ -320,6 +320,50 @@ abstract class FrogoSdkAdmobActivity<VB : ViewBinding> : FrogoActivity<VB>(), IF
         FrogoAdmob.showAdRewardedInterstitial(this, mAdUnitIdRewardedInterstitial, callback)
     }
 
+    override fun showAdRewardedInterstitial(
+        mAdUnitIdRewardedInterstitial: String,
+        timeoutMilliSecond: Int,
+        callback: IFrogoAdRewarded
+    ) {
+        FLog.d("$TAG : Run From $TAG class : FrogoAdmob.showAdRewardedInterstitial")
+        FrogoAdmob.showAdRewardedInterstitial(
+            this,
+            mAdUnitIdRewardedInterstitial,
+            timeoutMilliSecond,
+            callback
+        )
+    }
+
+    override fun showAdRewardedInterstitial(
+        mAdUnitIdRewardedInterstitial: String,
+        keyword: List<String>,
+        callback: IFrogoAdRewarded
+    ) {
+        FLog.d("$TAG : Run From $TAG class : FrogoAdmob.showAdRewardedInterstitial")
+        FrogoAdmob.showAdRewardedInterstitial(
+            this,
+            mAdUnitIdRewardedInterstitial,
+            keyword,
+            callback
+        )
+    }
+
+    override fun showAdRewardedInterstitial(
+        mAdUnitIdRewardedInterstitial: String,
+        timeoutMilliSecond: Int,
+        keyword: List<String>,
+        callback: IFrogoAdRewarded
+    ) {
+        FLog.d("$TAG : Run From $TAG class : FrogoAdmob.showAdRewardedInterstitial")
+        FrogoAdmob.showAdRewardedInterstitial(
+            this,
+            mAdUnitIdRewardedInterstitial,
+            timeoutMilliSecond,
+            keyword,
+            callback
+        )
+    }
+
     // ---------------------------------------------------------------------------------------------
 
     override fun setupUnityAdApp(testMode: Boolean, unityGameId: String) {
@@ -333,6 +377,8 @@ abstract class FrogoSdkAdmobActivity<VB : ViewBinding> : FrogoActivity<VB>(), IF
     ) {
         FrogoUnityAd.setupUnityAdApp(this, testMode, unityGameId, callback)
     }
+
+    // ---------------------------------------------------------------------------------------------
 
     override fun showUnityAdInterstitial(adInterstitialUnitId: String) {
         FLog.d("$TAG : Run From $TAG class : FrogoUnityAd.showAdInterstitial")
@@ -442,6 +488,7 @@ abstract class FrogoSdkAdmobActivity<VB : ViewBinding> : FrogoActivity<VB>(), IF
         })
     }
 
+    // ---------------------------------------------------------------------------------------------
 
     override fun onResume() {
         for (item in arrayFrogoAdmobData) {

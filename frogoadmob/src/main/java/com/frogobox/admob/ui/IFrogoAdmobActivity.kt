@@ -210,6 +210,28 @@ interface IFrogoAdmobActivity {
         callback: IFrogoAdRewarded
     )
 
+    // Show Rewarded Interstitial Ads with timeout millisecond
+    fun showAdRewardedInterstitial(
+        mAdUnitIdRewardedInterstitial: String,
+        timeoutMilliSecond: Int,
+        callback: IFrogoAdRewarded
+    )
+
+    // Show Rewarded Interstitial Ads with keyword
+    fun showAdRewardedInterstitial(
+        mAdUnitIdRewardedInterstitial: String,
+        keyword: List<String>,
+        callback: IFrogoAdRewarded
+    )
+
+    // Show Rewarded Interstitial Ads with timeout millisecond and keyword
+    fun showAdRewardedInterstitial(
+        mAdUnitIdRewardedInterstitial: String,
+        timeoutMilliSecond: Int,
+        keyword: List<String>,
+        callback: IFrogoAdRewarded
+    )
+
     // ---------------------------------------------------------------------------------------------
 
     // Unity Ads

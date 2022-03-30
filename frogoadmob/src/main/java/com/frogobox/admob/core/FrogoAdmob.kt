@@ -598,6 +598,8 @@ object FrogoAdmob : IFrogoAdmob {
     override fun showAdRewardedInterstitial(
         activity: AppCompatActivity,
         mAdUnitIdRewardedInterstitial: String,
+        timeoutMilliSecond: Int?,
+        keyword: List<String>?,
         callback: IFrogoAdRewarded
     ) {
 
@@ -606,16 +608,32 @@ object FrogoAdmob : IFrogoAdmob {
 
         getInitializedState(initializationName, initializationCode)
 
-        if (mAdUnitIdRewardedInterstitial == "") {
-            callback.onAdFailed(TAG, "$TAG : Rewarded Interstitial Id Is Empty")
-        } else {
+        if (mAdUnitIdRewardedInterstitial != "") {
+
+            val adRequest = AdRequest.Builder()
+
+            if (timeoutMilliSecond != null) {
+                FLog.d("$TAG Rewarded HttpTimeOut Millisecond : $timeoutMilliSecond")
+                adRequest.setHttpTimeoutMillis(timeoutMilliSecond)
+            }
+
+            if (keyword != null) {
+                for (i in keyword.indices) {
+                    FLog.d("$TAG Rewarded Keyworad Ads [$i] : ${keyword[i]}")
+                    adRequest.addKeyword(keyword[i])
+                }
+            }
+
             RewardedInterstitialAd.load(
                 activity,
                 mAdUnitIdRewardedInterstitial,
                 AdRequest.Builder().build(),
                 object : RewardedInterstitialAdLoadCallback() {
                     override fun onAdFailedToLoad(loadAdError: LoadAdError) {
-                        getInitializedState(initializationName, initializationCode)
+                        getInitializedState(
+                            initializationName,
+                            initializationCode
+                        )
                         FLog.e("$TAG [RewardedInterstitial] >> Run - IFrogoAdRewarded [callback] : onAdFailedToLoad()")
                         FLog.d("$TAG [RewardedInterstitial] >> Error - onAdFailedToLoad [unit id] : $mAdUnitIdRewardedInterstitial")
                         FLog.e("$TAG [RewardedInterstitial] >> Error - onAdFailedToLoad [code] : ${loadAdError.code}")
@@ -642,7 +660,10 @@ object FrogoAdmob : IFrogoAdmob {
                                 }
 
                                 override fun onAdFailedToShowFullScreenContent(adError: AdError?) {
-                                    getInitializedState(initializationName, initializationCode)
+                                    getInitializedState(
+                                        initializationName,
+                                        initializationCode
+                                    )
                                     FLog.e("$TAG [RewardedInterstitial] >> Run - IFrogoAdRewarded [callback] : onAdFailedToShow()")
                                     FLog.d("$TAG [RewardedInterstitial] >> Error - onAdFailedToShowFullScreenContent [unit id] : $mAdUnitIdRewardedInterstitial")
                                     FLog.e("$TAG [RewardedInterstitial] >> Error - onAdFailedToShowFullScreenContent [code] : ${adError?.code}")
@@ -671,7 +692,44 @@ object FrogoAdmob : IFrogoAdmob {
 
                     }
                 })
+        } else {
+            callback.onAdFailed(
+                TAG,
+                "$TAG : Rewarded Interstitial Id Is Empty"
+            )
         }
+    }
+
+    override fun showAdRewardedInterstitial(
+        activity: AppCompatActivity,
+        mAdUnitIdRewardedInterstitial: String,
+        callback: IFrogoAdRewarded
+    ) {
+        showAdRewardedInterstitial(activity, mAdUnitIdRewardedInterstitial, null, null, callback)
+    }
+
+    override fun showAdRewardedInterstitial(
+        activity: AppCompatActivity,
+        mAdUnitIdRewardedInterstitial: String,
+        timeoutMilliSecond: Int,
+        callback: IFrogoAdRewarded
+    ) {
+        showAdRewardedInterstitial(
+            activity,
+            mAdUnitIdRewardedInterstitial,
+            timeoutMilliSecond,
+            null,
+            callback
+        )
+    }
+
+    override fun showAdRewardedInterstitial(
+        activity: AppCompatActivity,
+        mAdUnitIdRewardedInterstitial: String,
+        keyword: List<String>,
+        callback: IFrogoAdRewarded
+    ) {
+        showAdRewardedInterstitial(activity, mAdUnitIdRewardedInterstitial, null, keyword, callback)
     }
 
     // ---------------------------------------------------------------------------------------------

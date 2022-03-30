@@ -10,9 +10,6 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.KickStart">
         <activity
-            android:name=".mvvm.main.RewardedInterstitialActivity"
-            android:exported="false" />
-        <activity
             android:name=".mvvm.main.BannerActivity"
             android:exported="false" />
         <activity

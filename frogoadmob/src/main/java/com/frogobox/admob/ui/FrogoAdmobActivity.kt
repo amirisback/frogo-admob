@@ -323,6 +323,50 @@ abstract class FrogoAdmobActivity : AppCompatActivity(), IFrogoAdmobActivity {
         FrogoAdmob.showAdRewardedInterstitial(this, mAdUnitIdRewardedInterstitial, callback)
     }
 
+    override fun showAdRewardedInterstitial(
+        mAdUnitIdRewardedInterstitial: String,
+        timeoutMilliSecond: Int,
+        callback: IFrogoAdRewarded
+    ) {
+        FLog.d("$TAG : Run From $TAG class : FrogoAdmob.showAdRewardedInterstitial")
+        FrogoAdmob.showAdRewardedInterstitial(
+            this,
+            mAdUnitIdRewardedInterstitial,
+            timeoutMilliSecond,
+            callback
+        )
+    }
+
+    override fun showAdRewardedInterstitial(
+        mAdUnitIdRewardedInterstitial: String,
+        keyword: List<String>,
+        callback: IFrogoAdRewarded
+    ) {
+        FLog.d("$TAG : Run From $TAG class : FrogoAdmob.showAdRewardedInterstitial")
+        FrogoAdmob.showAdRewardedInterstitial(
+            this,
+            mAdUnitIdRewardedInterstitial,
+            keyword,
+            callback
+        )
+    }
+
+    override fun showAdRewardedInterstitial(
+        mAdUnitIdRewardedInterstitial: String,
+        timeoutMilliSecond: Int,
+        keyword: List<String>,
+        callback: IFrogoAdRewarded
+    ) {
+        FLog.d("$TAG : Run From $TAG class : FrogoAdmob.showAdRewardedInterstitial")
+        FrogoAdmob.showAdRewardedInterstitial(
+            this,
+            mAdUnitIdRewardedInterstitial,
+            timeoutMilliSecond,
+            keyword,
+            callback
+        )
+    }
+
     // ---------------------------------------------------------------------------------------------
 
     override fun setupUnityAdApp(testMode: Boolean, unityGameId: String) {
@@ -336,6 +380,8 @@ abstract class FrogoAdmobActivity : AppCompatActivity(), IFrogoAdmobActivity {
     ) {
         FrogoUnityAd.setupUnityAdApp(this, testMode, unityGameId, callback)
     }
+
+    // ---------------------------------------------------------------------------------------------
 
     override fun showUnityAdInterstitial(adInterstitialUnitId: String) {
         FrogoUnityAd.showAdInterstitial(this, adInterstitialUnitId)
@@ -442,6 +488,8 @@ abstract class FrogoAdmobActivity : AppCompatActivity(), IFrogoAdmobActivity {
             }
         })
     }
+
+    // ---------------------------------------------------------------------------------------------
 
     override fun onResume() {
         for (item in arrayFrogoAdmobData) {
