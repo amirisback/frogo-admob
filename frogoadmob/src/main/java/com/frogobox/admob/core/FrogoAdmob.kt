@@ -197,76 +197,38 @@ object FrogoAdmob : IFrogoAdmob {
 
     }
 
-// ---------------------------------------------------------------------------------------------
-
-    override fun showAdInterstitial(activity: AppCompatActivity, interstitialAdUnitId: String) {
-        FrogoAdmobSingleFunc.waterMark()
-        FLog.d("$TAG Interstitial Id : $interstitialAdUnitId")
-
-        getInitializedState(initializationName, initializationCode)
-
-        if (interstitialAdUnitId != "") {
-            InterstitialAd.load(
-                activity,
-                interstitialAdUnitId,
-                AdRequest.Builder().build(),
-                object : InterstitialAdLoadCallback() {
-                    override fun onAdFailedToLoad(adError: LoadAdError) {
-                        getInitializedState(initializationName, initializationCode)
-                        FLog.d("$TAG [Interstitial] >> Error - onAdFailedToLoad [unit id] : $interstitialAdUnitId")
-                        FLog.e("$TAG [Interstitial] >> Error - onAdFailedToLoad [code] : ${adError.code}")
-                        FLog.e("$TAG [Interstitial] >> Error - onAdFailedToLoad [domain] : ${adError.domain}")
-                        FLog.e("$TAG [Interstitial] >> Error - onAdFailedToLoad [message] : ${adError.message}")
-                    }
-
-                    override fun onAdLoaded(interstitialAd: InterstitialAd) {
-                        FLog.d("$TAG [Interstitial] >> Succes - onAdLoaded [message] : Ad was loaded")
-                        FLog.d("$TAG [Interstitial] >> Succes - onAdLoaded [unit id] : ${interstitialAd.adUnitId}")
-                        FLog.d("$TAG [Interstitial] >> Succes - onAdLoaded [response Info] : ${interstitialAd.responseInfo}")
-                        interstitialAd.fullScreenContentCallback =
-                            object : FullScreenContentCallback() {
-                                override fun onAdDismissedFullScreenContent() {
-                                    FLog.d("$TAG [Interstitial] >> Succes - onAdDismissedFullScreenContent [message] : Ad was dismissed")
-                                }
-
-                                override fun onAdFailedToShowFullScreenContent(adError: AdError?) {
-                                    getInitializedState(initializationName, initializationCode)
-                                    FLog.d("$TAG [Interstitial] >> Error - onAdFailedToShowFullScreenContent [unit id] : $interstitialAdUnitId")
-                                    FLog.e("$TAG [Interstitial] >> Error - onAdFailedToShowFullScreenContent [code] : ${adError?.code}")
-                                    FLog.e("$TAG [Interstitial] >> Error - onAdFailedToShowFullScreenContent [domain] : ${adError?.domain}")
-                                    FLog.e("$TAG [Interstitial] >> Error - onAdFailedToShowFullScreenContent [message] : ${adError?.message}")
-                                    FLog.e("$TAG [Interstitial] >> Error : Ad failed to show")
-                                }
-
-                                override fun onAdShowedFullScreenContent() {
-                                    FLog.d("$TAG [Interstitial] >> Succes - onAdShowedFullScreenContent [message] : Ad showed fullscreen content")
-                                }
-                            }
-                        interstitialAd.show(activity)
-                    }
-                }
-            )
-        }
-
-    }
+    // ---------------------------------------------------------------------------------------------
 
     override fun showAdInterstitial(
         activity: AppCompatActivity,
         interstitialAdUnitId: String,
-        callback: IFrogoAdInterstitial
+        timeoutMilliSecond: Int?,
+        keyword: MutableList<String>?,
+        callback: IFrogoAdInterstitial?
     ) {
         FrogoAdmobSingleFunc.waterMark()
         FLog.d("$TAG Interstitial Id : $interstitialAdUnitId")
 
         getInitializedState(initializationName, initializationCode)
 
-        if (interstitialAdUnitId == "") {
-            callback.onAdFailed(TAG, "$TAG : Interstitial ID is Empty")
-        } else {
+        if (interstitialAdUnitId != "") {
+
+            val adRequest = AdRequest.Builder()
+
+            if (timeoutMilliSecond != null) {
+                adRequest.setHttpTimeoutMillis(timeoutMilliSecond)
+            }
+
+            if (keyword != null) {
+                for (i in keyword.indices) {
+                    adRequest.addKeyword(keyword[i])
+                }
+            }
+
             InterstitialAd.load(
                 activity,
                 interstitialAdUnitId,
-                AdRequest.Builder().build(),
+                adRequest.build(),
                 object : InterstitialAdLoadCallback() {
                     override fun onAdFailedToLoad(adError: LoadAdError) {
                         getInitializedState(initializationName, initializationCode)
@@ -275,7 +237,7 @@ object FrogoAdmob : IFrogoAdmob {
                         FLog.e("$TAG [Interstitial] >> Error - onAdFailedToLoad [code] : ${adError.code}")
                         FLog.e("$TAG [Interstitial] >> Error - onAdFailedToLoad [domain] : ${adError.domain}")
                         FLog.e("$TAG [Interstitial] >> Error - onAdFailedToLoad [message] : ${adError.message}")
-                        callback.onAdFailed(TAG, "Interstitial ${adError.message}")
+                        callback?.onAdFailed(TAG, "Interstitial ${adError.message}")
                     }
 
                     override fun onAdLoaded(interstitialAd: InterstitialAd) {
@@ -284,14 +246,17 @@ object FrogoAdmob : IFrogoAdmob {
                         FLog.d("$TAG [Interstitial] >> Succes - onAdLoaded [unit id] : ${interstitialAd.adUnitId}")
                         FLog.d("$TAG [Interstitial] >> Succes - onAdLoaded [response Info] : ${interstitialAd.responseInfo}")
                         FLog.d("$TAG [Interstitial] >> Suggest : You Can Give Your Reward Here")
-                        callback.onAdLoaded(TAG, "Interstitial Ad was loaded")
+                        callback?.onAdLoaded(TAG, "Interstitial Ad was loaded")
 
                         interstitialAd.fullScreenContentCallback =
                             object : FullScreenContentCallback() {
                                 override fun onAdDismissedFullScreenContent() {
                                     FLog.d("$TAG [Interstitial] >> Run - IFrogoAdInterstitial [callback] : onAdDismissed()")
                                     FLog.d("$TAG [Interstitial] >> Succes - onAdDismissedFullScreenContent [message] : Ad was dismissed")
-                                    callback.onAdDismissed(TAG, "Interstitial Ad was dismissed")
+                                    callback?.onAdDismissed(
+                                        TAG,
+                                        "Interstitial Ad was dismissed"
+                                    )
                                 }
 
                                 override fun onAdFailedToShowFullScreenContent(adError: AdError?) {
@@ -302,13 +267,16 @@ object FrogoAdmob : IFrogoAdmob {
                                     FLog.e("$TAG [Interstitial] >> Error - onAdFailedToShowFullScreenContent [domain] : ${adError?.domain}")
                                     FLog.e("$TAG [Interstitial] >> Error - onAdFailedToShowFullScreenContent [message] : ${adError?.message}")
                                     FLog.e("$TAG [Interstitial] >> Error : Ad failed to show")
-                                    callback.onAdFailed(TAG, "Interstitial Ad failed to show")
+                                    callback?.onAdFailed(
+                                        TAG,
+                                        "Interstitial Ad failed to show"
+                                    )
                                 }
 
                                 override fun onAdShowedFullScreenContent() {
                                     FLog.d("$TAG [Interstitial] >> Run - IFrogoAdInterstitial [callback] : onAdShowed()")
                                     FLog.d("$TAG [Interstitial] >> Succes - onAdShowedFullScreenContent [message] : Ad showed fullscreen content")
-                                    callback.onAdShowed(
+                                    callback?.onAdShowed(
                                         TAG,
                                         "Interstitial Ad showed fullscreen content"
                                     )
@@ -318,8 +286,69 @@ object FrogoAdmob : IFrogoAdmob {
                     }
                 }
             )
+        } else {
+            callback?.onAdFailed(TAG, "$TAG : Interstitial ID is Empty")
         }
 
+    }
+
+    override fun showAdInterstitial(
+        activity: AppCompatActivity,
+        interstitialAdUnitId: String,
+        timeoutMilliSecond: Int,
+        keyword: MutableList<String>
+    ) {
+        showAdInterstitial(activity, interstitialAdUnitId, timeoutMilliSecond, keyword, null)
+    }
+
+    override fun showAdInterstitial(
+        activity: AppCompatActivity,
+        interstitialAdUnitId: String,
+        timeoutMilliSecond: Int
+    ) {
+        showAdInterstitial(activity, interstitialAdUnitId, timeoutMilliSecond, null, null)
+    }
+
+    override fun showAdInterstitial(
+        activity: AppCompatActivity,
+        interstitialAdUnitId: String,
+        keyword: MutableList<String>
+    ) {
+        showAdInterstitial(activity, interstitialAdUnitId, null, keyword, null)
+    }
+
+    override fun showAdInterstitial(
+        activity: AppCompatActivity,
+        interstitialAdUnitId: String,
+    ) {
+        showAdInterstitial(activity, interstitialAdUnitId, null, null, null)
+    }
+
+
+    override fun showAdInterstitial(
+        activity: AppCompatActivity,
+        interstitialAdUnitId: String,
+        timeoutMilliSecond: Int,
+        callback: IFrogoAdInterstitial
+    ) {
+        showAdInterstitial(activity, interstitialAdUnitId, timeoutMilliSecond, null, callback)
+    }
+
+    override fun showAdInterstitial(
+        activity: AppCompatActivity,
+        interstitialAdUnitId: String,
+        keyword: MutableList<String>,
+        callback: IFrogoAdInterstitial
+    ) {
+        showAdInterstitial(activity, interstitialAdUnitId, null, keyword, callback)
+    }
+
+    override fun showAdInterstitial(
+        activity: AppCompatActivity,
+        interstitialAdUnitId: String,
+        callback: IFrogoAdInterstitial
+    ) {
+        showAdInterstitial(activity, interstitialAdUnitId, null, null, callback)
     }
 
     // ---------------------------------------------------------------------------------------------
@@ -483,7 +512,8 @@ object FrogoAdmob : IFrogoAdmob {
         bannerAdUnitId: String,
         context: Context,
         recyclerViewDataList: MutableList<Any>
-    ) { // Load the first banner ad in the items list (subsequent ads will be loaded automatically in sequence).
+    ) {
+        // Load the first banner ad in the items list (subsequent ads will be loaded automatically in sequence).
         addBannerAds(bannerAdUnitId, context, recyclerViewDataList)
         loadBannerAd(recyclerViewDataList, 0)
     }

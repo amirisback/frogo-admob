@@ -55,7 +55,48 @@ interface IFrogoAdmob {
 
     fun showAdInterstitial(
         activity: AppCompatActivity,
-        interstitialAdUnitId: String
+        interstitialAdUnitId: String,
+        timeoutMilliSecond: Int?,
+        keyword: MutableList<String>?,
+        callback: IFrogoAdInterstitial?
+    )
+
+    fun showAdInterstitial(
+        activity: AppCompatActivity,
+        interstitialAdUnitId: String,
+        timeoutMilliSecond: Int,
+        keyword: MutableList<String>
+    )
+
+    fun showAdInterstitial(
+        activity: AppCompatActivity,
+        interstitialAdUnitId: String,
+        timeoutMilliSecond: Int
+    )
+
+    fun showAdInterstitial(
+        activity: AppCompatActivity,
+        interstitialAdUnitId: String,
+        keyword: MutableList<String>
+    )
+
+    fun showAdInterstitial(
+        activity: AppCompatActivity,
+        interstitialAdUnitId: String,
+    )
+
+    fun showAdInterstitial(
+        activity: AppCompatActivity,
+        interstitialAdUnitId: String,
+        timeoutMilliSecond: Int,
+        callback: IFrogoAdInterstitial
+    )
+
+    fun showAdInterstitial(
+        activity: AppCompatActivity,
+        interstitialAdUnitId: String,
+        keyword: MutableList<String>,
+        callback: IFrogoAdInterstitial
     )
 
     fun showAdInterstitial(

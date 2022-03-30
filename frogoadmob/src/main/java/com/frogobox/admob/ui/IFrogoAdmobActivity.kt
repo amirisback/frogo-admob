@@ -1,6 +1,7 @@
 package com.frogobox.admob.ui
 
 import android.widget.RelativeLayout
+import androidx.appcompat.app.AppCompatActivity
 import com.frogobox.admob.core.*
 import com.google.android.gms.ads.AdSize
 import com.google.android.gms.ads.AdView
@@ -39,15 +40,60 @@ interface IFrogoAdmobActivity {
         container: RelativeLayout,
         listener: IFrogoAdBanner
     )
+    
+    // ---------------------------------------------------------------------------------------------
+
+    // Show Interstitial Ads with timeout millisecond, keyword, callback
+    fun showAdInterstitial(
+        interstitialAdUnitId: String,
+        timeoutMilliSecond: Int,
+        keyword: MutableList<String>,
+        callback: IFrogoAdInterstitial
+    )
+
+    // Show Interstitial Ads with timeout millisecond and keyword
+    fun showAdInterstitial(
+        interstitialAdUnitId: String,
+        timeoutMilliSecond: Int,
+        keyword: MutableList<String>
+    )
+
+    // Show Interstitial Ads with timeout millisecond
+    fun showAdInterstitial(
+        interstitialAdUnitId: String,
+        timeoutMilliSecond: Int
+    )
+
+    // Show Interstitial Ads with keyword
+    fun showAdInterstitial(
+        interstitialAdUnitId: String,
+        keyword: MutableList<String>
+    )
 
     // Show Interstitial Ads
     fun showAdInterstitial(interstitialAdUnitId: String)
 
-    // Show Interstitial Ads with listener
+    // Show Interstitial Ads with timeout milliSecond and callback
+    fun showAdInterstitial(
+        interstitialAdUnitId: String,
+        timeoutMilliSecond: Int,
+        callback: IFrogoAdInterstitial
+    )
+
+    // Show Interstitial Ads with keyword and callback
+    fun showAdInterstitial(
+        interstitialAdUnitId: String,
+        keyword: MutableList<String>,
+        callback: IFrogoAdInterstitial
+    )
+
+    // Show Interstitial Ads with callback
     fun showAdInterstitial(
         interstitialAdUnitId: String,
         callback: IFrogoAdInterstitial
     )
+
+    // ---------------------------------------------------------------------------------------------
 
     // Show Rewarded Ads
     fun showAdRewarded(mAdUnitIdRewarded: String, callback: IFrogoAdRewarded)
