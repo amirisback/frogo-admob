@@ -45,11 +45,11 @@ object FrogoAdmob : IFrogoAdmob {
     // ---------------------------------------------------------------------------------------------
 
     private fun getInitializedState(name: String, code: Int) {
-        FLog.d(FrogoAdmobSingleFunc.LINE)
+        FLog.d(FrogoAdmobConstant.LINE)
         FLog.d("$TAG >> Setup MobileAds [Key] : $mobileAdsKey")
         FLog.d("$TAG >> Setup MobileAds [Initialization State Name] : $name")
         FLog.d("$TAG >> Setup MobileAds [Initialization State Code] : $code")
-        FLog.d(FrogoAdmobSingleFunc.LINE)
+        FLog.d(FrogoAdmobConstant.LINE)
     }
 
     override fun setupAdmobApp(context: Context) {
@@ -65,41 +65,13 @@ object FrogoAdmob : IFrogoAdmob {
 
     // ---------------------------------------------------------------------------------------------
 
-    private fun frogoAdListener(): AdListener {
-        return object : AdListener() {
-            override fun onAdLoaded() {
-                FrogoAdmobSingleFunc.waterMark()
-                FLog.d("$TAG [Banner] >> Success - onAdLoaded [message] : Ad Banner onAdLoaded")
-            }
-
-            override fun onAdFailedToLoad(p0: LoadAdError) {
-                FrogoAdmobSingleFunc.waterMark()
-                FLog.e("$TAG [Banner] >> Error - onAdFailedToLoad [code] : ${p0.code}")
-                FLog.e("$TAG [Banner] >> Error - onAdFailedToLoad [domain] : ${p0.domain}")
-                FLog.e("$TAG [Banner] >> Error - onAdFailedToLoad [message] : ${p0.message}")
-            }
-
-            override fun onAdOpened() {
-                FLog.d("$TAG [Banner] >> Success - onAdOpened [message] : Ad Banner onAdOpened")
-            }
-
-            override fun onAdClicked() {
-                FLog.d("$TAG [Banner] >> Success - onAdClicked [message] : Ad Banner onAdClicked")
-            }
-
-            override fun onAdClosed() {
-                FLog.d("$TAG [Banner] >> Success - onAdClosed [message] : Ad Banner onAdClosed")
-            }
-        }
-    }
-
-    private fun frogoAdListener(callback: IFrogoAdBanner): AdListener {
+    private fun frogoAdListener(callback: IFrogoAdBanner?): AdListener {
         return object : AdListener() {
             override fun onAdLoaded() {
                 FrogoAdmobSingleFunc.waterMark()
                 FLog.d("$TAG [Banner] >> Run - IFrogoAdBanner [callback] : onAdLoaded()")
                 FLog.d("$TAG [Banner] >> Success - onAdLoaded [message] : Ad Banner onAdLoaded")
-                callback.onAdLoaded(TAG, "Ad Banner onAdLoaded")
+                callback?.onAdLoaded(TAG, "Ad Banner onAdLoaded")
             }
 
             override fun onAdFailedToLoad(p0: LoadAdError) {
@@ -109,52 +81,97 @@ object FrogoAdmob : IFrogoAdmob {
                 FLog.e("$TAG [Banner] >> Error - onAdFailedToLoad [code] : ${p0.code}")
                 FLog.e("$TAG [Banner] >> Error - onAdFailedToLoad [domain] : ${p0.domain}")
                 FLog.e("$TAG [Banner] >> Error - onAdFailedToLoad [message] : ${p0.message}")
-                callback.onAdFailedToLoad(TAG, p0.code.toString(), p0.message)
+                callback?.onAdFailedToLoad(TAG, p0.code.toString(), p0.message)
             }
 
             override fun onAdOpened() {
                 FLog.d("$TAG [Banner] >> Run - IFrogoAdBanner [callback] : onAdOpened()")
                 FLog.d("$TAG [Banner] >> Success - onAdOpened [message] : Ad Banner onAdOpened")
-                callback.onAdOpened(TAG, "Ad Banner onAdOpened")
+                callback?.onAdOpened(TAG, "Ad Banner onAdOpened")
             }
 
             override fun onAdClicked() {
                 FLog.d("$TAG [Banner] >> Run - IFrogoAdBanner [callback] : onAdClicked()")
                 FLog.d("$TAG [Banner] >> Success - onAdClicked [message] : Ad Banner onAdClicked")
-                callback.onAdClicked(TAG, "Ad Banner onAdClicked")
+                callback?.onAdClicked(TAG, "Ad Banner onAdClicked")
             }
 
             override fun onAdClosed() {
                 FLog.d("$TAG [Banner] >> Run - IFrogoAdBanner [callback] : onAdClicked()")
                 FLog.d("$TAG [Banner] >> Success - onAdClosed [message] : Ad Banner onAdClosed")
-                callback.onAdClosed(TAG, "Ad Banner onAdClosed")
+                callback?.onAdClosed(TAG, "Ad Banner onAdClosed")
             }
         }
     }
 
-    override fun showAdBanner(mAdView: AdView) {
+    override fun showAdBanner(
+        mAdView: AdView,
+        timeoutMilliSecond: Int?,
+        keyword: List<String>?,
+        callback: IFrogoAdBanner?
+    ) {
         FrogoAdmobSingleFunc.waterMark()
         FLog.d("Banner Id : Attach on Xml Layout")
         getInitializedState(initializationName, initializationCode)
 
-        mAdView.adListener = frogoAdListener()
-        mAdView.loadAd(AdRequest.Builder().build())
+        val adRequest = AdRequest.Builder()
+
+        if (timeoutMilliSecond != null) {
+            FLog.d("$TAG Banner HttpTimeOut Millisecond : $timeoutMilliSecond")
+            adRequest.setHttpTimeoutMillis(timeoutMilliSecond)
+        }
+
+        if (keyword != null) {
+            for (i in keyword.indices) {
+                FLog.d("$TAG Banner Keyworad Ads [$i] : ${keyword[i]}")
+                adRequest.addKeyword(keyword[i])
+            }
+        }
+        if (callback != null) {
+            mAdView.adListener = frogoAdListener(callback)
+        } else {
+            mAdView.adListener = frogoAdListener(null)
+        }
+
+        mAdView.loadAd(adRequest.build())
+    }
+
+    override fun showAdBanner(mAdView: AdView) {
+        showAdBanner(mAdView, null, null, null)
+    }
+
+    override fun showAdBanner(mAdView: AdView, timeoutMilliSecond: Int) {
+        showAdBanner(mAdView, timeoutMilliSecond, null, null)
+    }
+
+    override fun showAdBanner(mAdView: AdView, keyword: List<String>) {
+        showAdBanner(mAdView, null, keyword, null)
+    }
+
+    override fun showAdBanner(mAdView: AdView, timeoutMilliSecond: Int, keyword: List<String>) {
+        showAdBanner(mAdView, timeoutMilliSecond, keyword, null)
     }
 
     override fun showAdBanner(mAdView: AdView, callback: IFrogoAdBanner) {
-        FrogoAdmobSingleFunc.waterMark()
-        FLog.d("Banner Id : Attach on Xml Layout")
-        getInitializedState(initializationName, initializationCode)
+        showAdBanner(mAdView, null, null, callback)
+    }
 
-        mAdView.adListener = frogoAdListener(callback)
-        mAdView.loadAd(AdRequest.Builder().build())
+    override fun showAdBanner(mAdView: AdView, timeoutMilliSecond: Int, callback: IFrogoAdBanner) {
+        showAdBanner(mAdView, timeoutMilliSecond, null, callback)
+    }
+
+    override fun showAdBanner(mAdView: AdView, keyword: List<String>, callback: IFrogoAdBanner) {
+        showAdBanner(mAdView, null, keyword, callback)
     }
 
     override fun showAdBannerContainer(
         context: Context,
         bannerAdUnitId: String,
         mAdsSize: AdSize,
-        container: RelativeLayout
+        container: RelativeLayout,
+        timeoutMilliSecond: Int?,
+        keyword: List<String>?,
+        callback: IFrogoAdBanner?
     ) {
         FrogoAdmobSingleFunc.waterMark()
         FLog.d("Banner Id : $bannerAdUnitId")
@@ -162,12 +179,37 @@ object FrogoAdmob : IFrogoAdmob {
         getInitializedState(initializationName, initializationCode)
 
         if (bannerAdUnitId != "") {
+
             val mAdView = AdView(context)
+
+            val adRequest = AdRequest.Builder()
+
+            if (timeoutMilliSecond != null) {
+                FLog.d("$TAG Banner HttpTimeOut Millisecond : $timeoutMilliSecond")
+                adRequest.setHttpTimeoutMillis(timeoutMilliSecond)
+            }
+
+            if (keyword != null) {
+                for (i in keyword.indices) {
+                    FLog.d("$TAG Banner Keyworad Ads [$i] : ${keyword[i]}")
+                    adRequest.addKeyword(keyword[i])
+                }
+            }
+
             mAdView.adUnitId = bannerAdUnitId
             mAdView.adSize = mAdsSize
-            mAdView.adListener = frogoAdListener()
+
+            if (callback != null) {
+                mAdView.adListener = frogoAdListener(callback)
+            } else {
+                mAdView.adListener = frogoAdListener(null)
+            }
+
             container.addView(mAdView)
-            mAdView.loadAd(AdRequest.Builder().build())
+
+            mAdView.loadAd(adRequest.build())
+        } else {
+            callback?.onAdFailedToLoad(TAG, "000", "$TAG : Banner Unit Id is Empty")
         }
 
     }
@@ -177,24 +219,95 @@ object FrogoAdmob : IFrogoAdmob {
         bannerAdUnitId: String,
         mAdsSize: AdSize,
         container: RelativeLayout,
+    ) {
+        showAdBannerContainer(context, bannerAdUnitId, mAdsSize, container, null, null, null)
+    }
+
+    override fun showAdBannerContainer(
+        context: Context,
+        bannerAdUnitId: String,
+        mAdsSize: AdSize,
+        container: RelativeLayout,
+        timeoutMilliSecond: Int,
+    ) {
+        showAdBannerContainer(
+            context,
+            bannerAdUnitId,
+            mAdsSize,
+            container,
+            timeoutMilliSecond,
+            null,
+            null
+        )
+    }
+
+    override fun showAdBannerContainer(
+        context: Context,
+        bannerAdUnitId: String,
+        mAdsSize: AdSize,
+        container: RelativeLayout,
+        keyword: List<String>,
+    ) {
+        showAdBannerContainer(context, bannerAdUnitId, mAdsSize, container, null, keyword, null)
+    }
+
+    override fun showAdBannerContainer(
+        context: Context,
+        bannerAdUnitId: String,
+        mAdsSize: AdSize,
+        container: RelativeLayout,
+        timeoutMilliSecond: Int,
+        keyword: List<String>
+    ) {
+        showAdBannerContainer(
+            context,
+            bannerAdUnitId,
+            mAdsSize,
+            container,
+            timeoutMilliSecond,
+            keyword,
+            null
+        )
+    }
+
+    override fun showAdBannerContainer(
+        context: Context,
+        bannerAdUnitId: String,
+        mAdsSize: AdSize,
+        container: RelativeLayout,
         callback: IFrogoAdBanner
     ) {
-        FrogoAdmobSingleFunc.waterMark()
-        FLog.d("Banner Id : $bannerAdUnitId")
+        showAdBannerContainer(context, bannerAdUnitId, mAdsSize, container, null, null, callback)
+    }
 
-        getInitializedState(initializationName, initializationCode)
+    override fun showAdBannerContainer(
+        context: Context,
+        bannerAdUnitId: String,
+        mAdsSize: AdSize,
+        container: RelativeLayout,
+        timeoutMilliSecond: Int,
+        callback: IFrogoAdBanner
+    ) {
+        showAdBannerContainer(
+            context,
+            bannerAdUnitId,
+            mAdsSize,
+            container,
+            timeoutMilliSecond,
+            null,
+            callback
+        )
+    }
 
-        if (bannerAdUnitId == "") {
-            callback.onAdFailedToLoad(TAG, "000", "$TAG : Banner Unit Id is Empty")
-        } else {
-            val mAdView = AdView(context)
-            mAdView.adUnitId = bannerAdUnitId
-            mAdView.adSize = mAdsSize
-            mAdView.adListener = frogoAdListener(callback)
-            container.addView(mAdView)
-            mAdView.loadAd(AdRequest.Builder().build())
-        }
-
+    override fun showAdBannerContainer(
+        context: Context,
+        bannerAdUnitId: String,
+        mAdsSize: AdSize,
+        container: RelativeLayout,
+        keyword: List<String>,
+        callback: IFrogoAdBanner
+    ) {
+        showAdBannerContainer(context, bannerAdUnitId, mAdsSize, container, null, keyword, callback)
     }
 
     // ---------------------------------------------------------------------------------------------
@@ -272,7 +385,10 @@ object FrogoAdmob : IFrogoAdmob {
                                 override fun onAdShowedFullScreenContent() {
                                     FLog.d("$TAG [Interstitial] >> Run - IFrogoAdInterstitial [callback] : onAdShowed()")
                                     FLog.d("$TAG [Interstitial] >> Succes - onAdShowedFullScreenContent [message] : Ad showed fullscreen content")
-                                    callback?.onAdShowed(TAG, "Interstitial Ad showed fullscreen content")
+                                    callback?.onAdShowed(
+                                        TAG,
+                                        "Interstitial Ad showed fullscreen content"
+                                    )
                                 }
                             }
                         interstitialAd.show(activity)

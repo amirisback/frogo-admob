@@ -38,6 +38,9 @@ abstract class FrogoAdmobActivity : AppCompatActivity(), IFrogoAdmobActivity {
         super.onCreate(savedInstanceState)
         FLog.d("$TAG : Run From $TAG class : FrogoAdmob.setupAdmobApp ")
         FrogoAdmob.setupAdmobApp(this)
+    }
+
+    override fun showAdConsent() {
         FrogoAdConsent.showConsent(this)
     }
 

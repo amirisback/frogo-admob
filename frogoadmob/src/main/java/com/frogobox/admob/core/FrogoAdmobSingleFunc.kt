@@ -1,5 +1,7 @@
 package com.frogobox.admob.core
 
+import com.frogobox.admob.core.FrogoAdmobConstant.GITHUB_ACCOUNT
+import com.frogobox.admob.core.FrogoAdmobConstant.LINE
 import com.frogobox.log.FLog
 
 
@@ -20,11 +22,13 @@ object FrogoAdmobSingleFunc {
 
     val TAG = FrogoAdmobSingleFunc::class.java.simpleName
 
-    const val LINE = "------------------------------------------------------------------------------------------------"
-
     fun waterMark() {
-        FLog.w("You are using Frogo Admob, Created by Muhammmad Faisal Amir, Please follow github.com/amirisback")
-        FLog.w(LINE)
+        FLog.i("You are using Frogo Admob, Created by Muhammmad Faisal Amir")
+        FLog.i(LINE)
+        FLog.i("Please follow $GITHUB_ACCOUNT")
+        FLog.i(LINE)
+        FLog.i("Don't Forget Give Star $GITHUB_ACCOUNT/frogo-admob")
+        FLog.i(LINE)
     }
 
 }

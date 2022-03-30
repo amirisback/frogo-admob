@@ -3,6 +3,8 @@ package com.frogobox.admob.core
 import android.content.Context
 import android.widget.RelativeLayout
 import androidx.appcompat.app.AppCompatActivity
+import com.frogobox.log.FLog
+import com.google.android.gms.ads.AdRequest
 import com.google.android.gms.ads.AdSize
 import com.google.android.gms.ads.AdView
 
@@ -29,18 +31,37 @@ interface IFrogoAdmob {
 
     // ---------------------------------------------------------------------------------------------
 
-    fun showAdBanner(mAdView: AdView)
-
     fun showAdBanner(
         mAdView: AdView,
-        callback: IFrogoAdBanner
+        timeoutMilliSecond: Int?,
+        keyword: List<String>?,
+        callback: IFrogoAdBanner?
     )
+
+    fun showAdBanner(mAdView: AdView)
+
+    fun showAdBanner(mAdView: AdView, timeoutMilliSecond: Int)
+
+    fun showAdBanner(mAdView: AdView, keyword: List<String>)
+
+    fun showAdBanner(mAdView: AdView, timeoutMilliSecond: Int, keyword: List<String>)
+
+    fun showAdBanner(mAdView: AdView, callback: IFrogoAdBanner)
+
+    fun showAdBanner(mAdView: AdView, timeoutMilliSecond: Int, callback: IFrogoAdBanner)
+
+    fun showAdBanner(mAdView: AdView, keyword: List<String>, callback: IFrogoAdBanner)
+    
+    // ---------------------------------------------------------------------------------------------
 
     fun showAdBannerContainer(
         context: Context,
         bannerAdUnitId: String,
         mAdsSize: AdSize,
-        container: RelativeLayout
+        container: RelativeLayout,
+        timeoutMilliSecond: Int?,
+        keyword: List<String>?,
+        callback: IFrogoAdBanner?
     )
 
     fun showAdBannerContainer(
@@ -48,6 +69,56 @@ interface IFrogoAdmob {
         bannerAdUnitId: String,
         mAdsSize: AdSize,
         container: RelativeLayout,
+    )
+
+    fun showAdBannerContainer(
+        context: Context,
+        bannerAdUnitId: String,
+        mAdsSize: AdSize,
+        container: RelativeLayout,
+        timeoutMilliSecond: Int,
+    )
+
+    fun showAdBannerContainer(
+        context: Context,
+        bannerAdUnitId: String,
+        mAdsSize: AdSize,
+        container: RelativeLayout,
+        keyword: List<String>,
+    )
+
+    fun showAdBannerContainer(
+        context: Context,
+        bannerAdUnitId: String,
+        mAdsSize: AdSize,
+        container: RelativeLayout,
+        timeoutMilliSecond: Int,
+        keyword: List<String>
+    )
+
+    fun showAdBannerContainer(
+        context: Context,
+        bannerAdUnitId: String,
+        mAdsSize: AdSize,
+        container: RelativeLayout,
+        callback: IFrogoAdBanner
+    )
+
+    fun showAdBannerContainer(
+        context: Context,
+        bannerAdUnitId: String,
+        mAdsSize: AdSize,
+        container: RelativeLayout,
+        timeoutMilliSecond: Int,
+        callback: IFrogoAdBanner
+    )
+
+    fun showAdBannerContainer(
+        context: Context,
+        bannerAdUnitId: String,
+        mAdsSize: AdSize,
+        container: RelativeLayout,
+        keyword: List<String>,
         callback: IFrogoAdBanner
     )
 

@@ -35,6 +35,9 @@ abstract class FrogoSdkAdmobActivity<VB : ViewBinding> : FrogoActivity<VB>(), IF
         super.onCreate(savedInstanceState)
         FLog.d("$TAG : Run From $TAG class : FrogoAdmob.setupAdmobApp ")
         FrogoAdmob.setupAdmobApp(this)
+    }
+
+    override fun showAdConsent() {
         FrogoAdConsent.showConsent(this)
     }
 
@@ -165,6 +168,7 @@ abstract class FrogoSdkAdmobActivity<VB : ViewBinding> : FrogoActivity<VB>(), IF
     }
 
     override fun showUnityAdInterstitial(adInterstitialUnitId: String) {
+        FLog.d("$TAG : Run From $TAG class : FrogoUnityAd.showAdInterstitial ")
         FrogoUnityAd.showAdInterstitial(this, adInterstitialUnitId)
     }
 
@@ -172,6 +176,7 @@ abstract class FrogoSdkAdmobActivity<VB : ViewBinding> : FrogoActivity<VB>(), IF
         adInterstitialUnitId: String,
         callback: IFrogoUnityAdInterstitial
     ) {
+        FLog.d("$TAG : Run From $TAG class : FrogoUnityAd.showAdInterstitial ")
         FrogoUnityAd.showAdInterstitial(this, adInterstitialUnitId, callback)
     }
 

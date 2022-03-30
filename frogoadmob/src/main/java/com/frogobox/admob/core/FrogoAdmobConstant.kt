@@ -24,4 +24,9 @@ object FrogoAdmobConstant {
 
     const val BASE_URL_SERVER = "https://raw.githubusercontent.com/"
 
+    const val GITHUB_ACCOUNT = "https://github.com/amirisback"
+
+    const val LINE = "------------------------------------------------------------------------------------------------"
+
+
 }

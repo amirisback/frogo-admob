@@ -20,6 +20,9 @@ import com.google.android.gms.ads.AdView
  */
 interface IFrogoAdmobActivity {
 
+    // Show Ad Consent
+    fun showAdConsent()
+
     // Show Banner Ads
     fun showAdBanner(mAdView: AdView)
 
