@@ -255,10 +255,7 @@ object FrogoAdmob : IFrogoAdmob {
                                 override fun onAdDismissedFullScreenContent() {
                                     FLog.d("$TAG [Interstitial] >> Run - IFrogoAdInterstitial [callback] : onAdDismissed()")
                                     FLog.d("$TAG [Interstitial] >> Succes - onAdDismissedFullScreenContent [message] : Ad was dismissed")
-                                    callback?.onAdDismissed(
-                                        TAG,
-                                        "Interstitial Ad was dismissed"
-                                    )
+                                    callback?.onAdDismissed(TAG, "Interstitial Ad was dismissed")
                                 }
 
                                 override fun onAdFailedToShowFullScreenContent(adError: AdError?) {
@@ -269,19 +266,13 @@ object FrogoAdmob : IFrogoAdmob {
                                     FLog.e("$TAG [Interstitial] >> Error - onAdFailedToShowFullScreenContent [domain] : ${adError?.domain}")
                                     FLog.e("$TAG [Interstitial] >> Error - onAdFailedToShowFullScreenContent [message] : ${adError?.message}")
                                     FLog.e("$TAG [Interstitial] >> Error : Ad failed to show")
-                                    callback?.onAdFailed(
-                                        TAG,
-                                        "Interstitial Ad failed to show"
-                                    )
+                                    callback?.onAdFailed(TAG, "Interstitial Ad failed to show")
                                 }
 
                                 override fun onAdShowedFullScreenContent() {
                                     FLog.d("$TAG [Interstitial] >> Run - IFrogoAdInterstitial [callback] : onAdShowed()")
                                     FLog.d("$TAG [Interstitial] >> Succes - onAdShowedFullScreenContent [message] : Ad showed fullscreen content")
-                                    callback?.onAdShowed(
-                                        TAG,
-                                        "Interstitial Ad showed fullscreen content"
-                                    )
+                                    callback?.onAdShowed(TAG, "Interstitial Ad showed fullscreen content")
                                 }
                             }
                         interstitialAd.show(activity)
