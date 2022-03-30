@@ -203,7 +203,7 @@ object FrogoAdmob : IFrogoAdmob {
         activity: AppCompatActivity,
         interstitialAdUnitId: String,
         timeoutMilliSecond: Int?,
-        keyword: MutableList<String>?,
+        keyword: List<String>?,
         callback: IFrogoAdInterstitial?
     ) {
         FrogoAdmobSingleFunc.waterMark()
@@ -216,11 +216,13 @@ object FrogoAdmob : IFrogoAdmob {
             val adRequest = AdRequest.Builder()
 
             if (timeoutMilliSecond != null) {
+                FLog.d("$TAG Interstitial HttpTimeOut Millisecond : $timeoutMilliSecond")
                 adRequest.setHttpTimeoutMillis(timeoutMilliSecond)
             }
 
             if (keyword != null) {
                 for (i in keyword.indices) {
+                    FLog.d("$TAG Interstitial Keyworad Ads [$i] : ${keyword[i]}")
                     adRequest.addKeyword(keyword[i])
                 }
             }
@@ -296,7 +298,7 @@ object FrogoAdmob : IFrogoAdmob {
         activity: AppCompatActivity,
         interstitialAdUnitId: String,
         timeoutMilliSecond: Int,
-        keyword: MutableList<String>
+        keyword: List<String>
     ) {
         showAdInterstitial(activity, interstitialAdUnitId, timeoutMilliSecond, keyword, null)
     }
@@ -312,7 +314,7 @@ object FrogoAdmob : IFrogoAdmob {
     override fun showAdInterstitial(
         activity: AppCompatActivity,
         interstitialAdUnitId: String,
-        keyword: MutableList<String>
+        keyword: List<String>
     ) {
         showAdInterstitial(activity, interstitialAdUnitId, null, keyword, null)
     }
@@ -337,7 +339,7 @@ object FrogoAdmob : IFrogoAdmob {
     override fun showAdInterstitial(
         activity: AppCompatActivity,
         interstitialAdUnitId: String,
-        keyword: MutableList<String>,
+        keyword: List<String>,
         callback: IFrogoAdInterstitial
     ) {
         showAdInterstitial(activity, interstitialAdUnitId, null, keyword, callback)

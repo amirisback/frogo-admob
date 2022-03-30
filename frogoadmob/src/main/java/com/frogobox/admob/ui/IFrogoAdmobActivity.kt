@@ -47,7 +47,7 @@ interface IFrogoAdmobActivity {
     fun showAdInterstitial(
         interstitialAdUnitId: String,
         timeoutMilliSecond: Int,
-        keyword: MutableList<String>,
+        keyword: List<String>,
         callback: IFrogoAdInterstitial
     )
 
@@ -55,7 +55,7 @@ interface IFrogoAdmobActivity {
     fun showAdInterstitial(
         interstitialAdUnitId: String,
         timeoutMilliSecond: Int,
-        keyword: MutableList<String>
+        keyword: List<String>
     )
 
     // Show Interstitial Ads with timeout millisecond
@@ -67,7 +67,7 @@ interface IFrogoAdmobActivity {
     // Show Interstitial Ads with keyword
     fun showAdInterstitial(
         interstitialAdUnitId: String,
-        keyword: MutableList<String>
+        keyword: List<String>
     )
 
     // Show Interstitial Ads
@@ -83,7 +83,7 @@ interface IFrogoAdmobActivity {
     // Show Interstitial Ads with keyword and callback
     fun showAdInterstitial(
         interstitialAdUnitId: String,
-        keyword: MutableList<String>,
+        keyword: List<String>,
         callback: IFrogoAdInterstitial
     )
 

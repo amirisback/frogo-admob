@@ -85,7 +85,7 @@ abstract class FrogoSdkAdmobActivity<VB : ViewBinding> : FrogoActivity<VB>(), IF
     override fun showAdInterstitial(
         interstitialAdUnitId: String,
         timeoutMilliSecond: Int,
-        keyword: MutableList<String>,
+        keyword: List<String>,
         callback: IFrogoAdInterstitial
     ) {
         FLog.d("$TAG : Run From $TAG class : FrogoAdmob.showAdInterstitial ")
@@ -101,7 +101,7 @@ abstract class FrogoSdkAdmobActivity<VB : ViewBinding> : FrogoActivity<VB>(), IF
     override fun showAdInterstitial(
         interstitialAdUnitId: String,
         timeoutMilliSecond: Int,
-        keyword: MutableList<String>
+        keyword: List<String>
     ) {
         FLog.d("$TAG : Run From $TAG class : FrogoAdmob.showAdInterstitial ")
         FrogoAdmob.showAdInterstitial(this, interstitialAdUnitId, timeoutMilliSecond, keyword)
@@ -112,7 +112,7 @@ abstract class FrogoSdkAdmobActivity<VB : ViewBinding> : FrogoActivity<VB>(), IF
         FrogoAdmob.showAdInterstitial(this, interstitialAdUnitId, timeoutMilliSecond)
     }
 
-    override fun showAdInterstitial(interstitialAdUnitId: String, keyword: MutableList<String>) {
+    override fun showAdInterstitial(interstitialAdUnitId: String, keyword: List<String>) {
         FLog.d("$TAG : Run From $TAG class : FrogoAdmob.showAdInterstitial ")
         FrogoAdmob.showAdInterstitial(this, interstitialAdUnitId, keyword)
     }
@@ -128,7 +128,7 @@ abstract class FrogoSdkAdmobActivity<VB : ViewBinding> : FrogoActivity<VB>(), IF
 
     override fun showAdInterstitial(
         interstitialAdUnitId: String,
-        keyword: MutableList<String>,
+        keyword: List<String>,
         callback: IFrogoAdInterstitial
     ) {
         FLog.d("$TAG : Run From $TAG class : FrogoAdmob.showAdInterstitial ")
