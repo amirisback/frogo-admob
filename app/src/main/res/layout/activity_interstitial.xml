@@ -47,25 +47,25 @@
             android:id="@+id/btn_admob_interstitial_callback"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Easy Interstital Callback" />
+            android:text="Easy Interstitial Callback" />
 
         <Button
             android:id="@+id/btn_admob_interstitial_callback_timeout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Interstital Callback Timeout" />
+            android:text="Interstitial Callback Timeout" />
 
         <Button
             android:id="@+id/btn_admob_interstitial_callback_keyword"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Interstital Callback Keyword" />
+            android:text="Interstitial Callback Keyword" />
 
         <Button
             android:id="@+id/btn_admob_interstitial_callback_timeout_keyword"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Interstital Callback timeout Keyword" />
+            android:text="Interstitial Callback timeout Keyword" />
 
         <TextView
             android:layout_width="match_parent"
@@ -84,7 +84,7 @@
             android:id="@+id/btn_unity_interstitial_callback"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Unity Ads Interstital Callback" />
+            android:text="Unity Ads Interstitial Callback" />
 
         <TextView
             android:layout_width="match_parent"
@@ -103,7 +103,7 @@
             android:id="@+id/btn_unity_x_admob_interstitial_callback"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Unity >> Admob Interstital" />
+            android:text="Unity >> Admob Interstitial" />
 
     </LinearLayout>
 
