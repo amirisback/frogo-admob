@@ -14,7 +14,7 @@
 - Calling method on Inheritance Class
 - Implement all Admob Version
 - Jetpack Compose Function (Experimental)
-- Don't forget implement frogo-sdk [Click Here](github.com/frogobox/frogo-sdk)
+- Don't forget implement frogo-sdk [Click Here](https://github.com/frogobox/frogo-sdk)
 
 ## Note For Jitpack Build
 - Red : Failed (So don't use that version / Using previous version)
