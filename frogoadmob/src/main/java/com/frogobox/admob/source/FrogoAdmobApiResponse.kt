@@ -1,5 +1,7 @@
 package com.frogobox.admob.source
 
+import com.frogobox.coresdk.FrogoDataResponse
+
 
 /*
  * Created by faisalamir on 02/03/22
@@ -14,14 +16,4 @@ package com.frogobox.admob.source
  *
  */
 
-interface FrogoAdmobApiResponse<T> {
-
-    fun onSuccess(data: T)
-
-    fun onFailed(statusCode: Int, errorMessage: String? = "")
-
-    fun onShowProgress()
-
-    fun onHideProgress()
-
-}
+interface FrogoAdmobApiResponse<T> : FrogoDataResponse<T>
