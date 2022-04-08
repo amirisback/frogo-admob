@@ -108,7 +108,7 @@ class InterstitialActivity : FrogoSdkAdmobActivity<ActivityInterstitialBinding>(
             }
 
             btnAdmobInterstitialCallbackFailedWrong.setOnClickListener {
-                showAdInterstitial("wrong", this@InterstitialActivity)
+                showAdInterstitial("Wrong", this@InterstitialActivity)
             }
 
             // -------------------------------------------------------------------------------------
@@ -117,11 +117,27 @@ class InterstitialActivity : FrogoSdkAdmobActivity<ActivityInterstitialBinding>(
                 showUnityAdInterstitial(getString(R.string.unity_ad_interstitial))
             }
 
+            btnUnityInterstitialFailedEmpty.setOnClickListener {
+                showAdInterstitial("")
+            }
+
+            btnUnityInterstitialFailedWrong.setOnClickListener {
+                showAdInterstitial("Wrong")
+            }
+
             btnUnityInterstitialCallback.setOnClickListener {
                 showUnityAdInterstitial(
                     getString(R.string.unity_ad_interstitial),
                     this@InterstitialActivity
                 )
+            }
+
+            btnUnityInterstitialCallbackFailedEmpty.setOnClickListener {
+                showUnityAdInterstitial("", this@InterstitialActivity)
+            }
+
+            btnUnityInterstitialCallbackFailedWrong.setOnClickListener {
+                showUnityAdInterstitial("Wrong", this@InterstitialActivity)
             }
 
             // -------------------------------------------------------------------------------------

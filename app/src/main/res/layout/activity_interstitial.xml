@@ -25,44 +25,44 @@
                 android:id="@+id/btn_admob_interstitial"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Easy Interstitial" />
+                android:text="Interstitial" />
 
             <Button
                 android:id="@+id/btn_admob_interstitial_timeout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Easy Interstitial Time Out" />
+                android:text="Interstitial Time Out" />
 
             <Button
                 android:id="@+id/btn_admob_interstitial_keyword"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Easy Interstitial Keyword" />
+                android:text="Interstitial Keyword" />
 
             <Button
                 android:id="@+id/btn_admob_interstitial_timeout_keyword"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Easy Interstitial TimeOut and Keyword" />
+                android:text="Interstitial TimeOut and Keyword" />
 
             <Button
                 android:id="@+id/btn_admob_interstitial_failed_empty"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Easy Interstitial Failed With Empty Interstitial ID" />
+                android:text="Interstitial Failed With Empty Interstitial ID" />
 
             <Button
                 android:id="@+id/btn_admob_interstitial_failed_wrong"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Easy Interstitial Failed With Wrong Interstitial ID" />
+                android:text="Interstitial Failed With Wrong Interstitial ID" />
 
             <Button
                 android:id="@+id/btn_admob_interstitial_callback"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/frogo_dimen_16dp"
-                android:text="Easy Interstitial Callback" />
+                android:text="Interstitial Callback" />
 
             <Button
                 android:id="@+id/btn_admob_interstitial_callback_timeout"
@@ -105,13 +105,38 @@
                 android:id="@+id/btn_unity_interstitial"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Unity Ads Easy Interstitial" />
+                android:text="Unity Ads Interstitial" />
+
+            <Button
+                android:id="@+id/btn_unity_interstitial_failed_empty"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Unity Ads Interstitial Failed With Empty Interstitial ID" />
+
+            <Button
+                android:id="@+id/btn_unity_interstitial_failed_wrong"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Unity Ads Interstitial Failed With Wrong Interstitial ID" />
 
             <Button
                 android:id="@+id/btn_unity_interstitial_callback"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/frogo_dimen_16dp"
                 android:text="Unity Ads Interstitial Callback" />
+
+            <Button
+                android:id="@+id/btn_unity_interstitial_callback_failed_empty"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Unity Ads Interstitial Callback With Empty Interstitial ID" />
+
+            <Button
+                android:id="@+id/btn_unity_interstitial_callback_failed_wrong"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Unity Ads Interstitial Callback With Wrong Interstitial ID" />
 
             <TextView
                 android:layout_width="match_parent"
