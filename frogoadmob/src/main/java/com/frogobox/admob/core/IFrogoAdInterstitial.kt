@@ -16,9 +16,9 @@ package com.frogobox.admob.core
 
 interface IFrogoAdInterstitial {
 
-    fun onShowAdRequestProgress()
+    fun onShowAdRequestProgress(tag: String, message: String)
 
-    fun onHideAdRequestProgress(message: String)
+    fun onHideAdRequestProgress(tag: String, message: String)
 
     fun onAdDismissed(tag: String, message: String)
 

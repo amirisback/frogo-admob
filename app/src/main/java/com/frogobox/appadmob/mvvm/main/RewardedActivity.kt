@@ -103,11 +103,11 @@ class RewardedActivity : BaseActivity<ActivityRewardedBinding>(), IFrogoAdReward
         showToast("${rewardItem.amount}")
     }
 
-    override fun onShowAdRequestProgress() {
+    override fun onShowAdRequestProgress(tag: String, message: String) {
         binding.ivProgress.visible()
     }
 
-    override fun onHideAdRequestProgress(message: String) {
+    override fun onHideAdRequestProgress(tag: String, message: String) {
         binding.ivProgress.gone()
     }
 

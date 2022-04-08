@@ -31,25 +31,37 @@
                 android:id="@+id/btn_admob_interstitial_timeout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Interstitial With Time Out" />
+                android:text="Easy Interstitial Time Out" />
 
             <Button
                 android:id="@+id/btn_admob_interstitial_keyword"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Interstitial With Keyword" />
+                android:text="Easy Interstitial Keyword" />
 
             <Button
                 android:id="@+id/btn_admob_interstitial_timeout_keyword"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="@dimen/frogo_dimen_16dp"
-                android:text="Interstitial TimeOut and Keyword" />
+                android:text="Easy Interstitial TimeOut and Keyword" />
+
+            <Button
+                android:id="@+id/btn_admob_interstitial_failed_empty"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Easy Interstitial Failed With Empty Interstitial ID" />
+
+            <Button
+                android:id="@+id/btn_admob_interstitial_failed_wrong"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Easy Interstitial Failed With Wrong Interstitial ID" />
 
             <Button
                 android:id="@+id/btn_admob_interstitial_callback"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/frogo_dimen_16dp"
                 android:text="Easy Interstitial Callback" />
 
             <Button
@@ -68,7 +80,19 @@
                 android:id="@+id/btn_admob_interstitial_callback_timeout_keyword"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Interstitial Callback timeout Keyword" />
+                android:text="Interstitial Callback Timeout Keyword" />
+
+            <Button
+                android:id="@+id/btn_admob_interstitial_callback_failed_empty"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Interstitial Callback Failed With Empty Interstitial ID" />
+
+            <Button
+                android:id="@+id/btn_admob_interstitial_callback_failed_wrong"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Interstitial Callback Failed With Wrong Interstitial ID" />
 
             <TextView
                 android:layout_width="match_parent"

@@ -61,6 +61,16 @@ class InterstitialActivity : FrogoSdkAdmobActivity<ActivityInterstitialBinding>(
                 )
             }
 
+            btnAdmobInterstitialFailedEmpty.setOnClickListener {
+                showAdInterstitial("")
+            }
+
+            btnAdmobInterstitialFailedWrong.setOnClickListener {
+                showAdInterstitial("Wrong")
+            }
+
+            // -------------------------------------------------------------------------------------
+
             btnAdmobInterstitialCallback.setOnClickListener {
                 showAdInterstitial(
                     getString(R.string.admob_interstitial),
@@ -93,6 +103,16 @@ class InterstitialActivity : FrogoSdkAdmobActivity<ActivityInterstitialBinding>(
                 )
             }
 
+            btnAdmobInterstitialCallbackFailedEmpty.setOnClickListener {
+                showAdInterstitial("", this@InterstitialActivity)
+            }
+
+            btnAdmobInterstitialCallbackFailedWrong.setOnClickListener {
+                showAdInterstitial("wrong", this@InterstitialActivity)
+            }
+
+            // -------------------------------------------------------------------------------------
+
             btnUnityInterstitial.setOnClickListener {
                 showUnityAdInterstitial(getString(R.string.unity_ad_interstitial))
             }
@@ -103,6 +123,8 @@ class InterstitialActivity : FrogoSdkAdmobActivity<ActivityInterstitialBinding>(
                     this@InterstitialActivity
                 )
             }
+
+            // -------------------------------------------------------------------------------------
 
             btnAdmobXUnityInterstitial.setOnClickListener {
                 showAdmobXUnityAdInterstitial(
@@ -124,11 +146,11 @@ class InterstitialActivity : FrogoSdkAdmobActivity<ActivityInterstitialBinding>(
 
     override fun onClicked(tag: String, message: String) {}
 
-    override fun onShowAdRequestProgress() {
+    override fun onShowAdRequestProgress(tag: String, message: String) {
         binding.ivProgress.visible()
     }
 
-    override fun onHideAdRequestProgress(message: String) {
+    override fun onHideAdRequestProgress(tag: String, message: String) {
         binding.ivProgress.gone()
         FLog.d(message)
     }

@@ -403,12 +403,12 @@ abstract class FrogoAdmobActivity : AppCompatActivity(), IFrogoAdmobActivity {
         callback: IFrogoMixedAdsInterstitial
     ) {
         showAdInterstitial(admobInterstitialId, object : IFrogoAdInterstitial {
-            override fun onShowAdRequestProgress() {
-                callback.onShowAdRequestProgress()
+            override fun onShowAdRequestProgress(tag: String, message: String) {
+                callback.onShowAdRequestProgress(tag, message)
             }
 
-            override fun onHideAdRequestProgress(message: String) {
-                callback.onHideAdRequestProgress(message)
+            override fun onHideAdRequestProgress(tag: String, message: String) {
+                callback.onHideAdRequestProgress(tag, message)
             }
 
             override fun onAdDismissed(tag: String, message: String) {
@@ -422,12 +422,12 @@ abstract class FrogoAdmobActivity : AppCompatActivity(), IFrogoAdmobActivity {
                             callback.onClicked(tag, message)
                         }
 
-                        override fun onShowAdRequestProgress() {
-                            callback.onShowAdRequestProgress()
+                        override fun onShowAdRequestProgress(tag: String, message: String) {
+                            callback.onShowAdRequestProgress(tag, message)
                         }
 
-                        override fun onHideAdRequestProgress(message: String) {
-                            callback.onHideAdRequestProgress(message)
+                        override fun onHideAdRequestProgress(tag: String, message: String) {
+                            callback.onHideAdRequestProgress(tag, message)
                         }
 
                         override fun onAdDismissed(tag: String, message: String) {
@@ -472,12 +472,12 @@ abstract class FrogoAdmobActivity : AppCompatActivity(), IFrogoAdmobActivity {
             override fun onAdFailed(tag: String, errorMessage: String) {
                 showAdInterstitial(admobInterstitialId,
                     object : IFrogoAdInterstitial {
-                        override fun onShowAdRequestProgress() {
-                            callback.onShowAdRequestProgress()
+                        override fun onShowAdRequestProgress(tag: String, message: String) {
+                            callback.onShowAdRequestProgress(tag, message)
                         }
 
-                        override fun onHideAdRequestProgress(message: String) {
-                            callback.onHideAdRequestProgress(message)
+                        override fun onHideAdRequestProgress(tag: String, message: String) {
+                            callback.onHideAdRequestProgress(tag, message)
                         }
 
                         override fun onAdDismissed(tag: String, message: String) {
@@ -510,12 +510,12 @@ abstract class FrogoAdmobActivity : AppCompatActivity(), IFrogoAdmobActivity {
                 callback.onClicked(tag, message)
             }
 
-            override fun onShowAdRequestProgress() {
-                callback.onShowAdRequestProgress()
+            override fun onShowAdRequestProgress(tag: String, message: String) {
+                callback.onShowAdRequestProgress(tag, message)
             }
 
-            override fun onHideAdRequestProgress(message: String) {
-                callback.onHideAdRequestProgress(message)
+            override fun onHideAdRequestProgress(tag: String, message: String) {
+                callback.onHideAdRequestProgress(tag, message)
             }
         })
     }
