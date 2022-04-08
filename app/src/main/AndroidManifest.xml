@@ -19,7 +19,7 @@
             android:name=".mvvm.main.InterstitialActivity"
             android:exported="false" />
         <activity
-            android:name=".javasample.MainJavaActivity"
+            android:name=".mvvm.main.MainJavaActivity"
             android:exported="false"
             android:hardwareAccelerated="true" />
         <activity

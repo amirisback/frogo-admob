@@ -25,7 +25,7 @@
                 android:id="@+id/btn_admob_rewarded"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Easy Rewarded" />
+                android:text="Rewarded" />
 
             <Button
                 android:id="@+id/btn_admob_rewarded_timeout"
@@ -50,7 +50,7 @@
                 android:id="@+id/btn_admob__rewarded_interstitial"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Easy Rewarded Interstitial" />
+                android:text="Rewarded Interstitial" />
 
             <Button
                 android:id="@+id/btn_admob__rewarded_interstitial_timeout"

@@ -152,10 +152,35 @@
                 android:text="Admob >> Unity Interstitial" />
 
             <Button
-                android:id="@+id/btn_unity_x_admob_interstitial_callback"
+                android:id="@+id/btn_admob_x_unity_interstitial_failed_wrong"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Admob >> Unity Interstitial Failed Wrong" />
+
+            <Button
+                android:id="@+id/btn_admob_x_unity_interstitial_failed_empty"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Admob >> Unity Interstitial Failed Empty" />
+
+            <Button
+                android:layout_marginTop="@dimen/frogo_dimen_16dp"
+                android:id="@+id/btn_unity_x_admob_interstitial"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Unity >> Admob Interstitial" />
+
+            <Button
+                android:id="@+id/btn_unity_x_admob_interstitial_failed_wrong"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Unity >> Admob Interstitial Failed Wrong" />
+
+            <Button
+                android:id="@+id/btn_unity_x_admob_interstitial_failed_empty"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Unity >> Admob Interstitial Failed Empty" />
 
         </LinearLayout>
 

@@ -19,11 +19,11 @@ import com.unity3d.ads.*
  *
  */
 
-object FrogoUnityAd {
+object FrogoUnityAd : IFrogoUnityAd {
 
     val TAG: String = FrogoUnityAd::class.java.simpleName
 
-    fun setupUnityAdApp(
+    override fun setupUnityAdApp(
         context: Context,
         testMode: Boolean,
         unityGameId: String,
@@ -71,13 +71,13 @@ object FrogoUnityAd {
 
     }
 
-    fun setupUnityAdApp(context: Context, testMode: Boolean, unityGameId: String) {
+    override fun setupUnityAdApp(context: Context, testMode: Boolean, unityGameId: String) {
         setupUnityAdApp(context, testMode, unityGameId, null)
     }
 
     // ---------------------------------------------------------------------------------------------
 
-    fun showAdInterstitial(
+    override fun showAdInterstitial(
         activity: Activity,
         adInterstitialUnitId: String,
         callback: IFrogoUnityAdInterstitial?
@@ -89,8 +89,30 @@ object FrogoUnityAd {
 
         if (adInterstitialUnitId != "") {
             if (UnityAds.isInitialized()) {
-
+                callback?.onShowAdRequestProgress(
+                    TAG,
+                    "$TAG [Unity showAdInterstitial] >> Run - onShowAdRequestProgress"
+                )
                 UnityAds.load(adInterstitialUnitId, object : IUnityAdsLoadListener {
+
+                    override fun onUnityAdsFailedToLoad(
+                        placementId: String,
+                        error: UnityAds.UnityAdsLoadError,
+                        message: String
+                    ) {
+                        FLog.e("$TAG [Unity showAdInterstitial] >> Error - onUnityAdsFailedToLoad [placementId] : $placementId")
+                        FLog.e("$TAG [Unity showAdInterstitial] >> Error - onUnityAdsFailedToLoad [error] : $error")
+                        FLog.e("$TAG [Unity showAdInterstitial] >> Error - onUnityAdsFailedToLoad [message] : ${UnityAds.isInitialized()}")
+                        callback?.onHideAdRequestProgress(
+                            TAG,
+                            "$TAG [Unity showAdInterstitial] >> Run - onHideAdRequestProgress : onUnityAdsShowFailure"
+                        )
+                        callback?.onAdFailed(
+                            TAG,
+                            "$TAG [Unity showAdInterstitial] >> Error - UnityAds Error Initilized [status] : ${UnityAds.isInitialized()}"
+                        )
+                    }
+
                     override fun onUnityAdsAdLoaded(placementId: String) {
                         callback?.onAdLoaded(TAG, "$TAG : onUnityAdsAdLoaded $placementId")
                         UnityAds.show(
@@ -106,6 +128,10 @@ object FrogoUnityAd {
                                     FLog.e("$TAG [Unity showAdInterstitial] >> Error - onUnityAdsShowFailure [placementId] : $placementId")
                                     FLog.e("$TAG [Unity showAdInterstitial] >> Error - onUnityAdsShowFailure [error] : $error")
                                     FLog.e("$TAG [Unity showAdInterstitial] >> Error - onUnityAdsShowFailure [message] : $message")
+                                    callback?.onHideAdRequestProgress(
+                                        TAG,
+                                        "$TAG [Unity showAdInterstitial] >> Run - onHideAdRequestProgress : onUnityAdsShowFailure"
+                                    )
                                     callback?.onAdFailed(
                                         TAG,
                                         "$TAG [Unity showAdInterstitial] >> Error - onUnityAdsShowFailure [message] : $message"
@@ -114,6 +140,10 @@ object FrogoUnityAd {
 
                                 override fun onUnityAdsShowStart(placementId: String) {
                                     FLog.d("$TAG [Unity showAdInterstitial] >> Succes - onUnityAdsShowStart [placementId] : $placementId")
+                                    callback?.onHideAdRequestProgress(
+                                        TAG,
+                                        "$TAG [Unity showAdInterstitial] >> Run - onHideAdRequestProgress : onUnityAdsShowStart"
+                                    )
                                     callback?.onAdShowed(
                                         TAG,
                                         "$TAG [Unity showAdInterstitial] >> Succes - onUnityAdsShowStart [placementId] : $placementId"
@@ -141,20 +171,6 @@ object FrogoUnityAd {
                                 }
                             })
                     }
-
-                    override fun onUnityAdsFailedToLoad(
-                        placementId: String,
-                        error: UnityAds.UnityAdsLoadError,
-                        message: String
-                    ) {
-                        FLog.e("$TAG [Unity showAdInterstitial] >> Error - onUnityAdsFailedToLoad [placementId] : $placementId")
-                        FLog.e("$TAG [Unity showAdInterstitial] >> Error - onUnityAdsFailedToLoad [error] : $error")
-                        FLog.e("$TAG [Unity showAdInterstitial] >> Error - onUnityAdsFailedToLoad [message] : ${UnityAds.isInitialized()}")
-                        callback?.onAdFailed(
-                            TAG,
-                            "$TAG [Unity showAdInterstitial] >> Error - UnityAds Error Initilized [status] : ${UnityAds.isInitialized()}"
-                        )
-                    }
                 })
             } else {
                 FLog.e("$TAG [Unity showAdInterstitial] >> Error - UnityAds Error Initilized [status] : ${UnityAds.isInitialized()}")
@@ -169,10 +185,7 @@ object FrogoUnityAd {
         }
     }
 
-    fun showAdInterstitial(
-        activity: Activity,
-        adInterstitialUnitId: String
-    ) {
+    override fun showAdInterstitial(activity: Activity, adInterstitialUnitId: String) {
         showAdInterstitial(activity, adInterstitialUnitId, null)
     }
 

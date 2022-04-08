@@ -150,13 +150,46 @@ class InterstitialActivity : FrogoSdkAdmobActivity<ActivityInterstitialBinding>(
                 )
             }
 
-            btnUnityXAdmobInterstitialCallback.setOnClickListener {
+            btnAdmobXUnityInterstitialFailedWrong.setOnClickListener {
+                showAdmobXUnityAdInterstitial(
+                    "",
+                    "Wrong",
+                    this@InterstitialActivity
+                )
+            }
+
+            btnAdmobXUnityInterstitialFailedEmpty.setOnClickListener {
+                showAdmobXUnityAdInterstitial(
+                    "",
+                    "",
+                    this@InterstitialActivity
+                )
+            }
+
+            btnUnityXAdmobInterstitial.setOnClickListener {
                 showUnityXAdmobAdInterstitial(
                     getString(R.string.admob_interstitial),
                     "",
                     this@InterstitialActivity
                 )
             }
+
+            btnUnityXAdmobInterstitialFailedWrong.setOnClickListener {
+                showUnityXAdmobAdInterstitial(
+                    "Wrong",
+                    "",
+                    this@InterstitialActivity
+                )
+            }
+
+            btnUnityXAdmobInterstitialFailedEmpty.setOnClickListener {
+                showUnityXAdmobAdInterstitial(
+                    "",
+                    "",
+                    this@InterstitialActivity
+                )
+            }
+
         }
     }
 
