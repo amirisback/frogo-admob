@@ -7,6 +7,9 @@ import com.frogobox.admob.ui.FrogoSdkAdmobActivity
 import com.frogobox.admob.ui.IFrogoMixedAdsInterstitial
 import com.frogobox.appadmob.R
 import com.frogobox.appadmob.databinding.ActivityInterstitialBinding
+import com.frogobox.log.FLog
+import com.frogobox.sdk.ext.gone
+import com.frogobox.sdk.ext.visible
 
 class InterstitialActivity : FrogoSdkAdmobActivity<ActivityInterstitialBinding>(),
     IFrogoAdInterstitial, IFrogoUnityAdInterstitial, IFrogoMixedAdsInterstitial {
@@ -120,6 +123,15 @@ class InterstitialActivity : FrogoSdkAdmobActivity<ActivityInterstitialBinding>(
     }
 
     override fun onClicked(tag: String, message: String) {}
+
+    override fun onShowAdRequestProgress() {
+        binding.ivProgress.visible()
+    }
+
+    override fun onHideAdRequestProgress(message: String) {
+        binding.ivProgress.gone()
+        FLog.d(message)
+    }
 
     override fun onAdDismissed(tag: String, message: String) {
         showToast(message)

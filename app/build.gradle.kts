@@ -134,6 +134,9 @@ dependencies {
     implementation(Google.gson)
     implementation(Google.material)
     implementation(Google.admob)
+
+    implementation(Reactivex.rxJava3)
+    implementation(Reactivex.rxAndroid3)
     
     implementation(Frogo.ui(DependencyGradle.FROGO_UI))
     implementation(Frogo.sdk(DependencyGradle.FROGO_SDK))

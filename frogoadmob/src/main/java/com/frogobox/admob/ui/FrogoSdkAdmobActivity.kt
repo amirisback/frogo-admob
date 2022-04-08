@@ -402,6 +402,14 @@ abstract class FrogoSdkAdmobActivity<VB : ViewBinding> : FrogoActivity<VB>(), IF
         callback: IFrogoMixedAdsInterstitial
     ) {
         showAdInterstitial(admobInterstitialId, object : IFrogoAdInterstitial {
+            override fun onShowAdRequestProgress() {
+                callback.onShowAdRequestProgress()
+            }
+
+            override fun onHideAdRequestProgress(message: String) {
+                callback.onHideAdRequestProgress(message)
+            }
+
             override fun onAdDismissed(tag: String, message: String) {
                 callback.onAdDismissed(tag, message)
             }
@@ -411,6 +419,14 @@ abstract class FrogoSdkAdmobActivity<VB : ViewBinding> : FrogoActivity<VB>(), IF
                     object : IFrogoUnityAdInterstitial {
                         override fun onClicked(tag: String, message: String) {
                             callback.onClicked(tag, message)
+                        }
+
+                        override fun onShowAdRequestProgress() {
+                            callback.onShowAdRequestProgress()
+                        }
+
+                        override fun onHideAdRequestProgress(message: String) {
+                            callback.onHideAdRequestProgress(message)
                         }
 
                         override fun onAdDismissed(tag: String, message: String) {
@@ -455,6 +471,13 @@ abstract class FrogoSdkAdmobActivity<VB : ViewBinding> : FrogoActivity<VB>(), IF
             override fun onAdFailed(tag: String, errorMessage: String) {
                 showAdInterstitial(admobInterstitialId,
                     object : IFrogoAdInterstitial {
+                        override fun onShowAdRequestProgress() {
+                            callback.onShowAdRequestProgress()
+                        }
+
+                        override fun onHideAdRequestProgress(message: String) {
+                            callback.onHideAdRequestProgress(message)
+                        }
 
                         override fun onAdDismissed(tag: String, message: String) {
                             callback.onAdDismissed(tag, message)
@@ -484,6 +507,14 @@ abstract class FrogoSdkAdmobActivity<VB : ViewBinding> : FrogoActivity<VB>(), IF
 
             override fun onClicked(tag: String, message: String) {
                 callback.onClicked(tag, message)
+            }
+
+            override fun onShowAdRequestProgress() {
+                callback.onShowAdRequestProgress()
+            }
+
+            override fun onHideAdRequestProgress(message: String) {
+                callback.onHideAdRequestProgress(message)
             }
         })
     }

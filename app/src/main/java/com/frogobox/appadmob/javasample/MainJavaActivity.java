@@ -42,6 +42,16 @@ public class MainJavaActivity extends BaseJavaActivity {
         binding.btnRewarded.setOnClickListener(view -> showAdRewarded(getString(R.string.admob_rewarded), new IFrogoAdRewarded() {
 
             @Override
+            public void onHideAdRequestProgress(@NonNull String message) {
+
+            }
+
+            @Override
+            public void onShowAdRequestProgress() {
+
+            }
+
+            @Override
             public void onUserEarnedReward(@NonNull String tag, @NonNull RewardItem rewardItem) {
 
             }

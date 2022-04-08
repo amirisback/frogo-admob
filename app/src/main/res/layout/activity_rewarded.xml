@@ -1,73 +1,84 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     tools:context=".mvvm.main.RewardedActivity">
 
-    <LinearLayout
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:padding="@dimen/frogo_dimen_16dp">
+        android:layout_height="match_parent">
 
-        <TextView
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Google Admob"
-            android:textColor="@color/frogoColorBlack" />
+            android:orientation="vertical"
+            android:padding="@dimen/frogo_dimen_16dp">
 
-        <Button
-            android:id="@+id/btn_admob_rewarded"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Easy Rewarded" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Google Admob"
+                android:textColor="@color/frogoColorBlack" />
 
-        <Button
-            android:id="@+id/btn_admob_rewarded_timeout"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Rewarded With Time Out" />
+            <Button
+                android:id="@+id/btn_admob_rewarded"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Easy Rewarded" />
 
-        <Button
-            android:id="@+id/btn_admob_rewarded_keyword"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Rewarded With Keyword" />
+            <Button
+                android:id="@+id/btn_admob_rewarded_timeout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Rewarded With Time Out" />
 
-        <Button
-            android:id="@+id/btn_admob_rewarded_timeout_keyword"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="@dimen/frogo_dimen_16dp"
-            android:text="Rewarded TimeOut and Keyword" />
+            <Button
+                android:id="@+id/btn_admob_rewarded_keyword"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Rewarded With Keyword" />
 
-        <Button
-            android:id="@+id/btn_admob__rewarded_interstitial"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Easy Rewarded Interstitial" />
+            <Button
+                android:id="@+id/btn_admob_rewarded_timeout_keyword"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/frogo_dimen_16dp"
+                android:text="Rewarded TimeOut and Keyword" />
 
-        <Button
-            android:id="@+id/btn_admob__rewarded_interstitial_timeout"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Rewarded Interstitial Timeout" />
+            <Button
+                android:id="@+id/btn_admob__rewarded_interstitial"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Easy Rewarded Interstitial" />
 
-        <Button
-            android:id="@+id/btn_admob__rewarded_interstitial_keyword"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Rewarded Interstitial Keyword" />
+            <Button
+                android:id="@+id/btn_admob__rewarded_interstitial_timeout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Rewarded Interstitial Timeout" />
 
-        <Button
-            android:id="@+id/btn_admob__rewarded_interstitial_timeout_keyword"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Rewarded Interstitial timeout Keyword" />
+            <Button
+                android:id="@+id/btn_admob__rewarded_interstitial_keyword"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Rewarded Interstitial Keyword" />
+
+            <Button
+                android:id="@+id/btn_admob__rewarded_interstitial_timeout_keyword"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Rewarded Interstitial timeout Keyword" />
 
 
-    </LinearLayout>
+        </LinearLayout>
 
-</ScrollView>
+    </ScrollView>
+
+    <ProgressBar
+        android:id="@+id/iv_progress"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone" />
+
+</RelativeLayout>
