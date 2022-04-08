@@ -64,35 +64,35 @@ android {
 
 dependencies {
 
-    implementation(Androidx.appCompat)
-    implementation(Androidx.Core.ktx)
-    implementation(Androidx.constraintLayout)
-    implementation(Androidx.Lifecycle.runtimeKtx)
-    implementation(Androidx.Work.runtimeKtx)
+    api(Androidx.appCompat)
+    api(Androidx.Core.ktx)
+    api(Androidx.constraintLayout)
+    api(Androidx.Lifecycle.runtimeKtx)
+    api(Androidx.Work.runtimeKtx)
 
-    implementation(Androidx.Compose.ui)
-    implementation(Androidx.Compose.material)
-    implementation(Androidx.Compose.uiTooling)
-    implementation(Androidx.Compose.activity)
+    api(Androidx.Compose.ui)
+    api(Androidx.Compose.material)
+    api(Androidx.Compose.uiTooling)
+    api(Androidx.Compose.activity)
 
-    implementation(Ad.unityAds)
-    implementation(Google.adMediationUnityAd)
+    api(Ad.unityAds)
+    api(Google.adMediationUnityAd)
 
-    implementation(Google.gson)
-    implementation(Google.material)
-    implementation(Google.admob)
-    implementation(Google.userMessagingPlatform)
+    api(Google.gson)
+    api(Google.material)
+    api(Google.admob)
+    api(Google.userMessagingPlatform)
 
-    implementation(Square.Retrofit2.retrofit)
-    implementation(Square.Retrofit2.converterGson)
-    implementation(Square.Retrofit2.adapterRxJava3)
-    implementation(Reactivex.rxJava3)
-    implementation(Reactivex.rxAndroid3)
+    api(Square.Retrofit2.retrofit)
+    api(Square.Retrofit2.converterGson)
+    api(Square.Retrofit2.adapterRxJava3)
+    api(Reactivex.rxJava3)
+    api(Reactivex.rxAndroid3)
 
-    implementation(GitHub.glide)
+    api(GitHub.glide)
 
-    implementation(Frogo.sdk(DependencyGradle.FROGO_SDK))
-    implementation(Frogo.recyclerView(DependencyGradle.FROGO_RECYCLER_VIEW))
+    api(Frogo.sdk(DependencyGradle.FROGO_SDK))
+    api(Frogo.recyclerView(DependencyGradle.FROGO_RECYCLER_VIEW))
 
     kapt(GitHub.glideCompiler)
 
