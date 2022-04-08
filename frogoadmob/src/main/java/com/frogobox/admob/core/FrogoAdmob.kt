@@ -388,6 +388,10 @@ object FrogoAdmob : IFrogoAdmob {
                                     FLog.e("$TAG [Interstitial] >> Error - onAdFailedToShowFullScreenContent [domain] : ${adError.domain}")
                                     FLog.e("$TAG [Interstitial] >> Error - onAdFailedToShowFullScreenContent [message] : ${adError.message}")
                                     FLog.e("$TAG [Interstitial] >> Error : Ad failed to show")
+                                    callback?.onHideAdRequestProgress(
+                                        TAG,
+                                        "$TAG [Interstitial] >> Error - onHideAdRequestProgress [message] : onAdFailedToShowFullScreenContent"
+                                    )
                                     callback?.onAdFailed(TAG, "Interstitial Ad failed to show")
                                 }
 
@@ -409,7 +413,8 @@ object FrogoAdmob : IFrogoAdmob {
                 }
             )
         } else {
-            callback?.onAdFailed(TAG, "$TAG : Interstitial ID is Empty")
+            FLog.e("$TAG Interstitial ID is Empty")
+            callback?.onAdFailed(TAG, "$TAG Interstitial ID is Empty")
         }
 
     }
@@ -549,16 +554,17 @@ object FrogoAdmob : IFrogoAdmob {
                                 }
 
                                 override fun onAdFailedToShowFullScreenContent(adError: AdError) {
-                                    getInitializedState(
-                                        initializationName,
-                                        initializationCode
-                                    )
+                                    getInitializedState(initializationName, initializationCode)
                                     FLog.e("$TAG [RewardedAd] >> Run - IFrogoAdRewarded [callback] : onAdFailedToShow()")
                                     FLog.d("$TAG [RewardedAd] >> Error - onAdFailedToShowFullScreenContent [unit id] : $mAdUnitIdRewarded")
                                     FLog.e("$TAG [RewardedAd] >> Error - onAdFailedToShowFullScreenContent [code] : ${adError.code}")
                                     FLog.e("$TAG [RewardedAd] >> Error - onAdFailedToShowFullScreenContent [domain] : ${adError.domain}")
                                     FLog.e("$TAG [RewardedAd] >> Error - onAdFailedToShowFullScreenContent [message] : ${adError.message}")
                                     FLog.e("$TAG [RewardedAd] >> Error : Ad failed to show")
+                                    callback.onHideAdRequestProgress(
+                                        TAG,
+                                        "$TAG [RewardedAd] >> Error - IFrogoAdRewarded [callback] : onHideAdRequestProgress() : onAdFailedToShowFullScreenContent"
+                                    )
                                     callback.onAdFailed(
                                         TAG,
                                         "Interstitial Ad failed to show"
@@ -570,7 +576,7 @@ object FrogoAdmob : IFrogoAdmob {
                                     FLog.d("$TAG [RewardedAd] >> Succes - onAdShowedFullScreenContent [message] : Ad showed fullscreen content")
                                     callback.onHideAdRequestProgress(
                                         TAG,
-                                        "$TAG [RewardedAd] >> Succes - IFrogoAdRewarded [callback] : onHideAdRequestProgress()"
+                                        "$TAG [RewardedAd] >> Succes - IFrogoAdRewarded [callback] : onHideAdRequestProgress() : onAdShowedFullScreenContent"
                                     )
                                     callback.onAdShowed(
                                         TAG,
@@ -588,7 +594,8 @@ object FrogoAdmob : IFrogoAdmob {
                     }
                 })
         } else {
-            callback.onAdFailed(TAG, "$TAG : Rewarded Unit Id is Empty")
+            FLog.e("$TAG Rewarded Unit Id is Empty")
+            callback.onAdFailed(TAG, "$TAG Rewarded Unit Id is Empty")
         }
 
     }
@@ -705,6 +712,10 @@ object FrogoAdmob : IFrogoAdmob {
                                     FLog.e("$TAG [RewardedInterstitial] >> Error - onAdFailedToShowFullScreenContent [domain] : ${adError.domain}")
                                     FLog.e("$TAG [RewardedInterstitial] >> Error - onAdFailedToShowFullScreenContent [message] : ${adError.message}")
                                     FLog.e("$TAG [RewardedInterstitial] >> Error : Ad failed to show")
+                                    callback.onHideAdRequestProgress(
+                                        TAG,
+                                        "$TAG [RewardedInterstitial] >> Error - IFrogoAdRewarded [callback] : onHideAdRequestProgress() : onAdFailedToShowFullScreenContent"
+                                    )
                                     callback.onAdFailed(
                                         TAG,
                                         "RewardedInterstitial Ad failed to show"
@@ -716,7 +727,7 @@ object FrogoAdmob : IFrogoAdmob {
                                     FLog.d("$TAG [RewardedInterstitial] >> Succes - onAdShowedFullScreenContent [message] : Ad showed fullscreen content")
                                     callback.onHideAdRequestProgress(
                                         TAG,
-                                        "$TAG [RewardedInterstitial] >> Run - IFrogoAdRewarded [callback] : onHideAdRequestProgress()"
+                                        "$TAG [RewardedInterstitial] >> Run - IFrogoAdRewarded [callback] : onHideAdRequestProgress() : onAdShowedFullScreenContent"
                                     )
                                     callback.onAdShowed(
                                         TAG,
@@ -732,10 +743,8 @@ object FrogoAdmob : IFrogoAdmob {
                     }
                 })
         } else {
-            callback.onAdFailed(
-                TAG,
-                "$TAG : Rewarded Interstitial Id Is Empty"
-            )
+            FLog.e("$TAG Rewarded Interstitial Id Is Empty")
+            callback.onAdFailed(TAG, "$TAG Rewarded Interstitial Id Is Empty")
         }
     }
 

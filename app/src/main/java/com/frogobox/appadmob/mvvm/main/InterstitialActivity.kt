@@ -118,11 +118,11 @@ class InterstitialActivity : FrogoSdkAdmobActivity<ActivityInterstitialBinding>(
             }
 
             btnUnityInterstitialFailedEmpty.setOnClickListener {
-                showAdInterstitial("")
+                showUnityAdInterstitial("")
             }
 
             btnUnityInterstitialFailedWrong.setOnClickListener {
-                showAdInterstitial("Wrong")
+                showUnityAdInterstitial("Wrong")
             }
 
             btnUnityInterstitialCallback.setOnClickListener {
