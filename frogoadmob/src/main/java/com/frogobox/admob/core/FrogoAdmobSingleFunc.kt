@@ -1,7 +1,8 @@
 package com.frogobox.admob.core
 
-import com.frogobox.admob.core.FrogoAdmobConstant.GITHUB_ACCOUNT
-import com.frogobox.admob.core.FrogoAdmobConstant.LINE
+import com.frogobox.admob.ext.ADMOB_MOBILE_ADS_KEY
+import com.frogobox.admob.ext.GITHUB_ACCOUNT
+import com.frogobox.admob.ext.LINE
 import com.frogobox.log.FLog
 
 
@@ -29,6 +30,14 @@ object FrogoAdmobSingleFunc {
         FLog.i(LINE)
         FLog.i("Don't Forget Give Star $GITHUB_ACCOUNT/frogo-admob")
         FLog.i(LINE)
+    }
+
+    fun getInitializedState(name: String, code: Int) {
+        FLog.d(LINE)
+        FLog.d("${FrogoAdmob.TAG} >> Setup MobileAds [Key] : $ADMOB_MOBILE_ADS_KEY")
+        FLog.d("${FrogoAdmob.TAG} >> Setup MobileAds [Initialization State Name] : $name")
+        FLog.d("${FrogoAdmob.TAG} >> Setup MobileAds [Initialization State Code] : $code")
+        FLog.d(LINE)
     }
 
 }

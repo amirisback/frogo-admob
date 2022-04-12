@@ -64,6 +64,8 @@ android {
 
 dependencies {
 
+    api("org.jetbrains.kotlin:kotlin-reflect:${DependencyGradle.KOTLIN_VERSION}")
+
     api(Androidx.appCompat)
     api(Androidx.Core.ktx)
     api(Androidx.constraintLayout)

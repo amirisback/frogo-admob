@@ -3,6 +3,9 @@ package com.frogobox.admob.core
 import android.content.Context
 import android.widget.RelativeLayout
 import androidx.appcompat.app.AppCompatActivity
+import com.frogobox.admob.core.FrogoAdmobSingleFunc.getInitializedState
+import com.frogobox.admob.core.FrogoAdmobSingleFunc.waterMark
+import com.frogobox.admob.ext.ADMOB_MOBILE_ADS_KEY
 import com.frogobox.log.FLog
 import com.google.android.gms.ads.*
 import com.google.android.gms.ads.initialization.AdapterStatus
@@ -35,32 +38,25 @@ object FrogoAdmob : IFrogoAdmob {
 
     val TAG: String = FrogoAdmob::class.java.simpleName
 
-    private const val mobileAdsKey = "com.google.android.gms.ads.MobileAds"
-
     private lateinit var adapterStatus: AdapterStatus
 
     var initializationCode = 0
+
     var initializationName = ""
+
 
     // ---------------------------------------------------------------------------------------------
 
-    fun getInitializedState(name: String, code: Int) {
-        FLog.d(FrogoAdmobConstant.LINE)
-        FLog.d("$TAG >> Setup MobileAds [Key] : $mobileAdsKey")
-        FLog.d("$TAG >> Setup MobileAds [Initialization State Name] : $name")
-        FLog.d("$TAG >> Setup MobileAds [Initialization State Code] : $code")
-        FLog.d(FrogoAdmobConstant.LINE)
-    }
 
     override fun setupAdmobApp(context: Context) {
         MobileAds.initialize(context) {
-            adapterStatus = it.adapterStatusMap[mobileAdsKey]!!
+            adapterStatus = it.adapterStatusMap[ADMOB_MOBILE_ADS_KEY]!!
             initializationCode = adapterStatus.initializationState.ordinal
             initializationName = adapterStatus.initializationState.name
             getInitializedState(initializationName, initializationCode)
             FLog.d("$TAG >> Setup MobileAds : Admob mobile Ads Initialized")
         }
-        FrogoAdmobSingleFunc.waterMark()
+        waterMark()
     }
 
     // ---------------------------------------------------------------------------------------------
@@ -68,14 +64,14 @@ object FrogoAdmob : IFrogoAdmob {
     private fun frogoAdListener(callback: IFrogoAdBanner?): AdListener {
         return object : AdListener() {
             override fun onAdLoaded() {
-                FrogoAdmobSingleFunc.waterMark()
+                waterMark()
                 FLog.d("$TAG [Banner] >> Run - IFrogoAdBanner [callback] : onAdLoaded()")
                 FLog.d("$TAG [Banner] >> Success - onAdLoaded [message] : Ad Banner onAdLoaded")
                 callback?.onAdLoaded(TAG, "Ad Banner onAdLoaded")
             }
 
             override fun onAdFailedToLoad(p0: LoadAdError) {
-                FrogoAdmobSingleFunc.waterMark()
+                waterMark()
                 FLog.e("$TAG [Banner] >> Run - IFrogoAdBanner [callback] : onAdFailedToLoad()")
 
                 FLog.e("$TAG [Banner] >> Error - onAdFailedToLoad [code] : ${p0.code}")
@@ -110,7 +106,7 @@ object FrogoAdmob : IFrogoAdmob {
         keyword: List<String>?,
         callback: IFrogoAdBanner?
     ) {
-        FrogoAdmobSingleFunc.waterMark()
+        waterMark()
         FLog.d("Banner Id : Attach on Xml Layout")
         getInitializedState(initializationName, initializationCode)
 
@@ -173,7 +169,7 @@ object FrogoAdmob : IFrogoAdmob {
         keyword: List<String>?,
         callback: IFrogoAdBanner?
     ) {
-        FrogoAdmobSingleFunc.waterMark()
+        waterMark()
         FLog.d("Banner Id : $bannerAdUnitId")
 
         getInitializedState(initializationName, initializationCode)
@@ -319,7 +315,7 @@ object FrogoAdmob : IFrogoAdmob {
         keyword: List<String>?,
         callback: IFrogoAdInterstitial?
     ) {
-        FrogoAdmobSingleFunc.waterMark()
+        waterMark()
         FLog.d("$TAG Interstitial Id : $interstitialAdUnitId")
 
         getInitializedState(initializationName, initializationCode)
@@ -488,7 +484,7 @@ object FrogoAdmob : IFrogoAdmob {
         callback: IFrogoAdRewarded
     ) {
 
-        FrogoAdmobSingleFunc.waterMark()
+        waterMark()
         FLog.d("$TAG : Rewarded Unit Id : $mAdUnitIdRewarded")
 
         getInitializedState(initializationName, initializationCode)
@@ -636,7 +632,7 @@ object FrogoAdmob : IFrogoAdmob {
         callback: IFrogoAdRewarded
     ) {
 
-        FrogoAdmobSingleFunc.waterMark()
+        waterMark()
         FLog.d("$TAG : Rewarded Interstitial Unit Id : $mAdUnitIdRewardedInterstitial")
 
         getInitializedState(initializationName, initializationCode)
