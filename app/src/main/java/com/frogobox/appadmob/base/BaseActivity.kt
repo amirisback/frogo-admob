@@ -49,8 +49,8 @@ abstract class BaseActivity<VB : ViewBinding> : FrogoAdmobActivity() {
     protected fun requestAdmobApi() {
         val baseUrl =
             "https://raw.githubusercontent.com/amirisback/frogo-admob/master/app/src/main/assets/"
-        val frogoAdmobRepository = FrogoAdmobRepository(baseUrl)
-        frogoAdmobRepository.usingClient(ChuckerInterceptor(this))
+        val frogoAdmobRepository = FrogoAdmobRepository(BuildConfig.DEBUG, baseUrl)
+        frogoAdmobRepository.usingClient(this)
         frogoAdmobRepository.getFrogoAdmobId(
             "admob_id.json",
             object : FrogoAdmobApiResponse<FrogoAdmobId> {
@@ -65,10 +65,13 @@ abstract class BaseActivity<VB : ViewBinding> : FrogoAdmobActivity() {
                     }
                 }
 
-                override fun onFailed(statusCode: Int, errorMessage: String?) {
+                override fun onFailed(statusCode: Int, errorMessage: String) {
                     runOnUiThread {
                         FLog.d(errorMessage)
                     }
+                }
+
+                override fun onFinish() {
                 }
 
                 override fun onShowProgress() {

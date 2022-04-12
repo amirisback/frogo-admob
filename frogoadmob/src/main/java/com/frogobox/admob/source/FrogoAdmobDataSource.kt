@@ -1,9 +1,9 @@
 package com.frogobox.admob.source
 
+import android.content.Context
 import com.frogobox.admob.model.FrogoAdmobId
 import com.frogobox.admob.model.FrogoMonetizeId
 import com.frogobox.admob.model.FrogoUnityId
-import okhttp3.Interceptor
 
 
 /*
@@ -22,10 +22,7 @@ import okhttp3.Interceptor
 interface FrogoAdmobDataSource {
 
     // Switch For Using OkHttpClient Interceptor
-    fun usingClient()
-
-    // Switch For Using OkHttpClient Interceptor
-    fun usingClient(chuckInterceptor: Interceptor)
+    fun usingClient(context: Context)
 
     // Callback Get FrogoAdmobId
     fun getFrogoAdmobId(jsonFileName: String, callback: FrogoAdmobApiResponse<FrogoAdmobId>)

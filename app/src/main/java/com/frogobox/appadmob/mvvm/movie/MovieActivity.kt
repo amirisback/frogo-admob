@@ -42,8 +42,12 @@ class MovieActivity : BaseActivity<ActivityRecyclerViewBinding>() {
                     // Your Progress Hide
                 }
 
-                override fun onFailed(statusCode: Int, errorMessage: String?) {
+                override fun onFailed(statusCode: Int, errorMessage: String) {
                     // Your failed to do
+                }
+
+                override fun onFinish() {
+
                 }
 
                 override fun onSuccess(data: Trending<TrendingMovie>) {

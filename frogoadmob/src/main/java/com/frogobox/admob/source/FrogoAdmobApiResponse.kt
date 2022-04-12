@@ -1,6 +1,6 @@
 package com.frogobox.admob.source
 
-import com.frogobox.coresdk.FrogoDataResponse
+import com.frogobox.coresdk.response.FrogoDataResponse
 
 
 /*
@@ -16,4 +16,6 @@ import com.frogobox.coresdk.FrogoDataResponse
  *
  */
 
-interface FrogoAdmobApiResponse<T> : FrogoDataResponse<T>
+interface FrogoAdmobApiResponse<T> : FrogoDataResponse<T> {
+
+}

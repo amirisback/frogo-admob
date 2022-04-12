@@ -1,13 +1,13 @@
 package com.frogobox.admob.source
 
+import android.content.Context
 import com.frogobox.admob.model.FrogoAdmobId
 import com.frogobox.admob.model.FrogoMonetizeId
 import com.frogobox.admob.model.FrogoUnityId
-import com.frogobox.coresdk.FrogoApiClient
-import com.frogobox.coresdk.ext.doApiRequest
+import com.frogobox.coresdk.source.FrogoApiClient
 import com.frogobox.log.FLog
-import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
-import okhttp3.Interceptor
+import com.frogobox.sdk.ext.doApiRequest
+import com.frogobox.sdk.ext.usingChuck
 
 
 /*
@@ -23,22 +23,20 @@ import okhttp3.Interceptor
  *
  */
 
-class FrogoAdmobRepository(private val baseUrl: String) : FrogoAdmobDataSource {
+class FrogoAdmobRepository(
+    private val isDebug: Boolean,
+    private val baseUrl: String
+) : FrogoAdmobDataSource {
 
     companion object {
         val TAG = FrogoAdmobRepository::class.java.simpleName
     }
 
-    private var frogoAdmobApiService = FrogoApiClient.create<FrogoAdmobApiService>(baseUrl)
+    private var frogoAdmobApiService = FrogoApiClient.create<FrogoAdmobApiService>(baseUrl, isDebug)
 
-    override fun usingClient() {
-        FLog.d("$TAG : Using Client OkHttp Client")
-        frogoAdmobApiService = FrogoApiClient.createWithInterceptor(baseUrl)
-    }
-
-    override fun usingClient(chuckInterceptor: Interceptor) {
+    override fun usingClient(context: Context) {
         FLog.d("$TAG : Using Client OkHttp Client + Chuck Interceptor")
-        frogoAdmobApiService = FrogoApiClient.createWithInterceptor(baseUrl, chuckInterceptor)
+        frogoAdmobApiService = FrogoApiClient.create(baseUrl, isDebug, context.usingChuck())
     }
 
     override fun getFrogoAdmobId(
@@ -46,8 +44,7 @@ class FrogoAdmobRepository(private val baseUrl: String) : FrogoAdmobDataSource {
         callback: FrogoAdmobApiResponse<FrogoAdmobId>
     ) {
         FLog.d("$TAG : Get Data From Json Server FrogoAdmobId")
-        frogoAdmobApiService.getFrogoAdmobId(jsonFileName)
-            .doApiRequest(AndroidSchedulers.mainThread(), callback)
+        frogoAdmobApiService.getFrogoAdmobId(jsonFileName).doApiRequest(callback) {}
     }
 
     override fun getFrogoMonetizeId(
@@ -55,8 +52,7 @@ class FrogoAdmobRepository(private val baseUrl: String) : FrogoAdmobDataSource {
         callback: FrogoAdmobApiResponse<FrogoMonetizeId>
     ) {
         FLog.d("$TAG : Get Data From Json Server FrogoMonetizeId")
-        frogoAdmobApiService.getMonetizeId(jsonFileName)
-            .doApiRequest(AndroidSchedulers.mainThread(), callback)
+        frogoAdmobApiService.getMonetizeId(jsonFileName).doApiRequest(callback) {}
     }
 
     override fun getFrogoUnityId(
@@ -64,7 +60,6 @@ class FrogoAdmobRepository(private val baseUrl: String) : FrogoAdmobDataSource {
         callback: FrogoAdmobApiResponse<FrogoUnityId>
     ) {
         FLog.d("$TAG : Get Data From Json Server FrogoUnityId")
-        frogoAdmobApiService.getUnityId(jsonFileName)
-            .doApiRequest(AndroidSchedulers.mainThread(), callback)
+        frogoAdmobApiService.getUnityId(jsonFileName).doApiRequest(callback) {}
     }
 }
