@@ -27,7 +27,7 @@
 
 ## Version Release
 
-    $version_release = 4.3.3
+    $version_release = 4.3.4
 
     // Suport Library
     $admob_version = 20.6.0
@@ -85,7 +85,7 @@ allprojects {
             implementation 'com.unity3d.ads:unity-ads:${unity_ad_version}'
 
             // library frogo-admob-helper
-	        implementation 'com.github.amirisback:frogo-admob:4.3.3'
+	        implementation 'com.github.amirisback:frogo-admob:4.3.4'
 	}
 
 #### <Option 2> Kotlin DSL
@@ -97,8 +97,8 @@ allprojects {
             // library unity ads
             implementation("com.unity3d.ads:unity-ads:${unity_ad_version}")
 
-            // library frogo-admob-helper
-	        implementation("com.github.amirisback:frogo-admob:4.3.3")
+            // library frogo-admob
+	        implementation("com.github.amirisback:frogo-admob:4.3.4")
 	}
 	
 ### Step 3. Adding meta-data on AndroidManifest.xml
