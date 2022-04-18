@@ -137,18 +137,18 @@ class <YourActivity> : FrogoAdmobActivity() {
             object : FrogoAdmobApiResponse<FrogoAdmobId> {
                 override fun onSuccess(data: FrogoAdmobId) {
                     runOnUiThread {
-                        FLog.d(data.appId)
-                        FLog.d(data.bannerID[0])
-                        FLog.d(data.interstitialID[0])
-                        FLog.d(data.testAdmobAppId)
-                        FLog.d(data.testAdmobBanner)
-                        FLog.d(data.testAdmobInterstitial)
+                        showLogDebug(data.appId)
+                        showLogDebug(data.bannerID[0])
+                        showLogDebug(data.interstitialID[0])
+                        showLogDebug(data.testAdmobAppId)
+                        showLogDebug(data.testAdmobBanner)
+                        showLogDebug(data.testAdmobInterstitial)
                     }
                 }
 
                 override fun onFailed(statusCode: Int, errorMessage: String?) {
                     runOnUiThread {
-                        FLog.d(errorMessage)
+                        showLogDebug(errorMessage)
                     }
                 }
 
@@ -793,7 +793,7 @@ fun FrogoAdmobBannerView(
     AndroidView(
         modifier = modifier.fillMaxWidth(),
         factory = { context ->
-            FLog.d("FrogoAdmobBannerView")
+            showLogDebug("FrogoAdmobBannerView")
             AdView(context).apply {
                 adSize = mAdSize
                 adUnitId = mAdUnitID

@@ -5,8 +5,8 @@ import com.frogobox.admob.model.FrogoAdmobId
 import com.frogobox.admob.model.FrogoMonetizeId
 import com.frogobox.admob.model.FrogoUnityId
 import com.frogobox.coresdk.source.FrogoApiClient
-import com.frogobox.log.FLog
 import com.frogobox.sdk.ext.doApiRequest
+import com.frogobox.sdk.ext.showLogDebug
 import com.frogobox.sdk.ext.usingChuck
 
 
@@ -35,7 +35,7 @@ class FrogoAdmobRepository(
     private var frogoAdmobApiService = FrogoApiClient.create<FrogoAdmobApiService>(baseUrl, isDebug)
 
     override fun usingClient(context: Context) {
-        FLog.d("$TAG : Using Client OkHttp Client + Chuck Interceptor")
+        showLogDebug("$TAG : Using Client OkHttp Client + Chuck Interceptor")
         frogoAdmobApiService = FrogoApiClient.create(baseUrl, isDebug, context.usingChuck())
     }
 
@@ -43,7 +43,7 @@ class FrogoAdmobRepository(
         jsonFileName: String,
         callback: FrogoAdmobApiResponse<FrogoAdmobId>
     ) {
-        FLog.d("$TAG : Get Data From Json Server FrogoAdmobId")
+        showLogDebug("$TAG : Get Data From Json Server FrogoAdmobId")
         frogoAdmobApiService.getFrogoAdmobId(jsonFileName).doApiRequest(callback) {}
     }
 
@@ -51,7 +51,7 @@ class FrogoAdmobRepository(
         jsonFileName: String,
         callback: FrogoAdmobApiResponse<FrogoMonetizeId>
     ) {
-        FLog.d("$TAG : Get Data From Json Server FrogoMonetizeId")
+        showLogDebug("$TAG : Get Data From Json Server FrogoMonetizeId")
         frogoAdmobApiService.getMonetizeId(jsonFileName).doApiRequest(callback) {}
     }
 
@@ -59,7 +59,7 @@ class FrogoAdmobRepository(
         jsonFileName: String,
         callback: FrogoAdmobApiResponse<FrogoUnityId>
     ) {
-        FLog.d("$TAG : Get Data From Json Server FrogoUnityId")
+        showLogDebug("$TAG : Get Data From Json Server FrogoUnityId")
         frogoAdmobApiService.getUnityId(jsonFileName).doApiRequest(callback) {}
     }
 }

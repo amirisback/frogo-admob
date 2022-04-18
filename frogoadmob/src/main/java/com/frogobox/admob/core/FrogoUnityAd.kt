@@ -3,6 +3,8 @@ package com.frogobox.admob.core
 import android.app.Activity
 import android.content.Context
 import com.frogobox.log.FLog
+import com.frogobox.sdk.ext.showLogDebug
+import com.frogobox.sdk.ext.showLogError
 import com.unity3d.ads.*
 
 
@@ -31,8 +33,8 @@ object FrogoUnityAd : IFrogoUnityAd {
     ) {
 
         FrogoAdmobSingleFunc.waterMark()
-        FLog.d("$TAG Unity Game Id : $unityGameId")
-        FLog.d("$TAG State Unity Intialized : ${UnityAds.isInitialized()}")
+        showLogDebug("$TAG Unity Game Id : $unityGameId")
+        showLogDebug("$TAG State Unity Intialized : ${UnityAds.isInitialized()}")
 
         if (unityGameId != "") {
             if (!UnityAds.isInitialized()) {
@@ -43,7 +45,7 @@ object FrogoUnityAd : IFrogoUnityAd {
                     object : IUnityAdsInitializationListener {
 
                         override fun onInitializationComplete() {
-                            FLog.d("$TAG >> Setup UnityAdApp : Unity Ads Initialized Complete")
+                            showLogDebug("$TAG >> Setup UnityAdApp : Unity Ads Initialized Complete")
                             callback?.onInitializationComplete(
                                 TAG,
                                 "$TAG : onInitializationComplete"
@@ -54,9 +56,9 @@ object FrogoUnityAd : IFrogoUnityAd {
                             error: UnityAds.UnityAdsInitializationError?,
                             message: String?
                         ) {
-                            FLog.e("$TAG [Unity Initialization] >> Error - Unity Game Id : $unityGameId")
-                            FLog.e("$TAG [Unity Initialization] >> Error - onInitializationFailed [error] : $error")
-                            FLog.e("$TAG [Unity Initialization] >> Error - onInitializationFailed [message] : $message")
+                            showLogError("$TAG [Unity Initialization] >> Error - Unity Game Id : $unityGameId")
+                            showLogError("$TAG [Unity Initialization] >> Error - onInitializationFailed [error] : $error")
+                            showLogError("$TAG [Unity Initialization] >> Error - onInitializationFailed [message] : $message")
                             callback?.onInitializationFailed(
                                 TAG,
                                 "$TAG: onInitializationFailed with error message : $message"
@@ -84,8 +86,8 @@ object FrogoUnityAd : IFrogoUnityAd {
     ) {
 
         FrogoAdmobSingleFunc.waterMark()
-        FLog.d("$TAG Unity Ad Interstitial Unit Id : $adInterstitialUnitId")
-        FLog.d("$TAG State Unity Intialized : ${UnityAds.isInitialized()}")
+        showLogDebug("$TAG Unity Ad Interstitial Unit Id : $adInterstitialUnitId")
+        showLogDebug("$TAG State Unity Intialized : ${UnityAds.isInitialized()}")
 
         if (adInterstitialUnitId != "") {
             if (UnityAds.isInitialized()) {
@@ -100,9 +102,9 @@ object FrogoUnityAd : IFrogoUnityAd {
                         error: UnityAds.UnityAdsLoadError,
                         message: String
                     ) {
-                        FLog.e("$TAG [Unity showAdInterstitial] >> Error - onUnityAdsFailedToLoad [placementId] : $placementId")
-                        FLog.e("$TAG [Unity showAdInterstitial] >> Error - onUnityAdsFailedToLoad [error] : $error")
-                        FLog.e("$TAG [Unity showAdInterstitial] >> Error - onUnityAdsFailedToLoad [message] : ${UnityAds.isInitialized()}")
+                        showLogError("$TAG [Unity showAdInterstitial] >> Error - onUnityAdsFailedToLoad [placementId] : $placementId")
+                        showLogError("$TAG [Unity showAdInterstitial] >> Error - onUnityAdsFailedToLoad [error] : $error")
+                        showLogError("$TAG [Unity showAdInterstitial] >> Error - onUnityAdsFailedToLoad [message] : ${UnityAds.isInitialized()}")
                         callback?.onHideAdRequestProgress(
                             TAG,
                             "$TAG [Unity showAdInterstitial] >> Run - onHideAdRequestProgress : onUnityAdsShowFailure"
@@ -125,9 +127,9 @@ object FrogoUnityAd : IFrogoUnityAd {
                                     error: UnityAds.UnityAdsShowError,
                                     message: String
                                 ) {
-                                    FLog.e("$TAG [Unity showAdInterstitial] >> Error - onUnityAdsShowFailure [placementId] : $placementId")
-                                    FLog.e("$TAG [Unity showAdInterstitial] >> Error - onUnityAdsShowFailure [error] : $error")
-                                    FLog.e("$TAG [Unity showAdInterstitial] >> Error - onUnityAdsShowFailure [message] : $message")
+                                    showLogError("$TAG [Unity showAdInterstitial] >> Error - onUnityAdsShowFailure [placementId] : $placementId")
+                                    showLogError("$TAG [Unity showAdInterstitial] >> Error - onUnityAdsShowFailure [error] : $error")
+                                    showLogError("$TAG [Unity showAdInterstitial] >> Error - onUnityAdsShowFailure [message] : $message")
                                     callback?.onHideAdRequestProgress(
                                         TAG,
                                         "$TAG [Unity showAdInterstitial] >> Run - onHideAdRequestProgress : onUnityAdsShowFailure"
@@ -139,7 +141,7 @@ object FrogoUnityAd : IFrogoUnityAd {
                                 }
 
                                 override fun onUnityAdsShowStart(placementId: String) {
-                                    FLog.d("$TAG [Unity showAdInterstitial] >> Succes - onUnityAdsShowStart [placementId] : $placementId")
+                                    showLogDebug("$TAG [Unity showAdInterstitial] >> Succes - onUnityAdsShowStart [placementId] : $placementId")
                                     callback?.onHideAdRequestProgress(
                                         TAG,
                                         "$TAG [Unity showAdInterstitial] >> Run - onHideAdRequestProgress : onUnityAdsShowStart"
@@ -151,7 +153,7 @@ object FrogoUnityAd : IFrogoUnityAd {
                                 }
 
                                 override fun onUnityAdsShowClick(placementId: String) {
-                                    FLog.d("$TAG [Unity showAdInterstitial] >> Succes - onUnityAdsShowClick [placementId] : $placementId")
+                                    showLogDebug("$TAG [Unity showAdInterstitial] >> Succes - onUnityAdsShowClick [placementId] : $placementId")
                                     callback?.onClicked(
                                         TAG,
                                         "$TAG [Unity showAdInterstitial] >> Succes - onUnityAdsShowClick [placementId] : $placementId"
@@ -162,8 +164,8 @@ object FrogoUnityAd : IFrogoUnityAd {
                                     placementId: String,
                                     state: UnityAds.UnityAdsShowCompletionState
                                 ) {
-                                    FLog.d("$TAG [Unity showAdInterstitial] >> Succes - onUnityAdsShowComplete [placementId] : $placementId")
-                                    FLog.d("$TAG [Unity showAdInterstitial] >> Succes - onUnityAdsShowComplete [state] : $state")
+                                    showLogDebug("$TAG [Unity showAdInterstitial] >> Succes - onUnityAdsShowComplete [placementId] : $placementId")
+                                    showLogDebug("$TAG [Unity showAdInterstitial] >> Succes - onUnityAdsShowComplete [state] : $state")
                                     callback?.onAdDismissed(
                                         TAG,
                                         "$TAG [Unity showAdInterstitial] >> Succes - onUnityAdsShowComplete [state] : $state, [placement] : $placementId"
@@ -173,14 +175,14 @@ object FrogoUnityAd : IFrogoUnityAd {
                     }
                 })
             } else {
-                FLog.e("$TAG [Unity showAdInterstitial] >> Error - UnityAds Error Initilized [status] : ${UnityAds.isInitialized()}")
+                showLogError("$TAG [Unity showAdInterstitial] >> Error - UnityAds Error Initilized [status] : ${UnityAds.isInitialized()}")
                 callback?.onAdFailed(
                     TAG,
                     "$TAG [Unity showAdInterstitial] >> Error - UnityAds Error Initilized [status] : ${UnityAds.isInitialized()}"
                 )
             }
         } else {
-            FLog.e("$TAG Unity Ad Interstitial id is Empty")
+            showLogError("$TAG Unity Ad Interstitial id is Empty")
             callback?.onAdFailed(TAG, "$TAG Unity Ad Interstitial id is Empty")
         }
     }

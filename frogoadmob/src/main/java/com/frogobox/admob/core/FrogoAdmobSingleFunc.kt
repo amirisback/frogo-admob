@@ -4,6 +4,7 @@ import com.frogobox.admob.ext.ADMOB_MOBILE_ADS_KEY
 import com.frogobox.admob.ext.GITHUB_ACCOUNT
 import com.frogobox.admob.ext.LINE
 import com.frogobox.log.FLog
+import com.frogobox.sdk.ext.showLogDebug
 
 
 /*
@@ -33,11 +34,11 @@ object FrogoAdmobSingleFunc {
     }
 
     fun getInitializedState(name: String, code: Int) {
-        FLog.d(LINE)
-        FLog.d("${FrogoAdmob.TAG} >> Setup MobileAds [Key] : $ADMOB_MOBILE_ADS_KEY")
-        FLog.d("${FrogoAdmob.TAG} >> Setup MobileAds [Initialization State Name] : $name")
-        FLog.d("${FrogoAdmob.TAG} >> Setup MobileAds [Initialization State Code] : $code")
-        FLog.d(LINE)
+        showLogDebug(LINE)
+        showLogDebug("${FrogoAdmob.TAG} >> Setup MobileAds [Key] : $ADMOB_MOBILE_ADS_KEY")
+        showLogDebug("${FrogoAdmob.TAG} >> Setup MobileAds [Initialization State Name] : $name")
+        showLogDebug("${FrogoAdmob.TAG} >> Setup MobileAds [Initialization State Code] : $code")
+        showLogDebug(LINE)
     }
 
 }

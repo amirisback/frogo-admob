@@ -5,6 +5,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.viewinterop.AndroidView
 import com.frogobox.log.FLog
+import com.frogobox.sdk.ext.showLogDebug
 import com.google.android.gms.ads.AdRequest
 import com.google.android.gms.ads.AdSize
 import com.google.android.gms.ads.AdView
@@ -39,7 +40,7 @@ fun FrogoAdmobBannerView(
     AndroidView(
         modifier = modifier.fillMaxWidth(),
         factory = { context ->
-            FLog.d("FrogoAdmobBannerView")
+            showLogDebug("FrogoAdmobBannerView")
             AdView(context).apply {
                 adSize = mAdSize
                 adUnitId = mAdUnitID

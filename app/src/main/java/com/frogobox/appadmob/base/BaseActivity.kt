@@ -15,6 +15,7 @@ import com.frogobox.admob.ui.FrogoAdmobActivity
 import com.frogobox.appadmob.BuildConfig
 import com.frogobox.appadmob.R
 import com.frogobox.log.FLog
+import com.frogobox.sdk.ext.showLogDebug
 import com.google.gson.Gson
 
 /**
@@ -56,18 +57,18 @@ abstract class BaseActivity<VB : ViewBinding> : FrogoAdmobActivity() {
             object : FrogoAdmobApiResponse<FrogoAdmobId> {
                 override fun onSuccess(data: FrogoAdmobId) {
                     runOnUiThread {
-                        FLog.d(data.admobAppId)
-                        FLog.d(data.admobBannerID[0])
-                        FLog.d(data.admobInterstitialID[0])
-                        FLog.d(data.testAdmobAppId)
-                        FLog.d(data.testAdmobBanner)
-                        FLog.d(data.testAdmobInterstitial)
+                        showLogDebug(data.admobAppId)
+                        showLogDebug(data.admobBannerID[0])
+                        showLogDebug(data.admobInterstitialID[0])
+                        showLogDebug(data.testAdmobAppId)
+                        showLogDebug(data.testAdmobBanner)
+                        showLogDebug(data.testAdmobInterstitial)
                     }
                 }
 
                 override fun onFailed(statusCode: Int, errorMessage: String) {
                     runOnUiThread {
-                        FLog.d(errorMessage)
+                        showLogDebug(errorMessage)
                     }
                 }
 

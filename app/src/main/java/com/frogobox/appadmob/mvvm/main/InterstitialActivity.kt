@@ -9,6 +9,7 @@ import com.frogobox.appadmob.R
 import com.frogobox.appadmob.databinding.ActivityInterstitialBinding
 import com.frogobox.log.FLog
 import com.frogobox.sdk.ext.gone
+import com.frogobox.sdk.ext.showLogDebug
 import com.frogobox.sdk.ext.visible
 
 class InterstitialActivity : FrogoSdkAdmobActivity<ActivityInterstitialBinding>(),
@@ -201,7 +202,7 @@ class InterstitialActivity : FrogoSdkAdmobActivity<ActivityInterstitialBinding>(
 
     override fun onHideAdRequestProgress(tag: String, message: String) {
         binding.ivProgress.gone()
-        FLog.d(message)
+        showLogDebug(message)
     }
 
     override fun onAdDismissed(tag: String, message: String) {
