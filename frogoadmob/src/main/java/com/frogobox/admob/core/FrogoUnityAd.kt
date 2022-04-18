@@ -2,7 +2,6 @@ package com.frogobox.admob.core
 
 import android.app.Activity
 import android.content.Context
-import com.frogobox.log.FLog
 import com.frogobox.sdk.ext.showLogDebug
 import com.frogobox.sdk.ext.showLogError
 import com.unity3d.ads.*

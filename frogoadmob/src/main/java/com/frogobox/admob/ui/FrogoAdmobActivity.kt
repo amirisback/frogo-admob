@@ -4,7 +4,6 @@ import android.os.Bundle
 import android.widget.RelativeLayout
 import androidx.appcompat.app.AppCompatActivity
 import com.frogobox.admob.core.*
-import com.frogobox.log.FLog
 import com.frogobox.sdk.ext.showLogDebug
 import com.google.android.gms.ads.AdSize
 import com.google.android.gms.ads.AdView

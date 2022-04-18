@@ -6,7 +6,6 @@ import androidx.appcompat.app.AppCompatActivity
 import com.frogobox.admob.core.FrogoAdmobSingleFunc.getInitializedState
 import com.frogobox.admob.core.FrogoAdmobSingleFunc.waterMark
 import com.frogobox.admob.ext.ADMOB_MOBILE_ADS_KEY
-import com.frogobox.log.FLog
 import com.frogobox.sdk.ext.showLogDebug
 import com.frogobox.sdk.ext.showLogError
 import com.google.android.gms.ads.*

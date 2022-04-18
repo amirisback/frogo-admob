@@ -1,6 +1,5 @@
 package com.frogobox.admob.ext
 
-import com.frogobox.log.FLog
 
 
 /*

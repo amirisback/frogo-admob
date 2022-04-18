@@ -7,7 +7,6 @@ import com.frogobox.admob.ui.FrogoSdkAdmobActivity
 import com.frogobox.admob.ui.IFrogoMixedAdsInterstitial
 import com.frogobox.appadmob.R
 import com.frogobox.appadmob.databinding.ActivityInterstitialBinding
-import com.frogobox.log.FLog
 import com.frogobox.sdk.ext.gone
 import com.frogobox.sdk.ext.showLogDebug
 import com.frogobox.sdk.ext.visible
