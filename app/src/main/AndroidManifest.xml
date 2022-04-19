@@ -3,6 +3,7 @@
     package="com.frogobox.appadmob">
 
     <application
+        android:name=".FrogoAdmobApplication"
         android:allowBackup="true"
         android:icon="@drawable/ic_apps"
         android:label="@string/app_name"
@@ -10,13 +11,13 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.KickStart">
         <activity
-            android:name=".mvvm.main.BannerActivity"
+            android:name=".mvvm.banner.BannerActivity"
             android:exported="false" />
         <activity
-            android:name=".mvvm.main.RewardedActivity"
+            android:name=".mvvm.rewarded.RewardedActivity"
             android:exported="false" />
         <activity
-            android:name=".mvvm.main.InterstitialActivity"
+            android:name=".mvvm.interstitial.InterstitialActivity"
             android:exported="false" />
         <activity
             android:name=".mvvm.main.MainJavaActivity"

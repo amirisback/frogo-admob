@@ -1,4 +1,4 @@
-package com.frogobox.appadmob.mvvm.main
+package com.frogobox.appadmob.mvvm.rewarded
 
 import android.os.Bundle
 import com.frogobox.admob.core.IFrogoAdRewarded

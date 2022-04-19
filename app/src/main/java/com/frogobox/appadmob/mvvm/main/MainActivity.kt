@@ -8,8 +8,10 @@ import com.frogobox.appadmob.base.BaseActivity
 import com.frogobox.appadmob.databinding.ActivityMainBinding
 import com.frogobox.appadmob.mvvm.compose.ComposeActivity
 import com.frogobox.appadmob.mvvm.compose.HybridActivity
+import com.frogobox.appadmob.mvvm.interstitial.InterstitialActivity
 import com.frogobox.appadmob.mvvm.movie.MovieActivity
 import com.frogobox.appadmob.mvvm.news.NewsActivity
+import com.frogobox.appadmob.mvvm.rewarded.RewardedActivity
 import com.google.android.gms.ads.AdSize
 
 class MainActivity : BaseActivity<ActivityMainBinding>() {

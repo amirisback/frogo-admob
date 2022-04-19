@@ -1,13 +1,13 @@
 package com.frogobox.appadmob.base
 
 import android.content.Intent
+import android.content.SharedPreferences
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.viewbinding.ViewBinding
-import com.chuckerteam.chucker.api.ChuckerInterceptor
 import com.frogobox.admob.model.FrogoAdmobId
 import com.frogobox.admob.source.FrogoAdmobApiResponse
 import com.frogobox.admob.source.FrogoAdmobRepository
@@ -16,6 +16,7 @@ import com.frogobox.appadmob.BuildConfig
 import com.frogobox.appadmob.R
 import com.frogobox.sdk.ext.showLogDebug
 import com.google.gson.Gson
+import org.koin.android.ext.android.inject
 
 /**
  * Created by Faisal Amir
@@ -38,12 +39,16 @@ abstract class BaseActivity<VB : ViewBinding> : FrogoAdmobActivity() {
 
     protected val binding: VB by lazy { setupViewBinding() }
 
+    protected val frogoSharedPreferences: SharedPreferences by inject()
+
     abstract fun setupViewBinding(): VB
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
-        setupUnityAdApp(BuildConfig.DEBUG, getString(R.string.unity_ad_game_id))
+        if (savedInstanceState == null) {
+            setupUnityAdApp(BuildConfig.DEBUG, getString(R.string.unity_ad_game_id))
+        }
     }
 
     protected fun requestAdmobApi() {

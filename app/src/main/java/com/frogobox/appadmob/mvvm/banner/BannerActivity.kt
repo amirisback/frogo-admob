@@ -1,4 +1,4 @@
-package com.frogobox.appadmob.mvvm.main
+package com.frogobox.appadmob.mvvm.banner
 
 import android.os.Bundle
 import com.frogobox.appadmob.base.BaseActivity

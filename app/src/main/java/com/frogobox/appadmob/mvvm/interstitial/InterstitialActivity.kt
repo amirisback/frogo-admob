@@ -1,4 +1,4 @@
-package com.frogobox.appadmob.mvvm.main
+package com.frogobox.appadmob.mvvm.interstitial
 
 import android.os.Bundle
 import com.frogobox.admob.core.IFrogoAdInterstitial
