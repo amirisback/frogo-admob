@@ -5,6 +5,7 @@ import android.view.View
 import androidx.recyclerview.widget.GridLayoutManager
 import com.frogobox.admob.core.FrogoAdmob
 import com.frogobox.api.movie.ConsumeMovieApi
+import com.frogobox.appadmob.BuildConfig
 import com.frogobox.appadmob.R
 import com.frogobox.appadmob.base.BaseActivity
 import com.frogobox.appadmob.databinding.ActivityRecyclerViewBinding
@@ -28,8 +29,7 @@ class MovieActivity : BaseActivity<ActivityRecyclerViewBinding>() {
     }
 
     private fun setupNewsApi() {
-        val consumeMovieApi = ConsumeMovieApi(MovieUrl.API_KEY) // Your API_KEY
-        consumeMovieApi.usingChuckInterceptor(this) // Using Chuck Interceptor
+        val consumeMovieApi = ConsumeMovieApi(MovieUrl.API_KEY).usingChuckInterceptor(BuildConfig.DEBUG, this)
         consumeMovieApi.getTrendingMovieWeek( // Adding Base Parameter on main function
 
             object : ConsumeApiResponse<Trending<TrendingMovie>> {

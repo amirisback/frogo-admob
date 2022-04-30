@@ -5,6 +5,7 @@ import android.view.View
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.frogobox.admob.core.FrogoAdmob.loadRecyclerBannerAds
 import com.frogobox.api.news.ConsumeNewsApi
+import com.frogobox.appadmob.BuildConfig
 import com.frogobox.appadmob.R
 import com.frogobox.appadmob.base.BaseActivity
 import com.frogobox.appadmob.databinding.ActivityRecyclerViewBinding
@@ -28,8 +29,7 @@ class NewsActivity : BaseActivity<ActivityRecyclerViewBinding>() {
     }
 
     private fun setupNewsApi() {
-        val consumeNewsApi = ConsumeNewsApi(NewsUrl.API_KEY) // Your API_KEY
-        consumeNewsApi.usingChuckInterceptor(this) // Using Chuck Interceptor
+        val consumeNewsApi = ConsumeNewsApi(NewsUrl.API_KEY).usingChuckInterceptor(BuildConfig.DEBUG, this)
         consumeNewsApi.getTopHeadline( // Adding Base Parameter on main function
             null,
             null,

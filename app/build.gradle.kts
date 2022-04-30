@@ -138,10 +138,10 @@ dependencies {
     implementation(Reactivex.rxJava3)
     implementation(Reactivex.rxAndroid3)
     
-    implementation(Frogo.ui(DependencyGradle.FROGO_UI))
-    implementation(Frogo.sdk(DependencyGradle.FROGO_SDK))
-    implementation(Frogo.recyclerView(DependencyGradle.FROGO_RECYCLER_VIEW))
-    implementation(Frogo.consumeApi(DependencyGradle.FROGO_CONSUME_API))
+    implementation(DependencyGradle.FROGO_UI)
+    implementation(DependencyGradle.FROGO_SDK)
+    implementation(DependencyGradle.FROGO_RECYCLER_VIEW)
+    implementation(DependencyGradle.FROGO_CONSUME_API)
 
     implementation(GitHub.glide)
     implementation(GitHub.chucker)

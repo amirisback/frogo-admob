@@ -93,8 +93,8 @@ dependencies {
 
     api(GitHub.glide)
 
-    api(Frogo.sdk(DependencyGradle.FROGO_SDK))
-    api(Frogo.recyclerView(DependencyGradle.FROGO_RECYCLER_VIEW))
+    api(DependencyGradle.FROGO_SDK)
+    api(DependencyGradle.FROGO_RECYCLER_VIEW)
 
     kapt(GitHub.glideCompiler)
 
