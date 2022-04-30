@@ -64,13 +64,12 @@ android {
 
 dependencies {
 
-    api("org.jetbrains.kotlin:kotlin-reflect:${DependencyGradle.KOTLIN_VERSION}")
-
     api(Androidx.appCompat)
-    api(Androidx.Core.ktx)
     api(Androidx.constraintLayout)
-    api(Androidx.Lifecycle.runtimeKtx)
+
+    api(Androidx.Core.ktx)
     api(Androidx.Work.runtimeKtx)
+    api(Androidx.Lifecycle.runtimeKtx)
 
     api(Androidx.Compose.ui)
     api(Androidx.Compose.material)
@@ -78,20 +77,23 @@ dependencies {
     api(Androidx.Compose.activity)
 
     api(Ad.unityAds)
-    api(Google.adMediationUnityAd)
 
     api(Google.gson)
     api(Google.material)
     api(Google.admob)
+    api(Google.adMediationUnityAd)
     api(Google.userMessagingPlatform)
 
     api(Square.Retrofit2.retrofit)
     api(Square.Retrofit2.converterGson)
     api(Square.Retrofit2.adapterRxJava3)
+
     api(Reactivex.rxJava3)
     api(Reactivex.rxAndroid3)
 
     api(GitHub.glide)
+
+    api(DependencyGradle.KOTLIN_REFLECT)
 
     api(DependencyGradle.FROGO_SDK)
     api(DependencyGradle.FROGO_RECYCLER_VIEW)
