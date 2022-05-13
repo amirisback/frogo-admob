@@ -23,6 +23,7 @@ import com.google.android.gms.ads.AdView
  *
  */
 
+@Deprecated("Please re-import to latest package and use the new one")
 abstract class FrogoSdkAdmobActivity<VB : ViewBinding> : FrogoActivity<VB>(), IFrogoAdmobActivity {
 
     companion object {

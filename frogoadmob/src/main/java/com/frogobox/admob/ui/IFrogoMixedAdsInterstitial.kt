@@ -16,6 +16,7 @@ import com.frogobox.admob.core.IFrogoUnityAdInterstitial
  *
  */
 
+@Deprecated("Please re-import to latest package and use the new one")
 interface IFrogoMixedAdsInterstitial : IFrogoUnityAdInterstitial {
 
 }

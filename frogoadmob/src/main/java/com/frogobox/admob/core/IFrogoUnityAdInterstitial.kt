@@ -14,6 +14,7 @@ package com.frogobox.admob.core
  *
  */
 
+@Deprecated("Please re-import to latest package and use the new one")
 interface IFrogoUnityAdInterstitial : IFrogoAdInterstitial {
 
     fun onClicked(tag: String, message: String)

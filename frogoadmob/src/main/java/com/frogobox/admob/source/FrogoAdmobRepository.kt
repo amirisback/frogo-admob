@@ -23,6 +23,7 @@ import com.frogobox.sdk.ext.usingChuck
  *
  */
 
+@Deprecated("Please re-import to latest package and use the new one")
 class FrogoAdmobRepository(
     private val isDebug: Boolean,
     private val baseUrl: String

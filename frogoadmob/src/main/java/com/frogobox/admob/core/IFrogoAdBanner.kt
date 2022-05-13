@@ -14,6 +14,7 @@ package com.frogobox.admob.core
  *
  */
 
+@Deprecated("Please re-import to latest package and use the new one")
 interface IFrogoAdBanner {
     // Code to be executed when an ad finishes loading.
     // The onAdLoaded() method is executed when an ad has finished loading.

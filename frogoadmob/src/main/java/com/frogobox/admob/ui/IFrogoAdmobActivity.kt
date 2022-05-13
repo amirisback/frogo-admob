@@ -17,6 +17,8 @@ import com.google.android.gms.ads.AdView
  * All rights reserved
  *
  */
+
+@Deprecated("Please re-import to latest package and use the new one")
 interface IFrogoAdmobActivity {
 
     // Show Ad Consent

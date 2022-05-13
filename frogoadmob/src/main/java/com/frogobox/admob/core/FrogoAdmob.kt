@@ -35,6 +35,8 @@ import com.google.android.gms.ads.rewardedinterstitial.RewardedInterstitialAdLoa
  * com.frogobox.admobhelper
  *
  */
+
+@Deprecated("Please re-import to latest package and use the new one")
 object FrogoAdmob : IFrogoAdmob {
 
     val TAG: String = FrogoAdmob::class.java.simpleName

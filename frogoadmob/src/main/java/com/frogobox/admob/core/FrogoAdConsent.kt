@@ -20,6 +20,7 @@ import com.google.android.ump.UserMessagingPlatform
  *
  */
 
+@Deprecated("Please re-import to latest package and use the new one")
 object FrogoAdConsent {
 
     fun showConsent(activity: Activity) {

@@ -17,4 +17,12 @@ dependencyResolutionManagement {
 }
 
 rootProject.name = "FrogoAdmob"
-include(":app", ":frogoadmob")
+include(
+    ":app",
+    ":frogoadmob",
+    ":frogoadcore",
+    ":frogoad",
+    ":frogostartioad",
+    ":frogounityad",
+    ":frogogoogleadmob"
+)

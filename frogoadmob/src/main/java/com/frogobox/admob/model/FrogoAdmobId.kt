@@ -15,6 +15,7 @@ import com.google.gson.annotations.SerializedName
  *
  */
 
+@Deprecated("Please re-import to latest package and use the new one")
 data class FrogoAdmobId(
 
     @SerializedName("testAdmobAppId")

@@ -19,6 +19,7 @@ import com.frogobox.admob.model.FrogoUnityId
  *
  */
 
+@Deprecated("Please re-import to latest package and use the new one")
 interface FrogoAdmobDataSource {
 
     // Switch For Using OkHttpClient Interceptor

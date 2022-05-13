@@ -21,6 +21,7 @@ import retrofit2.http.Path
  *
  */
 
+@Deprecated("Please re-import to latest package and use the new one")
 interface FrogoAdmobApiService {
 
     @GET("{json-file-name}")

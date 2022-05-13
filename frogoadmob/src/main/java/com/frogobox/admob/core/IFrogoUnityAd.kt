@@ -17,6 +17,7 @@ import android.content.Context
  *
  */
 
+@Deprecated("Please re-import to latest package and use the new one")
 interface IFrogoUnityAd {
 
     fun setupUnityAdApp(context: Context, testMode: Boolean, unityGameId: String)

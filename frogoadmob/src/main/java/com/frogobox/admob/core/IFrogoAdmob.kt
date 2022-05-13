@@ -23,6 +23,8 @@ import com.google.android.gms.ads.AdView
  * com.frogobox.basehelper
  *
  */
+
+@Deprecated("Please re-import to latest package and use the new one")
 interface IFrogoAdmob {
 
     fun setupAdmobApp(context: Context)

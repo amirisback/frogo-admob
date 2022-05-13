@@ -16,6 +16,7 @@ import com.frogobox.recycler.core.FrogoRecyclerNotifyListener
  *
  */
 
+@Deprecated("Please re-import to latest package and use the new one")
 class AdmobViewHolder(view: View) : FrogoAdmobViewHolder<Any>(view) {
     override fun initComponent(
         data: Any,

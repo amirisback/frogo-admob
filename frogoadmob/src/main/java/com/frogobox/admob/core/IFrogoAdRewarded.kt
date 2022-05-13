@@ -16,6 +16,7 @@ import com.google.android.gms.ads.rewarded.RewardItem
  *
  */
 
+@Deprecated("Please re-import to latest package and use the new one")
 interface IFrogoAdRewarded : IFrogoAdInterstitial {
 
     fun onUserEarnedReward(tag: String, rewardItem: RewardItem)

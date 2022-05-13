@@ -20,6 +20,7 @@ import com.frogobox.sdk.ext.showLogDebug
  *
  */
 
+@Deprecated("Please re-import to latest package and use the new one")
 object FrogoAdmobSingleFunc {
 
     val TAG = FrogoAdmobSingleFunc::class.java.simpleName

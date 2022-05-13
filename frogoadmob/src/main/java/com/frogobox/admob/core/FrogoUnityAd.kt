@@ -20,6 +20,7 @@ import com.unity3d.ads.*
  *
  */
 
+@Deprecated("Please re-import to latest package and use the new one")
 object FrogoUnityAd : IFrogoUnityAd {
 
     val TAG: String = FrogoUnityAd::class.java.simpleName

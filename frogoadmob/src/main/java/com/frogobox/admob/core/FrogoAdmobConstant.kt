@@ -15,6 +15,8 @@ package com.frogobox.admob.core
  * com.frogobox.frogoadmobhelper.util
  * 
  */
+
+@Deprecated("Please re-import to latest package and use the new one")
 object FrogoAdmobConstant {
 
     // Divider Admob

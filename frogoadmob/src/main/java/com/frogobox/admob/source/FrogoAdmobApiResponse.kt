@@ -16,6 +16,7 @@ import com.frogobox.coresdk.response.FrogoDataResponse
  *
  */
 
+@Deprecated("Please re-import to latest package and use the new one")
 interface FrogoAdmobApiResponse<T> : FrogoDataResponse<T> {
 
 }

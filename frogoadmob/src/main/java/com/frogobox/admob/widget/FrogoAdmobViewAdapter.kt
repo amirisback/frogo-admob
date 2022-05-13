@@ -34,6 +34,7 @@ import com.frogobox.sdk.ext.showLogDebug
  *
  */
 
+@Deprecated("Please re-import to latest package and use the new one")
 abstract class FrogoAdmobViewAdapter<T> : RecyclerView.Adapter<FrogoAdmobViewHolder<T>>() {
 
     protected var viewCallback: IFrogoAdmobViewAdapter<T>? = null
