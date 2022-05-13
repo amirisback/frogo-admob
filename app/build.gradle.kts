@@ -116,39 +116,15 @@ android {
 }
 
 dependencies {
-
     implementation(project(DependencyGradle.FROGO_PATH_ADMOB))
-
-    implementation(Androidx.appCompat)
-    implementation(Androidx.constraintLayout)
-
-    implementation(Androidx.Core.ktx)
-    implementation(Androidx.Work.runtimeKtx)
-    implementation(Androidx.Lifecycle.runtimeKtx)
 
     implementation(Androidx.Compose.ui)
     implementation(Androidx.Compose.material)
     implementation(Androidx.Compose.uiTooling)
     implementation(Androidx.Compose.activity)
-
-    implementation(Ad.unityAds)
-
-    implementation(Google.gson)
-    implementation(Google.admob)
-    implementation(Google.material)
-    implementation(Google.adMediationUnityAd)
-
-    implementation(Reactivex.rxJava3)
-    implementation(Reactivex.rxAndroid3)
     
     implementation(DependencyGradle.FROGO_UI)
     implementation(DependencyGradle.FROGO_SDK)
     implementation(DependencyGradle.FROGO_CONSUME_API)
     implementation(DependencyGradle.FROGO_RECYCLER_VIEW)
-
-    implementation(GitHub.glide)
-    implementation(GitHub.chucker)
-
-    kapt(GitHub.glideCompiler)
-
 }
