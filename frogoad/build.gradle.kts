@@ -95,8 +95,8 @@ dependencies {
     api(GitHub.glide)
 
     api(DependencyGradle.KOTLIN_REFLECT)
-
     api(DependencyGradle.FROGO_SDK)
+    api(DependencyGradle.START_IO)
     api(DependencyGradle.FROGO_RECYCLER_VIEW)
 
     kapt(GitHub.glideCompiler)

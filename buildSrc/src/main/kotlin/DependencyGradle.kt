@@ -27,6 +27,8 @@ object DependencyGradle {
     const val FROGO_CONSUME_API = "com.github.frogobox:frogo-consume-api:$FROGO_CONSUME_API_VERSION"
     const val FROGO_RECYCLER_VIEW = "com.github.amirisback:frogo-recycler-view:$FROGO_RECYCLER_VIEW_VERSION"
 
+    const val START_IO = "com.startapp:inapp-sdk:4.9.2"
+
     const val FROGO_PATH_ADMOB = ":frogoadmob"
 
 }
