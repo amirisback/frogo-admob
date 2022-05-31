@@ -65,6 +65,16 @@ android {
 
 dependencies {
 
+    api(Ad.unityAds)
+    api(Ad.startIo)
+    api(Google.admob)
+
+    api(DependencyGradle.MODULE_LIB_FROGO_AD_CORE)
+
+    api(DependencyGradle.MODULE_LIB_FROGO_GOOGLE_ADMOB)
+    api(DependencyGradle.MODULE_LIB_FROGO_START_IO_AD)
+    api(DependencyGradle.MODULE_LIB_FROGO_UNITY_AD)
+
 }
 
 afterEvaluate {

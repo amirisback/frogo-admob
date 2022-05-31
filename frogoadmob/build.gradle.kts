@@ -66,21 +66,13 @@ android {
 dependencies {
 
     api(Androidx.appCompat)
-    api(Androidx.constraintLayout)
-
-    api(Androidx.Core.ktx)
-    api(Androidx.Work.runtimeKtx)
-    api(Androidx.Lifecycle.runtimeKtx)
 
     api(Androidx.Compose.ui)
-    api(Androidx.Compose.material)
     api(Androidx.Compose.uiToolingPreview)
-    api(Androidx.Compose.activity)
 
     api(Ad.unityAds)
 
     api(Google.gson)
-    api(Google.material)
     api(Google.admob)
 
     api(Square.Retrofit2.retrofit)
@@ -90,12 +82,8 @@ dependencies {
     api(Reactivex.rxJava3)
     api(Reactivex.rxAndroid3)
 
-    api(GitHub.glide)
-
     api(DependencyGradle.FROGO_SDK)
     api(DependencyGradle.FROGO_RECYCLER_VIEW)
-
-    kapt(GitHub.glideCompiler)
 
 }
 

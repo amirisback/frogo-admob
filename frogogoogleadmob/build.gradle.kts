@@ -65,6 +65,10 @@ android {
 
 dependencies {
 
+    api(Google.admob)
+
+    api(DependencyGradle.MODULE_LIB_FROGO_AD_CORE)
+
 }
 
 afterEvaluate {

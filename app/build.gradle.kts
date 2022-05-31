@@ -116,7 +116,7 @@ android {
 }
 
 dependencies {
-    implementation(project(DependencyGradle.FROGO_PATH_ADMOB))
+    implementation(project(DependencyGradle.MODULE_LIB_FROGO_ADMOB))
 
     implementation(Androidx.Compose.ui)
     implementation(Androidx.Compose.material)
