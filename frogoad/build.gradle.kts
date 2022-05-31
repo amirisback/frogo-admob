@@ -37,16 +37,11 @@ android {
 
     buildFeatures {
         viewBinding = true
-        compose = true
     }
 
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_11
         targetCompatibility = JavaVersion.VERSION_11
-    }
-
-    composeOptions {
-        kotlinCompilerExtensionVersion = DependencyGradle.COMPOSE_VERSION
     }
 
     packagingOptions {
@@ -69,11 +64,11 @@ dependencies {
     api(Ad.startIo)
     api(Google.admob)
 
-    api(DependencyGradle.MODULE_LIB_FROGO_AD_CORE)
+    api(project(DependencyGradle.MODULE_LIB_FROGO_AD_CORE))
 
-    api(DependencyGradle.MODULE_LIB_FROGO_GOOGLE_ADMOB)
-    api(DependencyGradle.MODULE_LIB_FROGO_START_IO_AD)
-    api(DependencyGradle.MODULE_LIB_FROGO_UNITY_AD)
+    api(project(DependencyGradle.MODULE_LIB_FROGO_GOOGLE_ADMOB))
+    api(project(DependencyGradle.MODULE_LIB_FROGO_START_IO_AD))
+    api(project(DependencyGradle.MODULE_LIB_FROGO_UNITY_AD))
 
 }
 
