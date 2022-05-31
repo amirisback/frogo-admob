@@ -27,11 +27,12 @@
 
 ## Version Release
 
-    $version_release = 4.3.9
+    $version_release = 4.3.10
 
     // Suport Library
-    $admob_version = 20.6.0
-    $unity_ad_version = 4.1.0
+    $admob_version = 21.0.0
+    $unity_ad_version = 4.2.1
+    $start_io_version = 4.10.0
 
 What's New??
 
@@ -45,6 +46,10 @@ What's New??
     * Adding Unity Ads *
     * Add http timeout millis for google admob interstitial ad *
     * Add keyword for google admob ad *
+    * Add keyword for google admob banner ad *
+    * Add keyword for google admob interstitial ad *
+    * Deprecated Code *
+    * BIG UPDATE ON PROGRESS *
 
 ## How To Use / Implement This Project
 ### Step 1. Add the JitPack repository to your build file
@@ -85,7 +90,7 @@ allprojects {
             implementation 'com.unity3d.ads:unity-ads:${unity_ad_version}'
 
             // library frogo-admob-helper
-	        implementation 'com.github.amirisback:frogo-admob:4.3.9'
+	        implementation 'com.github.amirisback:frogo-admob:4.3.10'
 	}
 
 #### <Option 2> Kotlin DSL
@@ -98,7 +103,7 @@ allprojects {
             implementation("com.unity3d.ads:unity-ads:${unity_ad_version}")
 
             // library frogo-admob
-	        implementation("com.github.amirisback:frogo-admob:4.3.9")
+	        implementation("com.github.amirisback:frogo-admob:4.3.10")
 	}
 	
 ### Step 3. Adding meta-data on AndroidManifest.xml
