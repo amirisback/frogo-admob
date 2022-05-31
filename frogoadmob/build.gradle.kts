@@ -40,13 +40,13 @@ android {
         compose = true
     }
 
+    composeOptions {
+        kotlinCompilerExtensionVersion = DependencyGradle.COMPOSE_VERSION
+    }
+
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_11
         targetCompatibility = JavaVersion.VERSION_11
-    }
-
-    composeOptions {
-        kotlinCompilerExtensionVersion = DependencyGradle.COMPOSE_VERSION
     }
 
     packagingOptions {
@@ -74,7 +74,7 @@ dependencies {
 
     api(Androidx.Compose.ui)
     api(Androidx.Compose.material)
-    api(Androidx.Compose.uiTooling)
+    api(Androidx.Compose.uiToolingPreview)
     api(Androidx.Compose.activity)
 
     api(Ad.unityAds)
@@ -82,8 +82,6 @@ dependencies {
     api(Google.gson)
     api(Google.material)
     api(Google.admob)
-    api(Google.adMediationUnityAd)
-    api(Google.userMessagingPlatform)
 
     api(Square.Retrofit2.retrofit)
     api(Square.Retrofit2.converterGson)

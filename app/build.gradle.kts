@@ -127,4 +127,5 @@ dependencies {
     implementation(DependencyGradle.FROGO_SDK)
     implementation(DependencyGradle.FROGO_CONSUME_API)
     implementation(DependencyGradle.FROGO_RECYCLER_VIEW)
+
 }

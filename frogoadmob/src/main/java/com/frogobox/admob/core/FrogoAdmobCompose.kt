@@ -31,6 +31,7 @@ val adsize_smart_banner: AdSize = AdSize.SMART_BANNER
 val adsize_medium_rectangle: AdSize = AdSize.MEDIUM_RECTANGLE
 val adsize_wide_skycraper: AdSize = AdSize.WIDE_SKYSCRAPER
 
+@SuppressLint("MissingPermission")
 @Composable
 fun FrogoAdmobBannerView(
     mAdUnitID: String,
@@ -42,7 +43,7 @@ fun FrogoAdmobBannerView(
         factory = { context ->
             showLogDebug("FrogoAdmobBannerView")
             AdView(context).apply {
-                adSize = mAdSize
+                setAdSize(mAdSize)
                 adUnitId = mAdUnitID
                 loadAd(AdRequest.Builder().build())
             }

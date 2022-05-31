@@ -1,11 +1,13 @@
 package com.frogobox.admob.core
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.widget.RelativeLayout
 import androidx.appcompat.app.AppCompatActivity
 import com.frogobox.admob.core.FrogoAdmobSingleFunc.getInitializedState
 import com.frogobox.admob.core.FrogoAdmobSingleFunc.waterMark
 import com.frogobox.admob.ext.ADMOB_MOBILE_ADS_KEY
+import com.frogobox.sdk.ext.isNetworkConnected
 import com.frogobox.sdk.ext.showLogDebug
 import com.frogobox.sdk.ext.showLogError
 import com.google.android.gms.ads.*
@@ -103,6 +105,7 @@ object FrogoAdmob : IFrogoAdmob {
         }
     }
 
+    @SuppressLint("MissingPermission")
     override fun showAdBanner(
         mAdView: AdView,
         timeoutMilliSecond: Int?,
@@ -163,6 +166,7 @@ object FrogoAdmob : IFrogoAdmob {
         showAdBanner(mAdView, null, keyword, callback)
     }
 
+    @SuppressLint("MissingPermission")
     override fun showAdBannerContainer(
         context: Context,
         bannerAdUnitId: String,
@@ -195,13 +199,15 @@ object FrogoAdmob : IFrogoAdmob {
                 }
             }
 
-            mAdView.adUnitId = bannerAdUnitId
-            mAdView.adSize = mAdsSize
+            mAdView.apply {
+                adUnitId = bannerAdUnitId
+                setAdSize(mAdsSize)
 
-            if (callback != null) {
-                mAdView.adListener = frogoAdListener(callback)
-            } else {
-                mAdView.adListener = frogoAdListener(null)
+                adListener = if (callback != null) {
+                    frogoAdListener(callback)
+                } else {
+                    frogoAdListener(null)
+                }
             }
 
             container.addView(mAdView)
@@ -800,13 +806,14 @@ object FrogoAdmob : IFrogoAdmob {
         var i = 0
         while (i <= recyclerViewDataList.size) {
             val adView = AdView(context)
-            adView.adSize = AdSize.BANNER
+            adView.setAdSize(AdSize.BANNER)
             adView.adUnitId = bannerAdUnitId
             recyclerViewDataList.add(i, adView)
             i += FrogoAdmobConstant.RECYCLER_VIEW_ITEMS_PER_AD
         }
     }
 
+    @SuppressLint("MissingPermission")
     override fun loadBannerAd(recyclerViewDataList: MutableList<Any>, index: Int) {
         if (index >= recyclerViewDataList.size) {
             return
