@@ -47,10 +47,6 @@
             android:name="com.google.android.gms.ads.APPLICATION_ID"
             android:value="@string/admob_app_id" />
 
-        <meta-data
-            android:name="com.startapp.sdk.APPLICATION_ID"
-            android:value="YOUR_APP_ID" />
-
     </application>
 
 </manifest>
