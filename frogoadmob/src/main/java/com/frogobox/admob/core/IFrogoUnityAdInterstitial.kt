@@ -14,7 +14,10 @@ package com.frogobox.admob.core
  *
  */
 
-@Deprecated("Please re-import to latest package and use the new one")
+@Deprecated(
+    "Please re-import to latest package and use the new one",
+    ReplaceWith("FrogoUnityAdInterstitialCallback")
+)
 interface IFrogoUnityAdInterstitial : IFrogoAdInterstitial {
 
     fun onClicked(tag: String, message: String)

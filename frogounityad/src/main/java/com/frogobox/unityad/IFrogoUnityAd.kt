@@ -1,26 +1,22 @@
-package com.frogobox.admob.core
+package com.frogobox.unityad
 
 import android.app.Activity
 import android.content.Context
 
-
 /*
- * Created by faisalamir on 08/04/22
+ * Created by faisalamir on 22/03/22
  * FrogoAdmob
  * -----------------------------------------
  * Name     : Muhammad Faisal Amir
  * E-mail   : faisalamircs@gmail.com
  * Github   : github.com/amirisback
  * -----------------------------------------
- * Copyright (C) 2022 Frogobox Media Inc.      
+ * Copyright (C) 2022 Frogobox Media Inc.
  * All rights reserved
  *
  */
 
-@Deprecated(
-    "Please re-import to latest package and use the new one",
-    ReplaceWith("FrogoUnityAdInterstitialCallback")
-)
+
 interface IFrogoUnityAd {
 
     fun setupUnityAdApp(context: Context, testMode: Boolean, unityGameId: String)
@@ -29,7 +25,7 @@ interface IFrogoUnityAd {
         context: Context,
         testMode: Boolean,
         unityGameId: String,
-        callback: IFrogoUnityAdInitialization?
+        callback: FrogoUnityAdInitializationCallback?
     )
 
     // ---------------------------------------------------------------------------------------------
@@ -39,7 +35,7 @@ interface IFrogoUnityAd {
     fun showAdInterstitial(
         activity: Activity,
         adInterstitialUnitId: String,
-        callback: IFrogoUnityAdInterstitial?
+        callback: FrogoUnityAdInitializationCallback?
     )
 
 }

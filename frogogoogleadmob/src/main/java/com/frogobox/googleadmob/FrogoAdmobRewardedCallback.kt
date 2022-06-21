@@ -1,5 +1,6 @@
-package com.frogobox.admob.core
+package com.frogobox.googleadmob
 
+import com.frogobox.adcore.FrogoAdInterstitialCallback
 import com.google.android.gms.ads.rewarded.RewardItem
 
 
@@ -16,11 +17,7 @@ import com.google.android.gms.ads.rewarded.RewardItem
  *
  */
 
-@Deprecated(
-    "Please re-import to latest package and use the new one",
-    ReplaceWith("FrogoAdmobRewardedCallback")
-)
-interface IFrogoAdRewarded : IFrogoAdInterstitial {
+interface FrogoAdmobRewardedCallback : FrogoAdInterstitialCallback {
 
     fun onUserEarnedReward(tag: String, rewardItem: RewardItem)
 

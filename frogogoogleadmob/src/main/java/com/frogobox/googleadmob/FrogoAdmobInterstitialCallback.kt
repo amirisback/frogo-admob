@@ -1,8 +1,11 @@
 package com.frogobox.googleadmob
 
+import com.frogobox.adcore.FrogoAdInterstitialCallback
+import com.google.android.gms.ads.rewarded.RewardItem
+
 
 /*
- * Created by faisalamir on 13/05/22
+ * Created by faisalamir on 13/03/22
  * FrogoAdmob
  * -----------------------------------------
  * Name     : Muhammad Faisal Amir
@@ -14,5 +17,8 @@ package com.frogobox.googleadmob
  *
  */
 
-class ad {
+interface FrogoAdmobInterstitialCallback : FrogoAdInterstitialCallback {
+
+    fun onUserEarnedReward(tag: String, rewardItem: RewardItem)
+
 }
