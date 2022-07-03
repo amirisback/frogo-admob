@@ -83,27 +83,58 @@ allprojects {
 #### <Option 1> Groovy
 
 	dependencies {
-	        // library google admob
-            implementation 'com.google.android.gms:play-services-ads:${admob_version}'
+        // library google admob (Required)
+        implementation 'com.google.android.gms:play-services-ads:${admob_version}'
 
-            // library unity ads
-            implementation 'com.unity3d.ads:unity-ads:${unity_ad_version}'
+        // library unity ads (Required)
+        implementation 'com.unity3d.ads:unity-ads:${unity_ad_version}'
 
-            // library frogo-admob-helper
-	        implementation 'com.github.amirisback:frogo-admob:4.4.1'
+        // library start.io (Required)
+        implementation 'com.startapp:inapp-sdk:${$start_io_version}'
+
+        // library frogo-admob (Required - Recomended)
+        implementation 'com.github.amirisback:frogo-admob:4.4.1'
+
+        // -----------------------------------------------------------------------------------------
+        // For Single Library Patch 
+
+        // library frogo-admob (Admob Only)
+        implementation 'com.github.amirisback.frogo-admob:frogoadmob:4.4.1'
+
+        // library frogo-admob (Unity Ads Only)
+        implementation 'com.github.amirisback.frogo-admob:frogounityad:4.4.1'
+
+        // library frogo-admob (Start Io Only)
+        implementation 'com.github.amirisback.frogo-admob:frogostartioad:4.4.1'
 	}
 
 #### <Option 2> Kotlin DSL
 
 	dependencies {
-	        // library google admob
-            implementation("com.google.android.gms:play-services-ads:${admob_version}")
+        // library google admob (Required)
+        implementation("com.google.android.gms:play-services-ads:${admob_version}")
 
-            // library unity ads
-            implementation("com.unity3d.ads:unity-ads:${unity_ad_version}")
+        // library unity ads (Required)
+        implementation("com.unity3d.ads:unity-ads:${unity_ad_version}")
 
-            // library frogo-admob
-	        implementation("com.github.amirisback:frogo-admob:4.4.1")
+        // library start.io (Required)
+        implementation("com.startapp:inapp-sdk:${$start_io_version")
+
+        // library frogo-admob (Required - Recomended)
+        implementation("com.github.amirisback:frogo-admob:4.4.1")
+
+        // -----------------------------------------------------------------------------------------
+        // For Single Library Patch
+
+        // library frogo-admob (Admob Only)
+        implementation("com.github.amirisback.frogo-admob:frogoadmob:4.4.1")
+
+        // library frogo-admob (Unity Ads Only)
+        implementation("com.github.amirisback.frogo-admob:frogounityad:4.4.1")
+
+        // library frogo-admob (Start Io Only)
+        implementation("com.github.amirisback.frogo-admob:frogostartioad:4.4.1")
+
 	}
 	
 ### Step 3. Adding meta-data on AndroidManifest.xml
@@ -126,7 +157,7 @@ allprojects {
 
 #### Setup Ads Using Server
 ```kotlin
-class <YourActivity> : FrogoAdmobActivity() {
+class <YourActivity> : FrogoAdActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -236,7 +267,7 @@ class <YourActivity> : FrogoAdmobActivity() {
             }
 
             btnRewarded.setOnClickListener {
-                showAdRewarded(getString(R.string.admob_rewarded), object : IFrogoAdRewarded {
+                showAdRewarded(getString(R.string.admob_rewarded), object : FrogoAdmobRewardedCallback {
                     override fun onUserEarnedReward(rewardItem: RewardItem) {
                         // TODO("User Get Reward")
                     }
@@ -265,7 +296,7 @@ class <YourActivity> : FrogoAdmobActivity() {
 
             btnRewardedInterstitial.setOnClickListener {
                 showAdRewardedInterstitial(getString(R.string.admob_rewarded_interstitial),
-                    object : IFrogoAdRewarded {
+                    object : FrogoAdmobRewardedCallback {
                         override fun onUserEarnedReward(rewardItem: RewardItem) {
                             // TODO("User Get Reward")
                         }
@@ -445,7 +476,7 @@ public class MainJavaActivity extends BaseJavaActivity {
             }
         });
 
-        binding.btnRewarded.setOnClickListener(view -> showAdRewarded(getString(R.string.admob_rewarded), new IFrogoAdRewarded() {
+        binding.btnRewarded.setOnClickListener(view -> showAdRewarded(getString(R.string.admob_rewarded), new FrogoAdmobRewardedCallback() {
             @Override
             public void onUserEarnedReward(@NonNull RewardItem rewardItem) {
 
@@ -477,7 +508,7 @@ public class MainJavaActivity extends BaseJavaActivity {
             }
         }));
 
-        binding.btnRewardedInterstitial.setOnClickListener(view -> showAdRewardedInterstitial(getString(R.string.admob_rewarded_interstitial), new IFrogoAdRewarded() {
+        binding.btnRewardedInterstitial.setOnClickListener(view -> showAdRewardedInterstitial(getString(R.string.admob_rewarded_interstitial), new FrogoAdmobRewardedCallback() {
             @Override
             public void onUserEarnedReward(@NonNull RewardItem rewardItem) {
 
@@ -542,17 +573,17 @@ fun showAdBanner(
     mAdView: AdView,
     timeoutMilliSecond: Int,
     keyword: List<String>,
-    callback: IFrogoAdBanner
+    callback: FrogoAdmobBannerCallback
 )
 
 // Show Banner Ads with callback
-fun showAdBanner(mAdView: AdView, callback: IFrogoAdBanner)
+fun showAdBanner(mAdView: AdView, callback: FrogoAdmobBannerCallback)
 
 // Show Banner Ads  with timeout millisecond and callback
-fun showAdBanner(mAdView: AdView, timeoutMilliSecond: Int, callback: IFrogoAdBanner)
+fun showAdBanner(mAdView: AdView, timeoutMilliSecond: Int, callback: FrogoAdmobBannerCallback)
 
 // Show Banner Ads  with and keyword and callback
-fun showAdBanner(mAdView: AdView, keyword: List<String>, callback: IFrogoAdBanner)
+fun showAdBanner(mAdView: AdView, keyword: List<String>, callback: FrogoAdmobBannerCallback)
 
 // ---------------------------------------------------------------------------------------------
 
@@ -593,7 +624,7 @@ fun showAdBannerContainer(
     bannerAdUnitId: String,
     mAdsSize: AdSize,
     container: RelativeLayout,
-    callback: IFrogoAdBanner
+    callback: FrogoAdmobBannerCallback
 )
 
 // Show Banner Ads with container and timeout millisecond and callback
@@ -602,7 +633,7 @@ fun showAdBannerContainer(
     mAdsSize: AdSize,
     container: RelativeLayout,
     timeoutMilliSecond: Int,
-    callback: IFrogoAdBanner
+    callback: FrogoAdmobBannerCallback
 )
 
 // Show Banner Ads with container and keyword and callback
@@ -611,7 +642,7 @@ fun showAdBannerContainer(
     mAdsSize: AdSize,
     container: RelativeLayout,
     keyword: List<String>,
-    callback: IFrogoAdBanner
+    callback: FrogoAdmobBannerCallback
 )
 
 // Show Banner Ads with container and timeout millisecond and keyword and callback
@@ -621,7 +652,7 @@ fun showAdBannerContainer(
     container: RelativeLayout,
     timeoutMilliSecond: Int,
     keyword: List<String>,
-    callback: IFrogoAdBanner
+    callback: FrogoAdmobBannerCallback
 )
 
 // ---------------------------------------------------------------------------------------------
@@ -631,7 +662,7 @@ fun showAdInterstitial(
     interstitialAdUnitId: String,
     timeoutMilliSecond: Int,
     keyword: List<String>,
-    callback: IFrogoAdInterstitial
+    callback: FrogoAdmobInterstitialCallback
 )
 
 // Show Interstitial Ads with timeout millisecond and keyword
@@ -660,39 +691,39 @@ fun showAdInterstitial(interstitialAdUnitId: String)
 fun showAdInterstitial(
     interstitialAdUnitId: String,
     timeoutMilliSecond: Int,
-    callback: IFrogoAdInterstitial
+    callback: FrogoAdmobInterstitialCallback
 )
 
 // Show Interstitial Ads with keyword and callback
 fun showAdInterstitial(
     interstitialAdUnitId: String,
     keyword: List<String>,
-    callback: IFrogoAdInterstitial
+    callback: FrogoAdmobInterstitialCallback
 )
 
 // Show Interstitial Ads with callback
 fun showAdInterstitial(
     interstitialAdUnitId: String,
-    callback: IFrogoAdInterstitial
+    callback: FrogoAdmobInterstitialCallback
 )
 
 // ---------------------------------------------------------------------------------------------
 
 // Show Rewarded Ads
-fun showAdRewarded(mAdUnitIdRewarded: String, callback: IFrogoAdRewarded)
+fun showAdRewarded(mAdUnitIdRewarded: String, callback: FrogoAdmobRewardedCallback)
 
 // Show Rewarded Ads with timeout millisecond
 fun showAdRewarded(
     mAdUnitIdRewarded: String,
     timeoutMilliSecond: Int,
-    callback: IFrogoAdRewarded
+    callback: FrogoAdmobRewardedCallback
 )
 
 // Show Rewarded Ads with keyword
 fun showAdRewarded(
     mAdUnitIdRewarded: String,
     keyword: List<String>,
-    callback: IFrogoAdRewarded
+    callback: FrogoAdmobRewardedCallback
 )
 
 // Show Rewarded Ads with timeout millisecond and keyword
@@ -700,7 +731,7 @@ fun showAdRewarded(
     mAdUnitIdRewarded: String,
     timeoutMilliSecond: Int,
     keyword: List<String>,
-    callback: IFrogoAdRewarded
+    callback: FrogoAdmobRewardedCallback
 )
 
 // ---------------------------------------------------------------------------------------------
@@ -708,21 +739,21 @@ fun showAdRewarded(
 // Show Rewarded Interstitial Ads
 fun showAdRewardedInterstitial(
     mAdUnitIdRewardedInterstitial: String,
-    callback: IFrogoAdRewarded
+    callback: FrogoAdmobRewardedCallback
 )
 
 // Show Rewarded Interstitial Ads with timeout millisecond
 fun showAdRewardedInterstitial(
     mAdUnitIdRewardedInterstitial: String,
     timeoutMilliSecond: Int,
-    callback: IFrogoAdRewarded
+    callback: FrogoAdmobRewardedCallback
 )
 
 // Show Rewarded Interstitial Ads with keyword
 fun showAdRewardedInterstitial(
     mAdUnitIdRewardedInterstitial: String,
     keyword: List<String>,
-    callback: IFrogoAdRewarded
+    callback: FrogoAdmobRewardedCallback
 )
 
 // Show Rewarded Interstitial Ads with timeout millisecond and keyword
@@ -730,7 +761,7 @@ fun showAdRewardedInterstitial(
     mAdUnitIdRewardedInterstitial: String,
     timeoutMilliSecond: Int,
     keyword: List<String>,
-    callback: IFrogoAdRewarded
+    callback: FrogoAdmobRewardedCallback
 )
 
 // ---------------------------------------------------------------------------------------------
