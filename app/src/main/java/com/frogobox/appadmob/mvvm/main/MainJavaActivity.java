@@ -5,15 +5,15 @@ import android.view.View;
 
 import androidx.annotation.NonNull;
 
-import com.frogobox.admob.deprecated.IFrogoAdInterstitial;
-import com.frogobox.admob.deprecated.IFrogoAdRewarded;
+import com.frogobox.admob.callback.FrogoAdmobInterstitialCallback;
+import com.frogobox.admob.callback.FrogoAdmobRewardedCallback;
 import com.frogobox.appadmob.R;
 import com.frogobox.appadmob.base.BaseActivity;
 import com.frogobox.appadmob.databinding.ActivityMainBinding;
 import com.google.android.gms.ads.AdSize;
 import com.google.android.gms.ads.rewarded.RewardItem;
 
-public class MainJavaActivity extends BaseActivity<ActivityMainBinding> implements IFrogoAdInterstitial, IFrogoAdRewarded {
+public class MainJavaActivity extends BaseActivity<ActivityMainBinding> implements FrogoAdmobInterstitialCallback, FrogoAdmobRewardedCallback {
 
     @NonNull
     @Override

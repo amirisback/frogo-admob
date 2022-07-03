@@ -1,8 +1,8 @@
-package com.frogobox.unityad
+package com.frogobox.startioad.core
 
 
 /*
- * Created by faisalamir on 22/03/22
+ * Created by faisalamir on 13/05/22
  * FrogoAdmob
  * -----------------------------------------
  * Name     : Muhammad Faisal Amir
@@ -14,10 +14,5 @@ package com.frogobox.unityad
  *
  */
 
-interface FrogoUnityAdInitializationCallback {
-
-    fun onInitializationComplete(tag: String, message: String)
-
-    fun onInitializationFailed(tag: String, message: String)
-
+class FrogoStartIo : IFrogoStartIo {
 }

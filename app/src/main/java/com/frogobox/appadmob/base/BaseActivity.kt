@@ -5,10 +5,10 @@ import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
 import androidx.viewbinding.ViewBinding
-import com.frogobox.admob.deprecated.FrogoAdmobApiResponse
-import com.frogobox.admob.deprecated.FrogoAdmobId
-import com.frogobox.admob.deprecated.FrogoAdmobRepository
-import com.frogobox.admob.ui.FrogoAdmobActivity
+import com.frogobox.ad.ui.FrogoAdActivity
+import com.frogobox.adcore.model.FrogoAdmobId
+import com.frogobox.adcore.source.FrogoAdmobApiResponse
+import com.frogobox.adcore.source.FrogoAdmobRepository
 import com.frogobox.appadmob.BuildConfig
 import com.frogobox.appadmob.R
 import com.frogobox.sdk.ext.showLogDebug
@@ -32,7 +32,7 @@ import org.koin.android.ext.android.inject
  * com.frogobox.admobhelper.base
  *
  */
-abstract class BaseActivity<VB : ViewBinding> : FrogoAdmobActivity() {
+abstract class BaseActivity<VB : ViewBinding> : FrogoAdActivity() {
 
     protected val binding: VB by lazy { setupViewBinding() }
 

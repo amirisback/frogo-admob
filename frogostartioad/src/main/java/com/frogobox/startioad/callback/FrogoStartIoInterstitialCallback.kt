@@ -1,4 +1,4 @@
-package com.frogobox.startioad
+package com.frogobox.startioad.callback
 
 
 /*
@@ -14,5 +14,5 @@ package com.frogobox.startioad
  *
  */
 
-class ad {
+class FrogoStartIoInterstitialCallback {
 }

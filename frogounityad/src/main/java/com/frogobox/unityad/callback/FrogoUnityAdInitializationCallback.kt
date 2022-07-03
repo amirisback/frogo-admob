@@ -1,4 +1,4 @@
-package com.frogobox.admob.deprecated
+package com.frogobox.unityad.callback
 
 
 /*
@@ -14,11 +14,7 @@ package com.frogobox.admob.deprecated
  *
  */
 
-@Deprecated(
-    "Please re-import to latest package and use the new one",
-    ReplaceWith("FrogoUnityAdInitializationCallback")
-)
-interface IFrogoUnityAdInitialization {
+interface FrogoUnityAdInitializationCallback {
 
     fun onInitializationComplete(tag: String, message: String)
 

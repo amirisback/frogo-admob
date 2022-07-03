@@ -3,7 +3,7 @@ package com.frogobox.adcore.callback
 // Created by KoinWorks (M. Faisal Amir) on 20/06/22.
 
 
-interface FrogoAdInterstitialCallback {
+interface FrogoAdCoreInterstitialCallback {
 
     fun onShowAdRequestProgress(tag: String, message: String)
 

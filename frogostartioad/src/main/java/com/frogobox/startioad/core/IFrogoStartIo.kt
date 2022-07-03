@@ -1,10 +1,8 @@
-package com.frogobox.unityad
-
-import com.frogobox.adcore.callback.FrogoAdInterstitialCallback
+package com.frogobox.startioad.core
 
 
 /*
- * Created by faisalamir on 22/03/22
+ * Created by faisalamir on 13/05/22
  * FrogoAdmob
  * -----------------------------------------
  * Name     : Muhammad Faisal Amir
@@ -16,9 +14,5 @@ import com.frogobox.adcore.callback.FrogoAdInterstitialCallback
  *
  */
 
-
-interface FrogoUnityAdInterstitialCallback : FrogoAdInterstitialCallback {
-
-    fun onClicked(tag: String, message: String)
-
+interface IFrogoStartIo {
 }

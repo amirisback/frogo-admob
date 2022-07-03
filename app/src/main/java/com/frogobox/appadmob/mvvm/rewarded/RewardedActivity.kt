@@ -1,7 +1,7 @@
 package com.frogobox.appadmob.mvvm.rewarded
 
 import android.os.Bundle
-import com.frogobox.admob.deprecated.IFrogoAdRewarded
+import com.frogobox.admob.callback.FrogoAdmobRewardedCallback
 import com.frogobox.appadmob.R
 import com.frogobox.appadmob.base.BaseActivity
 import com.frogobox.appadmob.databinding.ActivityRewardedBinding
@@ -9,7 +9,7 @@ import com.frogobox.sdk.ext.gone
 import com.frogobox.sdk.ext.visible
 import com.google.android.gms.ads.rewarded.RewardItem
 
-class RewardedActivity : BaseActivity<ActivityRewardedBinding>(), IFrogoAdRewarded {
+class RewardedActivity : BaseActivity<ActivityRewardedBinding>(), FrogoAdmobRewardedCallback {
 
     private fun getKeyword(): MutableList<String> {
         val keywords = mutableListOf<String>()

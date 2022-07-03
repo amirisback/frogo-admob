@@ -1,36 +1,33 @@
 package com.frogobox.admob.ui
 
 import android.os.Bundle
+import androidx.viewbinding.ViewBinding
 import com.frogobox.admob.delegate.AdmobDelegates
 import com.frogobox.admob.delegate.AdmobDelegatesImpl
 import com.frogobox.sdk.ext.showLogDebug
-import com.frogobox.sdk.view.FrogoActivity
+import com.frogobox.sdk.view.FrogoBindActivity
 import com.google.android.gms.ads.AdView
 
-/**
- * Created by Faisal Amir
- * FrogoBox Inc License
- * =========================================
- * ImplementationAdmob
- * Copyright (C) 31/10/2019.
- * All rights reserved
+
+/*
+ * Created by faisalamir on 01/03/22
+ * FrogoAdmob
  * -----------------------------------------
  * Name     : Muhammad Faisal Amir
  * E-mail   : faisalamircs@gmail.com
  * Github   : github.com/amirisback
- * LinkedIn : linkedin.com/in/faisalamircs
  * -----------------------------------------
- * FrogoBox Software Industries
- * com.frogobox.admobhelper
+ * Copyright (C) 2022 Frogobox Media Inc.      
+ * All rights reserved
  *
  */
 
 
-abstract class FrogoAdmobActivity : FrogoActivity(),
+abstract class FrogoAdmobBindActivity<VB : ViewBinding> : FrogoBindActivity<VB>(),
     AdmobDelegates by AdmobDelegatesImpl() {
 
     companion object {
-        val TAG: String = FrogoAdmobActivity::class.java.simpleName
+        val TAG: String = FrogoAdmobBindActivity::class.java.simpleName
     }
 
     protected val arrayFrogoAdmobData = mutableListOf<Any>()
@@ -69,7 +66,6 @@ abstract class FrogoAdmobActivity : FrogoActivity(),
                 item.destroy()
             }
         }
-
     }
 
 }

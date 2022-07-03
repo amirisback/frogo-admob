@@ -1,18 +1,18 @@
 package com.frogobox.appadmob.mvvm.interstitial
 
 import android.os.Bundle
-import com.frogobox.admob.deprecated.IFrogoAdInterstitial
-import com.frogobox.admob.deprecated.IFrogoUnityAdInterstitial
-import com.frogobox.admob.ui.FrogoSdkAdmobActivity
-import com.frogobox.admob.ui.IFrogoMixedAdsInterstitial
+import com.frogobox.ad.callback.FrogoAdInterstitialCallback
+import com.frogobox.ad.ui.FrogoAdBindActivity
+import com.frogobox.admob.callback.FrogoAdmobInterstitialCallback
 import com.frogobox.appadmob.R
 import com.frogobox.appadmob.databinding.ActivityInterstitialBinding
 import com.frogobox.sdk.ext.gone
 import com.frogobox.sdk.ext.showLogDebug
 import com.frogobox.sdk.ext.visible
+import com.frogobox.unityad.callback.FrogoUnityAdInterstitialCallback
 
-class InterstitialActivity : FrogoSdkAdmobActivity<ActivityInterstitialBinding>(),
-    IFrogoAdInterstitial, IFrogoUnityAdInterstitial, IFrogoMixedAdsInterstitial {
+class InterstitialActivity : FrogoAdBindActivity<ActivityInterstitialBinding>(),
+    FrogoAdmobInterstitialCallback, FrogoUnityAdInterstitialCallback, FrogoAdInterstitialCallback {
 
     private fun getKeyword(): MutableList<String> {
         val keywords = mutableListOf<String>()
@@ -32,7 +32,7 @@ class InterstitialActivity : FrogoSdkAdmobActivity<ActivityInterstitialBinding>(
 
     override fun setupViewModel() {}
 
-    override fun setupOnCreate(savedInstanceState: Bundle?) {
+    override fun onCreateExt(savedInstanceState: Bundle?) {
         setupDetailActivity("Sample Frogo Sdk Admob 2")
         setupUI()
     }

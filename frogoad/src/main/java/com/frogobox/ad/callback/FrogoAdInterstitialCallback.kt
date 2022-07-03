@@ -1,5 +1,6 @@
-package com.frogobox.admob.deprecated
+package com.frogobox.ad.callback
 
+import com.frogobox.unityad.callback.FrogoUnityAdInterstitialCallback
 
 /*
  * Created by faisalamir on 22/03/22
@@ -14,12 +15,6 @@ package com.frogobox.admob.deprecated
  *
  */
 
-@Deprecated(
-    "Please re-import to latest package and use the new one",
-    ReplaceWith("FrogoUnityAdInterstitialCallback")
-)
-interface IFrogoUnityAdInterstitial : IFrogoAdInterstitial {
 
-    fun onClicked(tag: String, message: String)
-
+interface FrogoAdInterstitialCallback : FrogoUnityAdInterstitialCallback {
 }

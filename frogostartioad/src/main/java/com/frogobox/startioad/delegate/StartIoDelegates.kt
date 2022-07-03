@@ -1,10 +1,10 @@
-package com.frogobox.admob.deprecated
+package com.frogobox.startioad.delegate
 
-import com.frogobox.coresdk.response.FrogoDataResponse
+import androidx.appcompat.app.AppCompatActivity
 
 
 /*
- * Created by faisalamir on 02/03/22
+ * Created by faisalamir on 13/05/22
  * FrogoAdmob
  * -----------------------------------------
  * Name     : Muhammad Faisal Amir
@@ -16,9 +16,8 @@ import com.frogobox.coresdk.response.FrogoDataResponse
  *
  */
 
-@Deprecated(
-    "Please re-import to latest package and use the new one"
-)
-interface FrogoAdmobApiResponse<T> : FrogoDataResponse<T> {
+interface StartIoDelegates {
+
+    fun setupStartIoDelegates(activity: AppCompatActivity)
 
 }

@@ -1,6 +1,6 @@
-package com.frogobox.admob.ui
+package com.frogobox.unityad.callback
 
-import com.frogobox.admob.deprecated.IFrogoUnityAdInterstitial
+import com.frogobox.adcore.callback.FrogoAdCoreInterstitialCallback
 
 
 /*
@@ -17,6 +17,8 @@ import com.frogobox.admob.deprecated.IFrogoUnityAdInterstitial
  */
 
 
-interface IFrogoMixedAdsInterstitial : IFrogoUnityAdInterstitial {
+interface FrogoUnityAdInterstitialCallback : FrogoAdCoreInterstitialCallback {
+
+    fun onClicked(tag: String, message: String)
 
 }

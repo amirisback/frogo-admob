@@ -3,9 +3,9 @@ package com.frogobox.admob.core
 import android.content.Context
 import android.widget.RelativeLayout
 import androidx.appcompat.app.AppCompatActivity
-import com.frogobox.admob.deprecated.IFrogoAdBanner
-import com.frogobox.admob.deprecated.IFrogoAdInterstitial
-import com.frogobox.admob.deprecated.IFrogoAdRewarded
+import com.frogobox.admob.callback.FrogoAdmobBannerCallback
+import com.frogobox.admob.callback.FrogoAdmobInterstitialCallback
+import com.frogobox.admob.callback.FrogoAdmobRewardedCallback
 import com.google.android.gms.ads.AdSize
 import com.google.android.gms.ads.AdView
 
@@ -38,7 +38,7 @@ interface IFrogoAdmob {
         mAdView: AdView,
         timeoutMilliSecond: Int?,
         keyword: List<String>?,
-        callback: IFrogoAdBanner?
+        callback: FrogoAdmobBannerCallback?
     )
 
     fun showAdBanner(mAdView: AdView)
@@ -49,11 +49,11 @@ interface IFrogoAdmob {
 
     fun showAdBanner(mAdView: AdView, timeoutMilliSecond: Int, keyword: List<String>)
 
-    fun showAdBanner(mAdView: AdView, callback: IFrogoAdBanner)
+    fun showAdBanner(mAdView: AdView, callback: FrogoAdmobBannerCallback)
 
-    fun showAdBanner(mAdView: AdView, timeoutMilliSecond: Int, callback: IFrogoAdBanner)
+    fun showAdBanner(mAdView: AdView, timeoutMilliSecond: Int, callback: FrogoAdmobBannerCallback)
 
-    fun showAdBanner(mAdView: AdView, keyword: List<String>, callback: IFrogoAdBanner)
+    fun showAdBanner(mAdView: AdView, keyword: List<String>, callback: FrogoAdmobBannerCallback)
 
     // ---------------------------------------------------------------------------------------------
 
@@ -64,7 +64,7 @@ interface IFrogoAdmob {
         container: RelativeLayout,
         timeoutMilliSecond: Int?,
         keyword: List<String>?,
-        callback: IFrogoAdBanner?
+        callback: FrogoAdmobBannerCallback?
     )
 
     fun showAdBannerContainer(
@@ -104,7 +104,7 @@ interface IFrogoAdmob {
         bannerAdUnitId: String,
         mAdsSize: AdSize,
         container: RelativeLayout,
-        callback: IFrogoAdBanner
+        callback: FrogoAdmobBannerCallback
     )
 
     fun showAdBannerContainer(
@@ -113,7 +113,7 @@ interface IFrogoAdmob {
         mAdsSize: AdSize,
         container: RelativeLayout,
         timeoutMilliSecond: Int,
-        callback: IFrogoAdBanner
+        callback: FrogoAdmobBannerCallback
     )
 
     fun showAdBannerContainer(
@@ -122,7 +122,7 @@ interface IFrogoAdmob {
         mAdsSize: AdSize,
         container: RelativeLayout,
         keyword: List<String>,
-        callback: IFrogoAdBanner
+        callback: FrogoAdmobBannerCallback
     )
 
     // ---------------------------------------------------------------------------------------------
@@ -132,7 +132,7 @@ interface IFrogoAdmob {
         interstitialAdUnitId: String,
         timeoutMilliSecond: Int?,
         keyword: List<String>?,
-        callback: IFrogoAdInterstitial?
+        callback: FrogoAdmobInterstitialCallback?
     )
 
     fun showAdInterstitial(
@@ -163,20 +163,20 @@ interface IFrogoAdmob {
         activity: AppCompatActivity,
         interstitialAdUnitId: String,
         timeoutMilliSecond: Int,
-        callback: IFrogoAdInterstitial
+        callback: FrogoAdmobInterstitialCallback
     )
 
     fun showAdInterstitial(
         activity: AppCompatActivity,
         interstitialAdUnitId: String,
         keyword: List<String>,
-        callback: IFrogoAdInterstitial
+        callback: FrogoAdmobInterstitialCallback
     )
 
     fun showAdInterstitial(
         activity: AppCompatActivity,
         interstitialAdUnitId: String,
-        callback: IFrogoAdInterstitial
+        callback: FrogoAdmobInterstitialCallback
     )
 
     // ---------------------------------------------------------------------------------------------
@@ -186,27 +186,27 @@ interface IFrogoAdmob {
         mAdUnitIdRewarded: String,
         timeoutMilliSecond: Int?,
         keyword: List<String>?,
-        callback: IFrogoAdRewarded
+        callback: FrogoAdmobRewardedCallback
     )
 
     fun showAdRewarded(
         activity: AppCompatActivity,
         mAdUnitIdRewarded: String,
-        callback: IFrogoAdRewarded
+        callback: FrogoAdmobRewardedCallback
     )
 
     fun showAdRewarded(
         activity: AppCompatActivity,
         mAdUnitIdRewarded: String,
         timeoutMilliSecond: Int,
-        callback: IFrogoAdRewarded
+        callback: FrogoAdmobRewardedCallback
     )
 
     fun showAdRewarded(
         activity: AppCompatActivity,
         mAdUnitIdRewarded: String,
         keyword: List<String>,
-        callback: IFrogoAdRewarded
+        callback: FrogoAdmobRewardedCallback
     )
 
     // ---------------------------------------------------------------------------------------------
@@ -216,27 +216,27 @@ interface IFrogoAdmob {
         mAdUnitIdRewardedInterstitial: String,
         timeoutMilliSecond: Int?,
         keyword: List<String>?,
-        callback: IFrogoAdRewarded
+        callback: FrogoAdmobRewardedCallback
     )
 
     fun showAdRewardedInterstitial(
         activity: AppCompatActivity,
         mAdUnitIdRewardedInterstitial: String,
-        callback: IFrogoAdRewarded
+        callback: FrogoAdmobRewardedCallback
     )
 
     fun showAdRewardedInterstitial(
         activity: AppCompatActivity,
         mAdUnitIdRewardedInterstitial: String,
         timeoutMilliSecond: Int,
-        callback: IFrogoAdRewarded
+        callback: FrogoAdmobRewardedCallback
     )
 
     fun showAdRewardedInterstitial(
         activity: AppCompatActivity,
         mAdUnitIdRewardedInterstitial: String,
         keyword: List<String>,
-        callback: IFrogoAdRewarded
+        callback: FrogoAdmobRewardedCallback
     )
 
     // ---------------------------------------------------------------------------------------------

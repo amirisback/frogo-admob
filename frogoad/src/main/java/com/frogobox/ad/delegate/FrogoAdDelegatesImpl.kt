@@ -1,20 +1,19 @@
-package com.frogobox.admob.ui
+package com.frogobox.ad.delegate
 
-import android.os.Bundle
-import androidx.viewbinding.ViewBinding
+import androidx.appcompat.app.AppCompatActivity
+import com.frogobox.ad.callback.FrogoAdInterstitialCallback
+import com.frogobox.admob.callback.FrogoAdmobInterstitialCallback
 import com.frogobox.admob.delegate.AdmobDelegates
 import com.frogobox.admob.delegate.AdmobDelegatesImpl
-import com.frogobox.admob.deprecated.FrogoUnityAd
-import com.frogobox.admob.deprecated.IFrogoAdInterstitial
-import com.frogobox.admob.deprecated.IFrogoUnityAdInitialization
-import com.frogobox.admob.deprecated.IFrogoUnityAdInterstitial
-import com.frogobox.sdk.ext.showLogDebug
-import com.frogobox.sdk.view.FrogoBindActivity
-import com.google.android.gms.ads.AdView
-
+import com.frogobox.sdk.ext.showLogD
+import com.frogobox.startioad.delegate.StartIoDelegates
+import com.frogobox.startioad.delegate.StartIoDelegatesImpl
+import com.frogobox.unityad.callback.FrogoUnityAdInterstitialCallback
+import com.frogobox.unityad.delegate.UnityAdDelegates
+import com.frogobox.unityad.delegate.UnityAdDelegatesImpl
 
 /*
- * Created by faisalamir on 01/03/22
+ * Created by faisalamir on 22/03/22
  * FrogoAdmob
  * -----------------------------------------
  * Name     : Muhammad Faisal Amir
@@ -27,62 +26,24 @@ import com.google.android.gms.ads.AdView
  */
 
 
-abstract class FrogoSdkAdmobActivity<VB : ViewBinding> : FrogoBindActivity<VB>(),
-    IFrogoAdmobActivity, AdmobDelegates by AdmobDelegatesImpl() {
+class FrogoAdDelegatesImpl : FrogoAdDelegates,
+    AdmobDelegates by AdmobDelegatesImpl(),
+    UnityAdDelegates by UnityAdDelegatesImpl(),
+    StartIoDelegates by StartIoDelegatesImpl() {
 
-    companion object {
-        val TAG: String = FrogoSdkAdmobActivity::class.java.simpleName
+    override fun setupFrogoAdDelegates(activity: AppCompatActivity) {
+        showLogD<FrogoAdDelegatesImpl>("activity: $activity")
+        setupAdmobDelegates(activity)
+        setupUnityAdDelegates(activity)
+        setupStartIoDelegates(activity)
     }
 
-    protected val arrayFrogoAdmobData = mutableListOf<Any>()
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        if (savedInstanceState == null) {
-            showLogDebug("$TAG : Run From $TAG class : FrogoAdmob.setupAdmobApp")
-            setupAdmobDelegates(this)
-            setupAdmobApp()
-        }
-    }
-
-    // ---------------------------------------------------------------------------------------------
-
-    override fun setupUnityAdApp(testMode: Boolean, unityGameId: String) {
-        FrogoUnityAd.setupUnityAdApp(this, testMode, unityGameId)
-    }
-
-    override fun setupUnityAdApp(
-        testMode: Boolean,
-        unityGameId: String,
-        callback: IFrogoUnityAdInitialization
-    ) {
-        FrogoUnityAd.setupUnityAdApp(this, testMode, unityGameId, callback)
-    }
-
-    // ---------------------------------------------------------------------------------------------
-
-    override fun showUnityAdInterstitial(adInterstitialUnitId: String) {
-        showLogDebug("$TAG : Run From $TAG class : FrogoUnityAd.showAdInterstitial")
-        FrogoUnityAd.showAdInterstitial(this, adInterstitialUnitId)
-    }
-
-    override fun showUnityAdInterstitial(
-        adInterstitialUnitId: String,
-        callback: IFrogoUnityAdInterstitial
-    ) {
-        showLogDebug("$TAG : Run From $TAG class : FrogoUnityAd.showAdInterstitial")
-        FrogoUnityAd.showAdInterstitial(this, adInterstitialUnitId, callback)
-    }
-
-    // ---------------------------------------------------------------------------------------------
-
-    // Mixed Ads Admob >> Unity
     override fun showAdmobXUnityAdInterstitial(
         admobInterstitialId: String,
         unityInterstitialId: String,
-        callback: IFrogoMixedAdsInterstitial
+        callback: FrogoAdInterstitialCallback
     ) {
-        showAdInterstitial(admobInterstitialId, object : IFrogoAdInterstitial {
+        showAdInterstitial(admobInterstitialId, object : FrogoAdmobInterstitialCallback {
             override fun onShowAdRequestProgress(tag: String, message: String) {
                 callback.onShowAdRequestProgress(tag, message)
             }
@@ -97,7 +58,7 @@ abstract class FrogoSdkAdmobActivity<VB : ViewBinding> : FrogoBindActivity<VB>()
 
             override fun onAdFailed(tag: String, errorMessage: String) {
                 showUnityAdInterstitial(unityInterstitialId,
-                    object : IFrogoUnityAdInterstitial {
+                    object : FrogoUnityAdInterstitialCallback {
                         override fun onClicked(tag: String, message: String) {
                             callback.onClicked(tag, message)
                         }
@@ -142,16 +103,16 @@ abstract class FrogoSdkAdmobActivity<VB : ViewBinding> : FrogoBindActivity<VB>()
     override fun showUnityXAdmobAdInterstitial(
         admobInterstitialId: String,
         unityInterstitialId: String,
-        callback: IFrogoMixedAdsInterstitial
+        callback: FrogoAdInterstitialCallback
     ) {
-        showUnityAdInterstitial(unityInterstitialId, object : IFrogoUnityAdInterstitial {
+        showUnityAdInterstitial(unityInterstitialId, object : FrogoUnityAdInterstitialCallback {
             override fun onAdDismissed(tag: String, message: String) {
                 callback.onAdDismissed(tag, message)
             }
 
             override fun onAdFailed(tag: String, errorMessage: String) {
                 showAdInterstitial(admobInterstitialId,
-                    object : IFrogoAdInterstitial {
+                    object : FrogoAdmobInterstitialCallback {
                         override fun onShowAdRequestProgress(tag: String, message: String) {
                             callback.onShowAdRequestProgress(tag, message)
                         }
@@ -199,34 +160,4 @@ abstract class FrogoSdkAdmobActivity<VB : ViewBinding> : FrogoBindActivity<VB>()
             }
         })
     }
-
-    // ---------------------------------------------------------------------------------------------
-
-    override fun onResume() {
-        super.onResume()
-        for (item in arrayFrogoAdmobData) {
-            if (item is AdView) {
-                item.resume()
-            }
-        }
-    }
-
-    override fun onPause() {
-        super.onPause()
-        for (item in arrayFrogoAdmobData) {
-            if (item is AdView) {
-                item.pause()
-            }
-        }
-    }
-
-    override fun onDestroy() {
-        super.onDestroy()
-        for (item in arrayFrogoAdmobData) {
-            if (item is AdView) {
-                item.destroy()
-            }
-        }
-    }
-
 }

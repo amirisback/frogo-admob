@@ -1,10 +1,12 @@
-package com.frogobox.admob.deprecated
+package com.frogobox.unityad.core
 
 import android.app.Activity
 import android.content.Context
 import com.frogobox.adcore.util.FrogoAdFunc
 import com.frogobox.sdk.ext.showLogDebug
 import com.frogobox.sdk.ext.showLogError
+import com.frogobox.unityad.callback.FrogoUnityAdInitializationCallback
+import com.frogobox.unityad.callback.FrogoUnityAdInterstitialCallback
 import com.unity3d.ads.*
 
 
@@ -21,9 +23,7 @@ import com.unity3d.ads.*
  *
  */
 
-@Deprecated(
-    "Please re-import to latest package and use the new one"
-)
+
 object FrogoUnityAd : IFrogoUnityAd {
 
     val TAG: String = FrogoUnityAd::class.java.simpleName
@@ -32,7 +32,7 @@ object FrogoUnityAd : IFrogoUnityAd {
         context: Context,
         testMode: Boolean,
         unityGameId: String,
-        callback: IFrogoUnityAdInitialization?
+        callback: FrogoUnityAdInitializationCallback?
     ) {
 
         FrogoAdFunc.waterMark()
@@ -85,7 +85,7 @@ object FrogoUnityAd : IFrogoUnityAd {
     override fun showAdInterstitial(
         activity: Activity,
         adInterstitialUnitId: String,
-        callback: IFrogoUnityAdInterstitial?
+        callback: FrogoUnityAdInterstitialCallback?
     ) {
 
         FrogoAdFunc.waterMark()

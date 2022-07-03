@@ -1,7 +1,9 @@
-package com.frogobox.unityad
+package com.frogobox.unityad.core
 
 import android.app.Activity
 import android.content.Context
+import com.frogobox.unityad.callback.FrogoUnityAdInitializationCallback
+import com.frogobox.unityad.callback.FrogoUnityAdInterstitialCallback
 
 /*
  * Created by faisalamir on 22/03/22

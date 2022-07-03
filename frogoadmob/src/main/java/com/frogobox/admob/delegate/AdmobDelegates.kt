@@ -1,11 +1,10 @@
 package com.frogobox.admob.delegate
 
-import android.content.Context
 import android.widget.RelativeLayout
 import androidx.appcompat.app.AppCompatActivity
-import com.frogobox.admob.deprecated.IFrogoAdBanner
-import com.frogobox.admob.deprecated.IFrogoAdInterstitial
-import com.frogobox.admob.deprecated.IFrogoAdRewarded
+import com.frogobox.admob.callback.FrogoAdmobBannerCallback
+import com.frogobox.admob.callback.FrogoAdmobInterstitialCallback
+import com.frogobox.admob.callback.FrogoAdmobRewardedCallback
 import com.google.android.gms.ads.AdSize
 import com.google.android.gms.ads.AdView
 
@@ -51,17 +50,17 @@ interface AdmobDelegates {
         mAdView: AdView,
         timeoutMilliSecond: Int,
         keyword: List<String>,
-        callback: IFrogoAdBanner
+        callback: FrogoAdmobBannerCallback
     )
 
     // Show Banner Ads with callback
-    fun showAdBanner(mAdView: AdView, callback: IFrogoAdBanner)
+    fun showAdBanner(mAdView: AdView, callback: FrogoAdmobBannerCallback)
 
     // Show Banner Ads  with timeout millisecond and callback
-    fun showAdBanner(mAdView: AdView, timeoutMilliSecond: Int, callback: IFrogoAdBanner)
+    fun showAdBanner(mAdView: AdView, timeoutMilliSecond: Int, callback: FrogoAdmobBannerCallback)
 
     // Show Banner Ads  with and keyword and callback
-    fun showAdBanner(mAdView: AdView, keyword: List<String>, callback: IFrogoAdBanner)
+    fun showAdBanner(mAdView: AdView, keyword: List<String>, callback: FrogoAdmobBannerCallback)
 
     // ---------------------------------------------------------------------------------------------
 
@@ -102,7 +101,7 @@ interface AdmobDelegates {
         bannerAdUnitId: String,
         mAdsSize: AdSize,
         container: RelativeLayout,
-        callback: IFrogoAdBanner
+        callback: FrogoAdmobBannerCallback
     )
 
     // Show Banner Ads with container and timeout millisecond and callback
@@ -111,7 +110,7 @@ interface AdmobDelegates {
         mAdsSize: AdSize,
         container: RelativeLayout,
         timeoutMilliSecond: Int,
-        callback: IFrogoAdBanner
+        callback: FrogoAdmobBannerCallback
     )
 
     // Show Banner Ads with container and keyword and callback
@@ -120,7 +119,7 @@ interface AdmobDelegates {
         mAdsSize: AdSize,
         container: RelativeLayout,
         keyword: List<String>,
-        callback: IFrogoAdBanner
+        callback: FrogoAdmobBannerCallback
     )
 
     // Show Banner Ads with container and timeout millisecond and keyword and callback
@@ -130,7 +129,7 @@ interface AdmobDelegates {
         container: RelativeLayout,
         timeoutMilliSecond: Int,
         keyword: List<String>,
-        callback: IFrogoAdBanner
+        callback: FrogoAdmobBannerCallback
     )
 
     // ---------------------------------------------------------------------------------------------
@@ -140,7 +139,7 @@ interface AdmobDelegates {
         interstitialAdUnitId: String,
         timeoutMilliSecond: Int,
         keyword: List<String>,
-        callback: IFrogoAdInterstitial
+        callback: FrogoAdmobInterstitialCallback
     )
 
     // Show Interstitial Ads with timeout millisecond and keyword
@@ -169,39 +168,39 @@ interface AdmobDelegates {
     fun showAdInterstitial(
         interstitialAdUnitId: String,
         timeoutMilliSecond: Int,
-        callback: IFrogoAdInterstitial
+        callback: FrogoAdmobInterstitialCallback
     )
 
     // Show Interstitial Ads with keyword and callback
     fun showAdInterstitial(
         interstitialAdUnitId: String,
         keyword: List<String>,
-        callback: IFrogoAdInterstitial
+        callback: FrogoAdmobInterstitialCallback
     )
 
     // Show Interstitial Ads with callback
     fun showAdInterstitial(
         interstitialAdUnitId: String,
-        callback: IFrogoAdInterstitial
+        callback: FrogoAdmobInterstitialCallback
     )
 
     // ---------------------------------------------------------------------------------------------
 
     // Show Rewarded Ads
-    fun showAdRewarded(mAdUnitIdRewarded: String, callback: IFrogoAdRewarded)
+    fun showAdRewarded(mAdUnitIdRewarded: String, callback: FrogoAdmobRewardedCallback)
 
     // Show Rewarded Ads with timeout millisecond
     fun showAdRewarded(
         mAdUnitIdRewarded: String,
         timeoutMilliSecond: Int,
-        callback: IFrogoAdRewarded
+        callback: FrogoAdmobRewardedCallback
     )
 
     // Show Rewarded Ads with keyword
     fun showAdRewarded(
         mAdUnitIdRewarded: String,
         keyword: List<String>,
-        callback: IFrogoAdRewarded
+        callback: FrogoAdmobRewardedCallback
     )
 
     // Show Rewarded Ads with timeout millisecond and keyword
@@ -209,7 +208,7 @@ interface AdmobDelegates {
         mAdUnitIdRewarded: String,
         timeoutMilliSecond: Int,
         keyword: List<String>,
-        callback: IFrogoAdRewarded
+        callback: FrogoAdmobRewardedCallback
     )
 
     // ---------------------------------------------------------------------------------------------
@@ -217,21 +216,21 @@ interface AdmobDelegates {
     // Show Rewarded Interstitial Ads
     fun showAdRewardedInterstitial(
         mAdUnitIdRewardedInterstitial: String,
-        callback: IFrogoAdRewarded
+        callback: FrogoAdmobRewardedCallback
     )
 
     // Show Rewarded Interstitial Ads with timeout millisecond
     fun showAdRewardedInterstitial(
         mAdUnitIdRewardedInterstitial: String,
         timeoutMilliSecond: Int,
-        callback: IFrogoAdRewarded
+        callback: FrogoAdmobRewardedCallback
     )
 
     // Show Rewarded Interstitial Ads with keyword
     fun showAdRewardedInterstitial(
         mAdUnitIdRewardedInterstitial: String,
         keyword: List<String>,
-        callback: IFrogoAdRewarded
+        callback: FrogoAdmobRewardedCallback
     )
 
     // Show Rewarded Interstitial Ads with timeout millisecond and keyword
@@ -239,7 +238,7 @@ interface AdmobDelegates {
         mAdUnitIdRewardedInterstitial: String,
         timeoutMilliSecond: Int,
         keyword: List<String>,
-        callback: IFrogoAdRewarded
+        callback: FrogoAdmobRewardedCallback
     )
 
 
