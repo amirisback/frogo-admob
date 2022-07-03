@@ -1,8 +1,8 @@
 package com.frogobox.appadmob.mvvm.interstitial
 
 import android.os.Bundle
-import com.frogobox.admob.core.IFrogoAdInterstitial
-import com.frogobox.admob.core.IFrogoUnityAdInterstitial
+import com.frogobox.admob.deprecated.IFrogoAdInterstitial
+import com.frogobox.admob.deprecated.IFrogoUnityAdInterstitial
 import com.frogobox.admob.ui.FrogoSdkAdmobActivity
 import com.frogobox.admob.ui.IFrogoMixedAdsInterstitial
 import com.frogobox.appadmob.R

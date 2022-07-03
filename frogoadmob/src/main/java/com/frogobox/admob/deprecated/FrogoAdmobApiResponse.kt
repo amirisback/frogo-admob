@@ -1,10 +1,10 @@
-package com.frogobox.unityad
+package com.frogobox.admob.deprecated
 
-import com.frogobox.adcore.callback.FrogoAdInterstitialCallback
+import com.frogobox.coresdk.response.FrogoDataResponse
 
 
 /*
- * Created by faisalamir on 22/03/22
+ * Created by faisalamir on 02/03/22
  * FrogoAdmob
  * -----------------------------------------
  * Name     : Muhammad Faisal Amir
@@ -16,9 +16,9 @@ import com.frogobox.adcore.callback.FrogoAdInterstitialCallback
  *
  */
 
-
-interface FrogoUnityAdInterstitialCallback : FrogoAdInterstitialCallback {
-
-    fun onClicked(tag: String, message: String)
+@Deprecated(
+    "Please re-import to latest package and use the new one"
+)
+interface FrogoAdmobApiResponse<T> : FrogoDataResponse<T> {
 
 }

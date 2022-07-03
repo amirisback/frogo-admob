@@ -2,7 +2,7 @@ package com.frogobox.appadmob.source
 
 import android.content.Context
 import com.frogobox.admob.core.FrogoAdmob
-import com.frogobox.admob.core.FrogoAdmobSingleFunc
+import com.frogobox.adcore.util.FrogoAdFunc
 import com.frogobox.appadmob.R
 import com.frogobox.coresdk.response.FrogoDataResponse
 import com.frogobox.sdk.ext.showLogDebug
@@ -38,7 +38,7 @@ class AdmobRemoteDataSource : FrogoRemoteDataSource(), AdmobDataSource {
             AdRequest.Builder().build(),
             object : InterstitialAdLoadCallback() {
                 override fun onAdFailedToLoad(adError: LoadAdError) {
-                    FrogoAdmobSingleFunc.getInitializedState(
+                    FrogoAdFunc.getInitializedState(
                         FrogoAdmob.initializationName,
                         FrogoAdmob.initializationCode
                     )

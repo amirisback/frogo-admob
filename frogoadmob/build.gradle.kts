@@ -10,7 +10,7 @@ plugins {
 android {
 
     compileSdk = ProjectSetting.PROJECT_COMPILE_SDK
-    namespace = ProjectSetting.PROJECT_LIB_ID
+    namespace = ProjectSetting.PROJECT_LIB_ID_ADMOB
 
     defaultConfig {
         minSdk = ProjectSetting.PROJECT_MIN_SDK
@@ -65,22 +65,14 @@ android {
 
 dependencies {
 
+    api(project(DependencyGradle.MODULE_LIB_FROGO_AD_CORE))
+
     api(Androidx.appCompat)
 
     api(Androidx.Compose.ui)
     api(Androidx.Compose.uiToolingPreview)
 
     api(Ad.unityAds)
-
-    api(Google.gson)
-    api(Google.admob)
-
-    api(Square.Retrofit2.retrofit)
-    api(Square.Retrofit2.converterGson)
-    api(Square.Retrofit2.adapterRxJava3)
-
-    api(Reactivex.rxJava3)
-    api(Reactivex.rxAndroid3)
 
     api(DependencyGradle.FROGO_SDK)
     api(DependencyGradle.FROGO_RECYCLER_VIEW)
@@ -100,11 +92,11 @@ afterEvaluate {
 
                 // Library Package Name (Example : "com.frogobox.androidfirstlib")
                 // NOTE : Different GroupId For Each Library / Module, So That Each Library Is Not Overwritten
-                groupId = ProjectSetting.PROJECT_LIB_ID
+                groupId = ProjectSetting.PROJECT_LIB_ID_ADMOB
 
                 // Library Name / Module Name (Example : "androidfirstlib")
                 // NOTE : Different ArtifactId For Each Library / Module, So That Each Library Is Not Overwritten
-                artifactId = ProjectSetting.MODULE_NAME
+                artifactId = ProjectSetting.MODULE_NAME_ADMOB
 
                 // Version Library Name (Example : "1.0.0")
                 version = ProjectSetting.PROJECT_VERSION_NAME

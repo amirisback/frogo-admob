@@ -70,6 +70,8 @@ dependencies {
     api(Reactivex.rxJava3)
     api(Reactivex.rxAndroid3)
 
+    api(DependencyGradle.FROGO_SDK)
+
 }
 
 afterEvaluate {

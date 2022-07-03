@@ -15,7 +15,7 @@ import android.view.ViewGroup
  *
  */
 
-@Deprecated("Please re-import to latest package and use the new one")
+
 interface IFrogoAdmobViewAdapter<T> {
 
     fun onViewTypeMenuItem(parent: ViewGroup): FrogoAdmobViewHolder<T>

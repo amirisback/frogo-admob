@@ -5,8 +5,8 @@ import android.view.View;
 
 import androidx.annotation.NonNull;
 
-import com.frogobox.admob.core.IFrogoAdInterstitial;
-import com.frogobox.admob.core.IFrogoAdRewarded;
+import com.frogobox.admob.deprecated.IFrogoAdInterstitial;
+import com.frogobox.admob.deprecated.IFrogoAdRewarded;
 import com.frogobox.appadmob.R;
 import com.frogobox.appadmob.base.BaseActivity;
 import com.frogobox.appadmob.databinding.ActivityMainBinding;

@@ -23,7 +23,7 @@ import com.google.android.gms.ads.AdView
  *
  */
 
-@Deprecated("Please re-import to latest package and use the new one")
+
 abstract class FrogoAdmobViewHolder<T>(view: View) : FrogoRecyclerViewHolder<T>(view) {
 
     fun bindItemAdView(data: T) {

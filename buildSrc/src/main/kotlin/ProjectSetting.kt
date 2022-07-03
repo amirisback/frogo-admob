@@ -30,8 +30,7 @@ object ProjectSetting {
 
     const val LIBRARY_NAME_AD = "ad"
     const val LIBRARY_NAME_AD_CORE = "adcore"
-
-    const val LIBRARY_NAME_GOOGLE_ADMOB = "googleadmob"
+    const val LIBRARY_NAME_ADMOB = "admob"
     const val LIBRARY_NAME_UNITY_AD = "unityad"
     const val LIBRARY_NAME_START_IO_AD = "startioad"
 
@@ -39,8 +38,7 @@ object ProjectSetting {
 
     const val MODULE_NAME_AD = "frogoad"
     const val MODULE_NAME_AD_CORE = "frogoadcore"
-
-    const val MODULE_NAME_GOOGLE_ADMOB = "frogogoogleadmob"
+    const val MODULE_NAME_ADMOB = "frogoadmob"
     const val MODULE_NAME_UNITY_AD = "frogounityad"
     const val MODULE_NAME_START_IO_AD = "frogostartioad"
 
@@ -53,11 +51,10 @@ object ProjectSetting {
     // ---------------------------------------------------------------------------------------------
 
     const val PROJECT_APP_ID = "$APP_DOMAIN.$APP_PLAY_CONSOLE.$APP_NAME"
-
     const val PROJECT_LIB_ID_AD = "$APP_DOMAIN.$APP_PLAY_CONSOLE.$LIBRARY_NAME_AD"
+    const val PROJECT_LIB_ID_ADMOB = "$APP_DOMAIN.$APP_PLAY_CONSOLE.$LIBRARY_NAME_ADMOB"
     const val PROJECT_LIB_ID_AD_CORE = "$APP_DOMAIN.$APP_PLAY_CONSOLE.$LIBRARY_NAME_AD_CORE"
 
-    const val PROJECT_LIB_ID_GOOGLE_ADMOB = "$APP_DOMAIN.$APP_PLAY_CONSOLE.$LIBRARY_NAME_GOOGLE_ADMOB"
     const val PROJECT_LIB_ID_UNITY_AD = "$APP_DOMAIN.$APP_PLAY_CONSOLE.$LIBRARY_NAME_UNITY_AD"
     const val PROJECT_LIB_ID_START_IO_AD = "$APP_DOMAIN.$APP_PLAY_CONSOLE.$LIBRARY_NAME_START_IO_AD"
 
@@ -73,14 +70,4 @@ object ProjectSetting {
     const val PLAYSTORE_KEY_PASSWORD = "amirisback"
 
     // ---------------------------------------------------------------------------------------------
-
-    @Deprecated("library module not updated")
-    const val LIBRARY_NAME = "admob"
-
-    @Deprecated("library module not updated")
-    const val MODULE_NAME = "frogoadmob"
-
-    @Deprecated("library module not updated")
-    const val PROJECT_LIB_ID = "$APP_DOMAIN.$APP_PLAY_CONSOLE.$LIBRARY_NAME"
-
 }

@@ -1,16 +1,13 @@
 package com.frogobox.appadmob.base
 
-import android.content.Intent
 import android.content.SharedPreferences
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
-import android.widget.Toast
-import androidx.fragment.app.Fragment
 import androidx.viewbinding.ViewBinding
-import com.frogobox.admob.model.FrogoAdmobId
-import com.frogobox.admob.source.FrogoAdmobApiResponse
-import com.frogobox.admob.source.FrogoAdmobRepository
+import com.frogobox.admob.deprecated.FrogoAdmobApiResponse
+import com.frogobox.admob.deprecated.FrogoAdmobId
+import com.frogobox.admob.deprecated.FrogoAdmobRepository
 import com.frogobox.admob.ui.FrogoAdmobActivity
 import com.frogobox.appadmob.BuildConfig
 import com.frogobox.appadmob.R
@@ -87,34 +84,9 @@ abstract class BaseActivity<VB : ViewBinding> : FrogoAdmobActivity() {
             })
     }
 
-    protected fun setupChildFragment(frameId: Int, fragment: Fragment) {
-        supportFragmentManager.beginTransaction().apply {
-            replace(frameId, fragment)
-            commit()
-        }
-    }
-
-    protected inline fun <reified ClassActivity> frogoStartActivity() {
-        this.startActivity(Intent(this, ClassActivity::class.java))
-    }
-
-    protected inline fun <reified ClassActivity, Model> frogoStartActivity(
-        extraKey: String,
-        data: Model
-    ) {
-        val intent = Intent(this, ClassActivity::class.java)
-        val extraData = Gson().toJson(data)
-        intent.putExtra(extraKey, extraData)
-        this.startActivity(intent)
-    }
-
     protected inline fun <reified Model> baseGetExtraData(extraKey: String): Model {
         val extraIntent = intent.getStringExtra(extraKey)
         return Gson().fromJson(extraIntent, Model::class.java)
-    }
-
-    protected fun checkExtra(extraKey: String): Boolean {
-        return intent?.hasExtra(extraKey)!!
     }
 
     protected fun <Model, VB : ViewBinding> baseFragmentNewInstance(
@@ -123,16 +95,6 @@ abstract class BaseActivity<VB : ViewBinding> : FrogoAdmobActivity() {
         extraDataResult: Model
     ) {
         fragment.baseNewInstance(argumentKey, extraDataResult)
-    }
-
-
-    protected fun showToast(message: String) {
-        Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
-    }
-
-    protected fun setupDetailActivity(title: String) {
-        setTitle(title)
-        supportActionBar?.setDisplayHomeAsUpEnabled(true)
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {

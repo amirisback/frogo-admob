@@ -1,10 +1,10 @@
-package com.frogobox.unityad
+package com.frogobox.adcore.source
 
-import com.frogobox.adcore.callback.FrogoAdInterstitialCallback
+import com.frogobox.coresdk.response.FrogoDataResponse
 
 
 /*
- * Created by faisalamir on 22/03/22
+ * Created by faisalamir on 02/03/22
  * FrogoAdmob
  * -----------------------------------------
  * Name     : Muhammad Faisal Amir
@@ -17,8 +17,6 @@ import com.frogobox.adcore.callback.FrogoAdInterstitialCallback
  */
 
 
-interface FrogoUnityAdInterstitialCallback : FrogoAdInterstitialCallback {
-
-    fun onClicked(tag: String, message: String)
+interface FrogoAdmobApiResponse<T> : FrogoDataResponse<T> {
 
 }

@@ -1,8 +1,8 @@
 package com.frogobox.admob.ext
 
 import androidx.appcompat.app.AppCompatActivity
-import com.frogobox.admob.core.FrogoAdmobSingleFunc.waterMark
-import com.frogobox.admob.core.IFrogoAdInterstitial
+import com.frogobox.adcore.util.FrogoAdFunc.waterMark
+import com.frogobox.admob.deprecated.IFrogoAdInterstitial
 import com.frogobox.sdk.ext.showLogDebug
 import com.frogobox.sdk.ext.showLogError
 import com.google.android.gms.ads.AdError

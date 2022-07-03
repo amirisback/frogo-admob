@@ -1,6 +1,4 @@
-package com.frogobox.unityad
-
-import com.frogobox.adcore.callback.FrogoAdInterstitialCallback
+package com.frogobox.admob.deprecated
 
 
 /*
@@ -16,9 +14,14 @@ import com.frogobox.adcore.callback.FrogoAdInterstitialCallback
  *
  */
 
+@Deprecated(
+    "Please re-import to latest package and use the new one",
+    ReplaceWith("FrogoUnityAdInitializationCallback")
+)
+interface IFrogoUnityAdInitialization {
 
-interface FrogoUnityAdInterstitialCallback : FrogoAdInterstitialCallback {
+    fun onInitializationComplete(tag: String, message: String)
 
-    fun onClicked(tag: String, message: String)
+    fun onInitializationFailed(tag: String, message: String)
 
 }

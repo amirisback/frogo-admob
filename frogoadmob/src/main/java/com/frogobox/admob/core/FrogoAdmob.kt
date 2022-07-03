@@ -4,10 +4,13 @@ import android.annotation.SuppressLint
 import android.content.Context
 import android.widget.RelativeLayout
 import androidx.appcompat.app.AppCompatActivity
-import com.frogobox.admob.core.FrogoAdmobSingleFunc.getInitializedState
-import com.frogobox.admob.core.FrogoAdmobSingleFunc.waterMark
-import com.frogobox.admob.ext.ADMOB_MOBILE_ADS_KEY
-import com.frogobox.sdk.ext.isNetworkConnected
+import com.frogobox.adcore.util.FrogoAdConstant
+import com.frogobox.adcore.util.FrogoAdConstant.ADMOB_MOBILE_ADS_KEY
+import com.frogobox.adcore.util.FrogoAdFunc.getInitializedState
+import com.frogobox.adcore.util.FrogoAdFunc.waterMark
+import com.frogobox.admob.deprecated.IFrogoAdBanner
+import com.frogobox.admob.deprecated.IFrogoAdInterstitial
+import com.frogobox.admob.deprecated.IFrogoAdRewarded
 import com.frogobox.sdk.ext.showLogDebug
 import com.frogobox.sdk.ext.showLogError
 import com.google.android.gms.ads.*
@@ -38,7 +41,7 @@ import com.google.android.gms.ads.rewardedinterstitial.RewardedInterstitialAdLoa
  *
  */
 
-@Deprecated("Please re-import to latest package and use the new one")
+
 object FrogoAdmob : IFrogoAdmob {
 
     val TAG: String = FrogoAdmob::class.java.simpleName
@@ -809,7 +812,7 @@ object FrogoAdmob : IFrogoAdmob {
             adView.setAdSize(AdSize.BANNER)
             adView.adUnitId = bannerAdUnitId
             recyclerViewDataList.add(i, adView)
-            i += FrogoAdmobConstant.RECYCLER_VIEW_ITEMS_PER_AD
+            i += FrogoAdConstant.RECYCLER_VIEW_ITEMS_PER_AD
         }
     }
 
@@ -832,7 +835,7 @@ object FrogoAdmob : IFrogoAdmob {
                 // load the next ad in the items list.
                 loadBannerAd(
                     recyclerViewDataList,
-                    index + FrogoAdmobConstant.RECYCLER_VIEW_ITEMS_PER_AD
+                    index + FrogoAdConstant.RECYCLER_VIEW_ITEMS_PER_AD
                 )
             }
 
@@ -840,7 +843,7 @@ object FrogoAdmob : IFrogoAdmob {
                 showLogError("The previous banner ad failed to load. Attempting to load the next banner ad in the items list.")
                 loadBannerAd(
                     recyclerViewDataList,
-                    index + FrogoAdmobConstant.RECYCLER_VIEW_ITEMS_PER_AD
+                    index + FrogoAdConstant.RECYCLER_VIEW_ITEMS_PER_AD
                 )
             }
         }

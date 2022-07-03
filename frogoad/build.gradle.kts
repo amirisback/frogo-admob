@@ -66,7 +66,7 @@ dependencies {
 
     api(project(DependencyGradle.MODULE_LIB_FROGO_AD_CORE))
 
-    api(project(DependencyGradle.MODULE_LIB_FROGO_GOOGLE_ADMOB))
+    api(project(DependencyGradle.MODULE_LIB_FROGO_ADMOB))
     api(project(DependencyGradle.MODULE_LIB_FROGO_START_IO_AD))
     api(project(DependencyGradle.MODULE_LIB_FROGO_UNITY_AD))
 

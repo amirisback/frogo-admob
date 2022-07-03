@@ -116,10 +116,9 @@ android {
 }
 
 dependencies {
-    implementation(project(DependencyGradle.MODULE_LIB_FROGO_ADMOB))
     implementation(project(DependencyGradle.MODULE_LIB_FROGO_AD))
     implementation(project(DependencyGradle.MODULE_LIB_FROGO_AD_CORE))
-    implementation(project(DependencyGradle.MODULE_LIB_FROGO_GOOGLE_ADMOB))
+    implementation(project(DependencyGradle.MODULE_LIB_FROGO_ADMOB))
     implementation(project(DependencyGradle.MODULE_LIB_FROGO_START_IO_AD))
     implementation(project(DependencyGradle.MODULE_LIB_FROGO_UNITY_AD))
 

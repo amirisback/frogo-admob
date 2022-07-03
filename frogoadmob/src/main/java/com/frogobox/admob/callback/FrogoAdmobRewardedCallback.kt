@@ -1,10 +1,11 @@
-package com.frogobox.unityad
+package com.frogobox.admob.callback
 
 import com.frogobox.adcore.callback.FrogoAdInterstitialCallback
+import com.google.android.gms.ads.rewarded.RewardItem
 
 
 /*
- * Created by faisalamir on 22/03/22
+ * Created by faisalamir on 13/03/22
  * FrogoAdmob
  * -----------------------------------------
  * Name     : Muhammad Faisal Amir
@@ -16,9 +17,8 @@ import com.frogobox.adcore.callback.FrogoAdInterstitialCallback
  *
  */
 
+interface FrogoAdmobRewardedCallback : FrogoAdInterstitialCallback {
 
-interface FrogoUnityAdInterstitialCallback : FrogoAdInterstitialCallback {
-
-    fun onClicked(tag: String, message: String)
+    fun onUserEarnedReward(tag: String, rewardItem: RewardItem)
 
 }

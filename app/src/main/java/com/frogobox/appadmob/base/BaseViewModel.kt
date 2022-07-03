@@ -3,8 +3,8 @@ package com.frogobox.appadmob.base
 import android.app.Application
 import androidx.appcompat.app.AppCompatActivity
 import com.frogobox.admob.core.FrogoAdmob
-import com.frogobox.admob.core.FrogoAdmobSingleFunc
-import com.frogobox.admob.core.IFrogoAdInterstitial
+import com.frogobox.adcore.util.FrogoAdFunc
+import com.frogobox.admob.deprecated.IFrogoAdInterstitial
 import com.frogobox.appadmob.source.AdmobRepository
 import com.frogobox.coresdk.response.FrogoDataResponse
 import com.frogobox.sdk.view.FrogoViewModel
@@ -57,7 +57,7 @@ open class BaseViewModel(
                         }
 
                         override fun onAdFailedToShowFullScreenContent(adError: AdError) {
-                            FrogoAdmobSingleFunc.getInitializedState(
+                            FrogoAdFunc.getInitializedState(
                                 FrogoAdmob.initializationName,
                                 FrogoAdmob.initializationCode
                             )
