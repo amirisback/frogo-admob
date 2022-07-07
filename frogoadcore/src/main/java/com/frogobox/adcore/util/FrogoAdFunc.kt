@@ -25,15 +25,6 @@ object FrogoAdFunc {
 
     val TAG: String = FrogoAdFunc::class.java.simpleName
 
-    fun waterMark() {
-        FLog.i("You are using Frogo Admob, Created by Muhammmad Faisal Amir")
-        FLog.i(LINE)
-        FLog.i("Please follow $GITHUB_ACCOUNT")
-        FLog.i(LINE)
-        FLog.i("Don't Forget Give Star $GITHUB_ACCOUNT/frogo-admob")
-        FLog.i(LINE)
-    }
-
     fun getInitializedState(name: String, code: Int) {
         showLogDebug(LINE)
         showLogDebug("$TAG >> Setup MobileAds [Key] : $ADMOB_MOBILE_ADS_KEY")

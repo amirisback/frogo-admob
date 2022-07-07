@@ -38,6 +38,7 @@ open class BaseViewModel(
             override fun onFailed(statusCode: Int, errorMessage: String) {
                 callback?.onAdFailed(statusCode.toString(), errorMessage)
             }
+
             override fun onHideProgress() {
                 callback?.onHideAdRequestProgress("", "")
             }
@@ -62,7 +63,7 @@ open class BaseViewModel(
                                 FrogoAdmob.initializationCode
                             )
                             com.frogobox.sdk.ext.showLogError("${FrogoAdmob.TAG} [Interstitial] >> Run - IFrogoAdInterstitial [callback] : onAdFailedToShow()")
-//                            com.frogobox.sdk.ext.showLogError("${FrogoAdmob.TAG} [Interstitial] >> Error - onAdFailedToShowFullScreenContent [unit id] : $")
+                            com.frogobox.sdk.ext.showLogError("${FrogoAdmob.TAG} [Interstitial] >> Error - onAdFailedToShowFullScreenContent [unit id] : $")
                             com.frogobox.sdk.ext.showLogError("${FrogoAdmob.TAG} [Interstitial] >> Error - onAdFailedToShowFullScreenContent [code] : ${adError.code}")
                             com.frogobox.sdk.ext.showLogError("${FrogoAdmob.TAG} [Interstitial] >> Error - onAdFailedToShowFullScreenContent [domain] : ${adError.domain}")
                             com.frogobox.sdk.ext.showLogError("${FrogoAdmob.TAG} [Interstitial] >> Error - onAdFailedToShowFullScreenContent [message] : ${adError.message}")

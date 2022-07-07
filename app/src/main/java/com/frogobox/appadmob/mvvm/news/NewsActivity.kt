@@ -29,7 +29,8 @@ class NewsActivity : BaseActivity<ActivityRecyclerViewBinding>() {
     }
 
     private fun setupNewsApi() {
-        val consumeNewsApi = ConsumeNewsApi(NewsUrl.API_KEY).usingChuckInterceptor(BuildConfig.DEBUG, this)
+        val consumeNewsApi =
+            ConsumeNewsApi(NewsUrl.API_KEY).usingChuckInterceptor(BuildConfig.DEBUG, this)
         consumeNewsApi.getTopHeadline( // Adding Base Parameter on main function
             null,
             null,

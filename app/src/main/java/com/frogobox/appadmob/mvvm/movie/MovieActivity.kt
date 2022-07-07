@@ -29,7 +29,8 @@ class MovieActivity : BaseActivity<ActivityRecyclerViewBinding>() {
     }
 
     private fun setupNewsApi() {
-        val consumeMovieApi = ConsumeMovieApi(MovieUrl.API_KEY).usingChuckInterceptor(BuildConfig.DEBUG, this)
+        val consumeMovieApi =
+            ConsumeMovieApi(MovieUrl.API_KEY).usingChuckInterceptor(BuildConfig.DEBUG, this)
         consumeMovieApi.getTrendingMovieWeek( // Adding Base Parameter on main function
 
             object : ConsumeApiResponse<Trending<TrendingMovie>> {

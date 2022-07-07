@@ -1,6 +1,5 @@
 package com.frogobox.unityad.delegate
 
-import android.content.Context
 import androidx.appcompat.app.AppCompatActivity
 import com.frogobox.unityad.callback.FrogoUnityAdInitializationCallback
 import com.frogobox.unityad.callback.FrogoUnityAdInterstitialCallback

@@ -1,7 +1,6 @@
 package com.frogobox.admob.callback
 
 import com.frogobox.adcore.callback.FrogoAdCoreInterstitialCallback
-import com.google.android.gms.ads.rewarded.RewardItem
 
 
 /*

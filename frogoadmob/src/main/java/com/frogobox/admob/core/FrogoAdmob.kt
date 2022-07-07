@@ -7,7 +7,6 @@ import androidx.appcompat.app.AppCompatActivity
 import com.frogobox.adcore.util.FrogoAdConstant
 import com.frogobox.adcore.util.FrogoAdConstant.ADMOB_MOBILE_ADS_KEY
 import com.frogobox.adcore.util.FrogoAdFunc.getInitializedState
-import com.frogobox.adcore.util.FrogoAdFunc.waterMark
 import com.frogobox.admob.callback.FrogoAdmobBannerCallback
 import com.frogobox.admob.callback.FrogoAdmobInterstitialCallback
 import com.frogobox.admob.callback.FrogoAdmobRewardedCallback
@@ -52,9 +51,7 @@ object FrogoAdmob : IFrogoAdmob {
 
     var initializationName = ""
 
-
     // ---------------------------------------------------------------------------------------------
-
 
     override fun setupAdmobApp(context: Context) {
         MobileAds.initialize(context) {
@@ -64,7 +61,6 @@ object FrogoAdmob : IFrogoAdmob {
             getInitializedState(initializationName, initializationCode)
             showLogDebug("$TAG >> Setup MobileAds : Admob mobile Ads Initialized")
         }
-        waterMark()
     }
 
     // ---------------------------------------------------------------------------------------------
@@ -72,16 +68,13 @@ object FrogoAdmob : IFrogoAdmob {
     private fun frogoAdListener(callback: FrogoAdmobBannerCallback?): AdListener {
         return object : AdListener() {
             override fun onAdLoaded() {
-                waterMark()
                 showLogDebug("$TAG [Banner] >> Run - FrogoAdmobBannerCallback [callback] : onAdLoaded()")
                 showLogDebug("$TAG [Banner] >> Success - onAdLoaded [message] : Ad Banner onAdLoaded")
                 callback?.onAdLoaded(TAG, "Ad Banner onAdLoaded")
             }
 
             override fun onAdFailedToLoad(p0: LoadAdError) {
-                waterMark()
                 showLogError("$TAG [Banner] >> Run - FrogoAdmobBannerCallback [callback] : onAdFailedToLoad()")
-
                 showLogError("$TAG [Banner] >> Error - onAdFailedToLoad [code] : ${p0.code}")
                 showLogError("$TAG [Banner] >> Error - onAdFailedToLoad [domain] : ${p0.domain}")
                 showLogError("$TAG [Banner] >> Error - onAdFailedToLoad [message] : ${p0.message}")
@@ -115,7 +108,6 @@ object FrogoAdmob : IFrogoAdmob {
         keyword: List<String>?,
         callback: FrogoAdmobBannerCallback?
     ) {
-        waterMark()
         showLogDebug("Banner Id : Attach on Xml Layout")
         getInitializedState(initializationName, initializationCode)
 
@@ -187,7 +179,7 @@ object FrogoAdmob : IFrogoAdmob {
         keyword: List<String>?,
         callback: FrogoAdmobBannerCallback?
     ) {
-        waterMark()
+
         showLogDebug("Banner Id : $bannerAdUnitId")
 
         getInitializedState(initializationName, initializationCode)
@@ -335,7 +327,6 @@ object FrogoAdmob : IFrogoAdmob {
         keyword: List<String>?,
         callback: FrogoAdmobInterstitialCallback?
     ) {
-        waterMark()
         showLogDebug("$TAG Interstitial Id : $interstitialAdUnitId")
 
         getInitializedState(initializationName, initializationCode)
@@ -503,8 +494,6 @@ object FrogoAdmob : IFrogoAdmob {
         keyword: List<String>?,
         callback: FrogoAdmobRewardedCallback
     ) {
-
-        waterMark()
         showLogDebug("$TAG : Rewarded Unit Id : $mAdUnitIdRewarded")
 
         getInitializedState(initializationName, initializationCode)
@@ -651,8 +640,6 @@ object FrogoAdmob : IFrogoAdmob {
         keyword: List<String>?,
         callback: FrogoAdmobRewardedCallback
     ) {
-
-        waterMark()
         showLogDebug("$TAG : Rewarded Interstitial Unit Id : $mAdUnitIdRewardedInterstitial")
 
         getInitializedState(initializationName, initializationCode)

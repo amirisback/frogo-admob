@@ -19,7 +19,7 @@ import com.google.android.gms.ads.AdView
  * LinkedIn : linkedin.com/in/faisalamircs
  * -----------------------------------------
  * FrogoBox Software Industries
- * com.frogobox.speechbooster.cheery
+ *
  *
  */
 

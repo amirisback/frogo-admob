@@ -17,6 +17,4 @@ import com.frogobox.coresdk.response.FrogoDataResponse
  */
 
 
-interface FrogoAdmobApiResponse<T> : FrogoDataResponse<T> {
-
-}
+interface FrogoAdmobApiResponse<T> : FrogoDataResponse<T>

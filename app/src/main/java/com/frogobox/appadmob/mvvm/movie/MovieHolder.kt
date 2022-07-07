@@ -34,7 +34,8 @@ class MovieHolder(view: View) : FrogoAdmobViewHolder<Any>(view) {
         notifyListener: FrogoRecyclerNotifyListener<Any>
     ) {
         val movie = data as TrendingMovie
-        Glide.with(itemView.context).load("${MovieUrl.BASE_URL_IMAGE_ORIGNAL}${movie.poster_path}").into(iv_poster)
+        Glide.with(itemView.context).load("${MovieUrl.BASE_URL_IMAGE_ORIGNAL}${movie.poster_path}")
+            .into(iv_poster)
         tv_name.text = movie.title
         tv_type.text = movie.overview
     }

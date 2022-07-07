@@ -3,7 +3,6 @@ package com.frogobox.startioad.ui
 import android.os.Bundle
 import androidx.viewbinding.ViewBinding
 import com.frogobox.sdk.ext.showLogD
-import com.frogobox.sdk.view.FrogoActivity
 import com.frogobox.sdk.view.FrogoBindActivity
 import com.frogobox.startioad.delegate.StartIoDelegates
 import com.frogobox.startioad.delegate.StartIoDelegatesImpl

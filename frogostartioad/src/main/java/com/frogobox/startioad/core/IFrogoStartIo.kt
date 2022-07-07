@@ -14,5 +14,4 @@ package com.frogobox.startioad.core
  *
  */
 
-interface IFrogoStartIo {
-}
+interface IFrogoStartIo

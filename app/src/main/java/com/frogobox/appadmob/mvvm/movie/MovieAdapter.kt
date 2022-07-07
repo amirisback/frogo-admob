@@ -1,11 +1,11 @@
 package com.frogobox.appadmob.mvvm.movie
 
 import android.view.ViewGroup
-import com.frogobox.appadmob.R
 import com.frogobox.admob.widget.AdmobViewHolder
 import com.frogobox.admob.widget.FrogoAdmobViewAdapter
 import com.frogobox.admob.widget.FrogoAdmobViewHolder
 import com.frogobox.admob.widget.IFrogoAdmobViewAdapter
+import com.frogobox.appadmob.R
 
 /**
  * Created by Faisal Amir
@@ -31,6 +31,7 @@ class MovieAdapter : FrogoAdmobViewAdapter<Any>() {
             override fun onViewTypeMenuItem(parent: ViewGroup): FrogoAdmobViewHolder<Any> {
                 return MovieHolder(viewLayout(parent))
             }
+
             override fun onViewTypeBannerAds(parent: ViewGroup): FrogoAdmobViewHolder<Any> {
                 return AdmobViewHolder(viewLayout(parent, R.layout.content_item_ad_banner))
             }

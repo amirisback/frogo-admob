@@ -1,5 +1,9 @@
 package com.frogobox.startioad.core
 
+import android.content.Context
+import com.startapp.sdk.adsbase.SDKAdPreferences
+import com.startapp.sdk.adsbase.StartAppSDK
+
 
 /*
  * Created by faisalamir on 13/05/22
@@ -15,4 +19,9 @@ package com.frogobox.startioad.core
  */
 
 class FrogoStartIo : IFrogoStartIo {
+
+    fun setupStartIo(context: Context, startIoAppId: String, sdkAdPreferences: SDKAdPreferences) {
+        StartAppSDK.init(context, startIoAppId, sdkAdPreferences)
+    }
+
 }

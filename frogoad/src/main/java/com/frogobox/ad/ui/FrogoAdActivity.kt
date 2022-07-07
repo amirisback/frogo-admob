@@ -5,7 +5,6 @@ import com.frogobox.ad.delegate.FrogoAdDelegates
 import com.frogobox.ad.delegate.FrogoAdDelegatesImpl
 import com.frogobox.admob.delegate.AdmobDelegates
 import com.frogobox.admob.delegate.AdmobDelegatesImpl
-import com.frogobox.admob.ui.FrogoAdmobActivity
 import com.frogobox.sdk.ext.showLogD
 import com.frogobox.sdk.view.FrogoActivity
 import com.frogobox.startioad.delegate.StartIoDelegates

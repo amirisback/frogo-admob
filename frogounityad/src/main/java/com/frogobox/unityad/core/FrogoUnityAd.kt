@@ -2,7 +2,6 @@ package com.frogobox.unityad.core
 
 import android.app.Activity
 import android.content.Context
-import com.frogobox.adcore.util.FrogoAdFunc
 import com.frogobox.sdk.ext.showLogDebug
 import com.frogobox.sdk.ext.showLogError
 import com.frogobox.unityad.callback.FrogoUnityAdInitializationCallback
@@ -34,8 +33,6 @@ object FrogoUnityAd : IFrogoUnityAd {
         unityGameId: String,
         callback: FrogoUnityAdInitializationCallback?
     ) {
-
-        FrogoAdFunc.waterMark()
         showLogDebug("$TAG Unity Game Id : $unityGameId")
         showLogDebug("$TAG State Unity Intialized : ${UnityAds.isInitialized()}")
 
@@ -87,8 +84,6 @@ object FrogoUnityAd : IFrogoUnityAd {
         adInterstitialUnitId: String,
         callback: FrogoUnityAdInterstitialCallback?
     ) {
-
-        FrogoAdFunc.waterMark()
         showLogDebug("$TAG Unity Ad Interstitial Unit Id : $adInterstitialUnitId")
         showLogDebug("$TAG State Unity Intialized : ${UnityAds.isInitialized()}")
 

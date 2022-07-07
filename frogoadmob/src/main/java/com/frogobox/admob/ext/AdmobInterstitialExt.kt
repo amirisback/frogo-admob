@@ -1,7 +1,6 @@
 package com.frogobox.admob.ext
 
 import androidx.appcompat.app.AppCompatActivity
-import com.frogobox.adcore.util.FrogoAdFunc.waterMark
 import com.frogobox.admob.callback.FrogoAdmobInterstitialCallback
 import com.frogobox.sdk.ext.showLogDebug
 import com.frogobox.sdk.ext.showLogError
@@ -38,7 +37,7 @@ fun InterstitialAd.showAd(
     callback: FrogoAdmobInterstitialCallback?
 ) {
 
-    waterMark()
+    
     showLogDebug("$TAG Interstitial Id : $interstitialAdUnitId")
 
     if (interstitialAdUnitId != "") {

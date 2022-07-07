@@ -30,7 +30,7 @@ import com.frogobox.sdk.ext.showLogDebug
  * LinkedIn : linkedin.com/in/faisalamircs
  * -----------------------------------------
  * FrogoBox Software Industries
- * com.frogobox.speechbooster.base
+ *
  *
  */
 
@@ -176,9 +176,9 @@ abstract class FrogoAdmobViewAdapter<T> : RecyclerView.Adapter<FrogoAdmobViewHol
     }
 
     fun setupRequirement(
-            customViewInt: Int,
-            listData: List<T>?,
-            listener: FrogoRecyclerViewListener<T>?
+        customViewInt: Int,
+        listData: List<T>?,
+        listener: FrogoRecyclerViewListener<T>?
     ) {
 
         if (listener != null) {
@@ -252,7 +252,7 @@ abstract class FrogoAdmobViewAdapter<T> : RecyclerView.Adapter<FrogoAdmobViewHol
         listData.addAll(positionStart, data)
         notifyItemRangeChanged(positionStart, data.size, payload)
         showLogDebug("${FrogoRvConstant.FROGO_RV_TAG} - FrogoNotifyListener : frogoNotifyItemRangeChanged")
-        showLogDebug("${FrogoRvConstant.FROGO_RV_TAG} - FrogoNotifyListener : frogoNotifyItemRangeChanged : ${data.toString()}")
+        showLogDebug("${FrogoRvConstant.FROGO_RV_TAG} - FrogoNotifyListener : frogoNotifyItemRangeChanged : $data")
         showLogDebug("${FrogoRvConstant.FROGO_RV_TAG} - FrogoNotifyListener : frogoNotifyItemRangeChanged : $positionStart")
     }
 
@@ -261,7 +261,7 @@ abstract class FrogoAdmobViewAdapter<T> : RecyclerView.Adapter<FrogoAdmobViewHol
         listData.addAll(positionStart, data)
         notifyItemRangeChanged(positionStart, data.size)
         showLogDebug("${FrogoRvConstant.FROGO_RV_TAG} - FrogoNotifyListener : frogoNotifyItemRangeChanged")
-        showLogDebug("${FrogoRvConstant.FROGO_RV_TAG} - FrogoNotifyListener : frogoNotifyItemRangeChanged : ${data.toString()}")
+        showLogDebug("${FrogoRvConstant.FROGO_RV_TAG} - FrogoNotifyListener : frogoNotifyItemRangeChanged : $data")
         showLogDebug("${FrogoRvConstant.FROGO_RV_TAG} - FrogoNotifyListener : frogoNotifyItemRangeChanged : $positionStart")
     }
 
@@ -270,7 +270,7 @@ abstract class FrogoAdmobViewAdapter<T> : RecyclerView.Adapter<FrogoAdmobViewHol
         listData.addAll(positionStart, data)
         notifyItemRangeChanged(positionStart, data.size)
         showLogDebug("${FrogoRvConstant.FROGO_RV_TAG} - FrogoNotifyListener : frogoNotifyItemRangeInserted")
-        showLogDebug("${FrogoRvConstant.FROGO_RV_TAG} - FrogoNotifyListener : frogoNotifyItemRangeChanged : ${data.toString()}")
+        showLogDebug("${FrogoRvConstant.FROGO_RV_TAG} - FrogoNotifyListener : frogoNotifyItemRangeChanged : $data")
         showLogDebug("${FrogoRvConstant.FROGO_RV_TAG} - FrogoNotifyListener : frogoNotifyItemRangeChanged : $positionStart")
     }
 

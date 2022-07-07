@@ -16,5 +16,4 @@ import com.frogobox.unityad.callback.FrogoUnityAdInterstitialCallback
  */
 
 
-interface FrogoAdInterstitialCallback : FrogoUnityAdInterstitialCallback {
-}
+interface FrogoAdInterstitialCallback : FrogoUnityAdInterstitialCallback
