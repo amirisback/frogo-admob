@@ -40,6 +40,10 @@ abstract class BaseActivity<VB : ViewBinding> : FrogoAdActivity() {
 
     abstract fun setupViewBinding(): VB
 
+    override fun setupDebugMode(): Boolean {
+        return BuildConfig.DEBUG
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
