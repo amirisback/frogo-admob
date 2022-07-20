@@ -18,9 +18,9 @@ object DependencyGradle {
     const val COMPOSE_VERSION = Version.Androidx.compose
 
     const val FROGO_UI_VERSION = "1.0.7"
-    const val FROGO_SDK_VERSION = "2.0.2"
-    const val FROGO_CONSUME_API_VERSION = "2.3.5"
-    const val FROGO_RECYCLER_VIEW_VERSION = "4.2.1"
+    const val FROGO_SDK_VERSION = "2.0.3"
+    const val FROGO_CONSUME_API_VERSION = "2.3.6"
+    const val FROGO_RECYCLER_VIEW_VERSION = "4.2.2"
 
     const val FROGO_UI = "com.github.frogobox:frogo-ui:$FROGO_UI_VERSION"
     const val FROGO_SDK = "com.github.frogobox:frogo-sdk:$FROGO_SDK_VERSION"
