@@ -27,10 +27,10 @@
 
 ## Version Release
 
-    $version_release = 5.0.1
+    $version_release = 5.0.2
 
     // Suport Library
-    $admob_version = 21.0.0
+    $admob_version = 21.1.0
     $unity_ad_version = 4.2.1
     $start_io_version = 4.10.0
 
@@ -38,7 +38,7 @@ What's New??
 
     * Enhance Performance *
     * Refactoring Code *
-    * Update Admob Library Version 21.0.0 *
+    * Update Admob Library Version 21.1.0 *
     * Update : Adding Function Request Admob From Server *
     * Add FrogoSdkAdmobActivity *
     * New Setup Implementation *
@@ -93,19 +93,19 @@ allprojects {
         implementation 'com.startapp:inapp-sdk:${$start_io_version}'
 
         // library frogo-admob (Required - Recomended)
-        implementation 'com.github.amirisback:frogo-admob:5.0.1'
+        implementation 'com.github.amirisback:frogo-admob:5.0.2'
 
         // -----------------------------------------------------------------------------------------
         // For Single Library Patch 
 
         // library frogo-admob (Admob Only)
-        implementation 'com.github.amirisback.frogo-admob:frogoadmob:5.0.1'
+        implementation 'com.github.amirisback.frogo-admob:frogoadmob:5.0.2'
 
         // library frogo-admob (Unity Ads Only)
-        implementation 'com.github.amirisback.frogo-admob:frogounityad:5.0.1'
+        implementation 'com.github.amirisback.frogo-admob:frogounityad:5.0.2'
 
         // library frogo-admob (Start Io Only)
-        implementation 'com.github.amirisback.frogo-admob:frogostartioad:5.0.1'
+        implementation 'com.github.amirisback.frogo-admob:frogostartioad:5.0.2'
 	}
 
 #### <Option 2> Kotlin DSL
@@ -121,19 +121,19 @@ allprojects {
         implementation("com.startapp:inapp-sdk:${$start_io_version")
 
         // library frogo-admob (Required - Recomended)
-        implementation("com.github.amirisback:frogo-admob:5.0.1")
+        implementation("com.github.amirisback:frogo-admob:5.0.2")
 
         // -----------------------------------------------------------------------------------------
         // For Single Library Patch
 
         // library frogo-admob (Admob Only)
-        implementation("com.github.amirisback.frogo-admob:frogoadmob:5.0.1")
+        implementation("com.github.amirisback.frogo-admob:frogoadmob:5.0.2")
 
         // library frogo-admob (Unity Ads Only)
-        implementation("com.github.amirisback.frogo-admob:frogounityad:5.0.1")
+        implementation("com.github.amirisback.frogo-admob:frogounityad:5.0.2")
 
         // library frogo-admob (Start Io Only)
-        implementation("com.github.amirisback.frogo-admob:frogostartioad:5.0.1")
+        implementation("com.github.amirisback.frogo-admob:frogostartioad:5.0.2")
 
 	}
 	
