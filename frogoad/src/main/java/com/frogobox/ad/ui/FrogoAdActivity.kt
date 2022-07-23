@@ -1,6 +1,5 @@
 package com.frogobox.ad.ui
 
-import android.os.Bundle
 import com.frogobox.ad.delegate.FrogoAdDelegates
 import com.frogobox.ad.delegate.FrogoAdDelegatesImpl
 import com.frogobox.admob.delegate.AdmobDelegates
@@ -41,15 +40,13 @@ abstract class FrogoAdActivity : FrogoActivity(),
 
     protected val arrayFrogoAdmobData = mutableListOf<Any>()
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        if (savedInstanceState == null) {
-            showLogD<FrogoAdActivity>("Run onCreate() From $TAG")
-            setupAdmobDelegates(this)
-            setupUnityAdDelegates(this)
-            setupFrogoAdDelegates(this)
-            setupAdmobApp()
-        }
+    override fun setupMonetized() {
+        super.setupMonetized()
+        showLogD<FrogoAdActivity>("Run setupMonetized() From $TAG")
+        setupAdmobDelegates(this)
+        setupUnityAdDelegates(this)
+        setupFrogoAdDelegates(this)
+        setupAdmobApp()
     }
 
     override fun onResume() {

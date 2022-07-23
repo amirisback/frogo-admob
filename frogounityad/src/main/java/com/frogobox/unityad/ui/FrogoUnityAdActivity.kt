@@ -1,6 +1,5 @@
 package com.frogobox.unityad.ui
 
-import android.os.Bundle
 import com.frogobox.sdk.ext.showLogD
 import com.frogobox.sdk.view.FrogoActivity
 import com.frogobox.unityad.delegate.UnityAdDelegates
@@ -32,12 +31,10 @@ abstract class FrogoUnityAdActivity : FrogoActivity(),
         val TAG: String = FrogoUnityAdActivity::class.java.simpleName
     }
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        if (savedInstanceState == null) {
-            showLogD<FrogoUnityAdActivity>("Run onCreate() From $TAG")
-            setupUnityAdDelegates(this)
-        }
+    override fun setupMonetized() {
+        super.setupMonetized()
+        showLogD<FrogoUnityAdActivity>("Run setupMonetized() From $TAG")
+        setupUnityAdDelegates(this)
     }
 
 }

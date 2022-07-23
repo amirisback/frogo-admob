@@ -29,9 +29,7 @@ class FrogoAdDelegatesImpl : FrogoAdDelegates,
     UnityAdDelegates by UnityAdDelegatesImpl() {
 
     override fun setupFrogoAdDelegates(activity: AppCompatActivity) {
-        showLogD<FrogoAdDelegatesImpl>("===== Setup FrogoAdDelegates =====")
         showLogD<FrogoAdDelegatesImpl>("activity: $activity")
-        showLogD<FrogoAdDelegatesImpl>("Injection Child Activity")
         setupAdmobDelegates(activity)
         setupUnityAdDelegates(activity)
     }
