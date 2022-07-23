@@ -22,6 +22,5 @@ include(
     "frogoad",
     ":frogoadmob",
     ":frogoadcore",
-    ":frogounityad",
-    ":frogostartioad"
+    ":frogounityad"
 )

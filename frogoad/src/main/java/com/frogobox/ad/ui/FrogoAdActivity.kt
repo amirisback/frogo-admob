@@ -7,8 +7,6 @@ import com.frogobox.admob.delegate.AdmobDelegates
 import com.frogobox.admob.delegate.AdmobDelegatesImpl
 import com.frogobox.sdk.ext.showLogD
 import com.frogobox.sdk.view.FrogoActivity
-import com.frogobox.startioad.delegate.StartIoDelegates
-import com.frogobox.startioad.delegate.StartIoDelegatesImpl
 import com.frogobox.unityad.delegate.UnityAdDelegates
 import com.frogobox.unityad.delegate.UnityAdDelegatesImpl
 import com.google.android.gms.ads.AdView
@@ -35,7 +33,6 @@ import com.google.android.gms.ads.AdView
 abstract class FrogoAdActivity : FrogoActivity(),
     AdmobDelegates by AdmobDelegatesImpl(),
     UnityAdDelegates by UnityAdDelegatesImpl(),
-    StartIoDelegates by StartIoDelegatesImpl(),
     FrogoAdDelegates by FrogoAdDelegatesImpl() {
 
     companion object {
@@ -50,7 +47,6 @@ abstract class FrogoAdActivity : FrogoActivity(),
             showLogD<FrogoAdActivity>("Run onCreate() From $TAG")
             setupAdmobDelegates(this)
             setupUnityAdDelegates(this)
-            setupStartIoDelegates(this)
             setupFrogoAdDelegates(this)
             setupAdmobApp()
         }
