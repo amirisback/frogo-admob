@@ -44,12 +44,14 @@ abstract class BaseActivity<VB : ViewBinding> : FrogoAdActivity() {
         return BuildConfig.DEBUG
     }
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
+    override fun setupMonetized() {
+        super.setupMonetized()
+        setupUnityAdApp(BuildConfig.DEBUG, getString(R.string.unity_ad_game_id))
+    }
+
+    override fun setupContentView() {
+        super.setupContentView()
         setContentView(binding.root)
-        if (savedInstanceState == null) {
-            setupUnityAdApp(BuildConfig.DEBUG, getString(R.string.unity_ad_game_id))
-        }
     }
 
     protected fun requestAdmobApi() {

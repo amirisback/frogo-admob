@@ -1,6 +1,5 @@
 package com.frogobox.ad.ui
 
-import android.os.Bundle
 import androidx.viewbinding.ViewBinding
 import com.frogobox.ad.delegate.FrogoAdDelegates
 import com.frogobox.ad.delegate.FrogoAdDelegatesImpl
@@ -8,8 +7,6 @@ import com.frogobox.admob.delegate.AdmobDelegates
 import com.frogobox.admob.delegate.AdmobDelegatesImpl
 import com.frogobox.sdk.ext.showLogD
 import com.frogobox.sdk.view.FrogoBindActivity
-import com.frogobox.startioad.delegate.StartIoDelegates
-import com.frogobox.startioad.delegate.StartIoDelegatesImpl
 import com.frogobox.unityad.delegate.UnityAdDelegates
 import com.frogobox.unityad.delegate.UnityAdDelegatesImpl
 import com.google.android.gms.ads.AdView
@@ -36,7 +33,6 @@ import com.google.android.gms.ads.AdView
 abstract class FrogoAdBindActivity<VB : ViewBinding> : FrogoBindActivity<VB>(),
     AdmobDelegates by AdmobDelegatesImpl(),
     UnityAdDelegates by UnityAdDelegatesImpl(),
-    StartIoDelegates by StartIoDelegatesImpl(),
     FrogoAdDelegates by FrogoAdDelegatesImpl() {
 
     companion object {
@@ -45,16 +41,13 @@ abstract class FrogoAdBindActivity<VB : ViewBinding> : FrogoBindActivity<VB>(),
 
     protected val arrayFrogoAdmobData = mutableListOf<Any>()
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        if (savedInstanceState == null) {
-            showLogD<FrogoAdBindActivity<VB>>("Run onCreate() From $TAG")
-            setupAdmobDelegates(this)
-            setupUnityAdDelegates(this)
-            setupStartIoDelegates(this)
-            setupFrogoAdDelegates(this)
-            setupAdmobApp()
-        }
+    override fun setupMonetized() {
+        super.setupMonetized()
+        showLogD<FrogoAdBindActivity<VB>>("Run setupMonetized() From $TAG")
+        setupAdmobDelegates(this)
+        setupUnityAdDelegates(this)
+        setupFrogoAdDelegates(this)
+        setupAdmobApp()
     }
 
     override fun onResume() {

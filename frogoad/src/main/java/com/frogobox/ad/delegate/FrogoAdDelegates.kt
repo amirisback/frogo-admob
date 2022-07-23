@@ -33,5 +33,4 @@ interface FrogoAdDelegates {
         callback: FrogoAdInterstitialCallback
     )
 
-
 }
