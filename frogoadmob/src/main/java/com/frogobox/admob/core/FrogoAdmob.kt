@@ -41,7 +41,10 @@ import com.google.android.gms.ads.rewardedinterstitial.RewardedInterstitialAdLoa
  */
 
 
-object FrogoAdmob : IFrogoAdmob {
+object FrogoAdmob : IFrogoAdmob,
+    IFrogoAdmobBanner,
+    IFrogoAdmobInterstitial,
+    IFrogoAdmobRewarded {
 
     val TAG: String = FrogoAdmob::class.java.simpleName
 
