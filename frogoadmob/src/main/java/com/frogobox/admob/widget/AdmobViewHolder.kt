@@ -3,7 +3,7 @@ package com.frogobox.admob.widget
 import android.view.View
 import com.frogobox.recycler.core.FrogoRecyclerNotifyListener
 
-/*
+/**
  * Created by Faisal Amir on 31/01/2021
  * AdmobSamples Source Code
  * -----------------------------------------

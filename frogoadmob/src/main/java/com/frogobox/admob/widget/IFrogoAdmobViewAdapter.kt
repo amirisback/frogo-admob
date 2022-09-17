@@ -2,7 +2,7 @@ package com.frogobox.admob.widget
 
 import android.view.ViewGroup
 
-/*
+/**
  * Created by Faisal Amir on 31/01/2021
  * AdmobSamples Source Code
  * -----------------------------------------

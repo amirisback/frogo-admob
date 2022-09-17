@@ -7,7 +7,7 @@ import com.google.android.ump.ConsentRequestParameters
 import com.google.android.ump.UserMessagingPlatform
 
 
-/*
+/**
  * Created by faisalamir on 26/03/22
  * FrogoAdmob
  * -----------------------------------------
