@@ -3,7 +3,7 @@ package com.frogobox.ad.delegate
 import androidx.appcompat.app.AppCompatActivity
 import com.frogobox.ad.callback.FrogoAdInterstitialCallback
 
-/*
+/**
  * Created by faisalamir on 22/03/22
  * FrogoAdmob
  * -----------------------------------------

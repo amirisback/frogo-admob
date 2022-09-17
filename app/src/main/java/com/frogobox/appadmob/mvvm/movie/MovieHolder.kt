@@ -10,7 +10,7 @@ import com.frogobox.coreapi.movie.MovieUrl
 import com.frogobox.coreapi.movie.model.TrendingMovie
 import com.frogobox.recycler.core.FrogoRecyclerNotifyListener
 
-/*
+/**
  * Created by Faisal Amir on 31/01/2021
  * AdmobSamples Source Code
  * -----------------------------------------

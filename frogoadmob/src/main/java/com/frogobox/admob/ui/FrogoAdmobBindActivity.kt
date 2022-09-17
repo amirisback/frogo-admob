@@ -8,7 +8,7 @@ import com.frogobox.sdk.view.FrogoBindActivity
 import com.google.android.gms.ads.AdView
 
 
-/*
+/**
  * Created by faisalamir on 01/03/22
  * FrogoAdmob
  * -----------------------------------------

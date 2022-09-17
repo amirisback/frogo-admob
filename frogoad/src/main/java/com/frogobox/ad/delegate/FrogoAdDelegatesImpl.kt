@@ -10,7 +10,7 @@ import com.frogobox.unityad.callback.FrogoUnityAdInterstitialCallback
 import com.frogobox.unityad.delegate.UnityAdDelegates
 import com.frogobox.unityad.delegate.UnityAdDelegatesImpl
 
-/*
+/**
  * Created by faisalamir on 22/03/22
  * FrogoAdmob
  * -----------------------------------------

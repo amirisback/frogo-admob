@@ -3,7 +3,7 @@ package com.frogobox.adcore.model
 import com.google.gson.annotations.SerializedName
 
 
-/*
+/**
  * Created by faisalamir on 22/03/22
  * FrogoAdmob
  * -----------------------------------------

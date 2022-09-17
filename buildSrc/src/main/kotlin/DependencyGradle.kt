@@ -1,4 +1,4 @@
-/*
+/**
  * Created by faisalamir on 19/09/21
  * FrogoRecyclerView
  * -----------------------------------------
@@ -17,9 +17,9 @@ object DependencyGradle {
     const val KOTLIN_REFLECT = "org.jetbrains.kotlin:kotlin-reflect:$KOTLIN_VERSION"
     const val COMPOSE_VERSION = Version.Androidx.composeCompiler
 
-    const val FROGO_UI_VERSION = "1.0.9"
-    const val FROGO_SDK_VERSION = "2.0.8"
-    const val FROGO_CONSUME_API_VERSION = "2.4.0"
+    const val FROGO_UI_VERSION = "1.1.0"
+    const val FROGO_SDK_VERSION = "2.0.9"
+    const val FROGO_CONSUME_API_VERSION = "2.4.1"
     const val FROGO_RECYCLER_VIEW_VERSION = "4.3.1"
 
     const val FROGO_UI = "com.github.frogobox:frogo-ui:$FROGO_UI_VERSION"

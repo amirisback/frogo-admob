@@ -1,6 +1,6 @@
 package com.frogobox.adcore.util
 
-/*
+/**
  * Created by Faisal Amir
  * =========================================
  * FrogoRecyclerViewAdapter

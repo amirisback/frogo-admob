@@ -4,7 +4,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.frogobox.unityad.callback.FrogoUnityAdInitializationCallback
 import com.frogobox.unityad.callback.FrogoUnityAdInterstitialCallback
 
-/*
+/**
  * Created by faisalamir on 22/03/22
  * FrogoAdmob
  * -----------------------------------------
