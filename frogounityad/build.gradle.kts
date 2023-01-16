@@ -61,7 +61,6 @@ android {
 dependencies {
 
     api(Ad.unityAds)
-
     api(project(DependencyGradle.MODULE_LIB_FROGO_AD_CORE))
 
 }

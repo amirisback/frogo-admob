@@ -24,12 +24,6 @@
             android:name=".mvvm.main.MainJavaActivity"
             android:exported="false"
             android:hardwareAccelerated="true" />
-        <activity
-            android:name=".mvvm.compose.HybridActivity"
-            android:exported="true" />
-        <activity
-            android:name=".mvvm.compose.ComposeActivity"
-            android:label="@string/title_activity_compose" />
         <activity android:name=".mvvm.movie.MovieActivity" />
         <activity android:name=".mvvm.news.NewsActivity" />
         <activity android:name=".mvvm.main.AboutUsActivity" />

@@ -59,19 +59,8 @@ android {
 }
 
 dependencies {
-
-    api(Google.gson)
     api(Google.admob)
-
-    api(Square.Retrofit2.retrofit)
-    api(Square.Retrofit2.converterGson)
-    api(Square.Retrofit2.adapterRxJava3)
-
-    api(Reactivex.rxJava3)
-    api(Reactivex.rxAndroid3)
-
     api(DependencyGradle.FROGO_SDK)
-
 }
 
 afterEvaluate {

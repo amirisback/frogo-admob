@@ -3,8 +3,7 @@ package com.frogobox.appadmob.di
 import com.frogobox.appadmob.source.AdmobLocalDataSource
 import com.frogobox.appadmob.source.AdmobRemoteDataSource
 import com.frogobox.appadmob.source.AdmobRepository
-import com.frogobox.sdk.preference.FrogoPreference
-import com.frogobox.sdk.preference.FrogoSinglePreference
+import com.frogobox.sdk.delegate.preference.PreferenceDelegatesImpl
 import com.frogobox.sdk.util.AppExecutors
 import org.koin.android.ext.koin.androidContext
 import org.koin.dsl.module
@@ -26,11 +25,7 @@ import org.koin.dsl.module
 val repositoryModule = module {
 
     single {
-        FrogoPreference(androidContext(), "com_frogobox_appadmob")
-    }
-
-    single {
-        FrogoSinglePreference.getSp(androidContext(), "com_frogobox_appadmob")
+        PreferenceDelegatesImpl(androidContext(), "com_frogobox_appadmob")
     }
 
     single {
