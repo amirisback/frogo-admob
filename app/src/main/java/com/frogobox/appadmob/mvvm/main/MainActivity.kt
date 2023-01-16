@@ -6,12 +6,11 @@ import android.view.MenuItem
 import com.frogobox.appadmob.R
 import com.frogobox.appadmob.base.BaseActivity
 import com.frogobox.appadmob.databinding.ActivityMainBinding
-import com.frogobox.appadmob.mvvm.compose.ComposeActivity
-import com.frogobox.appadmob.mvvm.compose.HybridActivity
 import com.frogobox.appadmob.mvvm.interstitial.InterstitialActivity
 import com.frogobox.appadmob.mvvm.movie.MovieActivity
 import com.frogobox.appadmob.mvvm.news.NewsActivity
 import com.frogobox.appadmob.mvvm.rewarded.RewardedActivity
+import com.frogobox.sdk.ext.startActivityExt
 import com.google.android.gms.ads.AdSize
 
 class MainActivity : BaseActivity<ActivityMainBinding>() {
@@ -41,31 +40,23 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
         binding.apply {
 
             btnInterstitial.setOnClickListener {
-                frogoStartActivity<InterstitialActivity>()
+                startActivityExt<InterstitialActivity>()
             }
 
             btnRewarded.setOnClickListener {
-                frogoStartActivity<RewardedActivity>()
+                startActivityExt<RewardedActivity>()
             }
 
             btnRecyclerView.setOnClickListener {
-                frogoStartActivity<NewsActivity>()
+                startActivityExt<NewsActivity>()
             }
 
             btnRecyclerView2.setOnClickListener {
-                frogoStartActivity<MovieActivity>()
-            }
-
-            btnComposeActivity.setOnClickListener {
-                frogoStartActivity<ComposeActivity>()
-            }
-
-            btnHybridActivity.setOnClickListener {
-                frogoStartActivity<HybridActivity>()
+                startActivityExt<MovieActivity>()
             }
 
             btnJavaSampleActivity.setOnClickListener {
-                frogoStartActivity<MainJavaActivity>()
+                startActivityExt<MainJavaActivity>()
             }
 
         }
@@ -79,7 +70,7 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when (item.itemId) {
             R.id.toolbar_menu_about -> {
-                frogoStartActivity<AboutUsActivity>()
+                startActivityExt<AboutUsActivity>()
                 true
             }
             else -> super.onOptionsItemSelected(item)

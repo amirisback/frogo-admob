@@ -45,20 +45,6 @@
                 android:textColor="@color/colorTextWhite" />
 
             <Button
-                android:id="@+id/btn_compose_activity"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Compose Function"
-                android:textColor="@color/colorTextWhite" />
-
-            <Button
-                android:id="@+id/btn_hybrid_activity"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Mixed Compose and XML"
-                android:textColor="@color/colorTextWhite" />
-
-            <Button
                 android:id="@+id/btn_java_sample_activity"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

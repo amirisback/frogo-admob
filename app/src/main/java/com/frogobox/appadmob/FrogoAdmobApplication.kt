@@ -25,7 +25,8 @@ class FrogoAdmobApplication : FrogoApplication() {
         koinApplication.modules(listOf(viewModelModule, repositoryModule))
     }
 
-    override fun setupOnCreate() {
-
+    override fun onCreateExt() {
+        super.onCreateExt()
     }
+
 }

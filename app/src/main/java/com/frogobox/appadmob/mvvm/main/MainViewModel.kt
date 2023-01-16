@@ -1,6 +1,6 @@
 package com.frogobox.appadmob.mvvm.main
 
-import android.app.Application
+import android.content.Context
 import com.frogobox.appadmob.base.BaseViewModel
 import com.frogobox.appadmob.source.AdmobRepository
 
@@ -19,6 +19,6 @@ import com.frogobox.appadmob.source.AdmobRepository
  */
 
 class MainViewModel(
-    private val context: Application,
+    private val context: Context,
     private val repository: AdmobRepository
 ) : BaseViewModel(context, repository)

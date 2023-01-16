@@ -89,7 +89,6 @@ android {
 
     buildFeatures {
         viewBinding = true
-        compose = true
     }
 
     compileOptions {
@@ -101,10 +100,6 @@ android {
         kotlinOptions {
             jvmTarget = JavaVersion.VERSION_11.toString()
         }
-    }
-
-    composeOptions {
-        kotlinCompilerExtensionVersion = DependencyGradle.COMPOSE_VERSION
     }
 
     packagingOptions {
@@ -120,11 +115,6 @@ dependencies {
     implementation(project(DependencyGradle.MODULE_LIB_FROGO_AD_CORE))
     implementation(project(DependencyGradle.MODULE_LIB_FROGO_ADMOB))
     implementation(project(DependencyGradle.MODULE_LIB_FROGO_UNITY_AD))
-
-    implementation(Androidx.Compose.ui)
-    implementation(Androidx.Compose.material("1.3.1"))
-    implementation(Androidx.Compose.uiTooling)
-    implementation(Androidx.Compose.activity)
     
     implementation(DependencyGradle.FROGO_UI)
     implementation(DependencyGradle.FROGO_SDK)

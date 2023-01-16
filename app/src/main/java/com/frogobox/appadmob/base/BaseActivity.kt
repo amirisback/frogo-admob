@@ -1,7 +1,6 @@
 package com.frogobox.appadmob.base
 
 import android.content.SharedPreferences
-import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
 import androidx.viewbinding.ViewBinding

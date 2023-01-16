@@ -37,11 +37,6 @@ android {
 
     buildFeatures {
         viewBinding = true
-        compose = true
-    }
-
-    composeOptions {
-        kotlinCompilerExtensionVersion = DependencyGradle.COMPOSE_VERSION
     }
 
     compileOptions {
@@ -66,11 +61,6 @@ android {
 dependencies {
 
     api(project(DependencyGradle.MODULE_LIB_FROGO_AD_CORE))
-
-    api(Androidx.appCompat)
-
-    api(Androidx.Compose.ui)
-    api(Androidx.Compose.uiToolingPreview)
 
     api(Ad.unityAds)
 

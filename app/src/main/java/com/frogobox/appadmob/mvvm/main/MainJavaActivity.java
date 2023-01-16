@@ -34,8 +34,6 @@ public class MainJavaActivity extends BaseActivity<ActivityMainBinding> implemen
     private void hideButton() {
         getBinding().btnRecyclerView.setVisibility(View.GONE);
         getBinding().btnRecyclerView2.setVisibility(View.GONE);
-        getBinding().btnComposeActivity.setVisibility(View.GONE);
-        getBinding().btnHybridActivity.setVisibility(View.GONE);
         getBinding().btnJavaSampleActivity.setVisibility(View.GONE);
     }
 
