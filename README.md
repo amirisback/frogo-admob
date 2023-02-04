@@ -27,7 +27,7 @@
 
 ## Version Release
 
-    $version_release = 5.1.5
+    $version_release = 5.1.6
 
     // Suport Library
     $admob_version = 21.4.0
@@ -89,16 +89,16 @@ allprojects {
         implementation 'com.unity3d.ads:unity-ads:${unity_ad_version}'
 
         // library frogo-admob (Required - Recomended)
-        implementation 'com.github.amirisback:frogo-admob:5.1.5'
+        implementation 'com.github.amirisback:frogo-admob:5.1.6'
 
         // -----------------------------------------------------------------------------------------
         // For Single Library Patch 
 
         // library frogo-admob (Admob Only)
-        implementation 'com.github.amirisback.frogo-admob:frogoadmob:5.1.5'
+        implementation 'com.github.amirisback.frogo-admob:frogoadmob:5.1.6'
 
         // library frogo-admob (Unity Ads Only)
-        implementation 'com.github.amirisback.frogo-admob:frogounityad:5.1.5'
+        implementation 'com.github.amirisback.frogo-admob:frogounityad:5.1.6'
 	}
 
 #### <Option 2> Kotlin DSL
@@ -111,16 +111,16 @@ allprojects {
         implementation("com.unity3d.ads:unity-ads:${unity_ad_version}")
 
         // library frogo-admob (Required - Recomended)
-        implementation("com.github.amirisback:frogo-admob:5.1.5")
+        implementation("com.github.amirisback:frogo-admob:5.1.6")
 
         // -----------------------------------------------------------------------------------------
         // For Single Library Patch
 
         // library frogo-admob (Admob Only)
-        implementation("com.github.amirisback.frogo-admob:frogoadmob:5.1.5")
+        implementation("com.github.amirisback.frogo-admob:frogoadmob:5.1.6")
 
         // library frogo-admob (Unity Ads Only)
-        implementation("com.github.amirisback.frogo-admob:frogounityad:5.1.5")
+        implementation("com.github.amirisback.frogo-admob:frogounityad:5.1.6")
 
 	}
 	
@@ -459,7 +459,7 @@ public class MainJavaActivity extends BaseJavaActivity {
         binding.btnInterstitial.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                showAdInterstitial(getString(R.string.admob_interstitial))
+                showAdInterstitial(getString(R.string.admob_interstitial));
             }
         });
 
