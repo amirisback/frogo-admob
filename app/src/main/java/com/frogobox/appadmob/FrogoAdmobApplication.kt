@@ -2,7 +2,7 @@ package com.frogobox.appadmob
 
 import com.frogobox.appadmob.di.repositoryModule
 import com.frogobox.appadmob.di.viewModelModule
-import com.frogobox.sdk.FrogoApplication
+import com.frogobox.sdk.FrogoKoinApplication
 import org.koin.core.KoinApplication
 
 
@@ -19,7 +19,7 @@ import org.koin.core.KoinApplication
  *
  */
 
-class FrogoAdmobApplication : FrogoApplication() {
+class FrogoAdmobApplication : FrogoKoinApplication() {
 
     override fun setupKoinModule(koinApplication: KoinApplication) {
         koinApplication.modules(listOf(viewModelModule, repositoryModule))
