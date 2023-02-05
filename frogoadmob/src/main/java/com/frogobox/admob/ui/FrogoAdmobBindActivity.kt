@@ -29,40 +29,11 @@ abstract class FrogoAdmobBindActivity<VB : ViewBinding> : FrogoBindActivity<VB>(
         val TAG: String = FrogoAdmobBindActivity::class.java.simpleName
     }
 
-    protected val arrayFrogoAdmobData = mutableListOf<Any>()
-
     override fun setupMonetized() {
         super.setupMonetized()
         showLogDebug("$TAG : Run From $TAG class : FrogoAdmob.setupAdmobApp")
         setupAdmobDelegates(this)
         setupAdmobApp()
-    }
-
-    override fun onResume() {
-        super.onResume()
-        for (item in arrayFrogoAdmobData) {
-            if (item is AdView) {
-                item.resume()
-            }
-        }
-    }
-
-    override fun onPause() {
-        super.onPause()
-        for (item in arrayFrogoAdmobData) {
-            if (item is AdView) {
-                item.pause()
-            }
-        }
-    }
-
-    override fun onDestroy() {
-        super.onDestroy()
-        for (item in arrayFrogoAdmobData) {
-            if (item is AdView) {
-                item.destroy()
-            }
-        }
     }
 
 }
