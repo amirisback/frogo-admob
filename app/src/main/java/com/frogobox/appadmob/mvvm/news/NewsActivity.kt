@@ -15,8 +15,11 @@ import com.frogobox.coreapi.news.NewsUrl
 import com.frogobox.coreapi.news.response.ArticleResponse
 import com.frogobox.recycler.core.FrogoRecyclerNotifyListener
 import com.frogobox.recycler.core.FrogoRecyclerViewListener
+import com.google.android.gms.ads.AdView
 
 class NewsActivity : BaseActivity<ActivityRecyclerViewBinding>() {
+
+    private val arrayFrogoAdmobData = mutableListOf<Any>()
 
     override fun setupViewBinding(): ActivityRecyclerViewBinding {
         return ActivityRecyclerViewBinding.inflate(layoutInflater)
@@ -101,5 +104,34 @@ class NewsActivity : BaseActivity<ActivityRecyclerViewBinding>() {
             adapter = setupAdapter()
         }
     }
+
+    override fun onResume() {
+        super.onResume()
+        for (item in arrayFrogoAdmobData) {
+            if (item is AdView) {
+                item.resume()
+            }
+        }
+    }
+
+    override fun onPause() {
+        super.onPause()
+        for (item in arrayFrogoAdmobData) {
+            if (item is AdView) {
+                item.pause()
+            }
+        }
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        for (item in arrayFrogoAdmobData) {
+            if (item is AdView) {
+                item.destroy()
+            }
+        }
+
+    }
+
 
 }
