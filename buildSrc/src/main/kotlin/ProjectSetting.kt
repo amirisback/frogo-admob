@@ -19,6 +19,7 @@ object ProjectSetting {
     const val APP_DOMAIN = "com"
     const val APP_PLAY_CONSOLE = "frogobox"
     const val APP_NAME = "appadmob"
+    val URI_PACKAGE_LIB = "https://maven.pkg.github.com/amirisback/${NAME_APK}"
 
     // ---------------------------------------------------------------------------------------------
 
@@ -49,14 +50,15 @@ object ProjectSetting {
     const val PROJECT_TARGET_SDK = PROJECT_COMPILE_SDK
 
     // ---------------------------------------------------------------------------------------------
+    const val BASE_PROJECT_PACKAGE = "$APP_DOMAIN.$APP_PLAY_CONSOLE"
 
-    const val PROJECT_APP_ID = "$APP_DOMAIN.$APP_PLAY_CONSOLE.$APP_NAME"
-    const val PROJECT_LIB_ID_AD = "$APP_DOMAIN.$APP_PLAY_CONSOLE.$LIBRARY_NAME_AD"
-    const val PROJECT_LIB_ID_ADMOB = "$APP_DOMAIN.$APP_PLAY_CONSOLE.$LIBRARY_NAME_ADMOB"
-    const val PROJECT_LIB_ID_AD_CORE = "$APP_DOMAIN.$APP_PLAY_CONSOLE.$LIBRARY_NAME_AD_CORE"
+    const val PROJECT_APP_ID = "$BASE_PROJECT_PACKAGE.$APP_NAME"
+    const val PROJECT_LIB_ID_AD = "$BASE_PROJECT_PACKAGE.$LIBRARY_NAME_AD"
+    const val PROJECT_LIB_ID_ADMOB = "$BASE_PROJECT_PACKAGE.$LIBRARY_NAME_ADMOB"
+    const val PROJECT_LIB_ID_AD_CORE = "$BASE_PROJECT_PACKAGE.$LIBRARY_NAME_AD_CORE"
 
-    const val PROJECT_LIB_ID_UNITY_AD = "$APP_DOMAIN.$APP_PLAY_CONSOLE.$LIBRARY_NAME_UNITY_AD"
-    const val PROJECT_LIB_ID_START_IO_AD = "$APP_DOMAIN.$APP_PLAY_CONSOLE.$LIBRARY_NAME_START_IO_AD"
+    const val PROJECT_LIB_ID_UNITY_AD = "$BASE_PROJECT_PACKAGE.$LIBRARY_NAME_UNITY_AD"
+    const val PROJECT_LIB_ID_START_IO_AD = "$BASE_PROJECT_PACKAGE.$LIBRARY_NAME_START_IO_AD"
 
     const val PROJECT_VERSION_CODE = (VERSION_MAJOR * 100) + (VERSION_MINOR * 10) + (VERSION_PATCH * 1)
     const val PROJECT_VERSION_NAME = "$VERSION_MAJOR.$VERSION_MINOR.$VERSION_PATCH"

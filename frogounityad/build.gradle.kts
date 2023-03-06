@@ -69,6 +69,17 @@ afterEvaluate {
     publishing {
         publications {
 
+            repositories {
+                maven {
+                    name = ProjectSetting.MODULE_NAME_UNITY_AD
+                    url = uri(ProjectSetting.URI_PACKAGE_LIB)
+                    credentials {
+                        username = project.findProperty("gpr.user") as String? ?: ""
+                        password = project.findProperty("gpr.key") as String? ?: ""
+                    }
+                }
+            }
+
             // Creates a Maven publication called "release".
             register("release", MavenPublication::class) {
 
@@ -78,7 +89,7 @@ afterEvaluate {
 
                 // Library Package Name (Example : "com.frogobox.androidfirstlib")
                 // NOTE : Different GroupId For Each Library / Module, So That Each Library Is Not Overwritten
-                groupId = ProjectSetting.PROJECT_LIB_ID_UNITY_AD
+                groupId = ProjectSetting.BASE_PROJECT_PACKAGE
 
                 // Library Name / Module Name (Example : "androidfirstlib")
                 // NOTE : Different ArtifactId For Each Library / Module, So That Each Library Is Not Overwritten
