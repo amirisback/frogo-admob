@@ -7,8 +7,6 @@ import com.frogobox.admob.callback.FrogoAdmobInterstitialCallback
 import com.frogobox.admob.callback.FrogoAdmobRewardedCallback
 import com.frogobox.admob.core.FrogoAdConsent
 import com.frogobox.admob.core.FrogoAdmob
-import com.frogobox.sdk.ext.showLogD
-import com.frogobox.sdk.ext.showLogDebug
 import com.google.android.gms.ads.AdSize
 import com.google.android.gms.ads.AdView
 
@@ -35,7 +33,6 @@ class AdmobDelegatesImpl : AdmobDelegates {
     private lateinit var admobDelegatesActivity: AppCompatActivity
 
     override fun setupAdmobDelegates(activity: AppCompatActivity) {
-        showLogD<AdmobDelegatesImpl>("activity: $activity")
         admobDelegatesActivity = activity
     }
 
@@ -50,27 +47,22 @@ class AdmobDelegatesImpl : AdmobDelegates {
     // ---------------------------------------------------------------------------------------------
 
     override fun showAdBanner(mAdView: AdView) {
-        showLogDebug("$TAG : Run From $TAG class : FrogoAdmob.showAdBanner")
         FrogoAdmob.showAdBanner(mAdView)
     }
 
     override fun showAdBanner(mAdView: AdView, callback: FrogoAdmobBannerCallback) {
-        showLogDebug("$TAG : Run From $TAG class : FrogoAdmob.showAdBanner")
         FrogoAdmob.showAdBanner(mAdView, callback)
     }
 
     override fun showAdBanner(mAdView: AdView, timeoutMilliSecond: Int) {
-        showLogDebug("$TAG : Run From $TAG class : FrogoAdmob.showAdBanner")
         FrogoAdmob.showAdBanner(mAdView, timeoutMilliSecond)
     }
 
     override fun showAdBanner(mAdView: AdView, keyword: List<String>) {
-        showLogDebug("$TAG : Run From $TAG class : FrogoAdmob.showAdBanner")
         FrogoAdmob.showAdBanner(mAdView, keyword)
     }
 
     override fun showAdBanner(mAdView: AdView, timeoutMilliSecond: Int, keyword: List<String>) {
-        showLogDebug("$TAG : Run From $TAG class : FrogoAdmob.showAdBanner")
         FrogoAdmob.showAdBanner(mAdView, timeoutMilliSecond, keyword)
     }
 
@@ -80,7 +72,6 @@ class AdmobDelegatesImpl : AdmobDelegates {
         keyword: List<String>,
         callback: FrogoAdmobBannerCallback
     ) {
-        showLogDebug("$TAG : Run From $TAG class : FrogoAdmob.showAdBanner")
         FrogoAdmob.showAdBanner(mAdView, timeoutMilliSecond, keyword, callback)
     }
 
@@ -89,7 +80,6 @@ class AdmobDelegatesImpl : AdmobDelegates {
         timeoutMilliSecond: Int,
         callback: FrogoAdmobBannerCallback
     ) {
-        showLogDebug("$TAG : Run From $TAG class : FrogoAdmob.showAdBanner")
         FrogoAdmob.showAdBanner(mAdView, timeoutMilliSecond, callback)
     }
 
@@ -98,7 +88,6 @@ class AdmobDelegatesImpl : AdmobDelegates {
         keyword: List<String>,
         callback: FrogoAdmobBannerCallback
     ) {
-        showLogDebug("$TAG : Run From $TAG class : FrogoAdmob.showAdBanner")
         FrogoAdmob.showAdBanner(mAdView, keyword, callback)
     }
 
@@ -107,7 +96,6 @@ class AdmobDelegatesImpl : AdmobDelegates {
         mAdsSize: AdSize,
         container: RelativeLayout
     ) {
-        showLogDebug("$TAG : Run From $TAG class : FrogoAdmob.showAdBannerContainer")
         FrogoAdmob.showAdBannerContainer(
             admobDelegatesActivity,
             bannerAdUnitId,
@@ -122,7 +110,6 @@ class AdmobDelegatesImpl : AdmobDelegates {
         container: RelativeLayout,
         callback: FrogoAdmobBannerCallback
     ) {
-        showLogDebug("$TAG : Run From $TAG class : FrogoAdmob.showAdBannerContainer")
         FrogoAdmob.showAdBannerContainer(
             admobDelegatesActivity,
             bannerAdUnitId,
@@ -138,7 +125,6 @@ class AdmobDelegatesImpl : AdmobDelegates {
         container: RelativeLayout,
         timeoutMilliSecond: Int
     ) {
-        showLogDebug("$TAG : Run From $TAG class : FrogoAdmob.showAdBannerContainer")
         FrogoAdmob.showAdBannerContainer(
             admobDelegatesActivity,
             bannerAdUnitId,
@@ -154,7 +140,6 @@ class AdmobDelegatesImpl : AdmobDelegates {
         container: RelativeLayout,
         keyword: List<String>
     ) {
-        showLogDebug("$TAG : Run From $TAG class : FrogoAdmob.showAdBannerContainer")
         FrogoAdmob.showAdBannerContainer(
             admobDelegatesActivity,
             bannerAdUnitId,
@@ -171,7 +156,6 @@ class AdmobDelegatesImpl : AdmobDelegates {
         timeoutMilliSecond: Int,
         keyword: List<String>
     ) {
-        showLogDebug("$TAG : Run From $TAG class : FrogoAdmob.showAdBannerContainer")
         FrogoAdmob.showAdBannerContainer(
             admobDelegatesActivity,
             bannerAdUnitId,
@@ -189,7 +173,6 @@ class AdmobDelegatesImpl : AdmobDelegates {
         timeoutMilliSecond: Int,
         callback: FrogoAdmobBannerCallback
     ) {
-        showLogDebug("$TAG : Run From $TAG class : FrogoAdmob.showAdBannerContainer")
         FrogoAdmob.showAdBannerContainer(
             admobDelegatesActivity,
             bannerAdUnitId,
@@ -207,7 +190,6 @@ class AdmobDelegatesImpl : AdmobDelegates {
         keyword: List<String>,
         callback: FrogoAdmobBannerCallback
     ) {
-        showLogDebug("$TAG : Run From $TAG class : FrogoAdmob.showAdBannerContainer")
         FrogoAdmob.showAdBannerContainer(
             admobDelegatesActivity,
             bannerAdUnitId,
@@ -226,7 +208,6 @@ class AdmobDelegatesImpl : AdmobDelegates {
         keyword: List<String>,
         callback: FrogoAdmobBannerCallback
     ) {
-        showLogDebug("$TAG : Run From $TAG class : FrogoAdmob.showAdBannerContainer")
         FrogoAdmob.showAdBannerContainer(
             admobDelegatesActivity,
             bannerAdUnitId,
@@ -241,7 +222,6 @@ class AdmobDelegatesImpl : AdmobDelegates {
     // ---------------------------------------------------------------------------------------------
 
     override fun showAdInterstitial(interstitialAdUnitId: String) {
-        showLogDebug("$TAG : Run From $TAG class : FrogoAdmob.showAdInterstitial")
         FrogoAdmob.showAdInterstitial(admobDelegatesActivity, interstitialAdUnitId)
     }
 
@@ -249,7 +229,6 @@ class AdmobDelegatesImpl : AdmobDelegates {
         interstitialAdUnitId: String,
         callback: FrogoAdmobInterstitialCallback
     ) {
-        showLogDebug("$TAG : Run From $TAG class : FrogoAdmob.showAdInterstitial")
         FrogoAdmob.showAdInterstitial(admobDelegatesActivity, interstitialAdUnitId, callback)
     }
 
@@ -259,7 +238,6 @@ class AdmobDelegatesImpl : AdmobDelegates {
         keyword: List<String>,
         callback: FrogoAdmobInterstitialCallback
     ) {
-        showLogDebug("$TAG : Run From $TAG class : FrogoAdmob.showAdInterstitial")
         FrogoAdmob.showAdInterstitial(
             admobDelegatesActivity,
             interstitialAdUnitId,
@@ -274,7 +252,6 @@ class AdmobDelegatesImpl : AdmobDelegates {
         timeoutMilliSecond: Int,
         keyword: List<String>
     ) {
-        showLogDebug("$TAG : Run From $TAG class : FrogoAdmob.showAdInterstitial")
         FrogoAdmob.showAdInterstitial(
             admobDelegatesActivity,
             interstitialAdUnitId,
@@ -284,7 +261,6 @@ class AdmobDelegatesImpl : AdmobDelegates {
     }
 
     override fun showAdInterstitial(interstitialAdUnitId: String, timeoutMilliSecond: Int) {
-        showLogDebug("$TAG : Run From $TAG class : FrogoAdmob.showAdInterstitial")
         FrogoAdmob.showAdInterstitial(
             admobDelegatesActivity,
             interstitialAdUnitId,
@@ -293,7 +269,6 @@ class AdmobDelegatesImpl : AdmobDelegates {
     }
 
     override fun showAdInterstitial(interstitialAdUnitId: String, keyword: List<String>) {
-        showLogDebug("$TAG : Run From $TAG class : FrogoAdmob.showAdInterstitial")
         FrogoAdmob.showAdInterstitial(admobDelegatesActivity, interstitialAdUnitId, keyword)
     }
 
@@ -302,7 +277,6 @@ class AdmobDelegatesImpl : AdmobDelegates {
         timeoutMilliSecond: Int,
         callback: FrogoAdmobInterstitialCallback
     ) {
-        showLogDebug("$TAG : Run From $TAG class : FrogoAdmob.showAdInterstitial")
         FrogoAdmob.showAdInterstitial(
             admobDelegatesActivity,
             interstitialAdUnitId,
@@ -316,7 +290,6 @@ class AdmobDelegatesImpl : AdmobDelegates {
         keyword: List<String>,
         callback: FrogoAdmobInterstitialCallback
     ) {
-        showLogDebug("$TAG : Run From $TAG class : FrogoAdmob.showAdInterstitial")
         FrogoAdmob.showAdInterstitial(
             admobDelegatesActivity,
             interstitialAdUnitId,
@@ -328,7 +301,6 @@ class AdmobDelegatesImpl : AdmobDelegates {
     // ---------------------------------------------------------------------------------------------
 
     override fun showAdRewarded(mAdUnitIdRewarded: String, callback: FrogoAdmobRewardedCallback) {
-        showLogDebug("$TAG : Run From $TAG class : FrogoAdmob.showAdRewarded")
         FrogoAdmob.showAdRewarded(admobDelegatesActivity, mAdUnitIdRewarded, callback)
     }
 
@@ -337,7 +309,6 @@ class AdmobDelegatesImpl : AdmobDelegates {
         timeoutMilliSecond: Int,
         callback: FrogoAdmobRewardedCallback
     ) {
-        showLogDebug("$TAG : Run From $TAG class : FrogoAdmob.showAdRewarded")
         FrogoAdmob.showAdRewarded(
             admobDelegatesActivity,
             mAdUnitIdRewarded,
@@ -351,7 +322,6 @@ class AdmobDelegatesImpl : AdmobDelegates {
         keyword: List<String>,
         callback: FrogoAdmobRewardedCallback
     ) {
-        showLogDebug("$TAG : Run From $TAG class : FrogoAdmob.showAdRewarded")
         FrogoAdmob.showAdRewarded(admobDelegatesActivity, mAdUnitIdRewarded, keyword, callback)
     }
 
@@ -361,7 +331,6 @@ class AdmobDelegatesImpl : AdmobDelegates {
         keyword: List<String>,
         callback: FrogoAdmobRewardedCallback
     ) {
-        showLogDebug("$TAG : Run From $TAG class : FrogoAdmob.showAdRewarded")
         FrogoAdmob.showAdRewarded(
             admobDelegatesActivity,
             mAdUnitIdRewarded,
@@ -377,7 +346,6 @@ class AdmobDelegatesImpl : AdmobDelegates {
         mAdUnitIdRewardedInterstitial: String,
         callback: FrogoAdmobRewardedCallback
     ) {
-        showLogDebug("$TAG : Run From $TAG class : FrogoAdmob.showAdRewardedInterstitial")
         FrogoAdmob.showAdRewardedInterstitial(
             admobDelegatesActivity,
             mAdUnitIdRewardedInterstitial,
@@ -390,7 +358,6 @@ class AdmobDelegatesImpl : AdmobDelegates {
         timeoutMilliSecond: Int,
         callback: FrogoAdmobRewardedCallback
     ) {
-        showLogDebug("$TAG : Run From $TAG class : FrogoAdmob.showAdRewardedInterstitial")
         FrogoAdmob.showAdRewardedInterstitial(
             admobDelegatesActivity,
             mAdUnitIdRewardedInterstitial,
@@ -404,7 +371,6 @@ class AdmobDelegatesImpl : AdmobDelegates {
         keyword: List<String>,
         callback: FrogoAdmobRewardedCallback
     ) {
-        showLogDebug("$TAG : Run From $TAG class : FrogoAdmob.showAdRewardedInterstitial")
         FrogoAdmob.showAdRewardedInterstitial(
             admobDelegatesActivity,
             mAdUnitIdRewardedInterstitial,
@@ -419,7 +385,6 @@ class AdmobDelegatesImpl : AdmobDelegates {
         keyword: List<String>,
         callback: FrogoAdmobRewardedCallback
     ) {
-        showLogDebug("$TAG : Run From $TAG class : FrogoAdmob.showAdRewardedInterstitial")
         FrogoAdmob.showAdRewardedInterstitial(
             admobDelegatesActivity,
             mAdUnitIdRewardedInterstitial,

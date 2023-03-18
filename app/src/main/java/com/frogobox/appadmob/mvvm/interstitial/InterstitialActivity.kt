@@ -8,6 +8,7 @@ import com.frogobox.appadmob.R
 import com.frogobox.appadmob.databinding.ActivityInterstitialBinding
 import com.frogobox.sdk.ext.gone
 import com.frogobox.sdk.ext.showLogDebug
+import com.frogobox.sdk.ext.showToast
 import com.frogobox.sdk.ext.visible
 import com.frogobox.unityad.callback.FrogoUnityAdInterstitialCallback
 

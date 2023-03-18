@@ -31,7 +31,6 @@ abstract class FrogoAdmobBindActivity<VB : ViewBinding> : FrogoBindActivity<VB>(
 
     override fun setupMonetized() {
         super.setupMonetized()
-        showLogDebug("$TAG : Run From $TAG class : FrogoAdmob.setupAdmobApp")
         setupAdmobDelegates(this)
         setupAdmobApp()
     }

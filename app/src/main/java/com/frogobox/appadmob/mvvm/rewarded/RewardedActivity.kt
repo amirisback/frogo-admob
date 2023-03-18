@@ -6,6 +6,7 @@ import com.frogobox.appadmob.R
 import com.frogobox.appadmob.base.BaseActivity
 import com.frogobox.appadmob.databinding.ActivityRewardedBinding
 import com.frogobox.sdk.ext.gone
+import com.frogobox.sdk.ext.showToast
 import com.frogobox.sdk.ext.visible
 import com.google.android.gms.ads.rewarded.RewardItem
 

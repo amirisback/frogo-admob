@@ -6,7 +6,6 @@ import com.frogobox.ad.delegate.FrogoAdDelegates
 import com.frogobox.ad.delegate.FrogoAdDelegatesImpl
 import com.frogobox.admob.delegate.AdmobDelegates
 import com.frogobox.admob.delegate.AdmobDelegatesImpl
-import com.frogobox.sdk.ext.showLogDebug
 import com.frogobox.unityad.delegate.UnityAdDelegates
 import com.frogobox.unityad.delegate.UnityAdDelegatesImpl
 
@@ -26,14 +25,11 @@ abstract class AdActivity : AppCompatActivity(),
     }
 
     open fun setupMonetized() {
-        showLogDebug("$TAG : Run From $TAG class : FrogoAdmob.setupAdmobApp")
         setupAdmobDelegates(this)
         setupAdmobApp()
     }
 
-    open fun setupContentView() {
-        showLogDebug("$TAG : Run From $TAG class : AdActivity.setupContentView")
-    }
+    open fun setupContentView() {}
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

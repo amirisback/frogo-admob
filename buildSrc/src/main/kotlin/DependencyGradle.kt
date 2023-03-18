@@ -17,10 +17,10 @@ object DependencyGradle {
     const val KOTLIN_REFLECT = "org.jetbrains.kotlin:kotlin-reflect:$KOTLIN_VERSION"
     const val COMPOSE_VERSION = Version.Androidx.composeCompiler
 
-    const val FROGO_UI_VERSION = "1.1.2"
-    const val FROGO_SDK_VERSION = "2.1.4"
-    const val FROGO_CONSUME_API_VERSION = "2.4.3"
-    const val FROGO_RECYCLER_VIEW_VERSION = "4.3.3"
+    const val FROGO_UI_VERSION = "1.1.3"
+    const val FROGO_SDK_VERSION = "2.1.5"
+    const val FROGO_CONSUME_API_VERSION = "2.4.4"
+    const val FROGO_RECYCLER_VIEW_VERSION = "4.3.4"
 
     const val FROGO_UI = "com.github.frogobox:frogo-ui:$FROGO_UI_VERSION"
     const val FROGO_SDK = "com.github.frogobox:frogo-sdk:$FROGO_SDK_VERSION"

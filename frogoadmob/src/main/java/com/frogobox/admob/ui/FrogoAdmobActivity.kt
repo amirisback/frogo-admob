@@ -33,7 +33,6 @@ abstract class FrogoAdmobActivity : FrogoActivity(),
     }
     override fun setupMonetized() {
         super.setupMonetized()
-        showLogDebug("$TAG : Run From $TAG class : FrogoAdmob.setupAdmobApp")
         setupAdmobDelegates(this)
         setupAdmobApp()
     }

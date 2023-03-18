@@ -5,11 +5,9 @@ import com.frogobox.ad.delegate.FrogoAdDelegates
 import com.frogobox.ad.delegate.FrogoAdDelegatesImpl
 import com.frogobox.admob.delegate.AdmobDelegates
 import com.frogobox.admob.delegate.AdmobDelegatesImpl
-import com.frogobox.sdk.ext.showLogD
 import com.frogobox.sdk.view.FrogoBindActivity
 import com.frogobox.unityad.delegate.UnityAdDelegates
 import com.frogobox.unityad.delegate.UnityAdDelegatesImpl
-import com.google.android.gms.ads.AdView
 
 /**
  * Created by Faisal Amir
@@ -39,12 +37,15 @@ abstract class FrogoAdBindActivity<VB : ViewBinding> : FrogoBindActivity<VB>(),
         val TAG: String = FrogoAdBindActivity::class.java.simpleName
     }
 
-    override fun setupMonetized() {
-        super.setupMonetized()
-        showLogD<FrogoAdBindActivity<VB>>("Run setupMonetized() From $TAG")
+    override fun setupDelegates() {
+        super.setupDelegates()
         setupAdmobDelegates(this)
         setupUnityAdDelegates(this)
         setupFrogoAdDelegates(this)
+    }
+
+    override fun setupMonetized() {
+        super.setupMonetized()
         setupAdmobApp()
     }
 

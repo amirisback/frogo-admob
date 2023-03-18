@@ -20,14 +20,11 @@ abstract class AdmobActivity : AppCompatActivity(),
     }
 
     open fun setupMonetized() {
-        showLogDebug("$TAG : Run From $TAG class : FrogoAdmob.setupAdmobApp")
         setupAdmobDelegates(this)
         setupAdmobApp()
     }
 
-    open fun setupContentView() {
-        showLogDebug("$TAG : Run From $TAG class : AdmobActivity.setupContentView")
-    }
+    open fun setupContentView() {}
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

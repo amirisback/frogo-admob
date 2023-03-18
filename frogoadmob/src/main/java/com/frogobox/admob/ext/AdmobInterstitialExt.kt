@@ -37,7 +37,6 @@ fun InterstitialAd.showAd(
     callback: FrogoAdmobInterstitialCallback?
 ) {
 
-    
     showLogDebug("$TAG Interstitial Id : $interstitialAdUnitId")
 
     if (interstitialAdUnitId != "") {

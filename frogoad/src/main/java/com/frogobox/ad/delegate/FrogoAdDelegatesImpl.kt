@@ -5,7 +5,6 @@ import com.frogobox.ad.callback.FrogoAdInterstitialCallback
 import com.frogobox.admob.callback.FrogoAdmobInterstitialCallback
 import com.frogobox.admob.delegate.AdmobDelegates
 import com.frogobox.admob.delegate.AdmobDelegatesImpl
-import com.frogobox.sdk.ext.showLogD
 import com.frogobox.unityad.callback.FrogoUnityAdInterstitialCallback
 import com.frogobox.unityad.delegate.UnityAdDelegates
 import com.frogobox.unityad.delegate.UnityAdDelegatesImpl
@@ -29,7 +28,6 @@ class FrogoAdDelegatesImpl : FrogoAdDelegates,
     UnityAdDelegates by UnityAdDelegatesImpl() {
 
     override fun setupFrogoAdDelegates(activity: AppCompatActivity) {
-        showLogD<FrogoAdDelegatesImpl>("activity: $activity")
         setupAdmobDelegates(activity)
         setupUnityAdDelegates(activity)
     }
