@@ -15,6 +15,10 @@ import com.frogobox.unityad.callback.FrogoUnityAdInterstitialCallback
 class InterstitialActivity : FrogoAdBindActivity<ActivityInterstitialBinding>(),
     FrogoAdmobInterstitialCallback, FrogoUnityAdInterstitialCallback, FrogoAdInterstitialCallback {
 
+    companion object {
+        private const val HTTP_TIMEOUT_MILLIS = 3000
+    }
+
     private fun getKeyword(): MutableList<String> {
         val keywords = mutableListOf<String>()
         keywords.add("Kids")
@@ -24,8 +28,6 @@ class InterstitialActivity : FrogoAdBindActivity<ActivityInterstitialBinding>(),
         keywords.add("Piano")
         return keywords
     }
-
-    private val HTTP_TIMEOUT_MILLIS = 30000
 
     override fun setupViewBinding(): ActivityInterstitialBinding {
         return ActivityInterstitialBinding.inflate(layoutInflater)
@@ -151,6 +153,15 @@ class InterstitialActivity : FrogoAdBindActivity<ActivityInterstitialBinding>(),
                 )
             }
 
+            btnAdmobXUnityInterstitialTimeout.setOnClickListener {
+                showAdmobXUnityAdInterstitial(
+                    "",
+                    getString(R.string.unity_ad_interstitial),
+                    HTTP_TIMEOUT_MILLIS,
+                    this@InterstitialActivity
+                )
+            }
+
             btnAdmobXUnityInterstitialFailedWrong.setOnClickListener {
                 showAdmobXUnityAdInterstitial(
                     "",
@@ -171,6 +182,15 @@ class InterstitialActivity : FrogoAdBindActivity<ActivityInterstitialBinding>(),
                 showUnityXAdmobAdInterstitial(
                     getString(R.string.admob_interstitial),
                     "",
+                    this@InterstitialActivity
+                )
+            }
+
+            btnUnityXAdmobInterstitialTimeout.setOnClickListener {
+                showUnityXAdmobAdInterstitial(
+                    getString(R.string.admob_interstitial),
+                    "",
+                    HTTP_TIMEOUT_MILLIS,
                     this@InterstitialActivity
                 )
             }

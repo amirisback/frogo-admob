@@ -1,7 +1,6 @@
 package com.frogobox.unityad.ui
 
 import androidx.viewbinding.ViewBinding
-import com.frogobox.sdk.ext.showLogD
 import com.frogobox.sdk.view.FrogoBindActivity
 import com.frogobox.unityad.delegate.UnityAdDelegates
 import com.frogobox.unityad.delegate.UnityAdDelegatesImpl
@@ -34,7 +33,6 @@ abstract class FrogoUnityAdBindActivity<VB : ViewBinding> : FrogoBindActivity<VB
 
     override fun setupMonetized() {
         super.setupMonetized()
-        showLogD<FrogoUnityAdBindActivity<VB>>("Run setupMonetized() From $TAG")
         setupUnityAdDelegates(this)
     }
 

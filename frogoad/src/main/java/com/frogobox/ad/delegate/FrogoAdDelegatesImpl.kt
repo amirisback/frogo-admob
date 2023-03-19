@@ -132,6 +132,109 @@ class FrogoAdDelegatesImpl : FrogoAdDelegates,
 
     }
 
+    override fun showAdmobXUnityAdInterstitial(
+        admobInterstitialId: String,
+        unityInterstitialId: String,
+        timeout: Int,
+        callback: FrogoAdInterstitialCallback
+    ) {
+
+        if (admobInterstitialId == "") {
+            showUnityAdInterstitial(unityInterstitialId, object : FrogoUnityAdInterstitialCallback {
+                override fun onClicked(tag: String, message: String) {
+                    callback.onClicked(tag, message)
+                }
+
+                override fun onShowAdRequestProgress(tag: String, message: String) {
+                    callback.onShowAdRequestProgress(tag, message)
+                }
+
+                override fun onHideAdRequestProgress(tag: String, message: String) {
+                    callback.onHideAdRequestProgress(tag, message)
+                }
+
+                override fun onAdDismissed(tag: String, message: String) {
+                    callback.onAdDismissed(tag, message)
+                }
+
+                override fun onAdFailed(tag: String, errorMessage: String) {
+                    callback.onAdFailed(tag, errorMessage)
+                }
+
+                override fun onAdLoaded(tag: String, message: String) {
+                    callback.onAdLoaded(tag, message)
+                }
+
+                override fun onAdShowed(tag: String, message: String) {
+                    callback.onAdShowed(tag, message)
+                }
+            })
+        } else {
+            showAdInterstitial(admobInterstitialId, timeout, object : FrogoAdmobInterstitialCallback {
+                override fun onShowAdRequestProgress(tag: String, message: String) {
+                    callback.onShowAdRequestProgress(tag, message)
+                }
+
+                override fun onHideAdRequestProgress(tag: String, message: String) {
+                    callback.onHideAdRequestProgress(tag, message)
+                }
+
+                override fun onAdDismissed(tag: String, message: String) {
+                    callback.onAdDismissed(tag, message)
+                }
+
+                override fun onAdFailed(tag: String, errorMessage: String) {
+                    if (unityInterstitialId == "") {
+                        callback.onAdFailed(tag, errorMessage)
+                    } else {
+                        showUnityAdInterstitial(unityInterstitialId,
+                            object : FrogoUnityAdInterstitialCallback {
+                                override fun onClicked(tag: String, message: String) {
+                                    callback.onClicked(tag, message)
+                                }
+
+                                override fun onShowAdRequestProgress(tag: String, message: String) {
+                                    callback.onShowAdRequestProgress(tag, message)
+                                }
+
+                                override fun onHideAdRequestProgress(tag: String, message: String) {
+                                    callback.onHideAdRequestProgress(tag, message)
+                                }
+
+                                override fun onAdDismissed(tag: String, message: String) {
+                                    callback.onAdDismissed(tag, message)
+                                }
+
+                                override fun onAdFailed(tag: String, errorMessage: String) {
+                                    callback.onAdFailed(tag, errorMessage)
+                                }
+
+                                override fun onAdLoaded(tag: String, message: String) {
+                                    callback.onAdLoaded(tag, message)
+                                }
+
+                                override fun onAdShowed(tag: String, message: String) {
+                                    callback.onAdShowed(tag, message)
+                                }
+                            })
+                    }
+                }
+
+                override fun onAdLoaded(tag: String, message: String) {
+                    callback.onAdLoaded(tag, message)
+                }
+
+                override fun onAdShowed(tag: String, message: String) {
+                    callback.onAdShowed(tag, message)
+                }
+            })
+        }
+
+
+    }
+
+    // ---------------------------------------------------------------------------------------------
+
     // Mixed Ads Unity >> Admob
     override fun showUnityXAdmobAdInterstitial(
         admobInterstitialId: String,
@@ -227,4 +330,103 @@ class FrogoAdDelegatesImpl : FrogoAdDelegates,
             }
         })
     }
+
+    override fun showUnityXAdmobAdInterstitial(
+        admobInterstitialId: String,
+        unityInterstitialId: String,
+        timeout: Int,
+        callback: FrogoAdInterstitialCallback
+    ) {
+
+        if (unityInterstitialId == "") {
+            showAdInterstitial(admobInterstitialId,
+                timeout,
+                object : FrogoAdmobInterstitialCallback {
+                    override fun onShowAdRequestProgress(tag: String, message: String) {
+                        callback.onShowAdRequestProgress(tag, message)
+                    }
+
+                    override fun onHideAdRequestProgress(tag: String, message: String) {
+                        callback.onHideAdRequestProgress(tag, message)
+                    }
+
+                    override fun onAdDismissed(tag: String, message: String) {
+                        callback.onAdDismissed(tag, message)
+                    }
+
+                    override fun onAdFailed(tag: String, errorMessage: String) {
+                        callback.onAdFailed(tag, errorMessage)
+                    }
+
+                    override fun onAdLoaded(tag: String, message: String) {
+                        callback.onAdLoaded(tag, message)
+                    }
+
+                    override fun onAdShowed(tag: String, message: String) {
+                        callback.onAdShowed(tag, message)
+                    }
+                })
+        }
+
+        showUnityAdInterstitial(unityInterstitialId, object : FrogoUnityAdInterstitialCallback {
+            override fun onAdDismissed(tag: String, message: String) {
+                callback.onAdDismissed(tag, message)
+            }
+
+            override fun onAdFailed(tag: String, errorMessage: String) {
+                if (admobInterstitialId == "") {
+                    callback.onAdFailed(tag, errorMessage)
+                } else {
+                    showAdInterstitial(admobInterstitialId,
+                        timeout,
+                        object : FrogoAdmobInterstitialCallback {
+                            override fun onShowAdRequestProgress(tag: String, message: String) {
+                                callback.onShowAdRequestProgress(tag, message)
+                            }
+
+                            override fun onHideAdRequestProgress(tag: String, message: String) {
+                                callback.onHideAdRequestProgress(tag, message)
+                            }
+
+                            override fun onAdDismissed(tag: String, message: String) {
+                                callback.onAdDismissed(tag, message)
+                            }
+
+                            override fun onAdFailed(tag: String, errorMessage: String) {
+                                callback.onAdFailed(tag, errorMessage)
+                            }
+
+                            override fun onAdLoaded(tag: String, message: String) {
+                                callback.onAdLoaded(tag, message)
+                            }
+
+                            override fun onAdShowed(tag: String, message: String) {
+                                callback.onAdShowed(tag, message)
+                            }
+                        })
+                }
+            }
+
+            override fun onAdLoaded(tag: String, message: String) {
+                callback.onAdLoaded(tag, message)
+            }
+
+            override fun onAdShowed(tag: String, message: String) {
+                callback.onAdShowed(tag, message)
+            }
+
+            override fun onClicked(tag: String, message: String) {
+                callback.onClicked(tag, message)
+            }
+
+            override fun onShowAdRequestProgress(tag: String, message: String) {
+                callback.onShowAdRequestProgress(tag, message)
+            }
+
+            override fun onHideAdRequestProgress(tag: String, message: String) {
+                callback.onHideAdRequestProgress(tag, message)
+            }
+        })
+    }
+
 }

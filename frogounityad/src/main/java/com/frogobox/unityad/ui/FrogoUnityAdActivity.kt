@@ -1,6 +1,5 @@
 package com.frogobox.unityad.ui
 
-import com.frogobox.sdk.ext.showLogD
 import com.frogobox.sdk.view.FrogoActivity
 import com.frogobox.unityad.delegate.UnityAdDelegates
 import com.frogobox.unityad.delegate.UnityAdDelegatesImpl
@@ -33,7 +32,6 @@ abstract class FrogoUnityAdActivity : FrogoActivity(),
 
     override fun setupMonetized() {
         super.setupMonetized()
-        showLogD<FrogoUnityAdActivity>("Run setupMonetized() From $TAG")
         setupUnityAdDelegates(this)
     }
 

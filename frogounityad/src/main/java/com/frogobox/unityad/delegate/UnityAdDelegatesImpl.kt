@@ -1,8 +1,6 @@
 package com.frogobox.unityad.delegate
 
 import androidx.appcompat.app.AppCompatActivity
-import com.frogobox.sdk.ext.showLogD
-import com.frogobox.sdk.ext.showLogDebug
 import com.frogobox.unityad.callback.FrogoUnityAdInitializationCallback
 import com.frogobox.unityad.callback.FrogoUnityAdInterstitialCallback
 import com.frogobox.unityad.core.FrogoUnityAd
@@ -30,7 +28,6 @@ class UnityAdDelegatesImpl : UnityAdDelegates {
     private lateinit var unityAdDelegatesActivity: AppCompatActivity
 
     override fun setupUnityAdDelegates(activity: AppCompatActivity) {
-        showLogD<UnityAdDelegatesImpl>("activity: $activity")
         unityAdDelegatesActivity = activity
     }
 
@@ -51,7 +48,6 @@ class UnityAdDelegatesImpl : UnityAdDelegates {
     // ---------------------------------------------------------------------------------------------
 
     override fun showUnityAdInterstitial(adInterstitialUnitId: String) {
-        showLogDebug("$TAG : Run From $TAG class : FrogoUnityAd.showAdInterstitial")
         FrogoUnityAd.showAdInterstitial(unityAdDelegatesActivity, adInterstitialUnitId)
     }
 
@@ -59,7 +55,6 @@ class UnityAdDelegatesImpl : UnityAdDelegates {
         adInterstitialUnitId: String,
         callback: FrogoUnityAdInterstitialCallback
     ) {
-        showLogDebug("$TAG : Run From $TAG class : FrogoUnityAd.showAdInterstitial")
         FrogoUnityAd.showAdInterstitial(unityAdDelegatesActivity, adInterstitialUnitId, callback)
     }
 

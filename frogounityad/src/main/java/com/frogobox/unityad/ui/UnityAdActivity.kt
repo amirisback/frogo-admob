@@ -2,7 +2,6 @@ package com.frogobox.unityad.ui
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import com.frogobox.sdk.ext.showLogDebug
 import com.frogobox.unityad.delegate.UnityAdDelegates
 import com.frogobox.unityad.delegate.UnityAdDelegatesImpl
 
@@ -20,13 +19,10 @@ abstract class UnityAdActivity : AppCompatActivity(),
     }
 
     open fun setupMonetized() {
-        showLogDebug("$TAG : Run From $TAG class : FrogoAdmob.setupAdmobApp")
         setupUnityAdDelegates(this)
     }
 
-    open fun setupContentView() {
-        showLogDebug("$TAG : Run From $TAG class : UnityAdActivity.setupContentView")
-    }
+    open fun setupContentView() {}
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

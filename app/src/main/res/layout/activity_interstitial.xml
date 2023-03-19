@@ -152,6 +152,12 @@
                 android:text="Admob >> Unity Interstitial" />
 
             <Button
+                android:id="@+id/btn_admob_x_unity_interstitial_timeout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Admob >> Unity Interstitial Timeout" />
+
+            <Button
                 android:id="@+id/btn_admob_x_unity_interstitial_failed_wrong"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -169,6 +175,12 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Unity >> Admob Interstitial" />
+
+            <Button
+                android:id="@+id/btn_unity_x_admob_interstitial_timeout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Unity >> Admob Interstitial Timeout" />
 
             <Button
                 android:id="@+id/btn_unity_x_admob_interstitial_failed_wrong"
