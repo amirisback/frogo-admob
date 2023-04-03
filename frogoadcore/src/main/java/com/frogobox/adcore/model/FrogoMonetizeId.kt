@@ -1,5 +1,6 @@
 package com.frogobox.adcore.model
 
+import androidx.annotation.Keep
 import com.google.gson.annotations.SerializedName
 
 
@@ -15,7 +16,7 @@ import com.google.gson.annotations.SerializedName
  * All rights reserved
  *
  */
-
+@Keep
 data class FrogoMonetizeId(
 
     @SerializedName("testAdmobAppId")
