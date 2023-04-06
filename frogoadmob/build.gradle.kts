@@ -1,9 +1,6 @@
-import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
-
 plugins {
     id("com.android.library")
     id("org.jetbrains.kotlin.android")
-    id("kotlin-kapt")
     `maven-publish`
 }
 
@@ -44,15 +41,15 @@ android {
         targetCompatibility = JavaVersion.VERSION_11
     }
 
-    packagingOptions {
-        resources {
-            excludes += setOf("META-INF/AL2.0", "META-INF/LGPL2.1")
+    kotlin {
+        jvmToolchain {
+            languageVersion.set(JavaLanguageVersion.of("11"))
         }
     }
 
-    tasks.withType<KotlinCompile> {
-        kotlinOptions {
-            jvmTarget = JavaVersion.VERSION_11.toString()
+    packagingOptions {
+        resources {
+            excludes += setOf("META-INF/AL2.0", "META-INF/LGPL2.1")
         }
     }
 
