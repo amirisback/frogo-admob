@@ -1,9 +1,7 @@
 package com.frogobox.adcore.util
 
 import com.frogobox.adcore.util.FrogoAdConstant.ADMOB_MOBILE_ADS_KEY
-import com.frogobox.adcore.util.FrogoAdConstant.GITHUB_ACCOUNT
 import com.frogobox.adcore.util.FrogoAdConstant.LINE
-import com.frogobox.log.FLog
 import com.frogobox.sdk.ext.showLogDebug
 
 

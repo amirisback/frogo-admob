@@ -14,7 +14,7 @@
 object ProjectSetting {
 
     const val NAME_APP = "Frogo Admob"
-    val NAME_APK = NAME_APP.toLowerCase().replace(" ", "-")
+    val NAME_APK = NAME_APP.lowercase().replace(" ", "-")
 
     const val APP_DOMAIN = "com"
     const val APP_PLAY_CONSOLE = "frogobox"
@@ -25,7 +25,7 @@ object ProjectSetting {
 
     const val VERSION_MAJOR = 5
     const val VERSION_MINOR = 2
-    const val VERSION_PATCH = 0
+    const val VERSION_PATCH = 1
 
     // ---------------------------------------------------------------------------------------------
 
