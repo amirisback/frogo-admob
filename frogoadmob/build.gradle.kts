@@ -37,19 +37,13 @@ android {
     }
 
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_11
-        targetCompatibility = JavaVersion.VERSION_11
+        sourceCompatibility = JavaVersion.VERSION_17
+        targetCompatibility = JavaVersion.VERSION_17
     }
 
     kotlin {
         jvmToolchain {
-            languageVersion.set(JavaLanguageVersion.of("11"))
-        }
-    }
-
-    packagingOptions {
-        resources {
-            excludes += setOf("META-INF/AL2.0", "META-INF/LGPL2.1")
+            languageVersion.set(JavaLanguageVersion.of("17"))
         }
     }
 
@@ -59,10 +53,10 @@ dependencies {
 
     api(project(DependencyGradle.MODULE_LIB_FROGO_AD_CORE))
 
-    api(Ad.unityAds)
-
-    api(DependencyGradle.FROGO_SDK)
+    api(Google.admob)
     api(DependencyGradle.FROGO_RECYCLER_VIEW)
+
+    implementation(DependencyGradle.FROGO_SDK)
 
 }
 
