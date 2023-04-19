@@ -27,7 +27,7 @@
 
 ## Version Release
 
-    $version_release = 5.2.0
+    $version_release = 5.2.1
 
     // Suport Library
     $admob_version = 22.0.0
@@ -89,16 +89,16 @@ allprojects {
         implementation 'com.unity3d.ads:unity-ads:${unity_ad_version}'
 
         // library frogo-admob (Required - Recomended)
-        implementation 'com.github.amirisback:frogo-admob:5.2.0'
+        implementation 'com.github.amirisback:frogo-admob:5.2.1'
 
         // -----------------------------------------------------------------------------------------
         // For Single Library Patch 
 
         // library frogo-admob (Admob Only)
-        implementation 'com.github.amirisback.frogo-admob:frogoadmob:5.2.0'
+        implementation 'com.github.amirisback.frogo-admob:frogoadmob:5.2.1'
 
         // library frogo-admob (Unity Ads Only)
-        implementation 'com.github.amirisback.frogo-admob:frogounityad:5.2.0'
+        implementation 'com.github.amirisback.frogo-admob:frogounityad:5.2.1'
 	}
 
 #### <Option 2> Kotlin DSL
@@ -111,16 +111,16 @@ allprojects {
         implementation("com.unity3d.ads:unity-ads:${unity_ad_version}")
 
         // library frogo-admob (Required - Recomended)
-        implementation("com.github.amirisback:frogo-admob:5.2.0")
+        implementation("com.github.amirisback:frogo-admob:5.2.1")
 
         // -----------------------------------------------------------------------------------------
         // For Single Library Patch
 
         // library frogo-admob (Admob Only)
-        implementation("com.github.amirisback.frogo-admob:frogoadmob:5.2.0")
+        implementation("com.github.amirisback.frogo-admob:frogoadmob:5.2.1")
 
         // library frogo-admob (Unity Ads Only)
-        implementation("com.github.amirisback.frogo-admob:frogounityad:5.2.0")
+        implementation("com.github.amirisback.frogo-admob:frogounityad:5.2.1")
 
 	}
 	
