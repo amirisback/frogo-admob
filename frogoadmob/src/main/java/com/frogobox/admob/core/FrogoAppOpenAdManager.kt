@@ -108,12 +108,28 @@ class FrogoAppOpenAdManager {
             activity,
             appOpenAdUnitId,
             object : FrogoAdmobAppOpenAdCallback {
+                override fun onShowAdRequestProgress(tag: String, message: String) {
+                    // Empty because the user will go back to the activity that shows the ad.
+                }
+
+                override fun onHideAdRequestProgress(tag: String, message: String) {
+                    // Empty because the user will go back to the activity that shows the ad.
+                }
+
                 override fun onAdDismissed(tag: String, message: String) {
                     // Empty because the user will go back to the activity that shows the ad.
                 }
 
-                override fun onAdShowed(tag: String, message: String) {
+                override fun onAdFailed(tag: String, errorMessage: String) {
+                    // Empty because the user will go back to the activity that shows the ad.
+                }
 
+                override fun onAdLoaded(tag: String, message: String) {
+                    // Empty because the user will go back to the activity that shows the ad.
+                }
+
+                override fun onAdShowed(tag: String, message: String) {
+                    // Empty because the user will go back to the activity that shows the ad.
                 }
             }
         )
@@ -130,9 +146,13 @@ class FrogoAppOpenAdManager {
         appOpenAdUnitId: String,
         callback: FrogoAdmobAppOpenAdCallback
     ) {
+
+        callback.onShowAdRequestProgress(LOG_TAG, "Will show ad.")
+
         // If the app open ad is already showing, do not show the ad again.
         if (isShowingAd) {
             Log.d(LOG_TAG, "The app open ad is already showing.")
+            callback.onHideAdRequestProgress(LOG_TAG, "onAdShowedFullScreenContent")
             return
         }
 
@@ -140,6 +160,7 @@ class FrogoAppOpenAdManager {
         if (!isAdAvailable()) {
             Log.d(LOG_TAG, "The app open ad is not ready yet.")
             callback.onAdDismissed(LOG_TAG, "The app open ad is not ready yet.")
+            callback.onHideAdRequestProgress(LOG_TAG, "onAdShowedFullScreenContent")
             loadAd(activity, appOpenAdUnitId)
             return
         }
@@ -154,6 +175,7 @@ class FrogoAppOpenAdManager {
                 isShowingAd = false
                 Log.d(LOG_TAG, "onAdDismissedFullScreenContent.")
                 activity.showToast("onAdDismissedFullScreenContent")
+                callback.onHideAdRequestProgress(LOG_TAG, "onAdShowedFullScreenContent")
                 callback.onAdDismissed(LOG_TAG, "onAdDismissedFullScreenContent")
                 loadAd(activity, appOpenAdUnitId)
             }
@@ -164,12 +186,14 @@ class FrogoAppOpenAdManager {
                 isShowingAd = false
                 Log.d(LOG_TAG, "onAdFailedToShowFullScreenContent: " + adError.message)
                 activity.showToast("onAdFailedToShowFullScreenContent: " + adError.message)
+                callback.onHideAdRequestProgress(LOG_TAG, "onAdShowedFullScreenContent")
                 callback.onAdDismissed(LOG_TAG, "onAdFailedToShowFullScreenContent: " + adError.message)
                 loadAd(activity, appOpenAdUnitId)
             }
 
             /** Called when fullscreen content is shown. */
             override fun onAdShowedFullScreenContent() {
+                callback.onHideAdRequestProgress(LOG_TAG, "onAdShowedFullScreenContent")
                 callback.onAdShowed(LOG_TAG, "onAdShowedFullScreenContent")
                 Log.d(LOG_TAG, "onAdShowedFullScreenContent.")
                 activity.showToast("onAdShowedFullScreenContent")

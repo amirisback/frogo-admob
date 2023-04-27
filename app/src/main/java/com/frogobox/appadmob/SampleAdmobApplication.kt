@@ -1,8 +1,10 @@
 package com.frogobox.appadmob
 
+import android.content.Context
+import com.frogobox.admob.FrogoAdmobKoinApplication
 import com.frogobox.appadmob.di.repositoryModule
 import com.frogobox.appadmob.di.viewModelModule
-import com.frogobox.sdk.FrogoKoinApplication
+import com.frogobox.appadmob.util.AdHelper
 import org.koin.core.KoinApplication
 
 
@@ -19,7 +21,7 @@ import org.koin.core.KoinApplication
  *
  */
 
-class FrogoAdmobApplication : FrogoKoinApplication() {
+class SampleAdmobApplication : FrogoAdmobKoinApplication() {
 
     override fun setupKoinModule(koinApplication: KoinApplication) {
         koinApplication.modules(listOf(viewModelModule, repositoryModule))
@@ -27,6 +29,10 @@ class FrogoAdmobApplication : FrogoKoinApplication() {
 
     override fun onCreateExt() {
         super.onCreateExt()
+    }
+
+    override fun getAdOpenAppUnitId(context: Context?): String {
+        return AdHelper.getAdOpenAppUnitId(context)
     }
 
 }
