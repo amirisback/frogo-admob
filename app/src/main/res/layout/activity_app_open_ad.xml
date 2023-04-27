@@ -19,7 +19,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Google Admob"
-                android:textColor="@color/frogoColorBlack" />
+                android:textColor="@color/colorTextTitle" />
 
             <Button
                 android:id="@+id/btn_admob_app_open_ad"

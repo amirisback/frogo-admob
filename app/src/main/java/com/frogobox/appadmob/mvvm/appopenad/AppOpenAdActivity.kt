@@ -7,6 +7,9 @@ import com.frogobox.admob.callback.FrogoAdmobAppOpenAdCallback
 import com.frogobox.appadmob.SampleAdmobApplication
 import com.frogobox.appadmob.databinding.ActivityAppOpenAdBinding
 import com.frogobox.appadmob.util.AdHelper
+import com.frogobox.sdk.ext.gone
+import com.frogobox.sdk.ext.showToast
+import com.frogobox.sdk.ext.visible
 
 /**
  * Created by Faisal Amir on 24/10/22
@@ -24,7 +27,7 @@ class AppOpenAdActivity : FrogoAdBindActivity<ActivityAppOpenAdBinding>(), Frogo
     companion object {
         const val TAG = "AppOpenAdActivity"
     }
-    
+
     override fun setupViewBinding(): ActivityAppOpenAdBinding {
         return ActivityAppOpenAdBinding.inflate(layoutInflater)
     }
@@ -43,10 +46,12 @@ class AppOpenAdActivity : FrogoAdBindActivity<ActivityAppOpenAdBinding>(), Frogo
     }
 
     override fun onShowAdRequestProgress(tag: String, message: String) {
+        binding.ivProgress.visible()
         Log.d(TAG, "onShowAdRequestProgress: $tag, $message")
     }
 
     override fun onHideAdRequestProgress(tag: String, message: String) {
+        binding.ivProgress.gone()
         Log.d(TAG, "onHideAdRequestProgress: $tag, $message")
     }
 
@@ -55,10 +60,12 @@ class AppOpenAdActivity : FrogoAdBindActivity<ActivityAppOpenAdBinding>(), Frogo
     }
 
     override fun onAdFailed(tag: String, errorMessage: String) {
+        showToast(errorMessage)
         Log.d(TAG, "onAdFailed: $tag, $errorMessage")
     }
 
     override fun onAdLoaded(tag: String, message: String) {
+
         Log.d(TAG, "onAdLoaded: $tag, $message")
     }
 
