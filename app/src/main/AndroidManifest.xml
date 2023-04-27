@@ -26,12 +26,22 @@
             android:name=".mvvm.interstitial.InterstitialActivity"
             android:exported="false" />
         <activity
+            android:name=".mvvm.appopenad.AppOpenAdActivity"
+            android:exported="false" />
+        <activity
             android:name=".mvvm.main.MainJavaActivity"
             android:exported="false"
             android:hardwareAccelerated="true" />
-        <activity android:name=".mvvm.movie.MovieActivity" />
-        <activity android:name=".mvvm.news.NewsActivity" />
-        <activity android:name=".mvvm.main.AboutUsActivity" />
+        <activity
+            android:name=".mvvm.movie.MovieActivity"
+            android:exported="false" />
+        <activity
+            android:name=".mvvm.news.NewsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".mvvm.main.AboutUsActivity"
+            android:exported="false" />
+
         <activity
             android:name=".mvvm.main.MainActivity"
             android:exported="true"
@@ -41,7 +51,9 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-        </activity> <!-- Sample AdMob App ID: ca-app-pub-3940256099942544~3347511713 -->
+        </activity>
+
+        <!-- Sample AdMob App ID: ca-app-pub-3940256099942544~3347511713 -->
         <meta-data
             android:name="com.google.android.gms.ads.APPLICATION_ID"
             android:value="@string/admob_app_id" />
