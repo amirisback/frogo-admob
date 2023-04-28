@@ -55,6 +55,7 @@ dependencies {
 
     api(Google.admob)
     api(DependencyGradle.FROGO_RECYCLER_VIEW)
+    api(Androidx.Lifecycle.process)
 
     implementation(DependencyGradle.FROGO_SDK)
 

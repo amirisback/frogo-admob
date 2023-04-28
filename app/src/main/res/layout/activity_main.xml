@@ -31,6 +31,13 @@
                 android:textColor="@color/colorTextWhite" />
 
             <Button
+                android:id="@+id/btn_app_open_ad"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="App Open Ad"
+                android:textColor="@color/colorTextWhite" />
+
+            <Button
                 android:id="@+id/btn_recycler_view"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

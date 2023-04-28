@@ -6,6 +6,7 @@ import android.view.MenuItem
 import com.frogobox.appadmob.R
 import com.frogobox.appadmob.base.BaseActivity
 import com.frogobox.appadmob.databinding.ActivityMainBinding
+import com.frogobox.appadmob.mvvm.appopenad.AppOpenAdActivity
 import com.frogobox.appadmob.mvvm.interstitial.InterstitialActivity
 import com.frogobox.appadmob.mvvm.movie.MovieActivity
 import com.frogobox.appadmob.mvvm.news.NewsActivity
@@ -57,6 +58,10 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
 
             btnJavaSampleActivity.setOnClickListener {
                 startActivityExt<MainJavaActivity>()
+            }
+
+            btnAppOpenAd.setOnClickListener {
+                startActivityExt<AppOpenAdActivity>()
             }
 
         }
