@@ -53,7 +53,7 @@ dependencies {
 
     api(project(DependencyGradle.MODULE_LIB_FROGO_AD_CORE))
 
-    api(Ad.unityAds)
+    api(Ad.unityAds("4.6.1"))
 
     implementation(DependencyGradle.FROGO_SDK)
 
