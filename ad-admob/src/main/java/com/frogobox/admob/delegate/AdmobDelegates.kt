@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.frogobox.admob.callback.FrogoAdmobBannerCallback
 import com.frogobox.admob.callback.FrogoAdmobInterstitialCallback
 import com.frogobox.admob.callback.FrogoAdmobRewardedCallback
+import com.frogobox.admob.core.IFrogoAdConsent
 import com.google.android.gms.ads.AdSize
 import com.google.android.gms.ads.AdView
 
@@ -27,7 +28,7 @@ interface AdmobDelegates {
     fun setupAdmobDelegates(activity: AppCompatActivity)
 
     // Show Ad Consent
-    fun showAdConsent()
+    fun showAdConsent(callback: IFrogoAdConsent)
 
     // ---------------------------------------------------------------------------------------------
 
@@ -240,6 +241,5 @@ interface AdmobDelegates {
         keyword: List<String>,
         callback: FrogoAdmobRewardedCallback
     )
-
 
 }

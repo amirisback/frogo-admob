@@ -1,8 +1,11 @@
 package com.frogobox.appadmob.mvvm.main
 
+import android.app.Activity
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
+import com.frogobox.admob.core.IFrogoAdConsent
+import com.frogobox.appadmob.BuildConfig
 import com.frogobox.appadmob.R
 import com.frogobox.appadmob.base.BaseActivity
 import com.frogobox.appadmob.databinding.ActivityMainBinding
@@ -11,8 +14,10 @@ import com.frogobox.appadmob.mvvm.interstitial.InterstitialActivity
 import com.frogobox.appadmob.mvvm.movie.MovieActivity
 import com.frogobox.appadmob.mvvm.news.NewsActivity
 import com.frogobox.appadmob.mvvm.rewarded.RewardedActivity
+import com.frogobox.sdk.ext.showLogDebug
 import com.frogobox.sdk.ext.startActivityExt
 import com.google.android.gms.ads.AdSize
+import com.google.android.ump.FormError
 
 class MainActivity : BaseActivity<ActivityMainBinding>() {
 
@@ -20,11 +25,35 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
         return ActivityMainBinding.inflate(layoutInflater)
     }
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        requestAdmobApi()
-        setupButtonClick()
-        setupBannerAds()
+    override fun onCreateExt(savedInstanceState: Bundle?) {
+        super.onCreateExt(savedInstanceState)
+
+        showAdConsent(object : IFrogoAdConsent {
+
+            override fun activity(): Activity {
+                return this@MainActivity
+            }
+
+            override fun isDebug(): Boolean {
+                return BuildConfig.DEBUG
+            }
+
+            override fun isUnderAgeAd(): Boolean {
+                return false
+            }
+
+            override fun onConsentSuccess() {
+                requestAdmobApi()
+                setupButtonClick()
+                setupBannerAds()
+            }
+
+            override fun onConsentError(formError: FormError) {
+                showLogDebug("onConsentError ${formError.message}")
+            }
+
+        })
+
     }
 
     private fun setupBannerAds() {
@@ -78,6 +107,7 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
                 startActivityExt<AboutUsActivity>()
                 true
             }
+
             else -> super.onOptionsItemSelected(item)
         }
     }
