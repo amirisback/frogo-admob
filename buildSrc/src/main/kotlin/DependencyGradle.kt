@@ -30,7 +30,6 @@ object DependencyGradle {
     const val MODULE_LIB_FROGO_ADMOB = ":${ProjectSetting.MODULE_NAME_ADMOB}"
     const val MODULE_LIB_FROGO_AD = ":${ProjectSetting.MODULE_NAME_AD}"
     const val MODULE_LIB_FROGO_AD_CORE = ":${ProjectSetting.MODULE_NAME_AD_CORE}"
-    const val MODULE_LIB_FROGO_START_IO_AD = ":${ProjectSetting.MODULE_NAME_START_IO_AD}"
     const val MODULE_LIB_FROGO_UNITY_AD = ":${ProjectSetting.MODULE_NAME_UNITY_AD}"
 
 }

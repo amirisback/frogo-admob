@@ -24,8 +24,8 @@ object ProjectSetting {
     // ---------------------------------------------------------------------------------------------
 
     const val VERSION_MAJOR = 5
-    const val VERSION_MINOR = 2
-    const val VERSION_PATCH = 3
+    const val VERSION_MINOR = 3
+    const val VERSION_PATCH = 0
 
     // ---------------------------------------------------------------------------------------------
 
@@ -41,7 +41,6 @@ object ProjectSetting {
     const val MODULE_NAME_AD_CORE = "ad-core"
     const val MODULE_NAME_ADMOB = "ad-admob"
     const val MODULE_NAME_UNITY_AD = "ad-unityad"
-    const val MODULE_NAME_START_IO_AD = "frogostartioad"
 
     // ---------------------------------------------------------------------------------------------
 
