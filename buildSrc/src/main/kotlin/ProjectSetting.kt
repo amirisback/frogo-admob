@@ -37,10 +37,10 @@ object ProjectSetting {
 
     // ---------------------------------------------------------------------------------------------
 
-    const val MODULE_NAME_AD = "frogoad"
-    const val MODULE_NAME_AD_CORE = "frogoadcore"
-    const val MODULE_NAME_ADMOB = "frogoadmob"
-    const val MODULE_NAME_UNITY_AD = "frogounityad"
+    const val MODULE_NAME_AD = "ad-general"
+    const val MODULE_NAME_AD_CORE = "ad-core"
+    const val MODULE_NAME_ADMOB = "ad-admob"
+    const val MODULE_NAME_UNITY_AD = "ad-unityad"
     const val MODULE_NAME_START_IO_AD = "frogostartioad"
 
     // ---------------------------------------------------------------------------------------------

@@ -28,7 +28,7 @@ interface AdmobDelegates {
     fun setupAdmobDelegates(activity: AppCompatActivity)
 
     // Show Ad Consent
-    fun showAdConsent(activity: AppCompatActivity, isDebug: Boolean, callback: IFrogoAdConsent)
+    fun showAdConsent(callback: IFrogoAdConsent)
 
     // ---------------------------------------------------------------------------------------------
 
@@ -241,6 +241,5 @@ interface AdmobDelegates {
         keyword: List<String>,
         callback: FrogoAdmobRewardedCallback
     )
-
 
 }

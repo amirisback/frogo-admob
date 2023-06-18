@@ -43,12 +43,8 @@ class AdmobDelegatesImpl : AdmobDelegates {
         FrogoAdmob.setupAdmobApp(admobDelegatesActivity)
     }
 
-    override fun showAdConsent(
-        activity: AppCompatActivity,
-        isDebug: Boolean,
-        callback: IFrogoAdConsent
-    ) {
-        adConsent.showConsent(activity, isDebug, callback)
+    override fun showAdConsent(callback: IFrogoAdConsent) {
+        adConsent.showConsent(callback)
     }
 
     // ---------------------------------------------------------------------------------------------
