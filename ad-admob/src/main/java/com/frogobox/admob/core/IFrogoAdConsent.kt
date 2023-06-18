@@ -1,5 +1,6 @@
 package com.frogobox.admob.core
 
+import android.app.Activity
 import com.google.android.ump.FormError
 
 /**
@@ -15,6 +16,12 @@ import com.google.android.ump.FormError
  *
  */
 interface IFrogoAdConsent {
+
+    fun activity(): Activity
+
+    fun isDebug(): Boolean
+
+    fun isUnderAgeAd(): Boolean
 
     fun onConsentSuccess()
 
