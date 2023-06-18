@@ -10,9 +10,9 @@ import com.frogobox.appadmob.R
 import com.frogobox.appadmob.base.BaseActivity
 import com.frogobox.appadmob.databinding.ActivityRecyclerViewBinding
 import com.frogobox.coreapi.ConsumeApiResponse
-import com.frogobox.coreapi.movie.MovieUrl
-import com.frogobox.coreapi.movie.model.TrendingMovie
-import com.frogobox.coreapi.movie.response.Trending
+import com.frogobox.coreutil.movie.MovieUrl
+import com.frogobox.coreutil.movie.model.TrendingMovie
+import com.frogobox.coreutil.movie.response.Trending
 import com.frogobox.recycler.core.FrogoRecyclerNotifyListener
 import com.frogobox.recycler.core.FrogoRecyclerViewListener
 import com.google.android.gms.ads.AdView

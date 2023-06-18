@@ -7,6 +7,7 @@ import com.frogobox.admob.callback.FrogoAdmobInterstitialCallback
 import com.frogobox.admob.callback.FrogoAdmobRewardedCallback
 import com.frogobox.admob.core.FrogoAdConsent
 import com.frogobox.admob.core.FrogoAdmob
+import com.frogobox.admob.core.IFrogoAdConsent
 import com.google.android.gms.ads.AdSize
 import com.google.android.gms.ads.AdView
 
@@ -32,6 +33,8 @@ class AdmobDelegatesImpl : AdmobDelegates {
 
     private lateinit var admobDelegatesActivity: AppCompatActivity
 
+    private val adConsent = FrogoAdConsent
+
     override fun setupAdmobDelegates(activity: AppCompatActivity) {
         admobDelegatesActivity = activity
     }
@@ -40,8 +43,12 @@ class AdmobDelegatesImpl : AdmobDelegates {
         FrogoAdmob.setupAdmobApp(admobDelegatesActivity)
     }
 
-    override fun showAdConsent() {
-        FrogoAdConsent.showConsent(admobDelegatesActivity)
+    override fun showAdConsent(
+        activity: AppCompatActivity,
+        isDebug: Boolean,
+        callback: IFrogoAdConsent
+    ) {
+        adConsent.showConsent(activity, isDebug, callback)
     }
 
     // ---------------------------------------------------------------------------------------------

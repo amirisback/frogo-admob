@@ -3,6 +3,7 @@ package com.frogobox.appadmob.mvvm.main
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
+import com.frogobox.admob.core.IFrogoAdConsent
 import com.frogobox.appadmob.R
 import com.frogobox.appadmob.base.BaseActivity
 import com.frogobox.appadmob.databinding.ActivityMainBinding
@@ -11,8 +12,11 @@ import com.frogobox.appadmob.mvvm.interstitial.InterstitialActivity
 import com.frogobox.appadmob.mvvm.movie.MovieActivity
 import com.frogobox.appadmob.mvvm.news.NewsActivity
 import com.frogobox.appadmob.mvvm.rewarded.RewardedActivity
+import com.frogobox.sdk.ext.showLogD
+import com.frogobox.sdk.ext.showToast
 import com.frogobox.sdk.ext.startActivityExt
 import com.google.android.gms.ads.AdSize
+import com.google.android.ump.FormError
 
 class MainActivity : BaseActivity<ActivityMainBinding>() {
 
@@ -20,11 +24,22 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
         return ActivityMainBinding.inflate(layoutInflater)
     }
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        requestAdmobApi()
-        setupButtonClick()
-        setupBannerAds()
+    override fun onCreateExt(savedInstanceState: Bundle?) {
+        super.onCreateExt(savedInstanceState)
+
+        showAdConsent(this, true, object : IFrogoAdConsent {
+            override fun onConsentSuccess() {
+                requestAdmobApi()
+                setupButtonClick()
+                setupBannerAds()
+            }
+
+            override fun onConsentError(formError: FormError) {
+                showLogD("onConsentError ${formError.message}")
+                showToast("onConsentError ${formError.message}")
+            }
+        })
+
     }
 
     private fun setupBannerAds() {
@@ -78,6 +93,7 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
                 startActivityExt<AboutUsActivity>()
                 true
             }
+
             else -> super.onOptionsItemSelected(item)
         }
     }

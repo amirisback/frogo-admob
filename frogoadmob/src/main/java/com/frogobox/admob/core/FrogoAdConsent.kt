@@ -15,7 +15,7 @@ import com.google.android.ump.UserMessagingPlatform
  * E-mail   : faisalamircs@gmail.com
  * Github   : github.com/amirisback
  * -----------------------------------------
- * Copyright (C) 2022 Frogobox Media Inc.      
+ * Copyright (C) 2022 Frogobox Media Inc.
  * All rights reserved
  *
  */
@@ -23,48 +23,63 @@ import com.google.android.ump.UserMessagingPlatform
 
 object FrogoAdConsent {
 
-    fun showConsent(activity: Activity) {
+    fun showConsent(activity: Activity, isDebug: Boolean, callback: IFrogoAdConsent) {
 
-        val consentInformation: ConsentInformation =
-            UserMessagingPlatform.getConsentInformation(activity)
+        val consentInformation: ConsentInformation = UserMessagingPlatform.getConsentInformation(activity)
 
         val debugSettings = ConsentDebugSettings.Builder(activity)
             .setDebugGeography(ConsentDebugSettings.DebugGeography.DEBUG_GEOGRAPHY_EEA)
             .addTestDeviceHashedId("TEST-DEVICE-HASHED-ID")
+            .setForceTesting(true)
             .build()
 
         // Set tag for underage of consent. false means users are not underage.
-        val params = ConsentRequestParameters.Builder()
-            .setTagForUnderAgeOfConsent(false)
-            .setConsentDebugSettings(debugSettings)
-            .build()
+        val params = if (isDebug) {
+            ConsentRequestParameters.Builder()
+                .setTagForUnderAgeOfConsent(false)
+                .setConsentDebugSettings(debugSettings)
+                .build()
+        } else {
+            ConsentRequestParameters.Builder()
+                .setTagForUnderAgeOfConsent(false)
+                .build()
+        }
 
         consentInformation.requestConsentInfoUpdate(activity, params,
             { // The consent information state was updated.
                 // You are now ready to check if a form is available.
                 if (consentInformation.isConsentFormAvailable) {
-                    loadForm(activity, consentInformation)
+                    loadForm(activity, consentInformation, callback)
                 }
             },
             {
                 // Handle the error.
+                callback.onConsentError(it)
             })
     }
 
-
-    fun loadForm(activity: Activity, consentInformation: ConsentInformation) {
+    private fun loadForm(activity: Activity, consentInformation: ConsentInformation, callback: IFrogoAdConsent) {
+        // Loads a consent form. Must be called on the main thread.
         UserMessagingPlatform.loadConsentForm(
             activity,
             {
                 if (consentInformation.consentStatus == ConsentInformation.ConsentStatus.REQUIRED) {
-                    it.show(activity) { // Handle dismissal by reloading form.
-                        loadForm(activity, consentInformation)
+                    it.show(activity) {
+                        if (consentInformation.consentStatus == ConsentInformation.ConsentStatus.OBTAINED) {
+                            // App can start requesting ads.
+                            callback.onConsentSuccess()
+                        }
+
+                        // Handle dismissal by reloading form.
+                        loadForm(activity, consentInformation, callback)
                     }
                 }
+            },
+            {
+                // Handle the error.
+                callback.onConsentError(it)
             }
-        ) {
-            /// Handle Error.
-        }
+        )
     }
 
 }
