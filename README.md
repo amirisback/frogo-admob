@@ -21,9 +21,13 @@
 - Green : Success / Pass (Use It)
 
 ## ScreenShot Apps
-|                      Banner and Interstitial                       |                      RecyclerView with Banner                      |                           Rewarded Apps                            |
-|:------------------------------------------------------------------:|:------------------------------------------------------------------:|:------------------------------------------------------------------:|
-| <img width="200px" height="360px" src="docs/image/ss_image_1.png"> | <img width="200px" height="360px" src="docs/image/ss_image_2.png"> | <img width="200px" height="360px" src="docs/image/ss_image_3.png"> |
+|                      Banner and Interstitial                       |                      RecyclerView with Banner                      |
+|:------------------------------------------------------------------:|:------------------------------------------------------------------:|
+| <img width="200px" height="360px" src="docs/image/ss_image_1.png"> | <img width="200px" height="360px" src="docs/image/ss_image_2.png"> |
+
+|                    User Messaging Platform                     |                           Rewarded Apps                            |
+|:--------------------------------------------------------------:|:------------------------------------------------------------------:|
+| <img width="200px" height="360px" src="docs/image/ss-ump.jpg"> | <img width="200px" height="360px" src="docs/image/ss_image_3.png"> |
 
 ## Version Release
 
