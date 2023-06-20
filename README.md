@@ -21,13 +21,17 @@
 - Green : Success / Pass (Use It)
 
 ## ScreenShot Apps
-|                      Banner and Interstitial                       |                      RecyclerView with Banner                      |                           Rewarded Apps                            |
-|:------------------------------------------------------------------:|:------------------------------------------------------------------:|:------------------------------------------------------------------:|
-| <img width="200px" height="360px" src="docs/image/ss_image_1.png"> | <img width="200px" height="360px" src="docs/image/ss_image_2.png"> | <img width="200px" height="360px" src="docs/image/ss_image_3.png"> |
+|                      Banner and Interstitial                       |                      RecyclerView with Banner                      |
+|:------------------------------------------------------------------:|:------------------------------------------------------------------:|
+| <img width="200px" height="360px" src="docs/image/ss_image_1.png"> | <img width="200px" height="360px" src="docs/image/ss_image_2.png"> |
+
+|                    User Messaging Platform                     |                           Rewarded Apps                            |
+|:--------------------------------------------------------------:|:------------------------------------------------------------------:|
+| <img width="200px" height="360px" src="docs/image/ss-ump.jpg"> | <img width="200px" height="360px" src="docs/image/ss_image_3.png"> |
 
 ## Version Release
 
-    $version_release = 5.3.0
+    $version_release = 5.3.1
 
     // Suport Library
     $admob_version = 22.1.0 // https://developers.google.com/admob/android/sdk
@@ -79,16 +83,16 @@ allprojects {
         implementation 'com.unity3d.ads:unity-ads:${unity_ad_version}'
 
         // library frogo-admob (Required - Recomended)
-        implementation 'com.github.amirisback:frogo-admob:5.3.0'
+        implementation 'com.github.amirisback:frogo-admob:5.3.1'
 
         // -----------------------------------------------------------------------------------------
         // For Single Library Patch 
 
         // library frogo-admob (Admob Only)
-        implementation 'com.github.amirisback.frogo-admob:ad-admob:5.3.0'
+        implementation 'com.github.amirisback.frogo-admob:ad-admob:5.3.1'
 
         // library frogo-admob (Unity Ads Only)
-        implementation 'com.github.amirisback.frogo-admob:ad-unityad:5.3.0'
+        implementation 'com.github.amirisback.frogo-admob:ad-unityad:5.3.1'
 	}
 
 #### <Option 2> Kotlin DSL
@@ -101,16 +105,16 @@ allprojects {
         implementation("com.unity3d.ads:unity-ads:${unity_ad_version}")
 
         // library frogo-admob (Required - Recomended)
-        implementation("com.github.amirisback:frogo-admob:5.3.0")
+        implementation("com.github.amirisback:frogo-admob:5.3.1")
 
         // -----------------------------------------------------------------------------------------
         // For Single Library Patch
 
         // library frogo-admob (Admob Only)
-        implementation("com.github.amirisback.frogo-admob:ad-admob:5.3.0")
+        implementation("com.github.amirisback.frogo-admob:ad-admob:5.3.1")
 
         // library frogo-admob (Unity Ads Only)
-        implementation("com.github.amirisback.frogo-admob:ad-unityad:5.3.0")
+        implementation("com.github.amirisback.frogo-admob:ad-unityad:5.3.1")
 
 	}
 	
