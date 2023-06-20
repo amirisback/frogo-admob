@@ -24,19 +24,22 @@ object FrogoAdConsent {
 
     fun showConsent(callback: IFrogoAdConsent) {
 
-        val consentInformation: ConsentInformation =
-            UserMessagingPlatform.getConsentInformation(callback.activity())
-
-        val debugSettings = ConsentDebugSettings.Builder(callback.activity())
-            .setDebugGeography(ConsentDebugSettings.DebugGeography.DEBUG_GEOGRAPHY_EEA)
-            .addTestDeviceHashedId("TEST-DEVICE-HASHED-ID").setForceTesting(true).build()
+        val consentInformation: ConsentInformation = UserMessagingPlatform.getConsentInformation(callback.activity())
 
         // Set tag for underage of consent. false means users are not underage.
         val params = if (callback.isDebug()) {
+
+            val debugSettings = ConsentDebugSettings.Builder(callback.activity())
+                .setDebugGeography(ConsentDebugSettings.DebugGeography.DEBUG_GEOGRAPHY_EEA)
+                .addTestDeviceHashedId("TEST-DEVICE-HASHED-ID")
+                .setForceTesting(true)
+                .build()
+
             ConsentRequestParameters.Builder()
                 .setTagForUnderAgeOfConsent(callback.isUnderAgeAd())
                 .setConsentDebugSettings(debugSettings)
                 .build()
+
         } else {
             ConsentRequestParameters.Builder()
                 .setTagForUnderAgeOfConsent(callback.isUnderAgeAd())
