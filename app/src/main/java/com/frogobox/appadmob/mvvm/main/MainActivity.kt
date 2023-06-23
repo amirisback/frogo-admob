@@ -35,11 +35,17 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
             }
 
             override fun isDebug(): Boolean {
-                return BuildConfig.DEBUG
+                return false
             }
 
             override fun isUnderAgeAd(): Boolean {
                 return false
+            }
+
+            override fun onNotUsingAdConsent() {
+                requestAdmobApi()
+                setupButtonClick()
+                setupBannerAds()
             }
 
             override fun onConsentSuccess() {

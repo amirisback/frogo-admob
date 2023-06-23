@@ -1,13 +1,6 @@
 package com.frogobox.admob.core
 
 import android.content.Context
-import android.widget.RelativeLayout
-import androidx.appcompat.app.AppCompatActivity
-import com.frogobox.admob.callback.FrogoAdmobBannerCallback
-import com.frogobox.admob.callback.FrogoAdmobInterstitialCallback
-import com.frogobox.admob.callback.FrogoAdmobRewardedCallback
-import com.google.android.gms.ads.AdSize
-import com.google.android.gms.ads.AdView
 
 /**
  * Created by Faisal Amir

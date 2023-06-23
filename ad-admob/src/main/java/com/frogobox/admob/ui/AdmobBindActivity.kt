@@ -1,11 +1,6 @@
 package com.frogobox.admob.ui
 
-import android.os.Bundle
-import androidx.appcompat.app.AppCompatActivity
 import androidx.viewbinding.ViewBinding
-import com.frogobox.admob.delegate.AdmobDelegates
-import com.frogobox.admob.delegate.AdmobDelegatesImpl
-import com.frogobox.sdk.ext.showLogDebug
 
 /**
  * Created by Faisal Amir on 07/02/23

@@ -1,5 +1,8 @@
 package com.frogobox.admob.core
 
+import android.content.Context
+import android.telephony.TelephonyManager
+import com.frogobox.sdk.ext.showLogDebug
 import com.google.android.ump.ConsentDebugSettings
 import com.google.android.ump.ConsentInformation
 import com.google.android.ump.ConsentRequestParameters
@@ -22,9 +25,48 @@ import com.google.android.ump.UserMessagingPlatform
 
 object FrogoAdConsent {
 
-    fun showConsent(callback: IFrogoAdConsent) {
+    fun getCountryCode(context: Context): String {
+        val tm = context.getSystemService(Context.TELEPHONY_SERVICE) as TelephonyManager
+        val countryCodeValue = tm.networkCountryIso.uppercase()
+        showLogDebug("FrogoAdConsent : getCountryCode : $countryCodeValue")
+        return countryCodeValue
+    }
 
-        val consentInformation: ConsentInformation = UserMessagingPlatform.getConsentInformation(callback.activity())
+    fun listEEACountry(): List<String> {
+        return listOf(
+            "AT", "BE", "BG", "HR", "CY", "CZ", "DK", "EE", "FI", "FR", "DE", "GR", "HU", "IE",
+            "IT", "LV", "LT", "LU", "MT", "NL", "PL", "PT", "RO", "SK", "SI", "ES", "SE"
+        )
+    }
+
+    fun listUKCountry(): List<String> {
+        return listOf("GB", "GG", "IM", "JE")
+    }
+
+    fun listAdConsentCountry(): List<String> {
+        return listEEACountry() + listUKCountry()
+    }
+
+    fun isAdConsentCountry(context: Context): Boolean {
+        val isContain = listAdConsentCountry().contains(getCountryCode(context))
+        showLogDebug("FrogoAdConsent : isAdConsentCountry : $isContain")
+        return isContain
+    }
+
+    fun showConsent(callback: IFrogoAdConsent) {
+        if (isAdConsentCountry(callback.activity())) {
+            showLogDebug("FrogoAdConsent : showConsent : isAdConsentCountry")
+            setupConsent(callback)
+        } else {
+            showLogDebug("FrogoAdConsent : showConsent : onNotUsingAdConsent")
+            callback.onNotUsingAdConsent()
+        }
+
+    }
+
+    private fun setupConsent(callback: IFrogoAdConsent) {
+        val consentInformation: ConsentInformation =
+            UserMessagingPlatform.getConsentInformation(callback.activity())
 
         // Set tag for underage of consent. false means users are not underage.
         val params = if (callback.isDebug()) {

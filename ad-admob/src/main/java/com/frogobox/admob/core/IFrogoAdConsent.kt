@@ -23,6 +23,8 @@ interface IFrogoAdConsent {
 
     fun isUnderAgeAd(): Boolean
 
+    fun onNotUsingAdConsent()
+
     fun onConsentSuccess()
 
     fun onConsentError(formError: FormError)
