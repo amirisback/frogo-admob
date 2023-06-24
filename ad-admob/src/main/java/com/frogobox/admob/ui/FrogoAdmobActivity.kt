@@ -2,9 +2,7 @@ package com.frogobox.admob.ui
 
 import com.frogobox.admob.delegate.AdmobDelegates
 import com.frogobox.admob.delegate.AdmobDelegatesImpl
-import com.frogobox.sdk.ext.showLogDebug
 import com.frogobox.sdk.view.FrogoActivity
-import com.google.android.gms.ads.AdView
 
 /**
  * Created by Faisal Amir

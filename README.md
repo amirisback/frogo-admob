@@ -31,7 +31,7 @@
 
 ## Version Release
 
-    $version_release = 5.3.2
+    $version_release = 5.3.3
 
     // Suport Library
     $admob_version = 22.1.0 // https://developers.google.com/admob/android/sdk
@@ -83,16 +83,16 @@ allprojects {
         implementation 'com.unity3d.ads:unity-ads:${unity_ad_version}'
 
         // library frogo-admob (Required - Recomended)
-        implementation 'com.github.amirisback:frogo-admob:5.3.2'
+        implementation 'com.github.amirisback:frogo-admob:5.3.3'
 
         // -----------------------------------------------------------------------------------------
         // For Single Library Patch 
 
         // library frogo-admob (Admob Only)
-        implementation 'com.github.amirisback.frogo-admob:ad-admob:5.3.2'
+        implementation 'com.github.amirisback.frogo-admob:ad-admob:5.3.3'
 
         // library frogo-admob (Unity Ads Only)
-        implementation 'com.github.amirisback.frogo-admob:ad-unityad:5.3.2'
+        implementation 'com.github.amirisback.frogo-admob:ad-unityad:5.3.3'
 	}
 
 #### <Option 2> Kotlin DSL
@@ -105,16 +105,16 @@ allprojects {
         implementation("com.unity3d.ads:unity-ads:${unity_ad_version}")
 
         // library frogo-admob (Required - Recomended)
-        implementation("com.github.amirisback:frogo-admob:5.3.2")
+        implementation("com.github.amirisback:frogo-admob:5.3.3")
 
         // -----------------------------------------------------------------------------------------
         // For Single Library Patch
 
         // library frogo-admob (Admob Only)
-        implementation("com.github.amirisback.frogo-admob:ad-admob:5.3.2")
+        implementation("com.github.amirisback.frogo-admob:ad-admob:5.3.3")
 
         // library frogo-admob (Unity Ads Only)
-        implementation("com.github.amirisback.frogo-admob:ad-unityad:5.3.2")
+        implementation("com.github.amirisback.frogo-admob:ad-unityad:5.3.3")
 
 	}
 	
@@ -821,6 +821,42 @@ fun FrogoAdmobBannerView(
 }
 
 ```
+
+## User Messaging Platform (UMP)
+
+### How to use
+```kotlin
+showAdConsent(object : IFrogoAdConsent {
+
+    override fun activity(): Activity {
+        return this@MainActivity
+    }
+
+    override fun isDebug(): Boolean {
+        return BuildConfig.DEBUG
+    }
+
+    override fun isUnderAgeAd(): Boolean {
+        return false
+    }
+
+    override fun onNotUsingAdConsent() {
+        // On Not Using Ad Consent
+    }
+
+    override fun onConsentSuccess() {
+        // On Consent Success
+    }
+
+    override fun onConsentError(formError: FormError) {
+        // On Consent Error
+    }
+
+})
+```
+
+### Notes 
+- Read This [Stack Overflow](https://stackoverflow.com/questions/65351543/how-to-implement-ump-sdk-correctly-for-eu-consent?rq=3)
 
 ## Allert
 

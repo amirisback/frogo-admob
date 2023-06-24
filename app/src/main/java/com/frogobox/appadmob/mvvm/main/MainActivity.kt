@@ -42,6 +42,12 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
                 return false
             }
 
+            override fun onNotUsingAdConsent() {
+                requestAdmobApi()
+                setupButtonClick()
+                setupBannerAds()
+            }
+
             override fun onConsentSuccess() {
                 requestAdmobApi()
                 setupButtonClick()
@@ -49,7 +55,7 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
             }
 
             override fun onConsentError(formError: FormError) {
-                showLogDebug("onConsentError ${formError.message}")
+                showLogDebug("FrogoAdConsent ${formError.message}")
             }
 
         })

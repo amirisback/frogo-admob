@@ -3,9 +3,7 @@ package com.frogobox.admob.ui
 import androidx.viewbinding.ViewBinding
 import com.frogobox.admob.delegate.AdmobDelegates
 import com.frogobox.admob.delegate.AdmobDelegatesImpl
-import com.frogobox.sdk.ext.showLogDebug
 import com.frogobox.sdk.view.FrogoBindActivity
-import com.google.android.gms.ads.AdView
 
 
 /**
