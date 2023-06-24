@@ -35,7 +35,7 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
             }
 
             override fun isDebug(): Boolean {
-                return false
+                return BuildConfig.DEBUG
             }
 
             override fun isUnderAgeAd(): Boolean {
@@ -55,7 +55,7 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
             }
 
             override fun onConsentError(formError: FormError) {
-                showLogDebug("onConsentError ${formError.message}")
+                showLogDebug("FrogoAdConsent ${formError.message}")
             }
 
         })

@@ -822,6 +822,42 @@ fun FrogoAdmobBannerView(
 
 ```
 
+## User Messaging Platform (UMP)
+
+### How to use
+```kotlin
+showAdConsent(object : IFrogoAdConsent {
+
+    override fun activity(): Activity {
+        return this@MainActivity
+    }
+
+    override fun isDebug(): Boolean {
+        return BuildConfig.DEBUG
+    }
+
+    override fun isUnderAgeAd(): Boolean {
+        return false
+    }
+
+    override fun onNotUsingAdConsent() {
+        // On Not Using Ad Consent
+    }
+
+    override fun onConsentSuccess() {
+        // On Consent Success
+    }
+
+    override fun onConsentError(formError: FormError) {
+        // On Consent Error
+    }
+
+})
+```
+
+### Notes 
+- Read This [Stack Overflow](https://stackoverflow.com/questions/65351543/how-to-implement-ump-sdk-correctly-for-eu-consent?rq=3)
+
 ## Allert
 
 ### Update

@@ -2,7 +2,6 @@ package com.frogobox.admob.core
 
 import android.content.Context
 import android.telephony.TelephonyManager
-import com.frogobox.sdk.ext.showLogDebug
 import com.google.android.ump.ConsentDebugSettings
 import com.google.android.ump.ConsentInformation
 import com.google.android.ump.ConsentRequestParameters
@@ -27,9 +26,7 @@ object FrogoAdConsent {
 
     fun getCountryCode(context: Context): String {
         val tm = context.getSystemService(Context.TELEPHONY_SERVICE) as TelephonyManager
-        val countryCodeValue = tm.networkCountryIso.uppercase()
-        showLogDebug("FrogoAdConsent : getCountryCode : $countryCodeValue")
-        return countryCodeValue
+        return tm.networkCountryIso.uppercase()
     }
 
     fun listEEACountry(): List<String> {
@@ -48,23 +45,19 @@ object FrogoAdConsent {
     }
 
     fun isAdConsentCountry(context: Context): Boolean {
-        val isContain = listAdConsentCountry().contains(getCountryCode(context))
-        showLogDebug("FrogoAdConsent : isAdConsentCountry : $isContain")
-        return isContain
+        return listAdConsentCountry().contains(getCountryCode(context))
     }
 
     fun showConsent(callback: IFrogoAdConsent) {
         if (isAdConsentCountry(callback.activity())) {
-            showLogDebug("FrogoAdConsent : showConsent : isAdConsentCountry")
             setupConsent(callback)
         } else {
-            showLogDebug("FrogoAdConsent : showConsent : onNotUsingAdConsent")
             callback.onNotUsingAdConsent()
         }
-
     }
 
     private fun setupConsent(callback: IFrogoAdConsent) {
+
         val consentInformation: ConsentInformation =
             UserMessagingPlatform.getConsentInformation(callback.activity())
 
@@ -89,15 +82,16 @@ object FrogoAdConsent {
         }
 
         consentInformation.requestConsentInfoUpdate(callback.activity(), params,
-            { // The consent information state was updated.
+            {
+                // The consent information state was updated.
                 // You are now ready to check if a form is available.
                 if (consentInformation.isConsentFormAvailable) {
                     loadForm(consentInformation, callback)
                 }
             },
-            {
+            { formError ->
                 // Handle the error.
-                callback.onConsentError(it)
+                callback.onConsentError(formError)
             })
     }
 
@@ -114,6 +108,8 @@ object FrogoAdConsent {
                     // Handle dismissal by reloading form.
                     loadForm(consentInformation, callback)
                 }
+            } else if (consentInformation.consentStatus == ConsentInformation.ConsentStatus.NOT_REQUIRED) {
+                callback.onNotUsingAdConsent()
             }
         }, { formError ->
             // Handle the error.
