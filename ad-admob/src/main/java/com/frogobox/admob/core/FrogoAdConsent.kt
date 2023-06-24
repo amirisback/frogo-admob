@@ -87,6 +87,8 @@ object FrogoAdConsent {
                 // You are now ready to check if a form is available.
                 if (consentInformation.isConsentFormAvailable) {
                     loadForm(consentInformation, callback)
+                } else {
+                    callback.onNotUsingAdConsent()
                 }
             },
             { formError ->
