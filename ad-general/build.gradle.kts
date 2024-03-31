@@ -11,7 +11,6 @@ android {
 
     defaultConfig {
         minSdk = ProjectSetting.PROJECT_MIN_SDK
-        targetSdk = ProjectSetting.PROJECT_TARGET_SDK
 
         multiDexEnabled = true
         vectorDrawables.useSupportLibrary = true

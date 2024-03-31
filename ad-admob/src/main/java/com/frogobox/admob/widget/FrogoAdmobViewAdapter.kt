@@ -33,7 +33,7 @@ import com.frogobox.recycler.core.FrogoRecyclerViewListener
  */
 
 
-abstract class FrogoAdmobViewAdapter<T> : RecyclerView.Adapter<FrogoAdmobViewHolder<T>>() {
+abstract class FrogoAdmobViewAdapter<T> : RecyclerView.Adapter<FrogoAdmobViewHolder<T>>(), FrogoRecyclerNotifyListener<T> {
 
     protected var viewCallback: IFrogoAdmobViewAdapter<T>? = null
     protected var viewListener: FrogoRecyclerViewListener<T>? = null
@@ -46,54 +46,6 @@ abstract class FrogoAdmobViewAdapter<T> : RecyclerView.Adapter<FrogoAdmobViewHol
     protected var layoutRv: Int = 0
     protected var customLayoutRestId: Int = 0
     protected var emptyLayoutResId: Int = R.layout.frogo_rv_container_empty_view
-
-    protected var notifyListener = object : FrogoRecyclerNotifyListener<T> {
-
-        override fun frogoNotifyData(): MutableList<T> {
-            return innerFrogoNotifyData()
-        }
-
-        override fun frogoNotifyDataSetChanged() {
-            innerFrogoNotifyDataSetChanged()
-        }
-
-        override fun frogoNotifyItemChanged(data: T, position: Int, payload: Any) {
-            innerFrogoNotifyItemChanged(data, position, payload)
-        }
-
-        override fun frogoNotifyItemChanged(data: T, position: Int) {
-            innerFrogoNotifyItemChanged(data, position)
-        }
-
-        override fun frogoNotifyItemInserted(data: T, position: Int) {
-            innerFrogoNotifyItemInserted(data, position)
-        }
-
-        override fun frogoNotifyItemMoved(data: T, fromPosition: Int, toPosition: Int) {
-            innerFrogoNotifyItemMoved(data, fromPosition, toPosition)
-        }
-
-        override fun frogoNotifyItemRangeChanged(data: List<T>, positionStart: Int, payload: Any) {
-            innerFrogoNotifyItemRangeChanged(data, positionStart, payload)
-        }
-
-        override fun frogoNotifyItemRangeChanged(data: List<T>, positionStart: Int) {
-            innerFrogoNotifyItemRangeChanged(data, positionStart)
-        }
-
-        override fun frogoNotifyItemRangeInserted(data: List<T>, positionStart: Int) {
-            innerFrogoNotifyItemRangeInserted(data, positionStart)
-        }
-
-        override fun frogoNotifyItemRangeRemoved(positionStart: Int, itemCount: Int) {
-            innerFrogoNotifyItemRangeRemoved(positionStart, itemCount)
-        }
-
-        override fun frogoNotifyItemRemoved(position: Int) {
-            innerFrogoNotifyItemRemoved(position)
-        }
-
-    }
 
     override fun getItemCount(): Int {
         return if (hasEmptyView) {
@@ -126,7 +78,7 @@ abstract class FrogoAdmobViewAdapter<T> : RecyclerView.Adapter<FrogoAdmobViewHol
     override fun onBindViewHolder(holder: FrogoAdmobViewHolder<T>, position: Int) {
         when (getItemViewType(position)) {
             RECYCLER_VIEW_TYPE_MENU_ITEM -> {
-                holder.bindItem(listData[position], position, viewListener, notifyListener)
+                holder.bindItem(listData[position], position, viewListener, this)
             }
             RECYCLER_VIEW_TYPE_BANNER_AD -> {
                 holder.bindItemAdView(listData[position])
@@ -197,68 +149,69 @@ abstract class FrogoAdmobViewAdapter<T> : RecyclerView.Adapter<FrogoAdmobViewHol
     }
 
     // Notify Data List
-    fun innerFrogoNotifyData(): MutableList<T> {
+    override fun frogoNotifyData(): MutableList<T> {
         return listData
     }
 
     // Notify Data Set Changed
-    fun innerFrogoNotifyDataSetChanged() {
+    override fun frogoNotifyDataSetChanged() {
         notifyDataSetChanged()
     }
 
     // Notify Data Item Changed
-    fun innerFrogoNotifyItemChanged(data: T, position: Int, payload: Any) {
+    override fun frogoNotifyItemChanged(data: T, position: Int, payload: Any) {
         listData[position] = data
         notifyItemChanged(position, payload)
     }
 
     // Notify Data Item Changed
-    fun innerFrogoNotifyItemChanged(data: T, position: Int) {
+    override fun frogoNotifyItemChanged(data: T, position: Int) {
         listData[position] = data
         notifyItemChanged(position)
     }
 
     // Notify Data Item Inserted
-    fun innerFrogoNotifyItemInserted(data: T, position: Int) {
+    override fun frogoNotifyItemInserted(data: T, position: Int) {
         listData.add(position, data)
         notifyItemInserted(position)
     }
 
     // Notify Data Item Moved
-    fun innerFrogoNotifyItemMoved(data: T, fromPosition: Int, toPosition: Int) {
+    override fun frogoNotifyItemMoved(data: T, fromPosition: Int, toPosition: Int) {
         listData.removeAt(fromPosition)
         listData.add(toPosition, data)
         notifyItemMoved(fromPosition, toPosition)
     }
 
     // Notify Data Item Range Changed
-    fun innerFrogoNotifyItemRangeChanged(data: List<T>, positionStart: Int, payload: Any) {
+    override fun frogoNotifyItemRangeChanged(data: List<T>, positionStart: Int, payload: Any) {
         listData.addAll(positionStart, data)
         notifyItemRangeChanged(positionStart, data.size, payload)
     }
 
     // Notify Data Item Range Changed
-    fun innerFrogoNotifyItemRangeChanged(data: List<T>, positionStart: Int) {
+    override fun frogoNotifyItemRangeChanged(data: List<T>, positionStart: Int) {
         listData.addAll(positionStart, data)
         notifyItemRangeChanged(positionStart, data.size)
     }
 
     // Notify Data Item Range Inserted
-    fun innerFrogoNotifyItemRangeInserted(data: List<T>, positionStart: Int) {
+    override fun frogoNotifyItemRangeInserted(data: List<T>, positionStart: Int) {
         listData.addAll(positionStart, data)
         notifyItemRangeChanged(positionStart, data.size)
     }
 
     // Notify Data Item Range Removed
-    fun innerFrogoNotifyItemRangeRemoved(positionStart: Int, itemCount: Int) {
+    override fun frogoNotifyItemRangeRemoved(positionStart: Int, itemCount: Int) {
         listData.subList(positionStart, (positionStart + itemCount)).clear()
         notifyItemRangeRemoved(positionStart, itemCount)
     }
 
     // Notify Data Item Removed
-    fun innerFrogoNotifyItemRemoved(position: Int) {
-        listData.removeAt(position)
-        notifyItemRemoved(position)
+    override fun frogoNotifyItemRemoved(item: T) {
+        val index = listData.indexOf(item)
+        listData.remove(item)
+        notifyItemRemoved(index)
     }
 
 

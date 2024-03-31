@@ -33,7 +33,7 @@ object FrogoUnityAd : IFrogoUnityAd {
     ) {
 
         if (unityGameId != "") {
-            if (!UnityAds.isInitialized()) {
+            if (!UnityAds.isInitialized) {
                 UnityAds.initialize(
                     context,
                     unityGameId,
@@ -72,7 +72,7 @@ object FrogoUnityAd : IFrogoUnityAd {
     ) {
 
         if (adInterstitialUnitId != "") {
-            if (UnityAds.isInitialized()) {
+            if (UnityAds.isInitialized) {
                 callback?.onShowAdRequestProgress(TAG, "$TAG [Unity showAdInterstitial] >> Run - onShowAdRequestProgress")
                 UnityAds.load(adInterstitialUnitId, object : IUnityAdsLoadListener {
 
@@ -82,7 +82,7 @@ object FrogoUnityAd : IFrogoUnityAd {
                         message: String
                     ) {
                         callback?.onHideAdRequestProgress(TAG, "$TAG [Unity showAdInterstitial] >> Run - onHideAdRequestProgress : onUnityAdsShowFailure")
-                        callback?.onAdFailed(TAG, "$TAG [Unity showAdInterstitial] >> Error - UnityAds Error Initilized [status] : ${UnityAds.isInitialized()}")
+                        callback?.onAdFailed(TAG, "$TAG [Unity showAdInterstitial] >> Error - UnityAds Error Initilized [status] : ${UnityAds.isInitialized}")
                     }
 
                     override fun onUnityAdsAdLoaded(placementId: String) {
@@ -120,7 +120,7 @@ object FrogoUnityAd : IFrogoUnityAd {
                     }
                 })
             } else {
-                callback?.onAdFailed(TAG, "$TAG [Unity showAdInterstitial] >> Error - UnityAds Error Initilized [status] : ${UnityAds.isInitialized()}")
+                callback?.onAdFailed(TAG, "$TAG [Unity showAdInterstitial] >> Error - UnityAds Error Initilized [status] : ${UnityAds.isInitialized}")
             }
         } else {
             callback?.onAdFailed(TAG, "$TAG Unity Ad Interstitial id is Empty")

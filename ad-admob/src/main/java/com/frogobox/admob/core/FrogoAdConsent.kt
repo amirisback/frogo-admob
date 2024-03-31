@@ -101,7 +101,7 @@ object FrogoAdConsent {
         // Loads a consent form. Must be called on the main thread.
         UserMessagingPlatform.loadConsentForm(callback.activity(), { consentForm ->
             if (consentInformation.consentStatus == ConsentInformation.ConsentStatus.REQUIRED) {
-                consentForm.show(callback.activity()) { formError ->
+                consentForm.show(callback.activity()) {
                     if (consentInformation.consentStatus == ConsentInformation.ConsentStatus.OBTAINED) {
                         // App can start requesting ads.
                         callback.onConsentSuccess()

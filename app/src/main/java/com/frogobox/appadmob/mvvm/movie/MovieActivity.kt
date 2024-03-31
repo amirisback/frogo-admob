@@ -79,13 +79,14 @@ class MovieActivity : BaseActivity<ActivityRecyclerViewBinding>() {
             ) {
             }
 
-            override fun onItemLongClicked(
-                view: View,
-                data: Any,
-                position: Int,
-                notifyListener: FrogoRecyclerNotifyListener<Any>
-            ) {
+            override fun areContentsTheSame(oldItem: Any, newItem: Any): Boolean {
+                return oldItem == newItem
             }
+
+            override fun areItemsTheSame(oldItem: Any, newItem: Any): Boolean {
+                return oldItem == newItem
+            }
+
         })
         return adapter
     }

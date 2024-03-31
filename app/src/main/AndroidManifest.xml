@@ -9,6 +9,7 @@
         android:name=".SampleAdmobApplication"
         android:allowBackup="true"
         android:enableOnBackInvokedCallback="true"
+        android:hardwareAccelerated="true"
         android:icon="@drawable/ic_apps"
         android:label="@string/app_name"
         android:roundIcon="@drawable/ic_apps"
@@ -18,29 +19,36 @@
 
         <activity
             android:name=".mvvm.banner.BannerActivity"
-            android:exported="false" />
-        <activity
-            android:name=".mvvm.rewarded.RewardedActivity"
-            android:exported="false" />
-        <activity
-            android:name=".mvvm.interstitial.InterstitialActivity"
-            android:exported="false" />
-        <activity
-            android:name=".mvvm.appopenad.AppOpenAdActivity"
-            android:exported="false" />
-        <activity
-            android:name=".mvvm.main.MainJavaActivity"
             android:exported="false"
             android:hardwareAccelerated="true" />
         <activity
+            android:name=".mvvm.rewarded.RewardedActivity"
+            android:exported="false"
+            android:hardwareAccelerated="true" />
+        <activity
+            android:name=".mvvm.interstitial.InterstitialActivity"
+            android:exported="false"
+            android:hardwareAccelerated="true" />
+        <activity
+            android:name=".mvvm.appopenad.AppOpenAdActivity"
+            android:exported="false"
+            android:hardwareAccelerated="true" />
+        <activity
+            android:name=".mvvm.main.MainJavaActivity"
+            android:exported="false"
+            android:hardwareAccelerated="true"/>
+        <activity
             android:name=".mvvm.movie.MovieActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:hardwareAccelerated="true" />
         <activity
             android:name=".mvvm.news.NewsActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:hardwareAccelerated="true" />
         <activity
             android:name=".mvvm.main.AboutUsActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:hardwareAccelerated="true" />
 
         <activity
             android:name=".mvvm.main.MainActivity"
