@@ -104,6 +104,11 @@ android {
 
 dependencies {
     implementation(project(DependencyGradle.MODULE_LIB_FROGO_AD))
+
+    implementation(Koin.core)
+    implementation(Koin.android)
+    implementation(Koin.androidCompat)
+    implementation(Koin.androidxWorkManager)
     
     implementation(DependencyGradle.FROGO_UI)
     implementation(DependencyGradle.FROGO_SDK)

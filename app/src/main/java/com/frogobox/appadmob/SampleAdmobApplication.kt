@@ -1,7 +1,6 @@
 package com.frogobox.appadmob
 
 import android.content.Context
-import com.frogobox.admob.FrogoAdmobKoinApplication
 import com.frogobox.appadmob.di.repositoryModule
 import com.frogobox.appadmob.di.viewModelModule
 import com.frogobox.appadmob.util.AdHelper
