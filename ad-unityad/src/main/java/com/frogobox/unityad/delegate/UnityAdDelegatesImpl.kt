@@ -33,27 +33,20 @@ class UnityAdDelegatesImpl : UnityAdDelegates {
 
     // ---------------------------------------------------------------------------------------------
 
-    override fun setupUnityAdApp(testMode: Boolean, unityGameId: String) {
-        FrogoUnityAd.setupUnityAdApp(unityAdDelegatesActivity, testMode, unityGameId)
-    }
 
     override fun setupUnityAdApp(
         testMode: Boolean,
         unityGameId: String,
-        callback: FrogoUnityAdInitializationCallback
+        callback: FrogoUnityAdInitializationCallback?
     ) {
         FrogoUnityAd.setupUnityAdApp(unityAdDelegatesActivity, testMode, unityGameId, callback)
     }
 
     // ---------------------------------------------------------------------------------------------
 
-    override fun showUnityAdInterstitial(adInterstitialUnitId: String) {
-        FrogoUnityAd.showAdInterstitial(unityAdDelegatesActivity, adInterstitialUnitId)
-    }
-
     override fun showUnityAdInterstitial(
         adInterstitialUnitId: String,
-        callback: FrogoUnityAdInterstitialCallback
+        callback: FrogoUnityAdInterstitialCallback?
     ) {
         FrogoUnityAd.showAdInterstitial(unityAdDelegatesActivity, adInterstitialUnitId, callback)
     }

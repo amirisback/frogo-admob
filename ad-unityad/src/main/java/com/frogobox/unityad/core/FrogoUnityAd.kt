@@ -59,10 +59,6 @@ object FrogoUnityAd : IFrogoUnityAd {
 
     }
 
-    override fun setupUnityAdApp(context: Context, testMode: Boolean, unityGameId: String) {
-        setupUnityAdApp(context, testMode, unityGameId, null)
-    }
-
     // ---------------------------------------------------------------------------------------------
 
     override fun showAdInterstitial(
@@ -125,10 +121,6 @@ object FrogoUnityAd : IFrogoUnityAd {
         } else {
             callback?.onAdFailed(TAG, "$TAG Unity Ad Interstitial id is Empty")
         }
-    }
-
-    override fun showAdInterstitial(activity: Activity, adInterstitialUnitId: String) {
-        showAdInterstitial(activity, adInterstitialUnitId, null)
     }
 
 }

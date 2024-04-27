@@ -21,23 +21,19 @@ import com.frogobox.unityad.callback.FrogoUnityAdInterstitialCallback
 
 interface IFrogoUnityAd {
 
-    fun setupUnityAdApp(context: Context, testMode: Boolean, unityGameId: String)
-
     fun setupUnityAdApp(
         context: Context,
         testMode: Boolean,
         unityGameId: String,
-        callback: FrogoUnityAdInitializationCallback?
+        callback: FrogoUnityAdInitializationCallback? = null
     )
 
     // ---------------------------------------------------------------------------------------------
 
-    fun showAdInterstitial(activity: Activity, adInterstitialUnitId: String)
-
     fun showAdInterstitial(
         activity: Activity,
         adInterstitialUnitId: String,
-        callback: FrogoUnityAdInterstitialCallback?
+        callback: FrogoUnityAdInterstitialCallback? = null
     )
 
 }

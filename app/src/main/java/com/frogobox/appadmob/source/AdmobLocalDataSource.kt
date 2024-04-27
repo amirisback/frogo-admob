@@ -4,6 +4,7 @@ import android.content.Context
 import com.frogobox.coresdk.response.FrogoDataResponse
 import com.frogobox.sdk.delegate.preference.PreferenceDelegatesImpl
 import com.frogobox.sdk.ext.showLogDebug
+import com.frogobox.sdk.ext.toModel
 import com.frogobox.sdk.source.FrogoLocalDataSource
 import com.frogobox.sdk.util.AppExecutors
 import com.google.android.gms.ads.interstitial.InterstitialAd
@@ -29,28 +30,10 @@ class AdmobLocalDataSource(
 ) : FrogoLocalDataSource(appExecutors, preferences), AdmobDataSource {
 
     override fun getInterstitial(context: Context, callback: FrogoDataResponse<InterstitialAd>) {
-        getPrefString("PREF_INTERSTITIAL_AD", object : FrogoDataResponse<String> {
-            override fun onFailed(statusCode: Int, errorMessage: String) {
-                callback.onFailed(statusCode, errorMessage)
-            }
-
-            override fun onFinish() {
-                callback.onFinish()
-            }
-
-            override fun onHideProgress() {
-                callback.onHideProgress()
-            }
-
-            override fun onShowProgress() {
-                callback.onFinish()
-            }
-
-            override fun onSuccess(data: String) {
-                showLogDebug(data)
-                callback.onSuccess(Gson().fromJson(data, InterstitialAd::class.java))
-            }
-        })
+        callback.onShowProgress()
+        val data = getPrefString("PREF_INTERSTITIAL_AD")
+        callback.onSuccess(Gson().fromJson(data, InterstitialAd::class.java))
+        callback.onHideProgress()
     }
 
     override fun saveInterstitial(interstitialAd: InterstitialAd) {

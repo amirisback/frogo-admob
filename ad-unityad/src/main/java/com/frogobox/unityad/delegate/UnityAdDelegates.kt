@@ -24,22 +24,13 @@ interface UnityAdDelegates {
 
     fun setupUnityAdApp(
         testMode: Boolean,
-        unityGameId: String
-    )
-
-    fun setupUnityAdApp(
-        testMode: Boolean,
         unityGameId: String,
-        callback: FrogoUnityAdInitializationCallback
-    )
-
-    fun showUnityAdInterstitial(
-        adInterstitialUnitId: String
+        callback: FrogoUnityAdInitializationCallback? = null
     )
 
     fun showUnityAdInterstitial(
         adInterstitialUnitId: String,
-        callback: FrogoUnityAdInterstitialCallback
+        callback: FrogoUnityAdInterstitialCallback? = null
     )
 
 }
