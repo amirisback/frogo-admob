@@ -53,11 +53,12 @@ dependencies {
 
     api(project(DependencyGradle.MODULE_LIB_FROGO_AD_CORE))
 
-    api(Google.admob)
-    api(DependencyGradle.FROGO_RECYCLER_VIEW)
-    api(Androidx.Lifecycle.process)
+    api(libs.ads.google.admob)
 
-    implementation(DependencyGradle.FROGO_SDK)
+    api(libs.androidx.lifecycle.process)
+    api(libs.frogo.recyclerview)
+
+    implementation(libs.frogo.sdk)
 
 }
 

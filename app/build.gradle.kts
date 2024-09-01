@@ -105,14 +105,14 @@ android {
 dependencies {
     implementation(project(DependencyGradle.MODULE_LIB_FROGO_AD))
 
-    implementation(Koin.core)
-    implementation(Koin.android)
-    implementation(Koin.androidCompat)
-    implementation(Koin.androidxWorkManager)
-    
-    implementation(DependencyGradle.FROGO_UI)
-    implementation(DependencyGradle.FROGO_SDK)
-    implementation(DependencyGradle.FROGO_CONSUME_API)
-    implementation(DependencyGradle.FROGO_RECYCLER_VIEW)
+    implementation(libs.koin.core)
+    implementation(libs.koin.android)
+    implementation(libs.koin.android.compat)
+    implementation(libs.koin.androidx.workmanager)
+
+    implementation(libs.frogo.ui)
+    implementation(libs.frogo.sdk)
+    implementation(libs.frogo.consume.api)
+    implementation(libs.frogo.recyclerview)
 
 }

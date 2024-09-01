@@ -50,7 +50,7 @@ android {
 }
 
 dependencies {
-    implementation(DependencyGradle.FROGO_SDK)
+    implementation(libs.frogo.sdk)
 }
 
 afterEvaluate {

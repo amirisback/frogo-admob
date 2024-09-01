@@ -53,9 +53,9 @@ dependencies {
 
     api(project(DependencyGradle.MODULE_LIB_FROGO_AD_CORE))
 
-    api(Ad.unityAds)
+    api(libs.ads.unityAd)
 
-    implementation(DependencyGradle.FROGO_SDK)
+    implementation(libs.frogo.sdk)
 
 }
 
