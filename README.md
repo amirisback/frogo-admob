@@ -49,14 +49,16 @@ What's New??
 
 #### <Option 1> Groovy Gradle
 
-    // Add it in your root build.gradle at the end of repositories:
+```groovy
+// Add it in your root build.gradle at the end of repositories:
 
-    allprojects {
-        repositories {
-            ...
-            maven { url 'https://jitpack.io' }
-        }
+allprojects {
+    repositories {
+        ...
+        maven { url 'https://jitpack.io' }
     }
+}
+```
 
 #### <Option 2> Kotlin DSL Gradle`
 
@@ -74,26 +76,27 @@ allprojects {
 ### Step 2. Add the dependency
 
 #### <Option 1> Groovy
+```kotlin
+dependencies {
+    // library google admob (Required)
+    implementation 'com.google.android.gms:play-services-ads:${admob_version}'
 
-	dependencies {
-        // library google admob (Required)
-        implementation 'com.google.android.gms:play-services-ads:${admob_version}'
+    // library unity ads (Required)
+    implementation 'com.unity3d.ads:unity-ads:${unity_ad_version}'
 
-        // library unity ads (Required)
-        implementation 'com.unity3d.ads:unity-ads:${unity_ad_version}'
+    // library frogo-admob (Required - Recomended)
+    implementation 'com.github.amirisback:frogo-admob:5.3.7'
 
-        // library frogo-admob (Required - Recomended)
-        implementation 'com.github.amirisback:frogo-admob:5.3.7'
+    // -----------------------------------------------------------------------------------------
+    // For Single Library Patch 
 
-        // -----------------------------------------------------------------------------------------
-        // For Single Library Patch 
+    // library frogo-admob (Admob Only)
+    implementation 'com.github.amirisback.frogo-admob:ad-admob:5.3.7'
 
-        // library frogo-admob (Admob Only)
-        implementation 'com.github.amirisback.frogo-admob:ad-admob:5.3.7'
-
-        // library frogo-admob (Unity Ads Only)
-        implementation 'com.github.amirisback.frogo-admob:ad-unityad:5.3.7'
-	}
+    // library frogo-admob (Unity Ads Only)
+    implementation 'com.github.amirisback.frogo-admob:ad-unityad:5.3.7'
+}
+```
 
 #### <Option 2> Kotlin DSL
 
