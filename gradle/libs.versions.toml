@@ -4,7 +4,7 @@ liveCycle = "2.8.5"
 
 # Ads Version
 googleAdmob = "23.3.0" # https://developers.google.com/admob/android/quick-start
-unityAd = "4.10.0" # https://developers.google.com/admob/android/mediation/unity#step_3_import_the_unity_ads_sdk_and_adapter
+unityAd = "4.12.1" # https://developers.google.com/admob/android/mediation/unity#step_3_import_the_unity_ads_sdk_and_adapter
 startIo = "4.11.5" # https://support.start.io/hc/en-us/articles/360014774799-Integration-via-Maven
 
 koin = "3.5.6"

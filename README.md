@@ -31,17 +31,17 @@
 
 ## Version Release
 
-    $version_release = 5.3.7
+    $version_release = 5.3.8
 
     // Suport Library
-    $admob_version = 23.0.0 // https://developers.google.com/admob/android/sdk
-    $unity_ad_version = 4.10.0 // https://developers.google.com/admob/android/mediation/unity#step_3_import_the_unity_ads_sdk_and_adapter
+    $admob_version = 23.3.0 // https://developers.google.com/admob/android/sdk
+    $unity_ad_version = 4.12.1 // https://developers.google.com/admob/android/mediation/unity#step_3_import_the_unity_ads_sdk_and_adapter
 
 What's New??
 
     * Enhance Performance *
     * Refactoring Code *
-    * Update Admob Library Version 23.0.0 *
+    * Update Admob Library Version *
     * Deprecated Code *
 
 ## How To Use / Implement This Project
@@ -76,7 +76,7 @@ allprojects {
 ### Step 2. Add the dependency
 
 #### <Option 1> Groovy
-```kotlin
+```groovy
 dependencies {
     // library google admob (Required)
     implementation 'com.google.android.gms:play-services-ads:${admob_version}'
@@ -85,41 +85,78 @@ dependencies {
     implementation 'com.unity3d.ads:unity-ads:${unity_ad_version}'
 
     // library frogo-admob (Required - Recomended)
-    implementation 'com.github.amirisback:frogo-admob:5.3.7'
+    implementation 'com.github.amirisback:frogo-admob:5.3.8'
 
     // -----------------------------------------------------------------------------------------
     // For Single Library Patch 
 
     // library frogo-admob (Admob Only)
-    implementation 'com.github.amirisback.frogo-admob:ad-admob:5.3.7'
+    implementation 'com.github.amirisback.frogo-admob:ad-admob:5.3.8'
 
     // library frogo-admob (Unity Ads Only)
-    implementation 'com.github.amirisback.frogo-admob:ad-unityad:5.3.7'
+    implementation 'com.github.amirisback.frogo-admob:ad-unityad:5.3.8'
 }
 ```
 
 #### <Option 2> Kotlin DSL
+```kotlin
+dependencies {
+    // library google admob (Required)
+    implementation("com.google.android.gms:play-services-ads:${admob_version}")
 
-	dependencies {
-        // library google admob (Required)
-        implementation("com.google.android.gms:play-services-ads:${admob_version}")
+    // library unity ads (Required)
+    implementation("com.unity3d.ads:unity-ads:${unity_ad_version}")
 
-        // library unity ads (Required)
-        implementation("com.unity3d.ads:unity-ads:${unity_ad_version}")
+    // library frogo-admob (Required - Recomended)
+    implementation("com.github.amirisback:frogo-admob:5.3.8")
 
-        // library frogo-admob (Required - Recomended)
-        implementation("com.github.amirisback:frogo-admob:5.3.7")
+    // -----------------------------------------------------------------------------------------
+    // For Single Library Patch
 
-        // -----------------------------------------------------------------------------------------
-        // For Single Library Patch
+    // library frogo-admob (Admob Only)
+    implementation("com.github.amirisback.frogo-admob:ad-admob:5.3.8")
 
-        // library frogo-admob (Admob Only)
-        implementation("com.github.amirisback.frogo-admob:ad-admob:5.3.7")
+    // library frogo-admob (Unity Ads Only)
+    implementation("com.github.amirisback.frogo-admob:ad-unityad:5.3.8")
 
-        // library frogo-admob (Unity Ads Only)
-        implementation("com.github.amirisback.frogo-admob:ad-unityad:5.3.7")
+}
+```
 
-	}
+#### <Option 3> Kotlin DSL
+```toml
+[versions]
+admob = "23.3.0"
+unityad = "4.12.1"
+frogoadmob = "5.3.8"
+
+[libraries]
+admob = { group = "com.google.android.gms", name = "play-services-ads", version.ref = "admob" }
+unityads = { group = "com.unity3d.ads", name = "unity-ads", version.ref = "unityad" }
+
+frogo-admob = { group = "com.github.amirisback", name = "frogo-admob", version.ref = "frogoadmob" }
+frogo-admob-admob = { group = "com.github.amirisback.frogo-admob", name = "ad-admob", version.ref = "frogoadmob" }
+frogo-admob-unityads = { group = "com.github.amirisback.frogo-admob", name = "ad-unityad", version.ref = "frogoadmob" }
+
+dependencies {
+    // library google admob (Required)
+    implementation(libs.admob)
+    
+    // library unity ads (Required)
+    implementation(libs.unityads)
+
+    // library frogo-admob
+    implementation(libs.frogo.admob)
+
+    // -----------------------------------------------------------------------------------------
+    // For Single Library Patch
+    
+    // library frogo-admob (Admob Only)
+    implementation(libs.frogo.admob.admob)
+    
+    // library frogo-admob (Unity Ads Only)
+    implementation(libs.frogo.admob.unityads)
+}
+```
 	
 ### Step 3. Adding meta-data on AndroidManifest.xml
 ```xml
